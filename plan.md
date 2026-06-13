@@ -222,8 +222,6 @@ async function testNativeBridge() {
   A highly productive pattern featuring a monorepo (using npm/pnpm workspaces or TurboRepo) where the mobile app lives in `apps/mobile` (built with Vite + React + Capacitor) and a backend API lives in `apps/api` (Next.js). This ensures ultra-fast HMR during development and clean logical separation.
 * **Static Site Generation (SSG) for Production**:
   Since Capacitor hosts the web app inside a native WebView, traditional Node.js Server-Side Rendering (SSR) is not possible on-device. Frameworks like Next.js must be configured for static exports (`output: 'export'` in `next.config.js`), outputting to a static directory (e.g., `out`), which is then referenced in `capacitor.config.ts` as `webDir: 'out'`.
-* **Live Reload for Local Development**:
-  To enable rapid native UI tweaking, developers configure `capacitor.config.ts` to proxy the WebView to their local development server (e.g., Vite on `http://192.168.1.100:5173`) with cleartext traffic enabled. This bypasses the need to rebuild the native app after every frontend change.
 
 ---
 
@@ -245,13 +243,6 @@ async function testNativeBridge() {
   2. Alternatively, enable the native HTTP plugin (`CapacitorHttp` in `capacitor.config.ts`). This intercepts browser-level HTTP requests and routes them through native iOS/Android networking libraries, which are not subject to browser-level CORS restrictions.
 * **Reference**: [Capacitor Configuration Guide - CORS & CapacitorHttp](https://capacitorjs.com/docs/config)
 
-### Friction Point 3: Live Reload Connections Blocked by Cleartext Traffic Policies
-* **Symptom**: Setting the `server.url` in `capacitor.config.ts` to a local IP (e.g., `http://192.168.1.50:5173`) causes a blank screen or a native network error:
-  `net::ERR_CLEARTEXT_NOT_PERMITTED` (Android)
-* **Underlying Cause**: For security, modern Android and iOS platforms block unencrypted HTTP cleartext traffic by default. When the Capacitor WebView attempts to load the local development server over HTTP (`http://`), the operating system intercepts and blocks the connection.
-* **Resolution**: In `capacitor.config.ts`, the developer must set `server.cleartext: true`. For Android, this configuration automatically injects the `android:usesCleartextTraffic="true"` attribute into the temporary `AndroidManifest.xml` during the build process.
-* **Reference**: [Capacitor Live Reload Guide](https://capacitorjs.com/docs/guides/live-reload)
-
 ---
 
 ## 5. Evaluation Ideas
@@ -265,11 +256,10 @@ The following high-level concepts can be expanded into concrete coding tasks for
 ### Medium Tier
 3. **Build a Native Photo Gallery with Local Storage Persistence**: Use `@capacitor/camera` to capture photos, write them to persistent native storage using `@capacitor/filesystem`, and store their native paths in `@capacitor/preferences`.
 4. **Create a Custom Local Native Bridge Plugin**: Write a custom local plugin in Swift (iOS) and Kotlin (Android) that returns hardware-specific metadata, and manually register it on both platforms.
-5. **Configure Development Live Reload with Cleartext Permissions**: Set up a project's Capacitor configuration and native manifests to support live reloading from a local development server IP over unencrypted HTTP.
 
 ### Complex Tier
-6. **Implement Biometric Authentication and Secure Credential Storage**: Build a secure login flow that utilizes biometric authentication (FaceID/TouchID) and stores auth tokens in the device's secure enclave.
-7. **Set up Background Geolocation Tracking with Local Push Notifications**: Implement a geofencing feature that tracks coordinates in the background and triggers a native local notification when entering or leaving a specified region.
+5. **Implement Biometric Authentication and Secure Credential Storage**: Build a secure login flow that utilizes biometric authentication (FaceID/TouchID) and stores auth tokens in the device's secure enclave.
+6. **Set up Background Geolocation Tracking with Local Push Notifications**: Implement a geofencing feature that tracks coordinates in the background and triggers a native local notification when entering or leaving a specified region.
 
 ---
 
