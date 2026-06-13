@@ -1,0 +1,7 @@
+{
+  "library_name": "Capacitor",
+  "task_name": "persist_theme_preferences",
+  "complexity_level": "multi-step sequential command set",
+  "research_plan_path": "plan.md",
+  "output_dir": "tasks/"
+}

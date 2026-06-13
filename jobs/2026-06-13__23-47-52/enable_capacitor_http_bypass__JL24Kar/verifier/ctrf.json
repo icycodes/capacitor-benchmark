@@ -1,0 +1,83 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-13T16:02:02.415197+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 6,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781366514475,
+            "stop": 1781366522414
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_capacitor_config_enables_http_plugin",
+                "status": "passed",
+                "duration": 679,
+                "start": 1781366514495,
+                "stop": 1781366515174,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_cli_script_exists",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781366515175,
+                "stop": 1781366515176,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_cli_imports_capacitor_http_and_avoids_forbidden_clients",
+                "status": "passed",
+                "duration": 4,
+                "start": 1781366515177,
+                "stop": 1781366515181,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_cli_get_forwards_header_and_query",
+                "status": "passed",
+                "duration": 2082,
+                "start": 1781366515181,
+                "stop": 1781366517263,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_cli_post_forwards_body_and_header",
+                "status": "passed",
+                "duration": 2090,
+                "start": 1781366517263,
+                "stop": 1781366519353,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_cli_reports_non_2xx_status",
+                "status": "passed",
+                "duration": 3060,
+                "start": 1781366519354,
+                "stop": 1781366522414,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

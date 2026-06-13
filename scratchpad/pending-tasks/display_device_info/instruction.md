@@ -1,0 +1,38 @@
+# Display Device Info with Capacitor Device Plugin
+
+## Background
+You are integrating Capacitor v8 into a Vite + TypeScript web project so that the application can report basic device information to the user. The `@capacitor/device` plugin exposes a unified API (`Device.getInfo()`) that returns details such as the platform name and operating system. When the app runs as a Progressive Web App in a browser (the web target), the plugin still returns valid data: `platform` is `"web"` and `operatingSystem` is one of `"ios" | "android" | "windows" | "mac" | "unknown"` based on the user agent.
+
+A minimal Vite + TypeScript project has already been scaffolded for you at `/home/user/myapp`. Your job is to integrate Capacitor v8, install the Device plugin, and render the device information returned by `Device.getInfo()` into the page.
+
+## Requirements
+- Integrate Capacitor v8 into the existing Vite project using the non-interactive CLI flow. The Capacitor app must be configured with:
+    - App name: `Device Demo`
+    - Application/package id: `com.example.devicedemo`
+    - Web assets directory aligned with Vite's build output (`dist`).
+- Install and use the `@capacitor/device` plugin (version compatible with Capacitor v8).
+- On page load, call `Device.getInfo()` and render the returned `platform` and `operatingSystem` values into the page.
+- The page must expose two elements with stable HTML ids whose text content reflects the live values returned by `Device.getInfo()`:
+    - `#device-platform` must contain the `platform` value (e.g., `web`).
+    - `#device-os` must contain the `operatingSystem` value (e.g., `mac`, `windows`, `unknown`, ...).
+- `npx cap sync` must run successfully against the produced web build.
+
+## Implementation Hints
+- Use `npx cap init` with positional `appName` and `appId` arguments and the `--web-dir` flag to avoid the interactive prompt.
+- Import `Device` from `@capacitor/device` in your TypeScript code and `await` the `Device.getInfo()` call before writing to the DOM.
+- Vite's default build output directory is `dist`, which must match `webDir` in `capacitor.config.ts` (or `.json`).
+- The Device plugin works on the web target without any native runtime, so the production preview server is sufficient for verification.
+- Make sure the script that wires up the values is loaded as an ES module so that the dynamic import of `@capacitor/device` succeeds.
+
+## Acceptance Criteria
+- Project path: /home/user/myapp
+- Start command: `npm run preview -- --host 0.0.0.0 --port 4173`
+- Port: 4173
+- `npm run build` must complete without errors and produce a `dist/` directory containing `index.html`.
+- `capacitor.config.ts` (or `capacitor.config.json`) must exist at the project root with `appName` equal to `Device Demo`, `appId` equal to `com.example.devicedemo`, and `webDir` equal to `dist`.
+- `package.json` must list `@capacitor/core`, `@capacitor/cli`, and `@capacitor/device` as dependencies (any of `dependencies` or `devDependencies`).
+- `npx cap sync` executed after the production build must exit with status 0.
+- The served page at `http://localhost:4173/` must contain two visible elements with the HTML ids `device-platform` and `device-os`.
+- After the page loads in a Chromium-based browser, the text content of `#device-platform` must equal the string `web`.
+- After the page loads in a Chromium-based browser, the text content of `#device-os` must equal the same value returned by `await Device.getInfo()` for the `operatingSystem` field (one of `ios`, `android`, `windows`, `mac`, or `unknown`).
+

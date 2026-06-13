@@ -1,0 +1,22 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2, xprocess-1.0.2
+collected 6 items
+
+tests/test_final_state.py ......                                         [100%]
+
+==================================== PASSES ====================================
+_____________________ test_index_served_with_toggle_button _____________________
+---------------------------- Captured stdout setup -----------------------------
+/tests/.pytest_cache/d/.xprocess/vite_preview$ npm run preview -- --host 0.0.0.0 --port 4173 --strictPort
+process 'vite_preview' started pid=1951
+vite_preview process startup detected
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_capacitor_config_values
+PASSED tests/test_final_state.py::test_package_json_lists_capacitor_dependencies
+PASSED tests/test_final_state.py::test_dist_index_html_exists
+PASSED tests/test_final_state.py::test_capacitor_sync_succeeds
+PASSED tests/test_final_state.py::test_index_served_with_toggle_button
+PASSED tests/test_final_state.py::test_theme_toggle_flow
+============================== 6 passed in 4.88s ===============================

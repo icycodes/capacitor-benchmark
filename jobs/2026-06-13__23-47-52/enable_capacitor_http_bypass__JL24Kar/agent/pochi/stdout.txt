@@ -1,0 +1,59 @@
+- Initializing MCP connections...
+You
+# Bypass CORS in a Capacitor App with CapacitorHttp ## Background A pre-existing Capacitor v8 project at `/home/user/myproject` is failing CORS preflight checks when calling third-party APIs from the WebView, because the requests originate from `capacitor://localhost` / `http://localhost`. Capacitor ships with a built-in **CapacitorHttp** plugin that, when enabled, patches `window.fetch` / `XMLHttpRequest` to use the native HTTP stack and side-steps WebView CORS entirely. The same plugin also exposes helper methods (`CapacitorHttp.get`, `CapacitorHttp.post`, etc.) directly from `@capacitor/core`. Your job is to (1) enable CapacitorHttp in the Capacitor configuration and (2) provide a small Node-runnable CLI wrapper that uses the CapacitorHttp helper API so the team can smoke-test outbound requests from CI without having to spin up a device or simulator. ## Requirements * Enable the `CapacitorHttp` plugin in `capacitor.config.ts`. * Implement a TypeScript-based CLI in the project that uses the `CapacitorHttp` API exported from `@capacitor/core` to make GET and POST requests against a remote URL. * The CLI must accept the HTTP method, URL, optional JSON body, and an optional custom header so it can be parametrized from the test runner. * Print the response **status code** on the first line of stdout and the response **body** (serialized as JSON) on the second line of stdout. * Reuse the project's existing TypeScript / Node toolchain — no additional HTTP libraries (e.g., `axios`, `node-fetch`) are allowed; the actual request must go through `CapacitorHttp`. ## Implementation Hints * The CapacitorHttp configuration lives under `plugins.CapacitorHttp` in `capacitor.config.ts`. Setting `enabled: true` activates the fetch/XHR patch on native. * `CapacitorHttp` is re-exported from `@capacitor/core` and exposes promise-based helpers such as `get`, `post`, and `request`, each accepting an `HttpOptions` object (`url`, `headers`, `data`, ...). * When run inside Node (i.e., the verifier sandbox), CapacitorHttp falls back to the web implementation, which calls `fetch` under the hood — this is the behavior you can rely on for the CLI. * Use Node 22's built-in argument parsing (`process.argv`) or any helper already present in `node_modules`; you do not need to install new packages. ## Acceptance Criteria * Project path: `/home/user/myproject` * Command: `npx tsx scripts/http-cli.ts --method <GET|POST> --url <url> [--body <json-string>] [--header <Name:Value>]` * `--method`: HTTP verb, either `GET` or `POST`. * `--url`: Absolute URL of the remote endpoint. * `--body`: Optional JSON string to send as the request body (only meaningful for `POST`). * `--header`: Optional extra HTTP header in `Name:Value` form. May be omitted. * Stdout format (exactly two lines, no extra wrapping text): * Line 1: `Status: <numeric_status_code>` * Line 2: A single JSON object containing the parsed response body returned by `CapacitorHttp`. * `capacitor.config.ts` must export a config where `plugins.CapacitorHttp.enabled` is `true`. * The CLI script must import `CapacitorHttp` from `@capacitor/core` (no direct use of `fetch`, `axios`, `node-fetch`, `http`, or `https` modules). * Use the `ZEALT_RUN_ID` environment variable when the verifier needs to disambiguate requests — the verifier will pass `run-id` values via `--header` and query parameters, and the CLI must forward them faithfully to the remote endpoint.   
+
+Pochi
+💭 Thinking for 299 characters   
+📂 Listing files in /home/user/myproject ✔ 
+📖 Reading /home/user/myproject/capacitor.config.ts ✔ 
+📖 Reading /home/user/myproject/package.json ✔ 
+📂 Listing files in /home/user/myproject/scripts ✔ 
+💭 Thinking for 359 characters   
+📋 Updating todo list (3 items) ✔ 
+💭 Thinking for 232 characters   
+📋 Updating todo list (3 items) ✔ 
+🔧 Applying diff to /home/user/myproject/capacitor.config.ts ✔ 
+📋 Updating todo list (3 items) ✔ 
+💭 Thinking for 1757 characters   
+🔍 Searching for CapacitorHttp in *.d.ts files in /home/user/myproject/node_modules/@capacitor/core ✔ 
+📖 Reading /home/user/myproject/node_modules/@capacitor/core/types/core-plugins.d.ts ✔ 
+📖 Reading /home/user/myproject/node_modules/@capacitor/core/types/core-plugins.d.ts ✔ 
+💭 Thinking for 1305 characters   
+🔍 Searching for class CapacitorHttpPluginWeb in *.js files in /home/user/myproject/node_modules/@capacitor/core ✔ 
+📖 Reading /home/user/myproject/node_modules/@capacitor/core/dist/index.js ✔ 
+🔍 Searching for const buildRequestInit in *.js files in /home/user/myproject/node_modules/@capacitor/core ✔ 
+📖 Reading /home/user/myproject/node_modules/@capacitor/core/dist/index.js ✔ 
+💭 Thinking for 2870 characters   
+✏️  Writing /home/user/myproject/scripts/http-cli.ts ✔ 
+💫 Executing npx tsx scripts/http-cli.ts ✔ 
+💭 Thinking for 5915 characters   
+✏️  Writing /home/user/myproject/scripts/http-cli.ts ✔ 
+📋 Updating todo list (3 items) ✔ 
+💫 Executing npx tsx scripts/http-cli.ts --method GET --url https://jsonplaceholder.typicode.com/todos/1 ✔ 
+💭 Thinking for 209 characters   
+💫 Executing npx tsx scripts/http-cli.ts --method POST --url https://jsonplaceholder.typicode.com/posts --body '{"title": "foo", "body": "bar", "userId": 1}' --header "X-Custom-Header: hello" ✔ 
+💫 Executing ZEALT_RUN_ID=test-123 npx tsx scripts/http-cli.ts --method GET --url https://httpbin.org/headers ✔ 
+💫 Executing ZEALT_RUN_ID=test-123 npx tsx scripts/http-cli.ts --method GET --url https://httpbin.org/headers --header "run-id:custom-id" ✔ 
+💫 Executing npx tsc --noEmit ✔ 
+💭 Thinking for 287 characters   
+📋 Updating todo list (3 items) ✔ 
+💭 Thinking for 546 characters   
+🎉 Task Completed
+I have successfully enabled `CapacitorHttp` in the Capacitor configuration and implemented the TypeScript-based CLI wrapper to smoke-test outbound requests.
+
+### What Was Done:
+1. **Enabled CapacitorHttp**:
+   - Modified `/home/user/myproject/capacitor.config.ts` to include the `plugins.CapacitorHttp` configuration with `enabled: true`.
+
+2. **Implemented HTTP CLI Script**:
+   - Created `/home/user/myproject/scripts/http-cli.ts` which uses `CapacitorHttp` from `@capacitor/core` to make GET and POST requests.
+   - Designed a robust manual argument parser to handle `--method`, `--url`, `--body`, and `--header` arguments.
+   - Handled `ZEALT_RUN_ID` environment variable by ensuring that if it is present, it is forwarded as fallback headers (`run-id`, `X-Run-Id`, `Zealt-Run-Id`) if they aren't already explicitly provided.
+   - Set up automatic formatting of output to stdout:
+     - **Line 1**: `Status: <numeric_status_code>`
+     - **Line 2**: Serialized JSON of the response body returned by `CapacitorHttp`.
+
+3. **Verification**:
+   - Tested both GET and POST requests locally to ensure correct functionality and accurate stdout formatting.
+   - Confirmed type safety and compilation using `npx tsc --noEmit`.   
+  
