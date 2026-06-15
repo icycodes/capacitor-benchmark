@@ -1,0 +1,86 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-15T16:44:31.830253+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 5,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781541868354,
+            "stop": 1781541871830
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_capacitor_config_values",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781541868503,
+                "stop": 1781541868505,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_package_json_lists_capacitor_dependencies",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781541868505,
+                "stop": 1781541868506,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_dist_index_html_exists",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781541868506,
+                "stop": 1781541868507,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_sync_succeeds",
+                "status": "passed",
+                "duration": 1120,
+                "start": 1781541868507,
+                "stop": 1781541869627,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_index_served_with_device_elements",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 1162,
+                "start": 1781541869627,
+                "stop": 1781541870789,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "preview_server = 'http://127.0.0.1:4173/'\n\n    def test_index_served_with_device_elements(preview_server):\n        response = requests.get(preview_server, timeout=30)\n        assert response.status_code == 200, (\n            f\"GET {preview_server} returned status {response.status_code}; expected 200.\"\n        )\n        body = response.text\n>       assert re.search(r\"id\\s*=\\s*[\\\"']device-platform[\\\"']\", body), (\n            \"The served index.html must contain an element with id=\\\"device-platform\\\". \"\n            f\"Got body:\\n{body[:1000]}\"\n        )\nE       AssertionError: The served index.html must contain an element with id=\"device-platform\". Got body:\nE         <!DOCTYPE html>\nE         <html lang=\"en\">\nE           <head>\nE             <meta charset=\"UTF-8\" />\nE             <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\nE             <title>Device Demo</title>\nE             <script type=\"module\" crossorigin src=\"/assets/index-wER7ep4I.js\"></script>\nE           </head>\nE           <body>\nE             <main id=\"app\">\nE               <h1>Device Demo</h1>\nE             </main>\nE           </body>\nE         </html>\nE         \nE       assert None\nE        +  where None = <function search at 0x7eff19e2bba0>('id\\\\s*=\\\\s*[\\\\\"\\']device-platform[\\\\\"\\']', '<!DOCTYPE html>\\n<html lang=\"en\">\\n  <head>\\n    <meta charset=\"UTF-8\" />\\n    <meta name=\"viewport\" content=\"width=d...js\"></script>\\n  </head>\\n  <body>\\n    <main id=\"app\">\\n      <h1>Device Demo</h1>\\n    </main>\\n  </body>\\n</html>\\n')\nE        +    where <function search at 0x7eff19e2bba0> = re.search\n\ntests/test_final_state.py:157: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_device_info_rendered_in_browser",
+                "status": "passed",
+                "duration": 1039,
+                "start": 1781541870790,
+                "stop": 1781541871829,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

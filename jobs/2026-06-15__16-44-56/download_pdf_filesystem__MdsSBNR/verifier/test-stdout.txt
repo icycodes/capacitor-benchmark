@@ -1,0 +1,173 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: xprocess-1.0.2, json-ctrf-0.5.2
+collected 9 items
+
+tests/test_final_state.py ..FFFFFFF                                      [100%]
+
+=================================== FAILURES ===================================
+_________________________ test_dist_index_html_exists __________________________
+
+    def test_dist_index_html_exists():
+        dist_index = os.path.join(PROJECT_DIR, "dist", "index.html")
+>       assert os.path.isfile(dist_index), (
+            f"Expected production build output at {dist_index}. "
+            "Make sure `npm run build` succeeded."
+        )
+E       AssertionError: Expected production build output at /home/user/myapp/dist/index.html. Make sure `npm run build` succeeded.
+E       assert False
+E        +  where False = <function isfile at 0x7fa6798c0220>('/home/user/myapp/dist/index.html')
+E        +    where <function isfile at 0x7fa6798c0220> = <module 'posixpath' (frozen)>.isfile
+E        +      where <module 'posixpath' (frozen)> = os.path
+
+tests/test_final_state.py:101: AssertionError
+_________________________ test_dist_sample_pdf_exists __________________________
+
+    def test_dist_sample_pdf_exists():
+        dist_pdf = os.path.join(PROJECT_DIR, "dist", "sample.pdf")
+>       assert os.path.isfile(dist_pdf), (
+            f"Expected the fixture PDF to be copied to {dist_pdf} during the build. "
+            "Files inside Vite's `public/` directory are copied verbatim to the build output."
+        )
+E       AssertionError: Expected the fixture PDF to be copied to /home/user/myapp/dist/sample.pdf during the build. Files inside Vite's `public/` directory are copied verbatim to the build output.
+E       assert False
+E        +  where False = <function isfile at 0x7fa6798c0220>('/home/user/myapp/dist/sample.pdf')
+E        +    where <function isfile at 0x7fa6798c0220> = <module 'posixpath' (frozen)>.isfile
+E        +      where <module 'posixpath' (frozen)> = os.path
+
+tests/test_final_state.py:109: AssertionError
+___________________ test_dist_sample_pdf_bytes_match_fixture ___________________
+
+    def test_dist_sample_pdf_bytes_match_fixture():
+        expected_size, expected_sha, _ = _expected_pdf_metadata()
+        dist_pdf = os.path.join(PROJECT_DIR, "dist", "sample.pdf")
+>       with open(dist_pdf, "rb") as f:
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/myapp/dist/sample.pdf'
+
+tests/test_final_state.py:118: FileNotFoundError
+_________________________ test_capacitor_sync_succeeds _________________________
+
+    def test_capacitor_sync_succeeds():
+        result = subprocess.run(
+            ["npx", "--no-install", "cap", "sync"],
+            cwd=PROJECT_DIR,
+            capture_output=True,
+            text=True,
+            timeout=180,
+        )
+>       assert result.returncode == 0, (
+            "Expected `npx cap sync` to succeed after the production build.\n"
+            f"stdout: {result.stdout}\nstderr: {result.stderr}"
+        )
+E       AssertionError: Expected `npx cap sync` to succeed after the production build.
+E         stdout: [error] Could not find the web assets directory: ./dist.
+E                 Please create it and make sure it has an index.html file. You can change the path of this directory in capacitor.config.ts (webDir option). You may need to compile the web assets for your app (typically npm run build). More info: https://capacitorjs.com/docs/basics/workflow#sync-your-project
+E         
+E         stderr: 
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['npx', '--no-install', 'cap', 'sync'], returncode=1, stdout='[error] Could not find the web ass...app (typically npm run build). More info: https://capacitorjs.com/docs/basics/workflow#sync-your-project\n', stderr='').returncode
+
+tests/test_final_state.py:136: AssertionError
+___________________ test_index_served_with_required_elements ___________________
+
+preview_server = 'http://127.0.0.1:4173/'
+
+    def test_index_served_with_required_elements(preview_server):
+        response = requests.get(preview_server, timeout=30)
+>       assert response.status_code == 200, (
+            f"GET {preview_server} returned status {response.status_code}; expected 200."
+        )
+E       AssertionError: GET http://127.0.0.1:4173/ returned status 404; expected 200.
+E       assert 404 == 200
+E        +  where 404 = <Response [404]>.status_code
+
+tests/test_final_state.py:184: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+/tests/.pytest_cache/d/.xprocess/vite_preview$ npm run preview -- --host 0.0.0.0 --port 4173 --strictPort
+process 'vite_preview' started pid=879
+vite_preview process startup detected
+________________________ test_preview_serves_sample_pdf ________________________
+
+preview_server = 'http://127.0.0.1:4173/'
+
+    def test_preview_serves_sample_pdf(preview_server):
+        expected_size, expected_sha, _ = _expected_pdf_metadata()
+        response = requests.get(preview_server + "sample.pdf", timeout=30)
+>       assert response.status_code == 200, (
+            f"GET {preview_server}sample.pdf returned status {response.status_code}; expected 200."
+        )
+E       AssertionError: GET http://127.0.0.1:4173/sample.pdf returned status 404; expected 200.
+E       assert 404 == 200
+E        +  where 404 = <Response [404]>.status_code
+
+tests/test_final_state.py:198: AssertionError
+______________________ test_download_pdf_filesystem_flow _______________________
+
+preview_server = 'http://127.0.0.1:4173/'
+
+    def test_download_pdf_filesystem_flow(preview_server):
+        pytest.importorskip("playwright.sync_api")
+        from playwright.sync_api import sync_playwright
+    
+        expected_size, expected_sha, _ = _expected_pdf_metadata()
+        expected_size_str = str(expected_size)
+    
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            try:
+                # Fresh context => empty IndexedDB by default.
+                context = browser.new_context()
+                page = context.new_page()
+                page.goto(preview_server, wait_until="load")
+>               page.wait_for_selector("#download-pdf", state="visible", timeout=10_000)
+
+tests/test_final_state.py:244: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+usr/local/lib/python3.12/dist-packages/playwright/sync_api/_generated.py:8770: in wait_for_selector
+    self._sync(
+usr/local/lib/python3.12/dist-packages/playwright/_impl/_page.py:424: in wait_for_selector
+    return await self._main_frame.wait_for_selector(**locals_to_params(locals()))
+usr/local/lib/python3.12/dist-packages/playwright/_impl/_frame.py:372: in wait_for_selector
+    await self._channel.send(
+usr/local/lib/python3.12/dist-packages/playwright/_impl/_connection.py:69: in send
+    return await self._connection.wrap_api_call(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <playwright._impl._connection.Connection object at 0x7fa6782487d0>
+cb = <function Channel.send.<locals>.<lambda> at 0x7fa677c22d40>
+is_internal = False, title = None
+
+    async def wrap_api_call(
+        self, cb: Callable[[], Any], is_internal: bool = False, title: str = None
+    ) -> Any:
+        if self._api_zone.get():
+            return await cb()
+        task = asyncio.current_task(self._loop)
+        st: List[inspect.FrameInfo] = getattr(
+            task, "__pw_stack__", None
+        ) or inspect.stack(0)
+    
+        parsed_st = _extract_stack_trace_information_from_stack(st, is_internal, title)
+        self._api_zone.set(parsed_st)
+        try:
+            return await cb()
+        except Exception as error:
+>           raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E           playwright._impl._errors.TimeoutError: Page.wait_for_selector: Timeout 10000ms exceeded.
+E           Call log:
+E             - waiting for locator("#download-pdf") to be visible
+
+usr/local/lib/python3.12/dist-packages/playwright/_impl/_connection.py:559: TimeoutError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_capacitor_config_values
+PASSED tests/test_final_state.py::test_package_json_lists_capacitor_dependencies
+FAILED tests/test_final_state.py::test_dist_index_html_exists - AssertionErro...
+FAILED tests/test_final_state.py::test_dist_sample_pdf_exists - AssertionErro...
+FAILED tests/test_final_state.py::test_dist_sample_pdf_bytes_match_fixture - ...
+FAILED tests/test_final_state.py::test_capacitor_sync_succeeds - AssertionErr...
+FAILED tests/test_final_state.py::test_index_served_with_required_elements - ...
+FAILED tests/test_final_state.py::test_preview_serves_sample_pdf - AssertionE...
+FAILED tests/test_final_state.py::test_download_pdf_filesystem_flow - playwri...
+========================= 7 failed, 2 passed in 15.65s =========================

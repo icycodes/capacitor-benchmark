@@ -1,0 +1,17 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 6 items
+
+tests/test_final_state.py ......                                         [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_capacitor_config_enables_http_plugin
+PASSED tests/test_final_state.py::test_cli_script_exists
+PASSED tests/test_final_state.py::test_cli_imports_capacitor_http_and_avoids_forbidden_clients
+PASSED tests/test_final_state.py::test_cli_get_forwards_header_and_query
+PASSED tests/test_final_state.py::test_cli_post_forwards_body_and_header
+PASSED tests/test_final_state.py::test_cli_reports_non_2xx_status
+============================== 6 passed in 4.96s ===============================

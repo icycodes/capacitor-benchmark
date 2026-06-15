@@ -1,0 +1,161 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-15T17:11:34.838935+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 13,
+            "passed": 11,
+            "failed": 2,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781543488962,
+            "stop": 1781543494838
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_plugin_source_declares_correct_package",
+                "status": "passed",
+                "duration": 4,
+                "start": 1781543489034,
+                "stop": 1781543489038,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_source_has_required_imports",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781543489039,
+                "stop": 1781543489041,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_class_extends_plugin",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781543489041,
+                "stop": 1781543489044,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_has_get_reading_method",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781543489044,
+                "stop": 1781543489046,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_has_is_available_method",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781543489046,
+                "stop": 1781543489049,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_has_reject_call",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781543489050,
+                "stop": 1781543489051,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_has_correct_value_for_sensor",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781543489051,
+                "stop": 1781543489054,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "tags": [
+                    "parametrize::sensor,value,unit::[('temperature', '22.5', 'C'), ('humidity', '65.0', '%'), ('battery', '87.0', '%')]"
+                ]
+            },
+            {
+                "name": "test_final_state.py::test_plugin_has_correct_value_for_sensor",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 35,
+                "start": 1781543489055,
+                "stop": 1781543489090,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "tags": [
+                    "parametrize::sensor,value,unit::[('temperature', '22.5', 'C'), ('humidity', '65.0', '%'), ('battery', '87.0', '%')]"
+                ],
+                "trace": "plugin_source = {'path': '/home/user/myapp/android/app/src/main/java/com/example/myapp/DeviceSensorPlugin.java', 'raw': 'package com.e...        } else {\\n            result.put(\"available\", false);\\n        }\\n\\n        call.resolve(result);\\n    }\\n}\\n'}\nsensor = 'humidity', value = '65.0', unit = '%'\n\n    @pytest.mark.parametrize(\n        \"sensor,value,unit\",\n        [\n            (\"temperature\", \"22.5\", \"C\"),\n            (\"humidity\", \"65.0\", \"%\"),\n            (\"battery\", \"87.0\", \"%\"),\n        ],\n    )\n    def test_plugin_has_correct_value_for_sensor(plugin_source, sensor, value, unit):\n        \"\"\"For each supported sensor, the value and unit literals must appear close to\n        the sensor name literal in the plugin source.\"\"\"\n        src = plugin_source[\"src\"]\n        sensor_literal = f'\"{sensor}\"'\n        idx = src.find(sensor_literal)\n        assert idx != -1, (\n            f\"Plugin source does not mention the sensor literal {sensor_literal}.\"\n        )\n        window = src[idx : idx + 800]\n>       assert value in window, (\n            f\"Expected literal value {value} for sensor '{sensor}' within 800 \"\n            f\"characters of the sensor literal.\"\n        )\nE       AssertionError: Expected literal value 65.0 for sensor 'humidity' within 800 characters of the sensor literal.\nE       assert '65.0' in '\"humidity\", \"battery\"};\\n\\n    private boolean isSupported(String sensor) {\\n        for (String s : SUPPORTED_SENSOR...2.5);\\n                result.put(\"unit\", \"C\");\\n                break;\\n            case \"humidity\":\\n               '\n\ntests/test_final_state.py:153: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_has_correct_value_for_sensor",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 12,
+                "start": 1781543489090,
+                "stop": 1781543489102,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "tags": [
+                    "parametrize::sensor,value,unit::[('temperature', '22.5', 'C'), ('humidity', '65.0', '%'), ('battery', '87.0', '%')]"
+                ],
+                "trace": "plugin_source = {'path': '/home/user/myapp/android/app/src/main/java/com/example/myapp/DeviceSensorPlugin.java', 'raw': 'package com.e...        } else {\\n            result.put(\"available\", false);\\n        }\\n\\n        call.resolve(result);\\n    }\\n}\\n'}\nsensor = 'battery', value = '87.0', unit = '%'\n\n    @pytest.mark.parametrize(\n        \"sensor,value,unit\",\n        [\n            (\"temperature\", \"22.5\", \"C\"),\n            (\"humidity\", \"65.0\", \"%\"),\n            (\"battery\", \"87.0\", \"%\"),\n        ],\n    )\n    def test_plugin_has_correct_value_for_sensor(plugin_source, sensor, value, unit):\n        \"\"\"For each supported sensor, the value and unit literals must appear close to\n        the sensor name literal in the plugin source.\"\"\"\n        src = plugin_source[\"src\"]\n        sensor_literal = f'\"{sensor}\"'\n        idx = src.find(sensor_literal)\n        assert idx != -1, (\n            f\"Plugin source does not mention the sensor literal {sensor_literal}.\"\n        )\n        window = src[idx : idx + 800]\n>       assert value in window, (\n            f\"Expected literal value {value} for sensor '{sensor}' within 800 \"\n            f\"characters of the sensor literal.\"\n        )\nE       AssertionError: Expected literal value 87.0 for sensor 'battery' within 800 characters of the sensor literal.\nE       assert '87.0' in '\"battery\"};\\n\\n    private boolean isSupported(String sensor) {\\n        for (String s : SUPPORTED_SENSORS) {\\n      ...           result.put(\"unit\", \"C\");\\n                break;\\n            case \"humidity\":\\n                result.put('\n\ntests/test_final_state.py:153: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_main_activity_registers_plugin",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781543489103,
+                "stop": 1781543489106,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_typescript_binding_exists_and_registers_plugin",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781543489106,
+                "stop": 1781543489108,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_gradle_build_succeeds_and_apk_exists",
+                "status": "passed",
+                "duration": 5507,
+                "start": 1781543489110,
+                "stop": 1781543494617,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_apk_dex_contains_plugin_class",
+                "status": "passed",
+                "duration": 219,
+                "start": 1781543494618,
+                "stop": 1781543494837,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

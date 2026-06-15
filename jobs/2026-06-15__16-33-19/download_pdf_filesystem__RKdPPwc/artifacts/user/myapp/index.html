@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filesystem Demo</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      button {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      .info {
+        margin-top: 1rem;
+      }
+      .info p {
+        margin: 0.4rem 0;
+      }
+      label {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="app">
+      <h1>Filesystem Demo</h1>
+      <button id="download-pdf">Download &amp; Save PDF</button>
+      <div class="info">
+        <p><label>Status:</label> <span id="download-status">idle</span></p>
+        <p><label>File size (bytes):</label> <span id="file-size"></span></p>
+        <p><label>SHA-256:</label> <span id="file-sha256"></span></p>
+      </div>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

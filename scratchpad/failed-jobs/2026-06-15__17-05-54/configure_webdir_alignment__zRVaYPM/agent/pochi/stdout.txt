@@ -1,0 +1,43 @@
+- Initializing MCP connections...
+You
+# Align Vite Output with Capacitor `webDir` ## Background You are integrating https://capacitorjs.com/ (v8) into an existing Vite-based web application. A frequent friction point is a mismatch between the web framework's output directory and the `webDir` declared in `capacitor.config.ts`, which causes errors like `Could not find the web assets directory` when running `npx cap sync`. Your goal is to initialize Capacitor non-interactively in this project, point Vite's build output at a custom directory, and make sure `webDir` in the Capacitor config matches the same directory so the web build is discoverable. The project is located at `/home/user/myproject`. It already contains a minimal Vite project with `package.json`, `index.html`, and `src/main.js`. `@capacitor/core` and `@capacitor/cli` are already installed in the project's `node_modules`, and Node.js 22 is available. **Capacitor has NOT yet been initialized — there is no `capacitor.config.ts` / `capacitor.config.json` file yet.** ## Requirements * Initialize Capacitor for this project, non-interactively (no prompts). * The app must be initialized with: * App name: `Harbor Capacitor Test` * App ID: `com.harbor.capacitor.test` * Vite must build its production output into a directory named `www` at the project root (not the default `dist`). * `capacitor.config.ts` must declare `webDir` as `www` so it matches Vite's output. * Running `npm run build` must succeed and produce `www/index.html`. ## Implementation Hints * The Capacitor CLI's `init` command supports passing the app name, app ID, and web directory as positional/flag arguments to skip the interactive prompts. * Vite's production output directory is controlled by `build.outDir` in `vite.config.js` / `vite.config.ts`. * Do not add the native Android or iOS platforms; this task is only about the web-side configuration and build alignment. * You only need to modify or create configuration files; do not edit the application source code. ## Acceptance Criteria * Project path: `/home/user/myproject` * Command: `npm run build` * After running the command from `/home/user/myproject`, the following must be true: * The file `/home/user/myproject/www/index.html` exists (Vite has produced its build into the `www` directory). * The file `/home/user/myproject/capacitor.config.ts` exists (or `capacitor.config.json` if that format was generated) and declares: * `appId`: `com.harbor.capacitor.test` * `appName`: `Harbor Capacitor Test` * `webDir`: `www` * Running `npx cap config --json` from the project root prints a JSON object whose `webDir` field is `www`, `appId` is `com.harbor.capacitor.test`, and `appName` is `Harbor Capacitor Test`. * The default `dist/` directory must NOT contain a freshly built `index.html` after `npm run build` (i.e. Vite's output goes to `www`, not `dist`).   
+
+Pochi
+I'll start by exploring the project structure to understand the current state, then make the necessary changes.   
+📂 Listing files in /home/user/myproject recursively ✔ 
+📖 Reading /home/user/myproject/package.json ✔ 
+📋 Updating todo list (5 items) ✔ 
+Let me check if there's an existing vite config and also look at the Capacitor CLI init help to understand the non-interactive flags.   
+🔍 Searching for vite.config.* in /home/user/myproject ✔ 
+💫 Executing cd /home/user/myproject && npx cap init --help 2>&1 || npx cap --help 2>&1 ✔ 
+No existing vite config. The Capacitor CLI `init` command accepts `[appName] [appId]` as positional args and `--web-dir <value>` as a flag. Now let me create the vite config and initialize Capacitor.   
+📋 Updating todo list (5 items) ✔ 
+✏️  Writing /home/user/myproject/vite.config.js ✔ 
+📋 Updating todo list (5 items) ✔ 
+Now initialize Capacitor non-interactively:   
+💫 Executing cd /home/user/myproject && npx cap init "Harbor Capacitor Test" "com.harbor.capacitor.test" --web-dir www 2>&1 ✔ 
+Capacitor initialized and created `capacitor.config.json`. Let me verify its contents:   
+📖 Reading /home/user/myproject/capacitor.config.json ✔ 
+📋 Updating todo list (5 items) ✔ 
+Now build the project and verify the output:   
+💫 Executing cd /home/user/myproject && npm run build 2>&1 ✔ 
+Build succeeded. Let me verify the output files exist and check that `dist/` does not have a freshly built `index.html`:   
+💫 Executing cd /home/user/myproject && test -f www/index.html && echo "www/index.html EXISTS" || echo "www/index.html MISSING"; test -f dist/index.html && echo "dist/index.html EXISTS" || echo "dist/index.html MISSING" ✔ 
+💫 Executing cd /home/user/myproject && npx cap config --json 2>&1 ✔ 
+All verifications passed. Let me confirm the key fields from the JSON output:   
+💫 Executing cd /home/user/myproject && npx cap config --json 2>&1 | python3 -c "import sys,json; d=json.load(sys.stdin); a=d['app']; print(f\"appId: {a['appId']}\\nappName: {a['appName']}\\nwebDir: {a['webDir']}\")" ✔ 
+📋 Updating todo list (5 items) ✔ 
+🎉 Task Completed
+All acceptance criteria have been met. Here's a summary of what was done:
+
+**1. Vite configuration** — Created `/home/user/myproject/vite.config.js` with `build.outDir` set to `www`, so Vite outputs production builds to `www/` instead of the default `dist/`.
+
+**2. Capacitor initialization** — Ran `npx cap init "Harbor Capacitor Test" "com.harbor.capacitor.test" --web-dir www` non-interactively. This created `/home/user/myproject/capacitor.config.json` with:
+- `appId`: `com.harbor.capacitor.test`
+- `appName`: `Harbor Capacitor Test`
+- `webDir`: `www`
+
+**3. Build verification** — `npm run build` succeeded, producing `www/index.html` (and `www/assets/index-_gxVl-DQ.js`). The default `dist/` directory does not exist / contains no `index.html`.
+
+**4. Config verification** — `npx cap config --json` confirms all three fields (`appId`, `appName`, `webDir`) match the required values.   
+  

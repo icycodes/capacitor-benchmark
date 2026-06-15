@@ -1,0 +1,83 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-15T17:10:35.751669+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 6,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781543430850,
+            "stop": 1781543435751
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_capacitor_config_values",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781543431013,
+                "stop": 1781543431015,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_package_json_lists_capacitor_dependencies",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781543431016,
+                "stop": 1781543431017,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_dist_index_html_exists",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781543431017,
+                "stop": 1781543431018,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_sync_succeeds",
+                "status": "passed",
+                "duration": 1277,
+                "start": 1781543431018,
+                "stop": 1781543432295,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_index_served_with_toggle_button",
+                "status": "passed",
+                "duration": 1123,
+                "start": 1781543432295,
+                "stop": 1781543433418,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_theme_toggle_flow",
+                "status": "passed",
+                "duration": 2332,
+                "start": 1781543433419,
+                "stop": 1781543435751,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

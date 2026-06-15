@@ -1,0 +1,96 @@
+Skipping image OS validation for hb__custom_android_plugin: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-rpkmxev > /logs/artifacts/run-id && echo custom_android_plugin__RPkMXev > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model deepseek/deepseek-4-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Implement a Custom Local Capacitor Android Plugin
+
+## Background
+You are working on a Capacitor v8 hybrid mobile application located at `/home/user/myapp`. The project already has the `android` platform scaffolded at `/home/user/myapp/android` and a minimal web frontend in `/home/user/myapp/dist`. The web team needs a thin native bridge to expose deterministic mocked sensor readings so the UI can be developed before real hardware integration is finished.
+
+Your job is to design and implement a custom local Capacitor plugin (Java, inside the existing Android project) that exposes a small sensor API to JavaScript, register it in `MainActivity`, and wire up the JavaScript-side bindings so that the project compiles cleanly through Gradle.
+
+## Requirements
+- Implement a custom local Android Capacitor plugin written in Java inside the existing Android project (do **not** create a separate Capacitor plugin npm package).
+- The plugin must be exposed to JavaScript under the exact name `DeviceSensor`.
+- The plugin must declare two methods that are reachable from JavaScript:
+  - `getReading(options)` — accepts a `sensor` string and resolves with a JSON object describing the reading.
+  - `isAvailable(options)` — accepts a `sensor` string and resolves with `{ available: boolean }`.
+- The plugin must support exactly these sensor identifiers and return the following deterministic mocked values from `getReading`:
+  - `temperature` → `{ "sensor": "temperature", "value": 22.5, "unit": "C" }`
+  - `humidity` → `{ "sensor": "humidity", "value": 65.0, "unit": "%" }`
+  - `battery` → `{ "sensor": "battery", "value": 87.0, "unit": "%" }`
+- For any other sensor name, `getReading` must reject the call with a non-empty error message, and `isAvailable` must resolve with `{ available: false }`. For the three supported sensors, `isAvailable` must resolve with `{ available: true }`.
+- Register the plugin in the existing `MainActivity` so it is loaded by the Capacitor bridge at startup.
+- Provide a TypeScript binding file at `/home/user/myapp/src/device-sensor.ts` that uses `registerPlugin` from `@capacitor/core` to expose the plugin and exports the plugin object as the default export.
+- The complete Android project must compile successfully with the Gradle wrapper.
+
+## Implementation Hints
+- Refer to the official Capacitor v8 "Custom Native Android Code" guide. The plugin class must extend `com.getcapacitor.Plugin` and be annotated with `@CapacitorPlugin(name = "DeviceSensor")`. Each exposed method must be annotated with `@PluginMethod`.
+- Use `PluginCall.getString`, `JSObject`, `call.resolve`, and `call.reject` for argument parsing and result handling.
+- The plugin's Java package must match the application package (`com.example.myapp`); place the source under `android/app/src/main/java/com/example/myapp/` so the existing Gradle source set picks it up.
+- Register the plugin with `registerPlugin(MyPlugin.class)` inside `MainActivity.onCreate` before the call to `super.onCreate(savedInstanceState)`.
+- On the JavaScript side, the first argument to `registerPlugin` must match the `name` attribute of the `@CapacitorPlugin` annotation exactly.
+- The web frontend already has `@capacitor/core` installed as an npm dependency; you do not need to install additional packages.
+- The Android SDK, JDK 17, and the Gradle wrapper are pre-installed and pre-warmed inside the project; running `./gradlew` from `/home/user/myapp/android` will compile the project. Use the `--offline` flag whenever possible to avoid re-downloading dependencies.
+
+## Acceptance Criteria
+- Project path: `/home/user/myapp`
+- The Android project at `/home/user/myapp/android` must build successfully via:
+  - `cd /home/user/myapp/android && ./gradlew :app:assembleDebug --offline`
+- A Java source file implementing the plugin must exist under `/home/user/myapp/android/app/src/main/java/com/example/myapp/` (and must not be `MainActivity.java`). The file must:
+  - Declare `package com.example.myapp;`.
+  - Import `com.getcapacitor.Plugin`, `com.getcapacitor.PluginCall`, `com.getcapacitor.PluginMethod`, `com.getcapacitor.JSObject`, and `com.getcapacitor.annotation.CapacitorPlugin`.
+  - Annotate the plugin class with `@CapacitorPlugin(name = "DeviceSensor")`.
+  - Declare a class that `extends Plugin`.
+  - Declare two methods named `getReading` and `isAvailable`, both annotated with `@PluginMethod` (with or without parentheses).
+- `MainActivity` at `/home/user/myapp/android/app/src/main/java/com/example/myapp/MainActivity.java` must contain a `registerPlugin(<PluginClass>.class)` call referencing the plugin class above, placed inside `onCreate(Bundle savedInstanceState)`.
+- A TypeScript binding file must exist at `/home/user/myapp/src/device-sensor.ts` that imports `registerPlugin` from `@capacitor/core`, registers a plugin under the exact string literal `"DeviceSensor"`, and provides a default export.
+- The compiled debug APK produced at `/home/user/myapp/android/app/build/outputs/apk/debug/app-debug.apk` must contain the plugin class in its DEX (verifiable by listing classes inside the APK).
+- The behaviour of the plugin must be observable through the source code: for each supported sensor identifier, the resolved JSON payload must contain the exact value and unit listed in the Requirements section above. The verifier will check this by extracting all `JSObject.put` calls associated with the matching sensor branch and confirming the literal numeric values (`22.5`, `65.0`, `87.0`) and unit strings (`C`, `%`).
+
+
+EOF
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured

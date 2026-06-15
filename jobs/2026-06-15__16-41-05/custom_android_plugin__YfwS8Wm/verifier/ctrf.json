@@ -1,0 +1,155 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-15T16:43:22.512410+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 13,
+            "passed": 13,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781541799140,
+            "stop": 1781541802512
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_plugin_source_declares_correct_package",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781541799177,
+                "stop": 1781541799179,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_source_has_required_imports",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781541799180,
+                "stop": 1781541799181,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_class_extends_plugin",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781541799181,
+                "stop": 1781541799182,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_has_get_reading_method",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781541799183,
+                "stop": 1781541799184,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_has_is_available_method",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781541799184,
+                "stop": 1781541799185,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_has_reject_call",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781541799185,
+                "stop": 1781541799186,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_has_correct_value_for_sensor",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781541799186,
+                "stop": 1781541799187,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "tags": [
+                    "parametrize::sensor,value,unit::[('temperature', '22.5', 'C'), ('humidity', '65.0', '%'), ('battery', '87.0', '%')]"
+                ]
+            },
+            {
+                "name": "test_final_state.py::test_plugin_has_correct_value_for_sensor",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781541799188,
+                "stop": 1781541799189,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "tags": [
+                    "parametrize::sensor,value,unit::[('temperature', '22.5', 'C'), ('humidity', '65.0', '%'), ('battery', '87.0', '%')]"
+                ]
+            },
+            {
+                "name": "test_final_state.py::test_plugin_has_correct_value_for_sensor",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781541799189,
+                "stop": 1781541799190,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "tags": [
+                    "parametrize::sensor,value,unit::[('temperature', '22.5', 'C'), ('humidity', '65.0', '%'), ('battery', '87.0', '%')]"
+                ]
+            },
+            {
+                "name": "test_final_state.py::test_main_activity_registers_plugin",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781541799190,
+                "stop": 1781541799192,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_typescript_binding_exists_and_registers_plugin",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781541799192,
+                "stop": 1781541799193,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_gradle_build_succeeds_and_apk_exists",
+                "status": "passed",
+                "duration": 3165,
+                "start": 1781541799193,
+                "stop": 1781541802358,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_apk_dex_contains_plugin_class",
+                "status": "passed",
+                "duration": 153,
+                "start": 1781541802358,
+                "stop": 1781541802511,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

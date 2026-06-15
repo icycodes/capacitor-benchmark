@@ -1,0 +1,57 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: xprocess-1.0.2, json-ctrf-0.5.2
+collected 6 items
+
+tests/test_final_state.py ....F.                                         [100%]
+
+=================================== FAILURES ===================================
+____________________ test_index_served_with_device_elements ____________________
+
+preview_server = 'http://127.0.0.1:4173/'
+
+    def test_index_served_with_device_elements(preview_server):
+        response = requests.get(preview_server, timeout=30)
+        assert response.status_code == 200, (
+            f"GET {preview_server} returned status {response.status_code}; expected 200."
+        )
+        body = response.text
+>       assert re.search(r"id\s*=\s*[\"']device-platform[\"']", body), (
+            "The served index.html must contain an element with id=\"device-platform\". "
+            f"Got body:\n{body[:1000]}"
+        )
+E       AssertionError: The served index.html must contain an element with id="device-platform". Got body:
+E         <!DOCTYPE html>
+E         <html lang="en">
+E           <head>
+E             <meta charset="UTF-8" />
+E             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+E             <title>Device Demo</title>
+E             <script type="module" crossorigin src="/assets/index-wER7ep4I.js"></script>
+E           </head>
+E           <body>
+E             <main id="app">
+E               <h1>Device Demo</h1>
+E             </main>
+E           </body>
+E         </html>
+E         
+E       assert None
+E        +  where None = <function search at 0x7eff19e2bba0>('id\\s*=\\s*[\\"\']device-platform[\\"\']', '<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <meta charset="UTF-8" />\n    <meta name="viewport" content="width=d...js"></script>\n  </head>\n  <body>\n    <main id="app">\n      <h1>Device Demo</h1>\n    </main>\n  </body>\n</html>\n')
+E        +    where <function search at 0x7eff19e2bba0> = re.search
+
+tests/test_final_state.py:157: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+/tests/.pytest_cache/d/.xprocess/vite_preview$ npm run preview -- --host 0.0.0.0 --port 4173 --strictPort
+process 'vite_preview' started pid=915
+vite_preview process startup detected
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_capacitor_config_values
+PASSED tests/test_final_state.py::test_package_json_lists_capacitor_dependencies
+PASSED tests/test_final_state.py::test_dist_index_html_exists
+PASSED tests/test_final_state.py::test_capacitor_sync_succeeds
+PASSED tests/test_final_state.py::test_device_info_rendered_in_browser
+FAILED tests/test_final_state.py::test_index_served_with_device_elements - As...
+========================= 1 failed, 5 passed in 3.47s ==========================

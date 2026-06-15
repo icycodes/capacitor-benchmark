@@ -1,0 +1,545 @@
+Skipping image OS validation for hb__configure_webdir_alignment: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-epssptk > /logs/artifacts/run-id && echo configure_webdir_alignment__epSSptk > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model anthropic/claude-4-6-sonnet --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Align Vite Output with Capacitor `webDir`
+
+## Background
+You are integrating [Capacitor](https://capacitorjs.com/) (v8) into an existing Vite-based web application. A frequent friction point is a mismatch between the web framework's output directory and the `webDir` declared in `capacitor.config.ts`, which causes errors like `Could not find the web assets directory` when running `npx cap sync`.
+
+Your goal is to initialize Capacitor non-interactively in this project, point Vite's build output at a custom directory, and make sure `webDir` in the Capacitor config matches the same directory so the web build is discoverable.
+
+The project is located at `/home/user/myproject`. It already contains a minimal Vite project with `package.json`, `index.html`, and `src/main.js`. `@capacitor/core` and `@capacitor/cli` are already installed in the project's `node_modules`, and Node.js 22 is available. **Capacitor has NOT yet been initialized — there is no `capacitor.config.ts` / `capacitor.config.json` file yet.**
+
+## Requirements
+- Initialize Capacitor for this project, non-interactively (no prompts).
+- The app must be initialized with:
+  - App name: `Harbor Capacitor Test`
+  - App ID: `com.harbor.capacitor.test`
+- Vite must build its production output into a directory named `www` at the project root (not the default `dist`).
+- `capacitor.config.ts` must declare `webDir` as `www` so it matches Vite's output.
+- Running `npm run build` must succeed and produce `www/index.html`.
+
+## Implementation Hints
+- The Capacitor CLI's `init` command supports passing the app name, app ID, and web directory as positional/flag arguments to skip the interactive prompts.
+- Vite's production output directory is controlled by `build.outDir` in `vite.config.js` / `vite.config.ts`.
+- Do not add the native Android or iOS platforms; this task is only about the web-side configuration and build alignment.
+- You only need to modify or create configuration files; do not edit the application source code.
+
+## Acceptance Criteria
+- Project path: `/home/user/myproject`
+- Command: `npm run build`
+- After running the command from `/home/user/myproject`, the following must be true:
+  - The file `/home/user/myproject/www/index.html` exists (Vite has produced its build into the `www` directory).
+  - The file `/home/user/myproject/capacitor.config.ts` exists (or `capacitor.config.json` if that format was generated) and declares:
+    - `appId`: `com.harbor.capacitor.test`
+    - `appName`: `Harbor Capacitor Test`
+    - `webDir`: `www`
+  - Running `npx cap config --json` from the project root prints a JSON object whose `webDir` field is `www`, `appId` is `com.harbor.capacitor.test`, and `appName` is `Harbor Capacitor Test`.
+  - The default `dist/` directory must NOT contain a freshly built `index.html` after `npm run build` (i.e. Vite's output goes to `www`, not `dist`).
+
+
+EOF
+Skipping image OS validation for hb__enable_capacitor_http_bypass: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-gfyxjjd > /logs/artifacts/run-id && echo enable_capacitor_http_bypass__GFyXjjD > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model anthropic/claude-4-6-sonnet --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Bypass CORS in a Capacitor App with CapacitorHttp
+
+## Background
+A pre-existing Capacitor v8 project at `/home/user/myproject` is failing CORS preflight checks when calling third-party APIs from the WebView, because the requests originate from `capacitor://localhost` / `http://localhost`. Capacitor ships with a built-in **CapacitorHttp** plugin that, when enabled, patches `window.fetch` / `XMLHttpRequest` to use the native HTTP stack and side-steps WebView CORS entirely. The same plugin also exposes helper methods (`CapacitorHttp.get`, `CapacitorHttp.post`, etc.) directly from `@capacitor/core`.
+
+Your job is to (1) enable CapacitorHttp in the Capacitor configuration and (2) provide a small Node-runnable CLI wrapper that uses the CapacitorHttp helper API so the team can smoke-test outbound requests from CI without having to spin up a device or simulator.
+
+## Requirements
+- Enable the `CapacitorHttp` plugin in `capacitor.config.ts`.
+- Implement a TypeScript-based CLI in the project that uses the `CapacitorHttp` API exported from `@capacitor/core` to make GET and POST requests against a remote URL.
+- The CLI must accept the HTTP method, URL, optional JSON body, and an optional custom header so it can be parametrized from the test runner.
+- Print the response **status code** on the first line of stdout and the response **body** (serialized as JSON) on the second line of stdout.
+- Reuse the project's existing TypeScript / Node toolchain — no additional HTTP libraries (e.g., `axios`, `node-fetch`) are allowed; the actual request must go through `CapacitorHttp`.
+
+## Implementation Hints
+- The CapacitorHttp configuration lives under `plugins.CapacitorHttp` in `capacitor.config.ts`. Setting `enabled: true` activates the fetch/XHR patch on native.
+- `CapacitorHttp` is re-exported from `@capacitor/core` and exposes promise-based helpers such as `get`, `post`, and `request`, each accepting an `HttpOptions` object (`url`, `headers`, `data`, ...).
+- When run inside Node (i.e., the verifier sandbox), CapacitorHttp falls back to the web implementation, which calls `fetch` under the hood — this is the behavior you can rely on for the CLI.
+- Use Node 22's built-in argument parsing (`process.argv`) or any helper already present in `node_modules`; you do not need to install new packages.
+
+## Acceptance Criteria
+- Project path: `/home/user/myproject`
+- Command: `npx tsx scripts/http-cli.ts --method <GET|POST> --url <url> [--body <json-string>] [--header <Name:Value>]`
+  - `--method`: HTTP verb, either `GET` or `POST`.
+  - `--url`: Absolute URL of the remote endpoint.
+  - `--body`: Optional JSON string to send as the request body (only meaningful for `POST`).
+  - `--header`: Optional extra HTTP header in `Name:Value` form. May be omitted.
+- Stdout format (exactly two lines, no extra wrapping text):
+  - Line 1: `Status: <numeric_status_code>`
+  - Line 2: A single JSON object containing the parsed response body returned by `CapacitorHttp`.
+- `capacitor.config.ts` must export a config where `plugins.CapacitorHttp.enabled` is `true`.
+- The CLI script must import `CapacitorHttp` from `@capacitor/core` (no direct use of `fetch`, `axios`, `node-fetch`, `http`, or `https` modules).
+- Use the `ZEALT_RUN_ID` environment variable when the verifier needs to disambiguate requests — the verifier will pass `run-id` values via `--header` and query parameters, and the CLI must forward them faithfully to the remote endpoint.
+
+
+EOF
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Skipping image OS validation for hb__persist_theme_preferences: docker inspect returned 1
+Skipping image OS validation for hb__display_device_info: docker inspect returned 1
+Skipping image OS validation for hb__download_pdf_filesystem: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Running command: apt-get update && apt-get install -y curl ripgrep
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Command outputs captured
+Running command: echo zr-rkdppwc > /logs/artifacts/run-id && echo download_pdf_filesystem__RKdPPwc > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Running command: echo zr-6w9lpxe > /logs/artifacts/run-id && echo persist_theme_preferences__6w9LpXe > /logs/artifacts/trial_id
+Running command: echo zr-srdycah > /logs/artifacts/run-id && echo display_device_info__srdYCAh > /logs/artifacts/trial_id
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model anthropic/claude-4-6-sonnet --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Download and Persist a PDF with the Capacitor Filesystem Plugin
+
+## Background
+You are building a small Vite + TypeScript web application that will eventually be packaged as a native mobile app via Capacitor v8. The Capacitor Filesystem plugin gives apps a NodeJS-like API for working with the device's storage. On the web target, this plugin transparently falls back to a persistent IndexedDB-backed store so that the same JavaScript code that runs on iOS and Android also works in the browser-based preview that this task uses for verification.
+
+A minimal Vite + TypeScript project has already been scaffolded for you at `/home/user/myapp`. The project also contains a small fixture document at `public/sample.pdf` that Vite will copy into `dist/` during the build. Your job is to integrate Capacitor v8, install `@capacitor/filesystem`, and implement a small UI that downloads this PDF over HTTP, persists it to the Documents directory through Capacitor's Filesystem API, then reads it back and surfaces the file's size and SHA-256 fingerprint to the page so the user can verify the saved copy.
+
+## Requirements
+- Integrate Capacitor v8 into the existing Vite project using the non-interactive CLI flow. The Capacitor app must be configured with:
+    - App name: `Filesystem Demo`
+    - Application/package id: `com.example.fsdemo`
+    - Web assets directory aligned with Vite's build output (`dist`).
+- Install and use the `@capacitor/filesystem` plugin (version compatible with Capacitor v8) for persistence. You may NOT shortcut the requirement by writing the bytes directly to `localStorage`, `IndexedDB`, or `window.fetch`-backed memory caches — the persisted file MUST go through `Filesystem.writeFile` with the `Directory.Documents` directory.
+- Implement a UI in `index.html` (and any TypeScript modules under `src/`) that includes:
+    - A button with the HTML id `download-pdf` that, when clicked, downloads the file served at `/sample.pdf` (relative to the same origin) and saves it through Capacitor Filesystem at the path `sample.pdf` under `Directory.Documents`.
+    - A status region with the HTML id `download-status` whose text content updates to one of the following strings, in order:
+        - Before any download has been attempted: `idle`.
+        - While a download is in progress: `downloading`.
+        - On success: `saved`.
+        - On error: `error: <message>` (where `<message>` is a short, human-readable description).
+    - An element with the HTML id `file-size` that, on success, displays the saved file's size in bytes as a plain decimal integer (no commas, no units).
+    - An element with the HTML id `file-sha256` that, on success, displays the lowercase hex SHA-256 digest of the saved file (64 hex characters).
+- The displayed size and SHA-256 must be computed by reading the file BACK from Capacitor Filesystem (i.e., via `Filesystem.readFile` / `Filesystem.stat`), not from the in-memory bytes that were just downloaded. This proves the file truly persisted.
+- `npx cap sync` must run successfully against the produced web build (no native platforms need to be added).
+
+## Implementation Hints
+- Use `npx cap init` with positional `appName` and `appId` arguments and the `--web-dir` flag to avoid the interactive prompt.
+- Vite's default build output directory is `dist`; ensure it matches `webDir` in `capacitor.config.ts` (or `.json`).
+- The Capacitor Filesystem plugin's web implementation persists files in IndexedDB, so no native runtime is needed for the verification environment.
+- For binary data, the Filesystem API expects base64-encoded strings when no `encoding` is provided. You can convert an `ArrayBuffer` to base64 with the `FileReader` API (`readAsDataURL` and slice off the data-URL prefix) or with `btoa(String.fromCharCode(...new Uint8Array(...)))` for small files.
+- The Web Crypto API (`crypto.subtle.digest('SHA-256', buffer)`) is available in the preview environment and is the easiest way to compute a SHA-256 hex digest.
+- Make sure the script that wires up the button is loaded as an ES module so that the dynamic import of `@capacitor/filesystem` succeeds.
+
+## Acceptance Criteria
+- Project path: /home/user/myapp
+- Start command: `npm run preview -- --host 0.0.0.0 --port 4173`
+- Port: 4173
+- `npm run build` must complete without errors and produce a `dist/` directory containing both `index.html` and `sample.pdf`.
+- `capacitor.config.ts` (or `capacitor.config.json`) must exist at the project root with `appName` equal to `Filesystem Demo`, `appId` equal to `com.example.fsdemo`, and `webDir` equal to `dist`.
+- `package.json` must list `@capacitor/core`, `@capacitor/cli`, and `@capacitor/filesystem` as dependencies (any of `dependencies` or `devDependencies`).
+- `npx cap sync` executed after the production build must exit with status 0.
+- The served page at `http://localhost:4173/` must contain elements with the HTML ids `download-pdf`, `download-status`, `file-size`, and `file-sha256`.
+- On initial load, `#download-status` must contain the literal text `idle` and `#file-size` and `#file-sha256` must be empty.
+- Clicking `#download-pdf` must:
+    - First change `#download-status` to `downloading`.
+    - Then save the body of `/sample.pdf` through Capacitor Filesystem at `Directory.Documents/sample.pdf`.
+    - Then, by reading the persisted file back through Capacitor Filesystem, populate `#file-size` with the file's byte size as a decimal integer and `#file-sha256` with its lowercase hex SHA-256 digest.
+    - Finally update `#download-status` to `saved`.
+- After a full page reload, `#download-status` must reset to `idle`, `#file-size` and `#file-sha256` must be empty, but a subsequent click on `#download-pdf` must produce the same final values for `#file-size` and `#file-sha256` as before (i.e., the file remains retrievable from Capacitor Filesystem across reloads).
+
+
+EOF
+Command outputs captured
+Running command: pochi --model anthropic/claude-4-6-sonnet --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Persist User Theme with Capacitor Preferences
+
+## Background
+You are building a small Vite + TypeScript web application that will be packaged as a native mobile app via Capacitor v8. To survive native OS storage sweeps, persistent user settings must be stored using the `@capacitor/preferences` plugin instead of the unreliable `window.localStorage`. The Preferences plugin falls back to `localStorage` when the app is served as a Progressive Web App in the browser, so the same code works in the web build that this task will exercise.
+
+A minimal Vite TypeScript project has already been scaffolded for you at `/home/user/myapp`. Your job is to integrate Capacitor v8, install the Preferences plugin, and implement a dark/light theme toggle whose value persists across reloads via Capacitor's Preferences API.
+
+## Requirements
+- Integrate Capacitor v8 into the existing Vite project using the non-interactive CLI flow. The Capacitor app must be configured with:
+    - App name: `Theme Demo`
+    - Application/package id: `com.example.themedemo`
+    - Web assets directory aligned with Vite's build output (`dist`).
+- Install and use the `@capacitor/preferences` plugin (version compatible with Capacitor v8) for persistence.
+- Implement a UI in `index.html` that includes a button users can click to toggle between `light` and `dark` themes.
+- Persist the currently selected theme under the Preferences key `user_theme` (value `"light"` or `"dark"`).
+- On every page load, read the saved theme from Capacitor Preferences and apply it before the user interacts. If no value has been stored yet, default to `light`.
+- Toggling the button must update the visible theme, save the new value through `Preferences.set`, and keep working across full page reloads.
+- Reflect the active theme on the `<body>` element by toggling a single CSS class named `dark` (present when dark mode is on, absent when light mode is on).
+- `npx cap sync` must run successfully against the produced web build.
+
+## Implementation Hints
+- Use `npx cap init` with positional `appName` and `appId` arguments and the `--web-dir` flag to avoid the interactive prompt.
+- Import `Preferences` from `@capacitor/preferences` in your TypeScript code; the API is `await Preferences.set({ key, value })` and `const { value } = await Preferences.get({ key })`.
+- Vite's default build output directory is `dist`, which must match `webDir` in `capacitor.config.ts` (or `.json`).
+- The Preferences plugin transparently falls back to `localStorage` on the web target, so no native runtime is required for the web build used to verify the behavior.
+- Make sure the script that wires up the toggle is loaded as an ES module so that the dynamic import of `@capacitor/preferences` succeeds.
+
+## Acceptance Criteria
+- Project path: /home/user/myapp
+- Start command: `npm run preview -- --host 0.0.0.0 --port 4173`
+- Port: 4173
+- `npm run build` must complete without errors and produce a `dist/` directory containing `index.html`.
+- `capacitor.config.ts` (or `capacitor.config.json`) must exist at the project root with `appName` equal to `Theme Demo`, `appId` equal to `com.example.themedemo`, and `webDir` equal to `dist`.
+- `package.json` must list `@capacitor/core`, `@capacitor/cli`, and `@capacitor/preferences` as dependencies (any of `dependencies` or `devDependencies`).
+- `npx cap sync --inline` (or `npx cap sync`) executed after the production build must exit with status 0.
+- The served page at `http://localhost:4173/` must contain a single visible toggle button with the HTML id `theme-toggle`.
+- Loading `http://localhost:4173/` in a fresh browser session must apply the `light` theme by default; the `<body>` element must NOT have the CSS class `dark`.
+- Clicking the `#theme-toggle` button once must add the CSS class `dark` to the `<body>` element.
+- After clicking the button to enable dark mode and reloading the page, the `<body>` element must still have the CSS class `dark` (the value must persist through Capacitor Preferences).
+- Clicking the button again must remove the `dark` class from `<body>`, and that lighter state must also persist across a reload.
+
+
+EOF
+Command outputs captured
+Running command: pochi --model anthropic/claude-4-6-sonnet --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Display Device Info with Capacitor Device Plugin
+
+## Background
+You are integrating Capacitor v8 into a Vite + TypeScript web project so that the application can report basic device information to the user. The `@capacitor/device` plugin exposes a unified API (`Device.getInfo()`) that returns details such as the platform name and operating system. When the app runs as a Progressive Web App in a browser (the web target), the plugin still returns valid data: `platform` is `"web"` and `operatingSystem` is one of `"ios" | "android" | "windows" | "mac" | "unknown"` based on the user agent.
+
+A minimal Vite + TypeScript project has already been scaffolded for you at `/home/user/myapp`. Your job is to integrate Capacitor v8, install the Device plugin, and render the device information returned by `Device.getInfo()` into the page.
+
+## Requirements
+- Integrate Capacitor v8 into the existing Vite project using the non-interactive CLI flow. The Capacitor app must be configured with:
+    - App name: `Device Demo`
+    - Application/package id: `com.example.devicedemo`
+    - Web assets directory aligned with Vite's build output (`dist`).
+- Install and use the `@capacitor/device` plugin (version compatible with Capacitor v8).
+- On page load, call `Device.getInfo()` and render the returned `platform` and `operatingSystem` values into the page.
+- The page must expose two elements with stable HTML ids whose text content reflects the live values returned by `Device.getInfo()`:
+    - `#device-platform` must contain the `platform` value (e.g., `web`).
+    - `#device-os` must contain the `operatingSystem` value (e.g., `mac`, `windows`, `unknown`, ...).
+- `npx cap sync` must run successfully against the produced web build.
+
+## Implementation Hints
+- Use `npx cap init` with positional `appName` and `appId` arguments and the `--web-dir` flag to avoid the interactive prompt.
+- Import `Device` from `@capacitor/device` in your TypeScript code and `await` the `Device.getInfo()` call before writing to the DOM.
+- Vite's default build output directory is `dist`, which must match `webDir` in `capacitor.config.ts` (or `.json`).
+- The Device plugin works on the web target without any native runtime, so the production preview server is sufficient for verification.
+- Make sure the script that wires up the values is loaded as an ES module so that the dynamic import of `@capacitor/device` succeeds.
+
+## Acceptance Criteria
+- Project path: /home/user/myapp
+- Start command: `npm run preview -- --host 0.0.0.0 --port 4173`
+- Port: 4173
+- `npm run build` must complete without errors and produce a `dist/` directory containing `index.html`.
+- `capacitor.config.ts` (or `capacitor.config.json`) must exist at the project root with `appName` equal to `Device Demo`, `appId` equal to `com.example.devicedemo`, and `webDir` equal to `dist`.
+- `package.json` must list `@capacitor/core`, `@capacitor/cli`, and `@capacitor/device` as dependencies (any of `dependencies` or `devDependencies`).
+- `npx cap sync` executed after the production build must exit with status 0.
+- The served page at `http://localhost:4173/` must contain two visible elements with the HTML ids `device-platform` and `device-os`.
+- After the page loads in a Chromium-based browser, the text content of `#device-platform` must equal the string `web`.
+- After the page loads in a Chromium-based browser, the text content of `#device-os` must equal the same value returned by `await Device.getInfo()` for the `operatingSystem` field (one of `ios`, `android`, `windows`, `mac`, or `unknown`).
+
+
+EOF
+Skipping image OS validation for hb__custom_android_plugin: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-bukkvf8 > /logs/artifacts/run-id && echo custom_android_plugin__bUKKVf8 > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model anthropic/claude-4-6-sonnet --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Implement a Custom Local Capacitor Android Plugin
+
+## Background
+You are working on a Capacitor v8 hybrid mobile application located at `/home/user/myapp`. The project already has the `android` platform scaffolded at `/home/user/myapp/android` and a minimal web frontend in `/home/user/myapp/dist`. The web team needs a thin native bridge to expose deterministic mocked sensor readings so the UI can be developed before real hardware integration is finished.
+
+Your job is to design and implement a custom local Capacitor plugin (Java, inside the existing Android project) that exposes a small sensor API to JavaScript, register it in `MainActivity`, and wire up the JavaScript-side bindings so that the project compiles cleanly through Gradle.
+
+## Requirements
+- Implement a custom local Android Capacitor plugin written in Java inside the existing Android project (do **not** create a separate Capacitor plugin npm package).
+- The plugin must be exposed to JavaScript under the exact name `DeviceSensor`.
+- The plugin must declare two methods that are reachable from JavaScript:
+  - `getReading(options)` — accepts a `sensor` string and resolves with a JSON object describing the reading.
+  - `isAvailable(options)` — accepts a `sensor` string and resolves with `{ available: boolean }`.
+- The plugin must support exactly these sensor identifiers and return the following deterministic mocked values from `getReading`:
+  - `temperature` → `{ "sensor": "temperature", "value": 22.5, "unit": "C" }`
+  - `humidity` → `{ "sensor": "humidity", "value": 65.0, "unit": "%" }`
+  - `battery` → `{ "sensor": "battery", "value": 87.0, "unit": "%" }`
+- For any other sensor name, `getReading` must reject the call with a non-empty error message, and `isAvailable` must resolve with `{ available: false }`. For the three supported sensors, `isAvailable` must resolve with `{ available: true }`.
+- Register the plugin in the existing `MainActivity` so it is loaded by the Capacitor bridge at startup.
+- Provide a TypeScript binding file at `/home/user/myapp/src/device-sensor.ts` that uses `registerPlugin` from `@capacitor/core` to expose the plugin and exports the plugin object as the default export.
+- The complete Android project must compile successfully with the Gradle wrapper.
+
+## Implementation Hints
+- Refer to the official Capacitor v8 "Custom Native Android Code" guide. The plugin class must extend `com.getcapacitor.Plugin` and be annotated with `@CapacitorPlugin(name = "DeviceSensor")`. Each exposed method must be annotated with `@PluginMethod`.
+- Use `PluginCall.getString`, `JSObject`, `call.resolve`, and `call.reject` for argument parsing and result handling.
+- The plugin's Java package must match the application package (`com.example.myapp`); place the source under `android/app/src/main/java/com/example/myapp/` so the existing Gradle source set picks it up.
+- Register the plugin with `registerPlugin(MyPlugin.class)` inside `MainActivity.onCreate` before the call to `super.onCreate(savedInstanceState)`.
+- On the JavaScript side, the first argument to `registerPlugin` must match the `name` attribute of the `@CapacitorPlugin` annotation exactly.
+- The web frontend already has `@capacitor/core` installed as an npm dependency; you do not need to install additional packages.
+- The Android SDK, JDK 17, and the Gradle wrapper are pre-installed and pre-warmed inside the project; running `./gradlew` from `/home/user/myapp/android` will compile the project. Use the `--offline` flag whenever possible to avoid re-downloading dependencies.
+
+## Acceptance Criteria
+- Project path: `/home/user/myapp`
+- The Android project at `/home/user/myapp/android` must build successfully via:
+  - `cd /home/user/myapp/android && ./gradlew :app:assembleDebug --offline`
+- A Java source file implementing the plugin must exist under `/home/user/myapp/android/app/src/main/java/com/example/myapp/` (and must not be `MainActivity.java`). The file must:
+  - Declare `package com.example.myapp;`.
+  - Import `com.getcapacitor.Plugin`, `com.getcapacitor.PluginCall`, `com.getcapacitor.PluginMethod`, `com.getcapacitor.JSObject`, and `com.getcapacitor.annotation.CapacitorPlugin`.
+  - Annotate the plugin class with `@CapacitorPlugin(name = "DeviceSensor")`.
+  - Declare a class that `extends Plugin`.
+  - Declare two methods named `getReading` and `isAvailable`, both annotated with `@PluginMethod` (with or without parentheses).
+- `MainActivity` at `/home/user/myapp/android/app/src/main/java/com/example/myapp/MainActivity.java` must contain a `registerPlugin(<PluginClass>.class)` call referencing the plugin class above, placed inside `onCreate(Bundle savedInstanceState)`.
+- A TypeScript binding file must exist at `/home/user/myapp/src/device-sensor.ts` that imports `registerPlugin` from `@capacitor/core`, registers a plugin under the exact string literal `"DeviceSensor"`, and provides a default export.
+- The compiled debug APK produced at `/home/user/myapp/android/app/build/outputs/apk/debug/app-debug.apk` must contain the plugin class in its DEX (verifiable by listing classes inside the APK).
+- The behaviour of the plugin must be observable through the source code: for each supported sensor identifier, the resolved JSON payload must contain the exact value and unit listed in the Requirements section above. The verifier will check this by extracting all `JSObject.put` calls associated with the matching sensor branch and confirming the literal numeric values (`22.5`, `65.0`, `87.0`) and unit strings (`C`, `%`).
+
+
+EOF
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured

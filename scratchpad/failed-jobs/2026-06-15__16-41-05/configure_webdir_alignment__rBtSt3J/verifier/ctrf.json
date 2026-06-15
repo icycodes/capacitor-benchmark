@@ -1,0 +1,86 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-15T16:42:29.742909+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 5,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781541747033,
+            "stop": 1781541749742
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_npm_build_succeeds",
+                "status": "passed",
+                "duration": 756,
+                "start": 1781541747069,
+                "stop": 1781541747825,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_vite_output_goes_to_www",
+                "status": "passed",
+                "duration": 802,
+                "start": 1781541747826,
+                "stop": 1781541748628,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_vite_output_does_not_go_to_dist",
+                "status": "passed",
+                "duration": 773,
+                "start": 1781541748628,
+                "stop": 1781541749401,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_config_file_exists",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781541749401,
+                "stop": 1781541749403,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_config_source_mentions_expected_values",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781541749403,
+                "stop": 1781541749405,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_resolved_capacitor_config_via_cli",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 337,
+                "start": 1781541749405,
+                "stop": 1781541749742,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_resolved_capacitor_config_via_cli():\n        cli_bin = os.path.join(PROJECT_DIR, \"node_modules\", \".bin\", \"cap\")\n        assert os.path.isfile(cli_bin) or os.path.islink(cli_bin), (\n            f\"Capacitor CLI binary not found at {cli_bin}.\"\n        )\n        result = subprocess.run(\n            [cli_bin, \"config\", \"--json\"],\n            capture_output=True,\n            text=True,\n            cwd=PROJECT_DIR,\n        )\n        assert result.returncode == 0, (\n            f\"`npx cap config --json` failed with code {result.returncode}.\\n\"\n            f\"stdout:\\n{result.stdout}\\nstderr:\\n{result.stderr}\"\n        )\n    \n        stdout = result.stdout.strip()\n        # Tolerate any leading log lines: find the first '{' and parse from there.\n        brace_index = stdout.find(\"{\")\n        assert brace_index != -1, (\n            f\"Could not find JSON object in `cap config --json` output:\\n{stdout}\"\n        )\n        json_payload = stdout[brace_index:]\n        try:\n            data = json.loads(json_payload)\n        except json.JSONDecodeError as exc:\n            raise AssertionError(\n                f\"`cap config --json` did not produce parseable JSON: {exc}\\n\"\n                f\"Raw output:\\n{stdout}\"\n            )\n    \n        app_id = _extract_field(data, \"appId\")\n        app_name = _extract_field(data, \"appName\")\n        web_dir = _extract_field(data, \"webDir\")\n    \n        assert app_id == \"com.harbor.capacitor.test\", (\n            f\"Expected resolved appId to be 'com.harbor.capacitor.test', got {app_id!r}.\"\n        )\n        assert app_name == \"Harbor Capacitor Test\", (\n            f\"Expected resolved appName to be 'Harbor Capacitor Test', got {app_name!r}.\"\n        )\n>       assert web_dir == \"www\", (\n            f\"Expected resolved webDir to be 'www', got {web_dir!r}.\"\n        )\nE       AssertionError: Expected resolved webDir to be 'www', got 'app/src/main/assets/public'.\nE       assert 'app/src/main/assets/public' == 'www'\nE         - www\nE         + app/src/main/assets/public\n\ntests/test_final_state.py:142: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

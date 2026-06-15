@@ -1,0 +1,70 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 6 items
+
+tests/test_final_state.py .....F                                         [100%]
+
+=================================== FAILURES ===================================
+____________________ test_resolved_capacitor_config_via_cli ____________________
+
+    def test_resolved_capacitor_config_via_cli():
+        cli_bin = os.path.join(PROJECT_DIR, "node_modules", ".bin", "cap")
+        assert os.path.isfile(cli_bin) or os.path.islink(cli_bin), (
+            f"Capacitor CLI binary not found at {cli_bin}."
+        )
+        result = subprocess.run(
+            [cli_bin, "config", "--json"],
+            capture_output=True,
+            text=True,
+            cwd=PROJECT_DIR,
+        )
+        assert result.returncode == 0, (
+            f"`npx cap config --json` failed with code {result.returncode}.\n"
+            f"stdout:\n{result.stdout}\nstderr:\n{result.stderr}"
+        )
+    
+        stdout = result.stdout.strip()
+        # Tolerate any leading log lines: find the first '{' and parse from there.
+        brace_index = stdout.find("{")
+        assert brace_index != -1, (
+            f"Could not find JSON object in `cap config --json` output:\n{stdout}"
+        )
+        json_payload = stdout[brace_index:]
+        try:
+            data = json.loads(json_payload)
+        except json.JSONDecodeError as exc:
+            raise AssertionError(
+                f"`cap config --json` did not produce parseable JSON: {exc}\n"
+                f"Raw output:\n{stdout}"
+            )
+    
+        app_id = _extract_field(data, "appId")
+        app_name = _extract_field(data, "appName")
+        web_dir = _extract_field(data, "webDir")
+    
+        assert app_id == "com.harbor.capacitor.test", (
+            f"Expected resolved appId to be 'com.harbor.capacitor.test', got {app_id!r}."
+        )
+        assert app_name == "Harbor Capacitor Test", (
+            f"Expected resolved appName to be 'Harbor Capacitor Test', got {app_name!r}."
+        )
+>       assert web_dir == "www", (
+            f"Expected resolved webDir to be 'www', got {web_dir!r}."
+        )
+E       AssertionError: Expected resolved webDir to be 'www', got 'app/src/main/assets/public'.
+E       assert 'app/src/main/assets/public' == 'www'
+E         - www
+E         + app/src/main/assets/public
+
+tests/test_final_state.py:142: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_npm_build_succeeds
+PASSED tests/test_final_state.py::test_vite_output_goes_to_www
+PASSED tests/test_final_state.py::test_vite_output_does_not_go_to_dist
+PASSED tests/test_final_state.py::test_capacitor_config_file_exists
+PASSED tests/test_final_state.py::test_capacitor_config_source_mentions_expected_values
+FAILED tests/test_final_state.py::test_resolved_capacitor_config_via_cli - As...
+========================= 1 failed, 5 passed in 4.09s ==========================

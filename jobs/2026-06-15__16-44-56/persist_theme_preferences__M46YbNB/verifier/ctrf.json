@@ -1,0 +1,95 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-15T16:55:42.587078+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 2,
+            "failed": 4,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781542525838,
+            "stop": 1781542542586
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_capacitor_config_values",
+                "status": "passed",
+                "duration": 9,
+                "start": 1781542526398,
+                "stop": 1781542526407,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_package_json_lists_capacitor_dependencies",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781542526407,
+                "stop": 1781542526410,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_dist_index_html_exists",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 67,
+                "start": 1781542526410,
+                "stop": 1781542526477,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_dist_index_html_exists():\n        dist_index = os.path.join(PROJECT_DIR, \"dist\", \"index.html\")\n>       assert os.path.isfile(dist_index), (\n            f\"Expected production build output at {dist_index}. \"\n            \"Make sure `npm run build` succeeded.\"\n        )\nE       AssertionError: Expected production build output at /home/user/myapp/dist/index.html. Make sure `npm run build` succeeded.\nE       assert False\nE        +  where False = <function isfile at 0x7fa55b618220>('/home/user/myapp/dist/index.html')\nE        +    where <function isfile at 0x7fa55b618220> = <module 'posixpath' (frozen)>.isfile\nE        +      where <module 'posixpath' (frozen)> = os.path\n\ntests/test_final_state.py:89: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_sync_succeeds",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 2015,
+                "start": 1781542526478,
+                "stop": 1781542528493,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_capacitor_sync_succeeds():\n        result = subprocess.run(\n            [\"npx\", \"--no-install\", \"cap\", \"sync\"],\n            cwd=PROJECT_DIR,\n            capture_output=True,\n            text=True,\n            timeout=180,\n        )\n>       assert result.returncode == 0, (\n            \"Expected `npx cap sync` to succeed after the production build.\\n\"\n            f\"stdout: {result.stdout}\\nstderr: {result.stderr}\"\n        )\nE       AssertionError: Expected `npx cap sync` to succeed after the production build.\nE         stdout: [error] Could not find the web assets directory: ./dist.\nE                 Please create it and make sure it has an index.html file. You can change the path of this directory in capacitor.config.ts (webDir option). You may need to compile the web assets for your app (typically npm run build). More info: https://capacitorjs.com/docs/basics/workflow#sync-your-project\nE         \nE         stderr: \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['npx', '--no-install', 'cap', 'sync'], returncode=1, stdout='[error] Could not find the web ass...app (typically npm run build). More info: https://capacitorjs.com/docs/basics/workflow#sync-your-project\\n', stderr='').returncode\n\ntests/test_final_state.py:103: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_index_served_with_toggle_button",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 1549,
+                "start": 1781542528493,
+                "stop": 1781542530042,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "preview_server = 'http://127.0.0.1:4173/'\n\n    def test_index_served_with_toggle_button(preview_server):\n        response = requests.get(preview_server, timeout=30)\n>       assert response.status_code == 200, (\n            f\"GET {preview_server} returned status {response.status_code}; expected 200.\"\n        )\nE       AssertionError: GET http://127.0.0.1:4173/ returned status 404; expected 200.\nE       assert 404 == 200\nE        +  where 404 = <Response [404]>.status_code\n\ntests/test_final_state.py:151: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_theme_toggle_flow",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 12544,
+                "start": 1781542530042,
+                "stop": 1781542542586,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "preview_server = 'http://127.0.0.1:4173/'\n\n    def test_theme_toggle_flow(preview_server):\n        pytest.importorskip(\"playwright.sync_api\")\n        from playwright.sync_api import sync_playwright\n    \n        with sync_playwright() as p:\n            browser = p.chromium.launch(headless=True)\n            try:\n                # Fresh context => empty localStorage by default.\n                context = browser.new_context()\n                page = context.new_page()\n                page.goto(preview_server, wait_until=\"load\")\n>               page.wait_for_selector(\"#theme-toggle\", state=\"visible\", timeout=10_000)\n\ntests/test_final_state.py:189: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nusr/local/lib/python3.12/dist-packages/playwright/sync_api/_generated.py:8770: in wait_for_selector\n    self._sync(\nusr/local/lib/python3.12/dist-packages/playwright/_impl/_page.py:424: in wait_for_selector\n    return await self._main_frame.wait_for_selector(**locals_to_params(locals()))\nusr/local/lib/python3.12/dist-packages/playwright/_impl/_frame.py:372: in wait_for_selector\n    await self._channel.send(\nusr/local/lib/python3.12/dist-packages/playwright/_impl/_connection.py:69: in send\n    return await self._connection.wrap_api_call(\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <playwright._impl._connection.Connection object at 0x7fa5599cf200>\ncb = <function Channel.send.<locals>.<lambda> at 0x7fa559a028e0>\nis_internal = False, title = None\n\n    async def wrap_api_call(\n        self, cb: Callable[[], Any], is_internal: bool = False, title: str = None\n    ) -> Any:\n        if self._api_zone.get():\n            return await cb()\n        task = asyncio.current_task(self._loop)\n        st: List[inspect.FrameInfo] = getattr(\n            task, \"__pw_stack__\", None\n        ) or inspect.stack(0)\n    \n        parsed_st = _extract_stack_trace_information_from_stack(st, is_internal, title)\n        self._api_zone.set(parsed_st)\n        try:\n            return await cb()\n        except Exception as error:\n>           raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nE           playwright._impl._errors.TimeoutError: Page.wait_for_selector: Timeout 10000ms exceeded.\nE           Call log:\nE             - waiting for locator(\"#theme-toggle\") to be visible\n\nusr/local/lib/python3.12/dist-packages/playwright/_impl/_connection.py:559: TimeoutError",
+                "message": "The test failed in the call phase due to an exception"
+            }
+        ]
+    }
+}

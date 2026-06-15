@@ -1,0 +1,87 @@
+- Initializing MCP connections...
+You
+# Implement a Custom Local Capacitor Android Plugin ## Background You are working on a Capacitor v8 hybrid mobile application located at `/home/user/myapp`. The project already has the `android` platform scaffolded at `/home/user/myapp/android` and a minimal web frontend in `/home/user/myapp/dist`. The web team needs a thin native bridge to expose deterministic mocked sensor readings so the UI can be developed before real hardware integration is finished. Your job is to design and implement a custom local Capacitor plugin (Java, inside the existing Android project) that exposes a small sensor API to JavaScript, register it in `MainActivity`, and wire up the JavaScript-side bindings so that the project compiles cleanly through Gradle. ## Requirements - Implement a custom local Android Capacitor plugin written in Java inside the existing Android project (do **not** create a separate Capacitor plugin npm package). - The plugin must be exposed to JavaScript under the exact name `DeviceSensor`. - The plugin must declare two methods that are reachable from JavaScript: - `getReading(options)` — accepts a `sensor` string and resolves with a JSON object describing the reading. - `isAvailable(options)` — accepts a `sensor` string and resolves with `{ available: boolean }`. - The plugin must support exactly these sensor identifiers and return the following deterministic mocked values from `getReading`: - `temperature` → `{ "sensor": "temperature", "value": 22.5, "unit": "C" }` - `humidity` → `{ "sensor": "humidity", "value": 65.0, "unit": "%" }` - `battery` → `{ "sensor": "battery", "value": 87.0, "unit": "%" }` - For any other sensor name, `getReading` must reject the call with a non-empty error message, and `isAvailable` must resolve with `{ available: false }`. For the three supported sensors, `isAvailable` must resolve with `{ available: true }`. - Register the plugin in the existing `MainActivity` so it is loaded by the Capacitor bridge at startup. - Provide a TypeScript binding file at `/home/user/myapp/src/device-sensor.ts` that uses `registerPlugin` from `@capacitor/core` to expose the plugin and exports the plugin object as the default export. - The complete Android project must compile successfully with the Gradle wrapper. ## Implementation Hints - Refer to the official Capacitor v8 "Custom Native Android Code" guide. The plugin class must extend `com.getcapacitor.Plugin` and be annotated with `@CapacitorPlugin(name = "DeviceSensor")`. Each exposed method must be annotated with `@PluginMethod`. - Use `PluginCall.getString`, `JSObject`, `call.resolve`, and `call.reject` for argument parsing and result handling. - The plugin's Java package must match the application package (`com.example.myapp`); place the source under `android/app/src/main/java/com/example/myapp/` so the existing Gradle source set picks it up. - Register the plugin with `registerPlugin(MyPlugin.class)` inside `MainActivity.onCreate` before the call to `super.onCreate(savedInstanceState)`. - On the JavaScript side, the first argument to `registerPlugin` must match the `name` attribute of the `@CapacitorPlugin` annotation exactly. - The web frontend already has `@capacitor/core` installed as an npm dependency; you do not need to install additional packages. - The Android SDK, JDK 17, and the Gradle wrapper are pre-installed and pre-warmed inside the project; running `./gradlew` from `/home/user/myapp/android` will compile the project. Use the `--offline` flag whenever possible to avoid re-downloading dependencies. ## Acceptance Criteria - Project path: `/home/user/myapp` - The Android project at `/home/user/myapp/android` must build successfully via: - `cd /home/user/myapp/android && ./gradlew :app:assembleDebug --offline` - A Java source file implementing the plugin must exist under `/home/user/myapp/android/app/src/main/java/com/example/myapp/` (and must not be `MainActivity.java`). The file must: - Declare `package com.example.myapp;`. - Import `com.getcapacitor.Plugin`, `com.getcapacitor.PluginCall`, `com.getcapacitor.PluginMethod`, `com.getcapacitor.JSObject`, and `com.getcapacitor.annotation.CapacitorPlugin`. - Annotate the plugin class with `@CapacitorPlugin(name = "DeviceSensor")`. - Declare a class that `extends Plugin`. - Declare two methods named `getReading` and `isAvailable`, both annotated with `@PluginMethod` (with or without parentheses). - `MainActivity` at `/home/user/myapp/android/app/src/main/java/com/example/myapp/MainActivity.java` must contain a `registerPlugin(<PluginClass>.class)` call referencing the plugin class above, placed inside `onCreate(Bundle savedInstanceState)`. - A TypeScript binding file must exist at `/home/user/myapp/src/device-sensor.ts` that imports `registerPlugin` from `@capacitor/core`, registers a plugin under the exact string literal `"DeviceSensor"`, and provides a default export. - The compiled debug APK produced at `/home/user/myapp/android/app/build/outputs/apk/debug/app-debug.apk` must contain the plugin class in its DEX (verifiable by listing classes inside the APK). - The behaviour of the plugin must be observable through the source code: for each supported sensor identifier, the resolved JSON payload must contain the exact value and unit listed in the Requirements section above. The verifier will check this by extracting all `JSObject.put` calls associated with the matching sensor branch and confirming the literal numeric values (`22.5`, `65.0`, `87.0`) and unit strings (`C`, `%`).   
+
+Pochi
+💭 Thinking for 126 characters   
+📋 Updating todo list (5 items) ✔ 
+📂 Listing files in /home/user/myapp ✔ 
+📂 Listing files in /home/user/myapp/android/app/src/main/java/com/example/myapp ✔ 
+📂 Listing files in /home/user/myapp/src ✔ 
+📖 Reading /home/user/myapp/android/app/src/main/java/com/example/myapp/MainActivity.java ✔ 
+📖 Reading /home/user/myapp/src/index.ts ✔ 
+📖 Reading /home/user/myapp/capacitor.config.ts ✔ 
+📖 Reading /home/user/myapp/package.json ✔ 
+📂 Listing files in /home/user/myapp/android ✔ 
+📋 Updating todo list (5 items) ✔ 
+Now I have a clear picture of the project. Let me create all three files simultaneously.   
+✏️  Writing /home/user/myapp/android/app/src/main/java/com/example/myapp/DeviceSensorPlugin.java ✔ 
+📋 Updating todo list (5 items) ✔ 
+✏️  Writing /home/user/myapp/android/app/src/main/java/com/example/myapp/MainActivity.java ✔ 
+📋 Updating todo list (5 items) ✔ 
+✏️  Writing /home/user/myapp/src/device-sensor.ts ✔ 
+📋 Updating todo list (5 items) ✔ 
+Now let's run the Gradle build:   
+💫 Executing cd /home/user/myapp/android && ./gradlew :app:assembleDebug --offline 2>&1 ✔ 
+The build succeeded. Let me verify the APK contains the plugin class:   
+💫 Executing cd /home/user/myapp/android && ls -lh app/build/outputs/apk/debug/app-debug.apk && unzip -p app/build/outputs/apk/debug/app-debug.apk "classes*.dex" | strings | grep -o "com/example/myapp/DeviceSensorPlugin" | head -5 ✔ 
+💫 Executing cd /home/user/myapp/android && unzip -l app/build/outputs/apk/debug/app-debug.apk | grep -i classes ✔ 
+💫 Executing find /home/user/myapp/android/app/build -name "DeviceSensorPlugin.class" 2>/dev/null ✔ 
+💫 Executing cd /home/user/myapp/android && unzip -p app/build/outputs/apk/debug/app-debug.apk classes.dex > /tmp/classes.dex && javap -classpath /home/user/myapp/android/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes com.example.myapp.DeviceSensorPlugin 2>&1 ✔ 
+The class is compiled and present with both methods. Let me do a final check confirming the DEX contains the plugin class name:   
+💫 Executing python3 -c "
+data = open('/tmp/classes.dex', 'rb').read()
+target = b'com/example/myapp/DeviceSensorPlugin'
+print('Found in DEX:', target in data)
+" ✔ 
+💫 Executing python3 -c "
+import zipfile
+apk = '/home/user/myapp/android/app/build/outputs/apk/debug/app-debug.apk'
+target = b'com/example/myapp/DeviceSensorPlugin'
+with zipfile.ZipFile(apk) as z:
+    for name in z.namelist():
+        if name.startswith('classes') and name.endswith('.dex'):
+            data = z.read(name)
+            if target in data:
+                print(f'Found in {name}')
+" ✔ 
+The plugin class is confirmed in `classes6.dex` inside the APK.   
+📋 Updating todo list (5 items) ✔ 
+🎉 Task Completed
+All acceptance criteria are met. Here's a summary of everything implemented:
+
+---
+
+### Files Created / Modified
+
+#### 1. `/home/user/myapp/android/app/src/main/java/com/example/myapp/DeviceSensorPlugin.java` *(new)*
+- Package: `com.example.myapp`
+- Annotated with `@CapacitorPlugin(name = "DeviceSensor")`
+- Extends `com.getcapacitor.Plugin`
+- **`getReading(PluginCall call)`** — reads the `sensor` string argument via `call.getString("sensor")`, returns deterministic mocked `JSObject` payloads for `temperature` / `humidity` / `battery`, and calls `call.reject(...)` for any unrecognized sensor.
+- **`isAvailable(PluginCall call)`** — resolves with `{ available: true }` for the three supported sensors, `{ available: false }` otherwise.
+- Exact mocked values baked in:
+  - `temperature` → `{ sensor: "temperature", value: 22.5, unit: "C" }`
+  - `humidity` → `{ sensor: "humidity", value: 65.0, unit: "%" }`
+  - `battery` → `{ sensor: "battery", value: 87.0, unit: "%" }`
+
+#### 2. `/home/user/myapp/android/app/src/main/java/com/example/myapp/MainActivity.java` *(updated)*
+- Overrides `onCreate(Bundle savedInstanceState)`
+- Calls `registerPlugin(DeviceSensorPlugin.class)` **before** `super.onCreate(savedInstanceState)` so the Capacitor bridge loads the plugin at startup.
+
+#### 3. `/home/user/myapp/src/device-sensor.ts` *(new)*
+- Imports `registerPlugin` from `@capacitor/core`
+- Registers the plugin under the exact string `"DeviceSensor"` (matches the annotation)
+- Exports typed interfaces (`SensorOptions`, `SensorReading`, `SensorAvailability`, `DeviceSensorPlugin`)
+- Default export is the registered plugin instance
+
+---
+
+### Build Result
+```
+BUILD SUCCESSFUL in 43s
+71 actionable tasks: 71 executed
+```
+APK produced at: `/home/user/myapp/android/app/build/outputs/apk/debug/app-debug.apk`  
+Plugin class `com.example.myapp.DeviceSensorPlugin` confirmed present in `classes6.dex` inside the APK.   
+  

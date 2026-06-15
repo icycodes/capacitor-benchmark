@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theme Demo</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background-color: #ffffff;
+        color: #111111;
+        transition: background-color 0.2s, color 0.2s;
+        margin: 0;
+        padding: 2rem;
+      }
+
+      body.dark {
+        background-color: #1a1a1a;
+        color: #eeeeee;
+      }
+
+      #theme-toggle {
+        padding: 0.6rem 1.2rem;
+        font-size: 1rem;
+        cursor: pointer;
+        border: 2px solid currentColor;
+        border-radius: 6px;
+        background: transparent;
+        color: inherit;
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="app">
+      <h1>Theme Demo</h1>
+      <button id="theme-toggle">Toggle Theme</button>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

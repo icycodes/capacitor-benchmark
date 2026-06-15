@@ -1,0 +1,53 @@
+{
+    "id": "d16f0305-4052-461d-b653-47dee0549368",
+    "started_at": "2026-06-15T16:44:58.034284",
+    "updated_at": "2026-06-15T17:05:52.103976",
+    "finished_at": "2026-06-15T17:05:52.103976",
+    "n_total_trials": 6,
+    "stats": {
+        "n_completed_trials": 6,
+        "n_errored_trials": 4,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "pochi__glm-5.1__pending-tasks": {
+                "n_trials": 6,
+                "n_errors": 4,
+                "metrics": [
+                    {
+                        "mean": 0.5
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "enable_capacitor_http_bypass__fpxGjyb",
+                            "custom_android_plugin__F7HtiKT",
+                            "display_device_info__TEf8cn9"
+                        ],
+                        "0.0": [
+                            "configure_webdir_alignment__JXibg4A",
+                            "persist_theme_preferences__M46YbNB",
+                            "download_pdf_filesystem__MdsSBNR"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "AgentTimeoutError": [
+                        "enable_capacitor_http_bypass__fpxGjyb",
+                        "persist_theme_preferences__M46YbNB",
+                        "display_device_info__TEf8cn9",
+                        "download_pdf_filesystem__MdsSBNR"
+                    ]
+                }
+            }
+        },
+        "n_input_tokens": 0,
+        "n_cache_tokens": 0,
+        "n_output_tokens": 59405,
+        "cost_usd": null
+    }
+}

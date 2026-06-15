@@ -1,0 +1,56 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 13 items
+
+tests/test_final_state.py ........F....                                  [100%]
+
+=================================== FAILURES ===================================
+___________ test_plugin_has_correct_value_for_sensor[battery-87.0-%] ___________
+
+plugin_source = {'path': '/home/user/myapp/android/app/src/main/java/com/example/myapp/DeviceSensorPlugin.java', 'raw': 'package com.e...\n        } else {\n            result.put("available", false);\n        }\n        call.resolve(result);\n    }\n}\n'}
+sensor = 'battery', value = '87.0', unit = '%'
+
+    @pytest.mark.parametrize(
+        "sensor,value,unit",
+        [
+            ("temperature", "22.5", "C"),
+            ("humidity", "65.0", "%"),
+            ("battery", "87.0", "%"),
+        ],
+    )
+    def test_plugin_has_correct_value_for_sensor(plugin_source, sensor, value, unit):
+        """For each supported sensor, the value and unit literals must appear close to
+        the sensor name literal in the plugin source."""
+        src = plugin_source["src"]
+        sensor_literal = f'"{sensor}"'
+        idx = src.find(sensor_literal)
+        assert idx != -1, (
+            f"Plugin source does not mention the sensor literal {sensor_literal}."
+        )
+        window = src[idx : idx + 800]
+>       assert value in window, (
+            f"Expected literal value {value} for sensor '{sensor}' within 800 "
+            f"characters of the sensor literal."
+        )
+E       AssertionError: Expected literal value 87.0 for sensor 'battery' within 800 characters of the sensor literal.
+E       assert '87.0' in '"battery")\n    );\n\n    @PluginMethod\n    public void getReading(PluginCall call) {\n        String sensor = call....e", 65.0);\n                result.put("unit", "%");\n                call.resolve(result);\n                break;\n '
+
+tests/test_final_state.py:153: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_plugin_source_declares_correct_package
+PASSED tests/test_final_state.py::test_plugin_source_has_required_imports
+PASSED tests/test_final_state.py::test_plugin_class_extends_plugin
+PASSED tests/test_final_state.py::test_plugin_has_get_reading_method
+PASSED tests/test_final_state.py::test_plugin_has_is_available_method
+PASSED tests/test_final_state.py::test_plugin_has_reject_call
+PASSED tests/test_final_state.py::test_plugin_has_correct_value_for_sensor[temperature-22.5-C]
+PASSED tests/test_final_state.py::test_plugin_has_correct_value_for_sensor[humidity-65.0-%]
+PASSED tests/test_final_state.py::test_main_activity_registers_plugin
+PASSED tests/test_final_state.py::test_typescript_binding_exists_and_registers_plugin
+PASSED tests/test_final_state.py::test_gradle_build_succeeds_and_apk_exists
+PASSED tests/test_final_state.py::test_apk_dex_contains_plugin_class
+FAILED tests/test_final_state.py::test_plugin_has_correct_value_for_sensor[battery-87.0-%]
+========================= 1 failed, 12 passed in 3.99s =========================
