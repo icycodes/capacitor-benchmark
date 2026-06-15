@@ -1,0 +1,7 @@
+{
+  "library_name": "Capacitor",
+  "task_name": "enable_capacitor_http_bypass",
+  "complexity_level": "multi-step sequential command set",
+  "research_plan_path": "plan.md",
+  "output_dir": "tasks/"
+}
