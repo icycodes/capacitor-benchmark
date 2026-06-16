@@ -1,0 +1,92 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T03:08:24.323563+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 7,
+            "passed": 7,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781579295224,
+            "stop": 1781579304323
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_package_json_declares_clipboard_plugin",
+                "status": "passed",
+                "duration": 5,
+                "start": 1781579295697,
+                "stop": 1781579295702,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_clipboard_plugin_installed_at_major_8",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781579295702,
+                "stop": 1781579295705,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_clipboard_plugin_declared_version_major_8_in_package_json",
+                "status": "passed",
+                "duration": 5,
+                "start": 1781579295705,
+                "stop": 1781579295710,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_npm_build_succeeds_and_produces_index_html",
+                "status": "passed",
+                "duration": 1411,
+                "start": 1781579295710,
+                "stop": 1781579297121,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_sync_succeeds",
+                "status": "passed",
+                "duration": 2331,
+                "start": 1781579297122,
+                "stop": 1781579299453,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_index_served_with_required_elements",
+                "status": "passed",
+                "duration": 1137,
+                "start": 1781579299453,
+                "stop": 1781579300590,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_clipboard_write_then_read_round_trip",
+                "status": "passed",
+                "duration": 3731,
+                "start": 1781579300591,
+                "stop": 1781579304322,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

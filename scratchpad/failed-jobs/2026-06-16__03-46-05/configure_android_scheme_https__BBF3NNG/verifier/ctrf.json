@@ -1,0 +1,83 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T03:51:46.364995+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 6,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781581899897,
+            "stop": 1781581906364
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_capacitor_config_exists",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781581899926,
+                "stop": 1781581899927,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_server_android_scheme_is_https",
+                "status": "passed",
+                "duration": 1420,
+                "start": 1781581899927,
+                "stop": 1781581901347,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_server_hostname_is_custom",
+                "status": "passed",
+                "duration": 1331,
+                "start": 1781581901348,
+                "stop": 1781581902679,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_app_metadata_preserved",
+                "status": "passed",
+                "duration": 1211,
+                "start": 1781581902680,
+                "stop": 1781581903891,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_npm_build_succeeds_and_produces_index_html",
+                "status": "passed",
+                "duration": 796,
+                "start": 1781581903891,
+                "stop": 1781581904687,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_cap_sync_succeeds",
+                "status": "passed",
+                "duration": 1676,
+                "start": 1781581904688,
+                "stop": 1781581906364,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

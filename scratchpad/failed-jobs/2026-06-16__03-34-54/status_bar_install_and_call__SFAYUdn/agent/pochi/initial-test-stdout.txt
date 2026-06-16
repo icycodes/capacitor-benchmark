@@ -1,0 +1,75 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /bootstrap
+plugins: xprocess-1.0.2, json-ctrf-0.5.2
+collected 19 items
+
+bootstrap/test_initial_state.py::test_node_available PASSED
+bootstrap/test_initial_state.py::test_node_version_is_22_or_higher PASSED
+bootstrap/test_initial_state.py::test_npm_available PASSED
+bootstrap/test_initial_state.py::test_npx_available PASSED
+bootstrap/test_initial_state.py::test_project_directory_exists PASSED
+bootstrap/test_initial_state.py::test_src_directory_exists PASSED
+bootstrap/test_initial_state.py::test_package_json_exists PASSED
+bootstrap/test_initial_state.py::test_package_json_is_valid_json PASSED
+bootstrap/test_initial_state.py::test_capacitor_core_and_cli_pre_installed PASSED
+bootstrap/test_initial_state.py::test_status_bar_plugin_not_yet_installed PASSED
+bootstrap/test_initial_state.py::test_status_bar_plugin_node_modules_absent PASSED
+bootstrap/test_initial_state.py::test_node_modules_installed PASSED
+bootstrap/test_initial_state.py::test_vite_installed PASSED
+bootstrap/test_initial_state.py::test_index_html_exists PASSED
+bootstrap/test_initial_state.py::test_main_ts_exists PASSED
+bootstrap/test_initial_state.py::test_capacitor_config_present PASSED
+bootstrap/test_initial_state.py::test_initial_sources_do_not_import_status_bar FAILED
+bootstrap/test_initial_state.py::test_initial_sources_do_not_call_status_bar_setstyle FAILED
+bootstrap/test_initial_state.py::test_initial_dist_absent PASSED
+
+=================================== FAILURES ===================================
+________________ test_initial_sources_do_not_import_status_bar _________________
+
+    def test_initial_sources_do_not_import_status_bar():
+        """No file under src/ should already import from @capacitor/status-bar."""
+        pattern = re.compile(r"@capacitor/status-bar")
+        for root, _, files in os.walk(SRC_DIR):
+            for name in files:
+                if not name.endswith((".ts", ".tsx", ".js", ".mjs")):
+                    continue
+                path = os.path.join(root, name)
+                with open(path) as f:
+                    content = f.read()
+>               assert not pattern.search(content), (
+                    f"The initial source {path} must not already import "
+                    "from '@capacitor/status-bar'."
+                )
+E               AssertionError: The initial source /home/user/myapp/src/main.ts must not already import from '@capacitor/status-bar'.
+E               assert not <re.Match object; span=(47, 68), match='@capacitor/status-bar'>
+E                +  where <re.Match object; span=(47, 68), match='@capacitor/status-bar'> = <built-in method search of re.Pattern object at 0x7f97e7150400>('// Initial scaffold. The executor must install @capacitor/status-bar v8 and\n// add calls to StatusBar.setStyle({ style: Style.Dark }) and\n// StatusBar.setBackgroundColor({ color: \'#222222\' }) here (or in another file\n// under src/) so that the resulting bundle still contains those calls.\nconst app = document.getElementById("app");\nif (app) {\n  const note = document.createElement("p");\n  note.textContent = "Replace me with a StatusBar wiring integration.";\n  app.appendChild(note);\n}\n')
+E                +    where <built-in method search of re.Pattern object at 0x7f97e7150400> = re.compile('@capacitor/status-bar').search
+
+bootstrap/test_initial_state.py:146: AssertionError
+_____________ test_initial_sources_do_not_call_status_bar_setstyle _____________
+
+    def test_initial_sources_do_not_call_status_bar_setstyle():
+        """No source file should already contain a StatusBar.setStyle call."""
+        pattern = re.compile(r"StatusBar\.setStyle\s*\(")
+        for root, _, files in os.walk(SRC_DIR):
+            for name in files:
+                if not name.endswith((".ts", ".tsx", ".js", ".mjs")):
+                    continue
+                path = os.path.join(root, name)
+                with open(path) as f:
+                    content = f.read()
+>               assert not pattern.search(content), (
+                    f"The initial source {path} must not already call StatusBar.setStyle(...)."
+                )
+E               AssertionError: The initial source /home/user/myapp/src/main.ts must not already call StatusBar.setStyle(...).
+E               assert not <re.Match object; span=(92, 111), match='StatusBar.setStyle('>
+E                +  where <re.Match object; span=(92, 111), match='StatusBar.setStyle('> = <built-in method search of re.Pattern object at 0x7f97e71505e0>('// Initial scaffold. The executor must install @capacitor/status-bar v8 and\n// add calls to StatusBar.setStyle({ style: Style.Dark }) and\n// StatusBar.setBackgroundColor({ color: \'#222222\' }) here (or in another file\n// under src/) so that the resulting bundle still contains those calls.\nconst app = document.getElementById("app");\nif (app) {\n  const note = document.createElement("p");\n  note.textContent = "Replace me with a StatusBar wiring integration.";\n  app.appendChild(note);\n}\n')
+E                +    where <built-in method search of re.Pattern object at 0x7f97e71505e0> = re.compile('StatusBar\\.setStyle\\s*\\(').search
+
+bootstrap/test_initial_state.py:162: AssertionError
+=========================== short test summary info ============================
+FAILED bootstrap/test_initial_state.py::test_initial_sources_do_not_import_status_bar
+FAILED bootstrap/test_initial_state.py::test_initial_sources_do_not_call_status_bar_setstyle
+========================= 2 failed, 17 passed in 0.20s =========================
+pytest-xprocess reminder::Be sure to terminate the started process by running 'pytest --xkill' if you have not explicitly done so in your fixture with 'xprocess.getinfo(<process_name>).terminate()'.

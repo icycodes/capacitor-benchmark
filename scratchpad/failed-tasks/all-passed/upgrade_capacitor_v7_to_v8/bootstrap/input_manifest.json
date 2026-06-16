@@ -1,0 +1,7 @@
+{
+  "library_name": "Capacitor",
+  "task_name": "upgrade_capacitor_v7_to_v8",
+  "complexity_level": "multi-step sequential command set",
+  "research_plan_path": "plan.md",
+  "output_dir": "scratchpad/pending-tasks/"
+}

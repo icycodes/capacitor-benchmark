@@ -1,0 +1,1707 @@
+Skipping image OS validation for hb__custom_android_echo_plugin: docker inspect returned 1
+Skipping image OS validation for hb__clipboard_write_read: docker inspect returned 1
+Skipping image OS validation for hb__add_capacitor_platform_packages: docker inspect returned 1
+Skipping image OS validation for hb__dialog_prompt_result: docker inspect returned 1
+Skipping image OS validation for hb__capacitor_init_vite_react: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Running command: apt-get update && apt-get install -y curl ripgrep
+Running command: apt-get update && apt-get install -y curl ripgrep
+Running command: apt-get update && apt-get install -y curl ripgrep
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Command outputs captured
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Command outputs captured
+Running command: echo zr-mgdpmvm > /logs/artifacts/run-id && echo custom_android_echo_plugin__mGdPMVM > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Running command: echo zr-dzxwa3q > /logs/artifacts/run-id && echo capacitor_init_vite_react__Dzxwa3Q > /logs/artifacts/trial_id
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Running command: echo zr-c5g7sj6 > /logs/artifacts/run-id && echo dialog_prompt_result__c5G7sj6 > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model google/gemini-3.1-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Implement a Custom Local Capacitor Android `Echo` Plugin
+
+## Background
+You are working on a Capacitor v8 hybrid mobile application located at `/home/user/myapp`. The project already has the `android` platform scaffolded at `/home/user/myapp/android` and a minimal web frontend in `/home/user/myapp/dist`. The team needs a tiny native bridge that simply round-trips a string from JavaScript so they can sanity-check the JS ↔ Java communication path end-to-end before wiring up real features.
+
+Your job is to write a custom local Capacitor plugin (Java, inside the existing Android project) that exposes a single `echo` method, register it in `MainActivity`, and add a TypeScript wrapper so the project compiles cleanly through Gradle.
+
+## Requirements
+- Implement a custom local Android Capacitor plugin written in Java inside the existing Android project (do **not** create a separate Capacitor plugin npm package).
+- The plugin must be exposed to JavaScript under the exact name `Echo`.
+- The plugin must declare a single method that is reachable from JavaScript:
+  - `echo(options)` — accepts a `value` string and resolves with `{ value: <same string> }` (i.e. the input value is round-tripped unchanged).
+- Register the plugin in the existing `MainActivity` so that it is loaded by the Capacitor bridge at startup.
+- Provide a TypeScript binding file at `/home/user/myapp/src/echo.ts` that uses `registerPlugin` from `@capacitor/core` to expose the plugin and exports the plugin object as the default export.
+- The complete Android project must compile successfully with the Gradle wrapper.
+
+## Implementation Hints
+- Refer to the official Capacitor v8 "Custom Native Android Code" guide. The plugin class must extend `com.getcapacitor.Plugin` and be annotated with `@CapacitorPlugin(name = "Echo")`. The exposed method must be annotated with `@PluginMethod`.
+- Use `PluginCall.getString("value")`, `JSObject`, and `call.resolve(...)` for argument parsing and result handling.
+- The plugin's Java package must match the application package (`com.example.myapp`); place the source under `android/app/src/main/java/com/example/myapp/` so the existing Gradle source set picks it up.
+- Register the plugin with `registerPlugin(EchoPlugin.class)` inside `MainActivity.onCreate(Bundle savedInstanceState)` before the call to `super.onCreate(savedInstanceState)`.
+- On the JavaScript side, the first argument to `registerPlugin` must match the `name` attribute of the `@CapacitorPlugin` annotation exactly (`"Echo"`).
+- The web frontend already has `@capacitor/core` installed as an npm dependency; you do not need to install additional packages.
+- The Android SDK, JDK, and the Gradle wrapper are pre-installed and pre-warmed inside the project; running `./gradlew` from `/home/user/myapp/android` will compile the project. Use the `--offline` flag whenever possible to avoid re-downloading dependencies.
+
+## Acceptance Criteria
+- Project path: `/home/user/myapp`
+- The Android project at `/home/user/myapp/android` must build successfully via:
+  - `cd /home/user/myapp/android && ./gradlew :app:assembleDebug --offline`
+- A Java source file implementing the plugin must exist at:
+  - `/home/user/myapp/android/app/src/main/java/com/example/myapp/EchoPlugin.java`
+  - It must declare `package com.example.myapp;`.
+  - It must import `com.getcapacitor.Plugin`, `com.getcapacitor.PluginCall`, `com.getcapacitor.PluginMethod`, `com.getcapacitor.JSObject`, and `com.getcapacitor.annotation.CapacitorPlugin`.
+  - It must annotate the plugin class with `@CapacitorPlugin(name = "Echo")`.
+  - It must declare a class named `EchoPlugin` that `extends Plugin`.
+  - It must declare a single `@PluginMethod`-annotated method (with or without parentheses) named `echo` that takes a `PluginCall` argument, reads the `value` string with `call.getString("value")`, puts it into a `JSObject` under the key `"value"`, and calls `call.resolve(<that JSObject>)`.
+- `MainActivity` at `/home/user/myapp/android/app/src/main/java/com/example/myapp/MainActivity.java` must contain a `registerPlugin(EchoPlugin.class)` call inside `onCreate(Bundle savedInstanceState)`.
+- A TypeScript binding file must exist at `/home/user/myapp/src/echo.ts` that imports `registerPlugin` from `@capacitor/core`, registers a plugin under the exact string literal `"Echo"`, and provides a default export.
+- The compiled debug APK produced at `/home/user/myapp/android/app/build/outputs/apk/debug/app-debug.apk` must contain the `EchoPlugin` class in its DEX (verifiable by listing classes inside the APK).
+
+
+EOF
+Running command: echo zr-tkb5y3w > /logs/artifacts/run-id && echo add_capacitor_platform_packages__TKb5Y3w > /logs/artifacts/trial_id
+Running command: echo zr-zjomvl4 > /logs/artifacts/run-id && echo clipboard_write_read__ZjomvL4 > /logs/artifacts/trial_id
+Command outputs captured
+Running command: pochi --model google/gemini-3.1-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Integrate Capacitor v8 into a Vite + React + TypeScript Project
+
+## Background
+You have a bare Vite + React + TypeScript project pre-scaffolded at `/home/user/myapp`. The project has no Capacitor dependencies, no Capacitor configuration, and no native platforms added yet. Your job is to integrate Capacitor v8 into this project using the **non-interactive** CLI flow so the project is ready to be synced to a native platform later. You do NOT need to add the Android or iOS platforms in this task.
+
+Node.js and npm are already installed and the project's existing dependencies (Vite, React, TypeScript) are already installed in `node_modules`.
+
+## Requirements
+- Add Capacitor v8 to the existing project:
+  - Install `@capacitor/core` (any 8.x version) as a runtime dependency.
+  - Install `@capacitor/cli` (any 8.x version), normally as a dev dependency.
+- Create a Capacitor configuration file at the project root using the non-interactive `cap init` flow with:
+  - appName: `React Demo`
+  - appId: `com.example.reactdemo`
+  - web directory: `dist`
+- The project must still be buildable with `npm run build`, and the build must produce `dist/index.html`.
+- After building, `npx cap sync` must complete successfully (exit code 0). Since no native platforms are added, `cap sync` is expected to succeed without copying to any native project.
+- The Vite preview server (`npm run preview`) must still serve the built app on its default port (`4173`).
+
+## Implementation Hints
+- Use the official Capacitor CLI non-interactive initialization flow (see the Capacitor v8 docs for `cap init`). Pass the app name, app ID, and `--web-dir` value directly so no interactive prompt is triggered.
+- Install Capacitor packages with `npm install`. The `@capacitor/core` package belongs in `dependencies`; `@capacitor/cli` is usually installed as a `devDependency`.
+- Make sure the generated Capacitor config file is at the project root (`capacitor.config.ts`, `capacitor.config.json`, or `capacitor.config.js`).
+- Run the production build BEFORE running `cap sync`, because `cap sync` reads from the `webDir` directory.
+
+## Acceptance Criteria
+- Project path: `/home/user/myapp`
+- `package.json` must list `@capacitor/core` at a version satisfying `8.x` under `dependencies`.
+- `package.json` must list `@capacitor/cli` at a version satisfying `8.x` under either `devDependencies` or `dependencies`.
+- A Capacitor configuration file must exist at the project root. It must be exactly one of: `capacitor.config.ts`, `capacitor.config.json`, or `capacitor.config.js`. The configuration must define:
+  - `appName` equal to `React Demo`
+  - `appId` equal to `com.example.reactdemo`
+  - `webDir` equal to `dist`
+- Build command: `npm run build` — must exit with code 0 and produce the file `/home/user/myapp/dist/index.html`.
+- Sync command: `npx cap sync` — must exit with code 0 when run AFTER the build.
+- Start command for preview verification: `npm run preview -- --host 127.0.0.1 --port 4173`
+- Preview port: `4173`
+- HTTP GET `http://localhost:4173/` must respond with status code 200 and the response body must include the React root element `<div id="root">`.
+
+
+EOF
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command failed
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model google/gemini-3.1-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Add Capacitor v8 Native Platform Packages
+
+## Background
+You are working on a Vite + TypeScript web project that has already been initialized with Capacitor v8 core. The project at `/home/user/myapp` was bootstrapped with `@capacitor/core` and `@capacitor/cli` and the Capacitor configuration file (`capacitor.config.ts`) is already in place with `webDir` aligned to Vite's `dist` output. However, the native platform packages have NOT been installed yet, so commands that read the installed Capacitor platforms (such as `npx cap sync`) cannot operate against Android or iOS.
+
+Your job is to install the official Capacitor v8 Android and iOS NPM packages into the project so that the platform tooling is available. You do NOT need to run `npx cap add android` or `npx cap add ios` (that step requires native build toolchains that are out of scope here); only the NPM packages need to be present and a build + sync must succeed against the existing project.
+
+## Requirements
+- Install the official Android native platform package `@capacitor/android`.
+- Install the official iOS native platform package `@capacitor/ios`.
+- The versions installed for both packages MUST be compatible with Capacitor v8 (i.e., their major version must be `8`). Pick the latest 8.x release of each package.
+- After installation, building the web assets with `npm run build` must still succeed, and `npx cap sync` must complete with exit code 0 against the existing project.
+
+## Implementation Hints
+- Capacitor's official platform packages follow the same major version as `@capacitor/core` and `@capacitor/cli`. Use the npm tag/range that pins the major version to `8`.
+- The Capacitor CLI is invoked via `npx cap` and only reads installed platform packages from `node_modules`; you do not need to add or scaffold native project directories for this task.
+- Vite produces its build artifacts in `dist/`, which is already declared in `capacitor.config.ts` as `webDir`.
+- Use NPM's standard install command to add both packages as runtime `dependencies` and let NPM resolve to the latest 8.x version.
+
+## Acceptance Criteria
+- Project path: /home/user/myapp
+- `/home/user/myapp/package.json` must list BOTH `@capacitor/android` and `@capacitor/ios` in its `dependencies` section. The recorded version range for each MUST resolve to a Capacitor 8.x release (major version `8`).
+- `/home/user/myapp/node_modules/@capacitor/android/package.json` must exist, and its `version` field must satisfy the Capacitor 8.x major (i.e., its parsed major version is `8`).
+- `/home/user/myapp/node_modules/@capacitor/ios/package.json` must exist, and its `version` field must satisfy the Capacitor 8.x major (i.e., its parsed major version is `8`).
+- Running `npm run build` inside `/home/user/myapp` must exit with code `0`, and after the build, `/home/user/myapp/dist/index.html` must exist.
+- Running `npx cap sync` inside `/home/user/myapp` (after the build) must exit with code `0`.
+
+
+EOF
+Command outputs captured
+Running command: pochi --model google/gemini-3.1-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Copy and Paste Text with the Capacitor Clipboard Plugin
+
+## Background
+You are extending a small Vite + TypeScript web application that will eventually be packaged as a native mobile app via Capacitor v8. The `@capacitor/clipboard` plugin exposes a unified API for writing to and reading from the system clipboard on iOS, Android, and Web. On the web target, the plugin delegates to the standard browser `navigator.clipboard` API, so the very same JavaScript code that runs on a mobile device also works inside the headless Chromium browser used by this task's verifier.
+
+A minimal Vite + TypeScript project, with Capacitor v8 core/CLI already installed and configured, has been pre-scaffolded for you at `/home/user/myapp`. Your job is to install the Capacitor Clipboard plugin and wire up a tiny UI that copies the current value of a text input to the clipboard through `Clipboard.write` and pastes it back through `Clipboard.read`.
+
+## Requirements
+- Install `@capacitor/clipboard` at a version compatible with Capacitor v8 (i.e. major version `8`).
+- Implement a UI in `index.html` (and any TypeScript modules under `src/`) that contains:
+    - An `<input>` element with the HTML id `clip-input`.
+    - A `<button>` element with the HTML id `clip-write-btn`.
+    - A `<button>` element with the HTML id `clip-read-btn`.
+    - A `<span>` element with the HTML id `clip-output` (its initial text content must be empty).
+- Clicking `#clip-write-btn` must call `Clipboard.write({ string: <current value of #clip-input> })`. You may NOT shortcut the requirement by writing directly to `navigator.clipboard.writeText` or by storing the value in a local JavaScript variable / `localStorage` — the value MUST be copied to the system clipboard through the Capacitor Clipboard plugin.
+- Clicking `#clip-read-btn` must call `Clipboard.read()` and write the returned `value` (a string) verbatim into the `textContent` of `#clip-output`.
+- After installing the plugin, `npm run build` must succeed and `npx cap sync` must exit with status 0 against the produced web build (no native platforms need to be added).
+
+## Implementation Hints
+- The pre-scaffolded project already contains a working `capacitor.config.ts` with `webDir` set to `dist`, so you do not need to re-run `npx cap init`.
+- Install the plugin with `npm install @capacitor/clipboard@^8`.
+- Import `Clipboard` from `@capacitor/clipboard`.
+- The `Clipboard.read()` method returns a `Promise<{ value: string; type: string }>`; only the `value` field needs to be displayed.
+- Make sure the script that wires up the buttons is loaded as an ES module so that the import of `@capacitor/clipboard` resolves at runtime.
+- Vite serves the build output via `npm run preview`. The default build output directory is `dist` and matches the pre-configured `webDir`.
+
+## Acceptance Criteria
+- Project path: /home/user/myapp
+- Start command: `npm run preview -- --host 0.0.0.0 --port 4173 --strictPort`
+- Port: 4173
+- `package.json` must list `@capacitor/clipboard` with a version whose semver major is `8` in either `dependencies` or `devDependencies`.
+- `npm run build` must complete without errors and produce `dist/index.html`.
+- `npx cap sync` (executed after the production build) must exit with status 0.
+- The served page at `http://localhost:4173/` must contain an `<input>` element with `id="clip-input"`, a `<button>` element with `id="clip-write-btn"`, a `<button>` element with `id="clip-read-btn"`, and a `<span>` element with `id="clip-output"`.
+- Browser behaviour (headless Chromium with clipboard permissions granted):
+    - Filling `#clip-input` with `benchmark text` and clicking `#clip-write-btn` must copy the string to the system clipboard via the Capacitor Clipboard plugin.
+    - Clicking `#clip-read-btn` afterwards must populate `#clip-output` with text content exactly equal to `benchmark text`.
+    - Reading the underlying browser clipboard with `navigator.clipboard.readText()` after the write must also return `benchmark text` (this proves the plugin actually wrote to the system clipboard, not to a local variable).
+
+
+EOF
+Trial dialog_prompt_result__c5G7sj6 failed: Initial state test failed
+Not retrying trial because the maximum number of retries has been reached
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Skipping image OS validation for hb__configure_splashscreen_plugin_options: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Skipping image OS validation for hb__filesystem_write_read_text: docker inspect returned 1
+Skipping image OS validation for hb__device_info_dual_field: docker inspect returned 1
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: apt-get update && apt-get install -y curl ripgrep
+Running command: apt-get update && apt-get install -y curl ripgrep
+Running command: echo zr-oujzkx2 > /logs/artifacts/run-id && echo configure_splashscreen_plugin_op__oUJzkX2 > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command failed
+Trial configure_splashscreen_plugin_op__oUJzkX2 failed: Initial state test failed
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-ecdii3p > /logs/artifacts/run-id && echo filesystem_write_read_text__ECDii3P > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Running command: echo zr-uznrvv5 > /logs/artifacts/run-id && echo device_info_dual_field__UzNRvv5 > /logs/artifacts/trial_id
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model google/gemini-3.1-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Persist and Retrieve Plain Text with the Capacitor Filesystem Plugin
+
+## Background
+You are extending a small Vite + TypeScript web application that will eventually be packaged as a native mobile app via Capacitor v8. The `@capacitor/filesystem` plugin provides a NodeJS-like API for reading and writing files on the device. On the web target, the plugin transparently persists files inside an IndexedDB-backed store so that the same JavaScript code that runs on iOS and Android also works when verified inside the headless browser used by this task.
+
+A minimal Vite + TypeScript project, with Capacitor v8 core already installed and configured, has been pre-scaffolded for you at `/home/user/myapp`. Your job is to install the Capacitor Filesystem plugin and wire up a tiny UI that writes a fixed string to disk through `Filesystem.writeFile` and reads it back through `Filesystem.readFile`.
+
+## Requirements
+- Install `@capacitor/filesystem` at a version compatible with Capacitor v8 (i.e. major version `8`).
+- Implement a UI in `index.html` (and any TypeScript modules under `src/`) that contains:
+    - A `<button>` element with the HTML id `write-btn`.
+    - A `<button>` element with the HTML id `read-btn`.
+    - A `<span>` element with the HTML id `file-content` (its initial text content must be empty).
+- Clicking `#write-btn` must use the Capacitor Filesystem plugin to write the exact UTF-8 string `Hello Capacitor` to a file named `demo.txt` inside the `Directory.Data` directory. You may NOT shortcut the requirement by writing the bytes directly to `localStorage`, `IndexedDB`, or any other storage backend — the file MUST be written through `Filesystem.writeFile` using `Directory.Data` and `Encoding.UTF8`.
+- Clicking `#read-btn` must call `Filesystem.readFile({ path: 'demo.txt', directory: Directory.Data, encoding: Encoding.UTF8 })` and write the returned `data` value verbatim into the `textContent` of `#file-content`.
+- The persisted file must survive a page reload (the Filesystem plugin's web implementation uses IndexedDB, which is persistent across reloads in the same browser context). After reloading, clicking `#read-btn` alone must still populate `#file-content` with `Hello Capacitor` (without having to click `#write-btn` again first).
+- After installing the plugin, `npm run build` must succeed and `npx cap sync` must exit with status 0 against the produced web build (no native platforms need to be added).
+
+## Implementation Hints
+- The pre-scaffolded project already contains a working `capacitor.config.ts` with `webDir` set to `dist`, so you do not need to re-run `npx cap init`.
+- Install the plugin with `npm install @capacitor/filesystem@^8`.
+- Import `Filesystem`, `Directory`, and `Encoding` from `@capacitor/filesystem`.
+- Make sure the script that wires up the buttons is loaded as an ES module so that the import of `@capacitor/filesystem` resolves at runtime.
+- Vite serves the build output via `npm run preview`. The default build output directory is `dist` and matches the pre-configured `webDir`.
+
+## Acceptance Criteria
+- Project path: /home/user/myapp
+- Start command: `npm run preview -- --host 0.0.0.0 --port 4173 --strictPort`
+- Port: 4173
+- `package.json` must list `@capacitor/filesystem` with a version whose semver major is `8` in either `dependencies` or `devDependencies`.
+- `npm run build` must complete without errors and produce `dist/index.html`.
+- `npx cap sync` (executed after the production build) must exit with status 0.
+- The served page at `http://localhost:4173/` must contain a `<button>` element with `id="write-btn"`, a `<button>` element with `id="read-btn"`, and a `<span>` element with `id="file-content"`.
+- Browser behaviour (headless Chromium, fresh context):
+    - Clicking `#write-btn` followed by `#read-btn` must result in `#file-content` having text content exactly equal to `Hello Capacitor`.
+    - After a full page reload in the same browser context (so that IndexedDB is preserved), clicking `#read-btn` alone must again populate `#file-content` with `Hello Capacitor`.
+
+
+EOF
+Command failed
+Trial device_info_dual_field__UzNRvv5 failed: Initial state test failed
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Not retrying trial because the maximum number of retries has been reached
+Skipping image OS validation for hb__configure_android_scheme_https: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Not retrying trial because the maximum number of retries has been reached
+Skipping image OS validation for hb__custom_ios_echo_plugin: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Trial custom_android_counter_plugin__EkZA7N2 failed: Docker compose command failed for environment custom_android_counter_plugin. Command: docker compose --project-name custom_android_counter_plugin__ekza7n2 --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/custom_android_counter_plugin/environment -f /tmp/tmpg53_3qmi/custom_android_counter_plugin__EkZA7N2-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmphus7ejb7/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 5.61kB done
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/ubuntu:24.04
+#2 DONE 0.0s
+
+#3 [main internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [main  1/11] FROM docker.io/library/ubuntu:24.04
+#4 DONE 0.0s
+
+#5 [main  9/11] RUN cat >/home/user/myapp/src/index.ts <<'TS'
+#5 CACHED
+
+#6 [main  7/11] RUN cat >/home/user/myapp/dist/index.html <<'HTML'
+#6 CACHED
+
+#7 [main  3/11] RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - &&     apt-get install -y --no-install-recommends nodejs &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [main  2/11] RUN apt-get update -y &&     apt-get install -y --no-install-recommends         curl wget ca-certificates git python3 python3-pip python3-pytest bash ripgrep         unzip zip xz-utils openjdk-17-jdk-headless fontconfig file &&     ln -sf /usr/bin/python3 /usr/bin/python &&     pip3 install --break-system-packages pytest-json-ctrf &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#8 CACHED
+
+#9 [main  5/11] RUN mkdir -p /home/user && chmod 0755 /home/user
+#9 CACHED
+
+#10 [main  6/11] RUN mkdir -p /home/user/myapp /home/user/myapp/dist /home/user/myapp/src &&     cd /home/user/myapp &&     cat >package.json <<'JSON'
+#10 CACHED
+
+#11 [main  8/11] RUN cat >/home/user/myapp/dist/app.js <<'JS'
+#11 CACHED
+
+#12 [main  4/11] RUN mkdir -p "/opt/android-sdk/cmdline-tools" &&     cd /tmp &&     curl -fsSL -o cmdline-tools.zip         https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip &&     unzip -q cmdline-tools.zip -d "/opt/android-sdk/cmdline-tools" &&     mv "/opt/android-sdk/cmdline-tools/cmdline-tools"        "/opt/android-sdk/cmdline-tools/latest" &&     rm -f cmdline-tools.zip &&     yes | "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null &&     "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager"         "platform-tools"         "platforms;android-35"         "build-tools;35.0.0" >/dev/null
+#12 CACHED
+
+#13 [main 10/11] RUN cd /home/user/myapp &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D         @capacitor/cli@^8 typescript@^5 &&     npx --yes cap init "MyApp" "com.example.myapp" --web-dir dist &&     npx --yes cap add android
+#13 CACHED
+
+#14 [main 11/11] RUN cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle
+#14 0.459 Downloading https://services.gradle.org/distributions/gradle-8.14.3-all.zip
+#14 1.500 .....................10%.....................20%......................30%.....................40%......................50%.....................60%.....................70%......................80%.....................90%......................100%
+#14 19.57 
+#14 19.57 Welcome to Gradle 8.14.3!
+#14 19.57 
+#14 19.57 Here are the highlights of this release:
+#14 19.57  - Java 24 support
+#14 19.57  - GraalVM Native Image toolchain selection
+#14 19.57  - Enhancements to test reporting
+#14 19.58  - Build Authoring improvements
+#14 19.58 
+#14 19.58 For more details see https://docs.gradle.org/8.14.3/release-notes.html
+#14 19.58 
+#14 20.17 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#14 25.86 Daemon will be stopped at the end of the build 
+#14 103.0 
+#14 103.0 > Configure project :app
+#14 103.0 WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+#14 108.8 
+#14 108.8 > Configure project :capacitor-cordova-android-plugins
+#14 108.8 WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+#14 111.9 Checking the license for package Android SDK Platform 36 in /opt/android-sdk/licenses
+#14 111.9 License for package Android SDK Platform 36 accepted.
+#14 111.9 Preparing "Install Android SDK Platform 36 (revision 2)".
+#14 118.1 "Install Android SDK Platform 36 (revision 2)" ready.
+#14 118.1 Installing Android SDK Platform 36 in /opt/android-sdk/platforms/android-36
+#14 118.1 "Install Android SDK Platform 36 (revision 2)" complete.
+#14 118.5 "Install Android SDK Platform 36 (revision 2)" finished.
+#14 118.5 [=========                              ] 25%                                   
+#14 119.5 > Task :app:preBuild UP-TO-DATE
+#14 119.5 > Task :app:preDebugBuild UP-TO-DATE
+#14 119.6 > Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+#14 119.7 > Task :capacitor-android:preBuild UP-TO-DATE
+#14 119.7 > Task :capacitor-android:preDebugBuild UP-TO-DATE
+#14 119.7 > Task :capacitor-cordova-android-plugins:preBuild UP-TO-DATE
+#14 119.7 > Task :capacitor-cordova-android-plugins:preDebugBuild UP-TO-DATE
+#14 119.7 > Task :capacitor-cordova-android-plugins:writeDebugAarMetadata
+#14 119.7 > Task :capacitor-android:writeDebugAarMetadata
+#14 119.7 > Task :app:javaPreCompileDebug
+#14 119.7 > Task :capacitor-android:processDebugNavigationResources
+#14 123.1 > Task :capacitor-cordova-android-plugins:processDebugNavigationResources
+#14 123.2 > Task :app:checkDebugAarMetadata
+#14 123.3 > Task :app:processDebugNavigationResources
+#14 123.7 > Task :app:compileDebugNavigationResources
+#14 123.7 > Task :app:generateDebugResValues
+#14 123.7 > Task :capacitor-android:generateDebugResValues
+#14 123.8 > Task :capacitor-android:generateDebugResources
+#14 123.9 > Task :capacitor-android:packageDebugResources
+#14 123.9 > Task :capacitor-cordova-android-plugins:generateDebugResValues
+#14 123.9 > Task :capacitor-cordova-android-plugins:generateDebugResources
+#14 124.0 > Task :capacitor-cordova-android-plugins:packageDebugResources
+#14 124.0 > Task :app:mapDebugSourceSetPaths
+#14 124.1 > Task :app:generateDebugResources
+#14 125.6 > Task :app:packageDebugResources
+#14 125.8 > Task :app:mergeDebugResources
+#14 126.5 > Task :app:createDebugCompatibleScreenManifests
+#14 126.5 > Task :app:extractDeepLinksDebug
+#14 126.5 > Task :capacitor-android:extractDeepLinksDebug
+#14 126.5 > Task :capacitor-cordova-android-plugins:extractDeepLinksDebug
+#14 126.6 > Task :capacitor-android:compileDebugLibraryResources
+#14 126.6 > Task :capacitor-cordova-android-plugins:compileDebugLibraryResources
+#14 126.6 > Task :app:parseDebugLocalResources
+#14 126.6 > Task :capacitor-android:javaPreCompileDebug
+#14 126.6 > Task :capacitor-android:parseDebugLocalResources
+#14 126.7 > Task :capacitor-cordova-android-plugins:javaPreCompileDebug
+#14 126.7 > Task :capacitor-cordova-android-plugins:parseDebugLocalResources
+#14 126.7 > Task :capacitor-cordova-android-plugins:processDebugManifest
+#14 126.7 > Task :capacitor-android:processDebugManifest
+#14 126.7 > Task :capacitor-cordova-android-plugins:generateDebugRFile
+#14 126.8 > Task :capacitor-android:generateDebugRFile
+#14 127.0 > Task :app:processDebugMainManifest
+#14 127.8 > Task :app:processDebugManifest
+#14 135.5 > Task :capacitor-android:compileDebugJavaWithJavac FAILED
+#14 135.5 > Task :app:processDebugManifestForPackage
+#14 135.6 
+#14 135.6 [Incubating] Problems report is available at: file:///home/user/myapp/android/build/reports/problems/problems-report.html
+#14 135.6 38 actionable tasks: 38 executed
+#14 135.6 
+#14 135.6 FAILURE: Build failed with an exception.
+#14 135.6 
+#14 135.6 * What went wrong:
+#14 135.6 Execution failed for task ':capacitor-android:compileDebugJavaWithJavac'.
+#14 135.6 > Java compilation initialization error
+#14 135.6     error: invalid source release: 21
+#14 135.6 
+#14 135.6 * Try:
+#14 135.6 > Run with --stacktrace option to get the stack trace.
+#14 135.6 > Run with --info or --debug option to get more log output.
+#14 135.6 > Run with --scan to get full insights.
+#14 135.6 > Get more help at https://help.gradle.org.
+#14 135.6 
+#14 135.6 BUILD FAILED in 2m 15s
+#14 ERROR: process "/bin/sh -c cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle" did not complete successfully: exit code: 1
+------
+ > [main 11/11] RUN cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle:
+135.6 > Java compilation initialization error
+135.6     error: invalid source release: 21
+135.6 
+135.6 * Try:
+135.6 > Run with --stacktrace option to get the stack trace.
+135.6 > Run with --info or --debug option to get more log output.
+135.6 > Run with --scan to get full insights.
+135.6 > Get more help at https://help.gradle.org.
+135.6 
+135.6 BUILD FAILED in 2m 15s
+------
+failed to solve: process "/bin/sh -c cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle" did not complete successfully: exit code: 1
+. Stderr: None. 
+Failed to download artifact '/home/user' (best-effort)
+Traceback (most recent call last):
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 160, in run
+    await self._prepare()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 187, in _prepare
+    await self._setup_agent_environment()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 612, in _setup_agent_environment
+    await self._start_agent_environment()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 618, in _start_agent_environment
+    await asyncio.wait_for(
+    ...<4 lines>...
+    )
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 517, in start
+    await self._run_docker_compose_command(["build"])
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 418, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment custom_android_counter_plugin. Command: docker compose --project-name custom_android_counter_plugin__ekza7n2 --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/custom_android_counter_plugin/environment -f /tmp/tmpg53_3qmi/custom_android_counter_plugin__EkZA7N2-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmphus7ejb7/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 5.61kB done
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/ubuntu:24.04
+#2 DONE 0.0s
+
+#3 [main internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [main  1/11] FROM docker.io/library/ubuntu:24.04
+#4 DONE 0.0s
+
+#5 [main  9/11] RUN cat >/home/user/myapp/src/index.ts <<'TS'
+#5 CACHED
+
+#6 [main  7/11] RUN cat >/home/user/myapp/dist/index.html <<'HTML'
+#6 CACHED
+
+#7 [main  3/11] RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - &&     apt-get install -y --no-install-recommends nodejs &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [main  2/11] RUN apt-get update -y &&     apt-get install -y --no-install-recommends         curl wget ca-certificates git python3 python3-pip python3-pytest bash ripgrep         unzip zip xz-utils openjdk-17-jdk-headless fontconfig file &&     ln -sf /usr/bin/python3 /usr/bin/python &&     pip3 install --break-system-packages pytest-json-ctrf &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#8 CACHED
+
+#9 [main  5/11] RUN mkdir -p /home/user && chmod 0755 /home/user
+#9 CACHED
+
+#10 [main  6/11] RUN mkdir -p /home/user/myapp /home/user/myapp/dist /home/user/myapp/src &&     cd /home/user/myapp &&     cat >package.json <<'JSON'
+#10 CACHED
+
+#11 [main  8/11] RUN cat >/home/user/myapp/dist/app.js <<'JS'
+#11 CACHED
+
+#12 [main  4/11] RUN mkdir -p "/opt/android-sdk/cmdline-tools" &&     cd /tmp &&     curl -fsSL -o cmdline-tools.zip         https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip &&     unzip -q cmdline-tools.zip -d "/opt/android-sdk/cmdline-tools" &&     mv "/opt/android-sdk/cmdline-tools/cmdline-tools"        "/opt/android-sdk/cmdline-tools/latest" &&     rm -f cmdline-tools.zip &&     yes | "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null &&     "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager"         "platform-tools"         "platforms;android-35"         "build-tools;35.0.0" >/dev/null
+#12 CACHED
+
+#13 [main 10/11] RUN cd /home/user/myapp &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D         @capacitor/cli@^8 typescript@^5 &&     npx --yes cap init "MyApp" "com.example.myapp" --web-dir dist &&     npx --yes cap add android
+#13 CACHED
+
+#14 [main 11/11] RUN cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle
+#14 0.459 Downloading https://services.gradle.org/distributions/gradle-8.14.3-all.zip
+#14 1.500 .....................10%.....................20%......................30%.....................40%......................50%.....................60%.....................70%......................80%.....................90%......................100%
+#14 19.57 
+#14 19.57 Welcome to Gradle 8.14.3!
+#14 19.57 
+#14 19.57 Here are the highlights of this release:
+#14 19.57  - Java 24 support
+#14 19.57  - GraalVM Native Image toolchain selection
+#14 19.57  - Enhancements to test reporting
+#14 19.58  - Build Authoring improvements
+#14 19.58 
+#14 19.58 For more details see https://docs.gradle.org/8.14.3/release-notes.html
+#14 19.58 
+#14 20.17 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#14 25.86 Daemon will be stopped at the end of the build 
+#14 103.0 
+#14 103.0 > Configure project :app
+#14 103.0 WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+#14 108.8 
+#14 108.8 > Configure project :capacitor-cordova-android-plugins
+#14 108.8 WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+#14 111.9 Checking the license for package Android SDK Platform 36 in /opt/android-sdk/licenses
+#14 111.9 License for package Android SDK Platform 36 accepted.
+#14 111.9 Preparing "Install Android SDK Platform 36 (revision 2)".
+#14 118.1 "Install Android SDK Platform 36 (revision 2)" ready.
+#14 118.1 Installing Android SDK Platform 36 in /opt/android-sdk/platforms/android-36
+#14 118.1 "Install Android SDK Platform 36 (revision 2)" complete.
+#14 118.5 "Install Android SDK Platform 36 (revision 2)" finished.
+#14 118.5 [=========                              ] 25%                                   
+#14 119.5 > Task :app:preBuild UP-TO-DATE
+#14 119.5 > Task :app:preDebugBuild UP-TO-DATE
+#14 119.6 > Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+#14 119.7 > Task :capacitor-android:preBuild UP-TO-DATE
+#14 119.7 > Task :capacitor-android:preDebugBuild UP-TO-DATE
+#14 119.7 > Task :capacitor-cordova-android-plugins:preBuild UP-TO-DATE
+#14 119.7 > Task :capacitor-cordova-android-plugins:preDebugBuild UP-TO-DATE
+#14 119.7 > Task :capacitor-cordova-android-plugins:writeDebugAarMetadata
+#14 119.7 > Task :capacitor-android:writeDebugAarMetadata
+#14 119.7 > Task :app:javaPreCompileDebug
+#14 119.7 > Task :capacitor-android:processDebugNavigationResources
+#14 123.1 > Task :capacitor-cordova-android-plugins:processDebugNavigationResources
+#14 123.2 > Task :app:checkDebugAarMetadata
+#14 123.3 > Task :app:processDebugNavigationResources
+#14 123.7 > Task :app:compileDebugNavigationResources
+#14 123.7 > Task :app:generateDebugResValues
+#14 123.7 > Task :capacitor-android:generateDebugResValues
+#14 123.8 > Task :capacitor-android:generateDebugResources
+#14 123.9 > Task :capacitor-android:packageDebugResources
+#14 123.9 > Task :capacitor-cordova-android-plugins:generateDebugResValues
+#14 123.9 > Task :capacitor-cordova-android-plugins:generateDebugResources
+#14 124.0 > Task :capacitor-cordova-android-plugins:packageDebugResources
+#14 124.0 > Task :app:mapDebugSourceSetPaths
+#14 124.1 > Task :app:generateDebugResources
+#14 125.6 > Task :app:packageDebugResources
+#14 125.8 > Task :app:mergeDebugResources
+#14 126.5 > Task :app:createDebugCompatibleScreenManifests
+#14 126.5 > Task :app:extractDeepLinksDebug
+#14 126.5 > Task :capacitor-android:extractDeepLinksDebug
+#14 126.5 > Task :capacitor-cordova-android-plugins:extractDeepLinksDebug
+#14 126.6 > Task :capacitor-android:compileDebugLibraryResources
+#14 126.6 > Task :capacitor-cordova-android-plugins:compileDebugLibraryResources
+#14 126.6 > Task :app:parseDebugLocalResources
+#14 126.6 > Task :capacitor-android:javaPreCompileDebug
+#14 126.6 > Task :capacitor-android:parseDebugLocalResources
+#14 126.7 > Task :capacitor-cordova-android-plugins:javaPreCompileDebug
+#14 126.7 > Task :capacitor-cordova-android-plugins:parseDebugLocalResources
+#14 126.7 > Task :capacitor-cordova-android-plugins:processDebugManifest
+#14 126.7 > Task :capacitor-android:processDebugManifest
+#14 126.7 > Task :capacitor-cordova-android-plugins:generateDebugRFile
+#14 126.8 > Task :capacitor-android:generateDebugRFile
+#14 127.0 > Task :app:processDebugMainManifest
+#14 127.8 > Task :app:processDebugManifest
+#14 135.5 > Task :capacitor-android:compileDebugJavaWithJavac FAILED
+#14 135.5 > Task :app:processDebugManifestForPackage
+#14 135.6 
+#14 135.6 [Incubating] Problems report is available at: file:///home/user/myapp/android/build/reports/problems/problems-report.html
+#14 135.6 38 actionable tasks: 38 executed
+#14 135.6 
+#14 135.6 FAILURE: Build failed with an exception.
+#14 135.6 
+#14 135.6 * What went wrong:
+#14 135.6 Execution failed for task ':capacitor-android:compileDebugJavaWithJavac'.
+#14 135.6 > Java compilation initialization error
+#14 135.6     error: invalid source release: 21
+#14 135.6 
+#14 135.6 * Try:
+#14 135.6 > Run with --stacktrace option to get the stack trace.
+#14 135.6 > Run with --info or --debug option to get more log output.
+#14 135.6 > Run with --scan to get full insights.
+#14 135.6 > Get more help at https://help.gradle.org.
+#14 135.6 
+#14 135.6 BUILD FAILED in 2m 15s
+#14 ERROR: process "/bin/sh -c cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle" did not complete successfully: exit code: 1
+------
+ > [main 11/11] RUN cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle:
+135.6 > Java compilation initialization error
+135.6     error: invalid source release: 21
+135.6 
+135.6 * Try:
+135.6 > Run with --stacktrace option to get the stack trace.
+135.6 > Run with --info or --debug option to get more log output.
+135.6 > Run with --scan to get full insights.
+135.6 > Get more help at https://help.gradle.org.
+135.6 
+135.6 BUILD FAILED in 2m 15s
+------
+failed to solve: process "/bin/sh -c cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle" did not complete successfully: exit code: 1
+. Stderr: None. 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/artifact_handler.py", line 195, in _download_artifact
+    await source_env.download_file(
+    ...<2 lines>...
+    )
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 609, in download_file
+    await self._platform.download_file(source_path, target_path)
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker_unix.py", line 48, in download_file
+    await self._env._run_docker_compose_command(
+    ...<2 lines>...
+    )
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 418, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment custom_android_counter_plugin. Command: docker compose --project-name custom_android_counter_plugin__ekza7n2 --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/custom_android_counter_plugin/environment -f /tmp/tmpg53_3qmi/custom_android_counter_plugin__EkZA7N2-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmphus7ejb7/docker-compose-mounts.json cp main:/home/user jobs/2026-06-16__03-27-27/custom_android_counter_plugin__EkZA7N2/artifacts/user. Return code: 1. Stdout: no container found for service "main"
+. Stderr: None. 
+Not retrying trial because the maximum number of retries has been reached
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Running command: echo zr-detnsrx > /logs/artifacts/run-id && echo configure_android_scheme_https__DEtnsRX > /logs/artifacts/trial_id
+Skipping image OS validation for hb__network_status_indicator: docker inspect returned 1
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: pochi --model google/gemini-3.1-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Configure Capacitor Android Scheme to HTTPS with Custom Hostname
+
+## Background
+A Vite + Capacitor v8 project is pre-scaffolded at `/home/user/myapp`. The mobile app calls a remote backend that whitelists CORS origins on a per-host basis. Because of [Chromium WebView origin truncation on Android](https://github.com/ionic-team/capacitor/issues/6936), the existing custom `app://` scheme is sent to the backend without its hostname (just `app://`), causing every request to be rejected by CORS.
+
+The accepted workaround documented in the Capacitor community is to load the WebView under a standard `https` scheme together with a fixed custom hostname, so that the WebView origin Android emits matches the value whitelisted on the backend (`https://myapp.example.com`).
+
+## Requirements
+- Update the Capacitor config so that the Android WebView serves the application from `https://myapp.example.com` instead of the existing `app://localhost` scheme.
+- Keep all previously configured Capacitor app metadata intact (the app name, application ID, and web assets directory must NOT change).
+- The web project must continue to build cleanly with `npm run build`.
+- After the config change, the Capacitor CLI sync step must complete successfully so that the Android native project picks up the new scheme/hostname.
+
+## Implementation Hints
+- Read `/home/user/myapp/capacitor.config.ts` to understand the current configuration and the existing app metadata.
+- The Capacitor config's `server` section is the place to control the local scheme and hostname that the WebView uses. See the [Capacitor configuration reference](https://capacitorjs.com/docs/config) for the `server.androidScheme` and `server.hostname` keys.
+- After updating the config, run `npm run build` and then `npx cap sync` from the project root so that the native Android project is rewritten with the new values.
+
+## Acceptance Criteria
+- Project path: `/home/user/myapp`
+- `/home/user/myapp/capacitor.config.ts` (or `capacitor.config.json` if you replace it) must declare a `server` configuration that sets `androidScheme` to `https` and `hostname` to `myapp.example.com`.
+- The existing `appId`, `appName`, and `webDir` values present in the initial config must remain unchanged.
+- Running `npm run build` in `/home/user/myapp` exits with status code 0 and produces `/home/user/myapp/dist/index.html`.
+- Running `npx cap sync` in `/home/user/myapp` exits with status code 0.
+
+
+EOF
+Running command: echo zr-ibmaae8 > /logs/artifacts/run-id && echo custom_ios_echo_plugin__iBMaAe8 > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Skipping image OS validation for hb__capacitorhttp_external_api_call: docker inspect returned 1
+Command outputs captured
+Running command: pochi --model google/gemini-3.1-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Implement a Custom Local iOS Plugin for a Capacitor v8 App
+
+## Background
+A Capacitor v8 hybrid app is pre-scaffolded at `/home/user/myapp`. The native iOS platform has already been added with `npx cap add ios` and committed to source control, including a custom `MyViewController.swift` subclass wired up in `Main.storyboard`. The product team wants to call a native Swift method from JavaScript, but no plugin exists yet for this echo capability. Your job is to build a Capacitor v8 local plugin in Swift, register it with the bridge in the existing view controller, and expose it to the web layer through a TypeScript wrapper.
+
+Because this benchmark runs on Linux, you will not be able to invoke `xcodebuild`. Instead, the verifier checks the Swift source files, the Xcode project membership in `project.pbxproj`, the JavaScript wrapper, and that `npx cap sync ios` still succeeds.
+
+## Requirements
+- Implement a Swift Capacitor plugin called `EchoPlugin` at `/home/user/myapp/ios/App/App/EchoPlugin.swift` that conforms to both `CAPPlugin` and `CAPBridgedPlugin`.
+  - It must be exposed to the Objective-C runtime with the class name `EchoPlugin`.
+  - It must declare `identifier = "EchoPlugin"` and `jsName = "Echo"`.
+  - It must declare a `pluginMethods` array containing the `echo` method using `CAPPluginReturnPromise`.
+  - It must implement `@objc func echo(_ call: CAPPluginCall)` that resolves the call with a dictionary echoing the `value` argument back under the key `"value"` (default to an empty string when missing).
+- Register the plugin instance with the Capacitor bridge by overriding `capacitorDidLoad()` in the existing `MyViewController.swift` and calling `bridge?.registerPluginInstance(EchoPlugin())`.
+- Add `EchoPlugin.swift` to the Xcode build target so it ends up in both `PBXFileReference` and `PBXSourcesBuildPhase` sections of `ios/App/App.xcodeproj/project.pbxproj`.
+- Create a TypeScript wrapper at `/home/user/myapp/src/echo.ts` that imports `registerPlugin` from `@capacitor/core` and registers the plugin under the exact name `"Echo"`.
+- After your changes, `npx cap sync ios` must still complete successfully from the project root.
+
+## Implementation Hints
+- Read the official Capacitor v8 "Custom Native iOS Code" guide. The modern v8 protocol is `CAPBridgedPlugin` (with `identifier`, `jsName`, and `pluginMethods` properties), used together with `CAPPlugin` as the base class.
+- The `@objc(EchoPlugin)` decorator is required for the Capacitor runtime to discover the plugin by name.
+- `bridge?.registerPluginInstance(...)` is called from `capacitorDidLoad()` inside the view controller that subclasses `CAPBridgeViewController` — that file already exists in the project.
+- Because Xcode is not available, you must edit `project.pbxproj` directly. Mirror the patterns used for existing Swift files (such as `MyViewController.swift`): add a `PBXFileReference`, a `PBXBuildFile`, an entry in the `App` group `PBXGroup` children, and an entry in the `Sources` `PBXSourcesBuildPhase`.
+- `pod` (CocoaPods) is not available in the Linux container; `npx cap sync ios` will skip the pod install step automatically and still exit 0.
+
+## Acceptance Criteria
+- Project path: /home/user/myapp
+- Plugin source file `ios/App/App/EchoPlugin.swift` exists and contains:
+  - `import Capacitor`
+  - `@objc(EchoPlugin)` annotation
+  - A class declaration combining `CAPPlugin` and `CAPBridgedPlugin`
+  - `public let identifier = "EchoPlugin"`
+  - `public let jsName = "Echo"`
+  - A `pluginMethods` array entry `CAPPluginMethod(name: "echo", returnType: CAPPluginReturnPromise)`
+  - A method signature matching `@objc func echo(_ call: CAPPluginCall)` and a `call.resolve` invocation that returns a dictionary keyed by `"value"`
+- The view controller at `ios/App/App/MyViewController.swift` overrides `capacitorDidLoad()` and calls `bridge?.registerPluginInstance(EchoPlugin())`.
+- The Xcode project file `ios/App/App.xcodeproj/project.pbxproj` references `EchoPlugin.swift` in both `PBXFileReference` and `PBXSourcesBuildPhase` sections (at least two occurrences of the string `EchoPlugin.swift`).
+- The TypeScript wrapper `src/echo.ts` imports `registerPlugin` from `@capacitor/core` and registers it under the literal name `"Echo"`.
+- Running `npx cap sync ios` from `/home/user/myapp` exits with status 0.
+- `EchoPlugin.swift` has balanced curly braces (equal counts of `{` and `}`, at least 4 of each).
+
+
+EOF
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Running command: echo zr-qtwdypn > /logs/artifacts/run-id && echo network_status_indicator__QTwDypn > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model google/gemini-3.1-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Network Status Indicator with Capacitor Network Plugin
+
+## Background
+You are extending a small Vite + TypeScript web application that will eventually be packaged as a native mobile app via Capacitor v8. The application needs to display whether the device is online or offline, and react instantly when the connectivity changes. Instead of relying solely on the browser's `navigator.onLine` property, you must use the official `@capacitor/network` plugin so the same code path will work later on iOS and Android.
+
+A minimal Vite + TypeScript project has already been scaffolded for you at `/home/user/myapp`, and Capacitor v8 (`@capacitor/core` and `@capacitor/cli`) plus a `capacitor.config.ts` are already in place. Your job is to install the Network plugin, wire it into the app's startup code, and keep a status indicator element in sync with the live connection state.
+
+## Requirements
+- Install the `@capacitor/network` plugin at a version compatible with Capacitor v8 (major version `8`).
+- Render a `<span>` element with `id="net-status"` somewhere inside the document body of the served page.
+- On page load, query the current network status with `Network.getStatus()` and set `#net-status.textContent` to:
+    - `"online"` when the returned `connected` property is `true`.
+    - `"offline"` when the returned `connected` property is `false`.
+- Subscribe to live connectivity updates using `Network.addListener('networkStatusChange', ...)`. When the listener fires, update `#net-status.textContent` to `"online"` or `"offline"` based on the new `connected` value, without requiring a page reload.
+- `npm run build` must produce a working `dist/index.html`.
+- `npx cap sync` must run successfully against the produced web build.
+
+## Implementation Hints
+- Import the plugin as `import { Network } from '@capacitor/network';` from inside an ES module entry point.
+- The Network plugin uses the browser's connectivity events as its fallback on the web target, so changes triggered through the test browser's `set_offline(...)` API will surface through both `Network.getStatus()` and the `'networkStatusChange'` event.
+- Make sure the indicator element exists in the DOM before you update its `textContent` (for example, by placing the `<span id="net-status">` inside `index.html` or by injecting it from the entry script before awaiting `Network.getStatus()`).
+- Use `await` (or `.then(...)`) when calling `Network.getStatus()`; do not assume the promise has already resolved when you read its result.
+
+## Acceptance Criteria
+- Project path: /home/user/myapp
+- Start command: `npm run preview -- --host 0.0.0.0 --port 4173`
+- Port: 4173
+- `package.json` must list `@capacitor/network` in either `dependencies` or `devDependencies`, and the installed version's major component must be exactly `8`.
+- `npm run build` must complete with exit code `0` and produce the file `/home/user/myapp/dist/index.html`.
+- `npx cap sync` executed in `/home/user/myapp` after the production build must exit with code `0`.
+- The served page at `http://localhost:4173/` must contain a single visible element matching the CSS selector `#net-status`.
+- When the page is opened in a headless Chromium browser with the default (online) context, `#net-status.textContent` must equal the string `"online"`.
+- When the browser context is switched to offline (via `context.set_offline(True)`) the value of `#net-status.textContent` must transition to the string `"offline"` without requiring a page reload, within 5 seconds.
+- When the browser context is switched back online (via `context.set_offline(False)`) the value of `#net-status.textContent` must transition back to the string `"online"` without requiring a page reload, within 5 seconds.
+
+
+EOF
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-t925aqs > /logs/artifacts/run-id && echo capacitorhttp_external_api_call__T925aQS > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command failed
+Trial capacitorhttp_external_api_call__T925aQS failed: Initial state test failed
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Not retrying trial because the maximum number of retries has been reached
+Skipping image OS validation for hb__align_webdir_nextjs_export: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-rdu3daj > /logs/artifacts/run-id && echo align_webdir_nextjs_export__RDU3dAj > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Skipping image OS validation for hb__status_bar_install_and_call: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-3xnm2ya > /logs/artifacts/run-id && echo status_bar_install_and_call__3XNM2yA > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command failed
+Trial status_bar_install_and_call__3XNM2yA failed: Initial state test failed
+Command outputs captured
+Running command: pochi --model google/gemini-3.1-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Align Capacitor `webDir` with Next.js Static Export
+
+## Background
+A pre-scaffolded Next.js 14 + TypeScript application uses Capacitor v8 to package the web build as a native shell. The project at `/home/user/myapp` already includes Capacitor core, CLI, and the Android platform, but the configuration is misaligned: `capacitor.config.ts` declares `webDir: "out"`, while `next.config.js` is missing the static export switch. As a result, `npm run build` only emits `.next/` and `npx cap sync` fails with `Could not find the web assets directory: ./out`.
+
+Your job is to repair the configuration so the existing toolchain produces a valid `out/` directory that Capacitor can sync into the Android project.
+
+## Requirements
+- Configure the Next.js application to perform a static export at build time so that `npm run build` writes the rendered site to `/home/user/myapp/out/`.
+- Keep `capacitor.config.ts` pointing at the `out/` directory (this is already the desired `webDir`).
+- Ensure `npm run build` followed by `npx cap sync` both succeed with exit code 0.
+
+## Implementation Hints
+- Next.js 14 exposes a top-level `output` option in `next.config.js`. Setting it to the value documented for static exports causes `next build` to populate the `out/` directory instead of (or in addition to) `.next/`.
+- Capacitor's `webDir` field must match the directory that actually contains `index.html` after the build. Do not change `webDir`; align the build output with it.
+- After fixing the config, you can validate locally by running `npm run build` and then `npx cap sync android`.
+
+## Acceptance Criteria
+- Project path: /home/user/myapp
+- `next.config.js` (or `next.config.mjs` / `next.config.ts`) declares Next.js static export by setting the `output` option to `'export'`.
+- `capacitor.config.ts` keeps `webDir` set to `"out"`.
+- Running `npm run build` inside `/home/user/myapp` exits with code 0 and produces `/home/user/myapp/out/index.html`.
+- Running `npx cap sync` inside `/home/user/myapp` exits with code 0 and its stderr does NOT contain the string `Could not find the web assets directory`.
+
+
+EOF
+Skipping image OS validation for hb__upgrade_capacitor_v7_to_v8: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-ykaqpd5 > /logs/artifacts/run-id && echo upgrade_capacitor_v7_to_v8__yKAQPd5 > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model google/gemini-3.1-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Upgrade Capacitor v7 Project to Capacitor v8
+
+## Background
+You are handed a Vite + TypeScript project at `/home/user/myapp` that was originally built against Capacitor 7. The project currently has the following `@capacitor/*` dependencies pinned to the v7 line and installed in `node_modules`:
+
+- `@capacitor/core` (runtime dependency)
+- `@capacitor/preferences` (runtime dependency)
+- `@capacitor/cli` (dev dependency)
+
+The Capacitor configuration file (`capacitor.config.ts`) is already in place with a valid `appId`, `appName`, and `webDir`. A small piece of application code in `src/main.ts` already calls into `@capacitor/preferences`; it must keep compiling and the project must keep building.
+
+Capacitor 8 introduces a few breaking changes you need to be aware of. Most notably, **Capacitor 8 requires Node.js 22 or greater**, and every official Capacitor plugin must be bumped to its 8.x major in lock-step with `@capacitor/core` and `@capacitor/cli` (mixing a v7 plugin with v8 core will cause the CLI to emit a version mismatch warning during `npx cap sync`). The Capacitor CLI is itself a dev dependency that ships an `npx cap migrate` helper, but you may also perform the upgrade manually.
+
+Your job is to upgrade ALL `@capacitor/*` dependencies in the project to the latest Capacitor 8.x release, reinstall, and prove that the project still builds and that `npx cap sync` runs cleanly. You do NOT need to add the native Android or iOS platforms (`@capacitor/android` / `@capacitor/ios`); only the existing packages must be upgraded.
+
+The project starts with the Node.js 22+ runtime already available in the environment, so you do not need to install or change the Node.js version.
+
+## Requirements
+- Upgrade EVERY `@capacitor/*` package declared in `/home/user/myapp/package.json` (under `dependencies` and/or `devDependencies`) to the latest Capacitor 8.x release.
+- After updating the version specifiers, re-run `npm install` so that the lockfile and the installed package metadata under `node_modules/@capacitor/*` all reflect the v8 release. A `package-lock.json` MUST exist after install.
+- `npm run build` must continue to exit `0` and produce `dist/index.html`.
+- `npx cap sync` must exit `0`. Its stderr must NOT contain a Capacitor plugin "version mismatch" warning. (The CLI emits one when a `@capacitor/*` plugin's major version does not match the CLI's major version.)
+- Do not change the project's `appId`, `appName`, or `webDir` in `capacitor.config.ts`. They must remain exactly as scaffolded.
+- Do not add `@capacitor/android` or `@capacitor/ios`. They are out of scope for this upgrade task.
+
+## Implementation Hints
+- Capacitor's official upgrade guide for v8 lists the breaking changes you should be aware of: Node 22+ is now the minimum, every official Capacitor plugin (including `@capacitor/preferences`) ships a matching `8.0.0` (or higher) major release, and the recommended automated path is `npm i -D @capacitor/cli@latest` followed by `npx cap migrate`.
+- You can also perform the upgrade manually: bump the version specifiers in `package.json` to the v8 majors, then run `npm install` to refresh `node_modules` and regenerate `package-lock.json`.
+- The `npx cap sync` command reads `node_modules/@capacitor/*/package.json` for each installed plugin and compares its major version to the CLI's major version. Upgrading every plugin in lock-step is what eliminates the mismatch warning.
+
+## Acceptance Criteria
+- Project path: /home/user/myapp
+- Every key in `/home/user/myapp/package.json` `dependencies` and `devDependencies` whose name starts with `@capacitor/` has a version specifier whose first dotted segment (after stripping leading semver range operators such as `^`, `~`, `>=`) equals `8`.
+- For every `@capacitor/*` package directory present under `/home/user/myapp/node_modules/`, its `package.json` exists and has a `version` field whose first dotted segment equals `8`. This MUST include at minimum `@capacitor/core`, `@capacitor/cli`, and `@capacitor/preferences`.
+- A `/home/user/myapp/package-lock.json` file exists and is valid JSON with a `lockfileVersion` field present.
+- Running `npm run build` inside `/home/user/myapp` exits with code `0`, and afterwards `/home/user/myapp/dist/index.html` exists.
+- Running `npx --no-install cap sync` inside `/home/user/myapp` exits with code `0`, and its stderr does NOT contain the case-insensitive phrase `version mismatch`.
+- The `appId`, `appName`, and `webDir` recorded in `/home/user/myapp/capacitor.config.ts` are unchanged from the initial scaffold. A snapshot of the original values is written by the environment to `/home/user/.harbor/initial_capacitor_config.json`; the verifier compares against that file.
+
+
+EOF
+Not retrying trial because the maximum number of retries has been reached
+Skipping image OS validation for hb__preferences_multi_key_crud: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-7eogixg > /logs/artifacts/run-id && echo preferences_multi_key_crud__7eogiXG > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model google/gemini-3.1-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Multi-Key Key/Value Admin UI with Capacitor Preferences
+
+## Background
+You are building a small Vite + TypeScript web application that will eventually be packaged as a native mobile app via Capacitor v8. Persistent settings must be stored using the `@capacitor/preferences` plugin instead of `window.localStorage`, because mobile operating systems may clear `localStorage` while the Preferences plugin uses durable native storage (with a `localStorage` fallback when the app runs as a Progressive Web App in the browser).
+
+A minimal Vite TypeScript project has already been scaffolded for you at `/home/user/myapp`. Your job is to integrate Capacitor v8, install the Preferences plugin, and build a tiny key-value admin UI that exercises the full Preferences CRUD surface: `set`, `get`, `remove`, `clear`, and `keys`.
+
+## Requirements
+- Integrate Capacitor v8 into the existing Vite project using the non-interactive CLI flow. The Capacitor app must be configured with:
+    - App name: `KV Admin`
+    - Application/package id: `com.example.kvadmin`
+    - Web assets directory aligned with Vite's build output (`dist`).
+- Install and use the `@capacitor/preferences` plugin (version compatible with Capacitor v8) for ALL persistence. Do not call `window.localStorage` directly from your application code.
+- Implement an admin UI in `index.html` that contains the following elements with these exact HTML ids:
+    - `<input id="kv-key">` — text input for a key name.
+    - `<input id="kv-value">` — text input for a value.
+    - `<button id="kv-set-btn">Set</button>` — store the current key/value pair through `Preferences.set`.
+    - `<button id="kv-remove-btn">Remove</button>` — remove the key currently in `#kv-key` through `Preferences.remove`.
+    - `<button id="kv-clear-btn">Clear All</button>` — clear every stored key/value pair through `Preferences.clear`.
+    - `<ul id="kv-list"></ul>` — a list that displays every stored key/value pair.
+- The list must be refreshed automatically after every operation (`Set`, `Remove`, `Clear All`) AND on every page load by:
+    1. Calling `Preferences.keys()` to enumerate the currently stored keys.
+    2. Calling `Preferences.get({ key })` for each key.
+    3. Rendering each pair as `<li data-key="<key>"><key>=<value></li>` inside `#kv-list`.
+- The list ordering does not need to be sorted, but each key MUST appear exactly once.
+- `npx cap sync` must run successfully against the produced web build.
+
+## Implementation Hints
+- Use `npx cap init` with positional `appName` and `appId` arguments and the `--web-dir` flag to avoid the interactive prompt.
+- Import `Preferences` from `@capacitor/preferences` in your TypeScript code; the API methods you need are `Preferences.set({ key, value })`, `Preferences.get({ key })`, `Preferences.remove({ key })`, `Preferences.clear()`, and `Preferences.keys()`.
+- Vite's default build output directory is `dist`, which must match `webDir` in `capacitor.config.ts` (or `.json`).
+- The Preferences plugin transparently falls back to `localStorage` on the web target (it uses keys prefixed with `CapacitorStorage.`), so no native runtime is required for the web build used to verify the behavior.
+- Make sure the script that wires up the UI is loaded as an ES module so that imports from `@capacitor/preferences` succeed.
+- Re-render `#kv-list` from scratch each time (clear existing `<li>` children before appending new ones) so the list always reflects the current Preferences state.
+
+## Acceptance Criteria
+- Project path: /home/user/myapp
+- Start command: `npm run preview -- --host 0.0.0.0 --port 4173`
+- Port: 4173
+- `npm run build` must complete without errors and produce a `dist/` directory containing `index.html`.
+- `capacitor.config.ts` (or `capacitor.config.json`) must exist at the project root with `appName` equal to `KV Admin`, `appId` equal to `com.example.kvadmin`, and `webDir` equal to `dist`.
+- `package.json` must list `@capacitor/core`, `@capacitor/cli`, and `@capacitor/preferences` as dependencies (any of `dependencies` or `devDependencies`). The installed major version of `@capacitor/preferences` must be `8`.
+- `npx cap sync` executed after the production build must exit with status 0.
+- The served page at `http://localhost:4173/` must contain elements with HTML ids `kv-key`, `kv-value`, `kv-set-btn`, `kv-remove-btn`, `kv-clear-btn`, and `kv-list`.
+- On a fresh browser session (empty `localStorage`), `#kv-list` must initially contain zero `<li>` children.
+- After entering a key in `#kv-key` and a value in `#kv-value` and clicking `#kv-set-btn`, a `<li data-key="<key>"><key>=<value></li>` element must appear inside `#kv-list`, and the value must be retrievable via `Preferences.get`.
+- Stored entries must persist across full page reloads (the list rebuilds itself from Preferences on load).
+- Clicking `#kv-remove-btn` while `#kv-key` holds a stored key must remove that key from `#kv-list` and from Preferences.
+- Clicking `#kv-clear-btn` must remove every `<li>` from `#kv-list` and clear every entry from Preferences.
+
+
+EOF
+Skipping image OS validation for hb__enable_capacitorhttp_plugin: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-3b3muus > /logs/artifacts/run-id && echo enable_capacitorhttp_plugin__3B3MUus > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model google/gemini-3.1-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Enable the CapacitorHttp Plugin and Display a Remote HTTP Status
+
+## Background
+Capacitor v8 ships a built-in `CapacitorHttp` plugin as part of `@capacitor/core`. When enabled in the Capacitor configuration file it routes `fetch`/`XMLHttpRequest` calls and direct `CapacitorHttp.get`/`post` calls through native HTTP libraries on iOS and Android, which sidesteps the WebView's CORS restrictions. By default, the plugin is **disabled** and must be opted into via the `plugins.CapacitorHttp.enabled` flag in `capacitor.config.ts`/`capacitor.config.json`.
+
+A Vite + TypeScript project has already been scaffolded for you at `/home/user/myapp`. Capacitor v8 is already installed and a `capacitor.config.ts` exists at the project root, but `CapacitorHttp` is not yet enabled and the page does not yet perform any network requests. Your job is to enable the plugin and wire up a tiny UI that uses `CapacitorHttp.get` to fetch JSON from a URL provided at runtime by the test fixture and then display the resulting HTTP status code on the page.
+
+## Requirements
+- Enable the `CapacitorHttp` plugin via the existing `capacitor.config.ts` so that `plugins.CapacitorHttp.enabled` is `true`. The structure must be valid Capacitor v8 configuration (the file is regex-checked for `plugins.CapacitorHttp.enabled === true`).
+- After modifying the config, building (`npm run build`) and syncing (`npx cap sync`) must continue to succeed.
+- Render a small UI in the existing Vite app that contains:
+    - A `<button>` element with the HTML id `fetch-btn`.
+    - A `<span>` element with the HTML id `http-status`. Its initial text content may be anything (e.g., empty), but it must be updated when the user clicks the button.
+- When the button is clicked, the page must:
+    1. Read the target URL from `window.__API_URL__` (the test fixture injects this value via Playwright's `addInitScript` before the page navigates). You may assume the value is a non-empty string.
+    2. Call `CapacitorHttp.get({ url: window.__API_URL__ })` (imported from `@capacitor/core`) and `await` the result.
+    3. Set the text content of `#http-status` to the stringified value of the response's `status` field (e.g., the literal text `"200"` for a 200 OK response).
+- The implementation MUST use `CapacitorHttp.get` from `@capacitor/core`. Using the global `fetch`/`XMLHttpRequest` is not acceptable for this task because the verifier inspects status reporting end-to-end through the plugin call.
+
+## Implementation Hints
+- `CapacitorHttp` is a property of `@capacitor/core`'s default export and does not require an additional `npm install`.
+- To enable the plugin in TypeScript config, add a top-level `plugins` key to the `CapacitorConfig` literal:
+  ```ts
+  const config: CapacitorConfig = {
+    // ...existing fields
+    plugins: {
+      CapacitorHttp: { enabled: true },
+    },
+  };
+  ```
+- Read the URL from `window.__API_URL__` inside the click handler so that the value injected by the test is available when the request is made.
+- The button and span must be present in the served HTML (either in `index.html` or rendered before the test interacts with the page). The verifier uses Playwright's `wait_for_selector`, so a small render delay is acceptable.
+
+## Acceptance Criteria
+- Project path: /home/user/myapp
+- Start command: `npm run preview -- --host 0.0.0.0 --port 4173`
+- Port: 4173
+- The Capacitor config file at the project root (either `capacitor.config.ts` or `capacitor.config.json`) must enable `CapacitorHttp` such that the resulting configuration satisfies `plugins.CapacitorHttp.enabled === true`. A regex-tolerant check accepts both `.ts` and `.json` representations.
+- `npm run build` exits with status 0 and produces `dist/index.html`.
+- `npx cap sync` exits with status 0.
+- The page served at `http://localhost:4173/` contains an element matching `<button id="fetch-btn">` and an element matching `<span id="http-status">`.
+- After Playwright launches headless Chromium, injects a fixture URL into `window.__API_URL__`, navigates to `http://localhost:4173/`, and clicks `#fetch-btn`, the text content of `#http-status` becomes the string `"200"` within a 10-second timeout.
+
+
+EOF
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Skipping image OS validation for hb__share_text_payload: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-4r6fvzh > /logs/artifacts/run-id && echo share_text_payload__4r6fVzh > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command failed
+Trial share_text_payload__4r6fVzh failed: Initial state test failed
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Skipping image OS validation for hb__app_state_visibility_listener: docker inspect returned 1
+Not retrying trial because the maximum number of retries has been reached
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-rcaevkm > /logs/artifacts/run-id && echo app_state_visibility_listener__rCAEVKM > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command failed
+Trial app_state_visibility_listener__rCAEVKM failed: Initial state test failed
+Not retrying trial because the maximum number of retries has been reached

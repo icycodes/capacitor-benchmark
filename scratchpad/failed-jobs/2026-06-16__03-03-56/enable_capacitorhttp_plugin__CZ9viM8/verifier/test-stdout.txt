@@ -1,0 +1,100 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: xprocess-1.0.2, json-ctrf-0.5.2
+collected 5 items
+
+tests/test_final_state.py ....F                                          [100%]
+
+=================================== FAILURES ===================================
+__________________ test_capacitorhttp_get_displays_status_200 __________________
+
+preview_server = 'http://127.0.0.1:4173/'
+mock_api_server = 'http://127.0.0.1:5174/data.json'
+
+    def test_capacitorhttp_get_displays_status_200(preview_server, mock_api_server):
+        pytest.importorskip("playwright.sync_api")
+        from playwright.sync_api import sync_playwright
+    
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            try:
+                context = browser.new_context()
+                # Inject the API URL the page must read at click time. The init script
+                # runs in every frame before any other script executes.
+                context.add_init_script(
+                    f"window.__API_URL__ = {json.dumps(mock_api_server)};"
+                )
+                page = context.new_page()
+                page.goto(preview_server, wait_until="load")
+    
+                page.wait_for_selector("#fetch-btn", state="attached", timeout=10_000)
+                page.wait_for_selector("#http-status", state="attached", timeout=10_000)
+    
+                # Sanity check: the page sees the injected URL.
+                injected_url = page.evaluate("window.__API_URL__")
+                assert injected_url == mock_api_server, (
+                    "Expected window.__API_URL__ to be set by the test fixture; "
+                    f"got {injected_url!r}."
+                )
+    
+                page.click("#fetch-btn")
+    
+>               page.wait_for_function(
+                    "document.getElementById('http-status') && "
+                    "document.getElementById('http-status').textContent.trim() === '200'",
+                    timeout=10_000,
+                )
+
+tests/test_final_state.py:249: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+usr/local/lib/python3.12/dist-packages/playwright/sync_api/_generated.py:12436: in wait_for_function
+    self._sync(
+usr/local/lib/python3.12/dist-packages/playwright/_impl/_page.py:1136: in wait_for_function
+    return await self._main_frame.wait_for_function(**locals_to_params(locals()))
+usr/local/lib/python3.12/dist-packages/playwright/_impl/_frame.py:910: in wait_for_function
+    await self._channel.send("waitForFunction", self._timeout, params)
+usr/local/lib/python3.12/dist-packages/playwright/_impl/_connection.py:69: in send
+    return await self._connection.wrap_api_call(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <playwright._impl._connection.Connection object at 0x7f8db1429dc0>
+cb = <function Channel.send.<locals>.<lambda> at 0x7f8db036ee80>
+is_internal = False, title = None
+
+    async def wrap_api_call(
+        self, cb: Callable[[], Any], is_internal: bool = False, title: str = None
+    ) -> Any:
+        if self._api_zone.get():
+            return await cb()
+        task = asyncio.current_task(self._loop)
+        st: List[inspect.FrameInfo] = getattr(
+            task, "__pw_stack__", None
+        ) or inspect.stack(0)
+    
+        parsed_st = _extract_stack_trace_information_from_stack(st, is_internal, title)
+        self._api_zone.set(parsed_st)
+        try:
+            return await cb()
+        except Exception as error:
+>           raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E           playwright._impl._errors.TimeoutError: Page.wait_for_function: Timeout 10000ms exceeded.
+
+usr/local/lib/python3.12/dist-packages/playwright/_impl/_connection.py:559: TimeoutError
+---------------------------- Captured stdout setup -----------------------------
+/tests/.pytest_cache/d/.xprocess/mock_api$ python3 -m http.server 5174 --bind 127.0.0.1 --directory /tmp/capacitorhttp_mock_j230esyd
+process 'mock_api' started pid=865
+mock_api process startup detected
+==================================== PASSES ====================================
+_____________ test_index_served_with_fetch_button_and_status_span ______________
+---------------------------- Captured stdout setup -----------------------------
+/tests/.pytest_cache/d/.xprocess/vite_preview$ npm run preview -- --host 0.0.0.0 --port 4173 --strictPort
+process 'vite_preview' started pid=841
+vite_preview process startup detected
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_capacitor_http_enabled_in_config
+PASSED tests/test_final_state.py::test_dist_index_html_exists
+PASSED tests/test_final_state.py::test_capacitor_sync_succeeds
+PASSED tests/test_final_state.py::test_index_served_with_fetch_button_and_status_span
+FAILED tests/test_final_state.py::test_capacitorhttp_get_displays_status_200
+========================= 1 failed, 4 passed in 15.04s =========================

@@ -1,0 +1,75 @@
+Skipping image OS validation for hb__configure_android_scheme_https: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-hcxjex3 > /logs/artifacts/run-id && echo configure_android_scheme_https__HcxjeX3 > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model zai/glm-5.1 --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Configure Capacitor Android Scheme to HTTPS with Custom Hostname
+
+## Background
+A Vite + Capacitor v8 project is pre-scaffolded at `/home/user/myapp`. The mobile app calls a remote backend that whitelists CORS origins on a per-host basis. Because of [Chromium WebView origin truncation on Android](https://github.com/ionic-team/capacitor/issues/6936), the existing custom `app://` scheme is sent to the backend without its hostname (just `app://`), causing every request to be rejected by CORS.
+
+The accepted workaround documented in the Capacitor community is to load the WebView under a standard `https` scheme together with a fixed custom hostname, so that the WebView origin Android emits matches the value whitelisted on the backend (`https://myapp.example.com`).
+
+## Requirements
+- Update the Capacitor config so that the Android WebView serves the application from `https://myapp.example.com` instead of the existing `app://localhost` scheme.
+- Keep all previously configured Capacitor app metadata intact (the app name, application ID, and web assets directory must NOT change).
+- The web project must continue to build cleanly with `npm run build`.
+- After the config change, the Capacitor CLI sync step must complete successfully so that the Android native project picks up the new scheme/hostname.
+
+## Implementation Hints
+- Read `/home/user/myapp/capacitor.config.ts` to understand the current configuration and the existing app metadata.
+- The Capacitor config's `server` section is the place to control the local scheme and hostname that the WebView uses. See the [Capacitor configuration reference](https://capacitorjs.com/docs/config) for the `server.androidScheme` and `server.hostname` keys.
+- After updating the config, run `npm run build` and then `npx cap sync` from the project root so that the native Android project is rewritten with the new values.
+
+## Acceptance Criteria
+- Project path: `/home/user/myapp`
+- `/home/user/myapp/capacitor.config.ts` (or `capacitor.config.json` if you replace it) must declare a `server` configuration that sets `androidScheme` to `https` and `hostname` to `myapp.example.com`.
+- The existing `appId`, `appName`, and `webDir` values present in the initial config must remain unchanged.
+- Running `npm run build` in `/home/user/myapp` exits with status code 0 and produces `/home/user/myapp/dist/index.html`.
+- Running `npx cap sync` in `/home/user/myapp` exits with status code 0.
+
+
+EOF
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured

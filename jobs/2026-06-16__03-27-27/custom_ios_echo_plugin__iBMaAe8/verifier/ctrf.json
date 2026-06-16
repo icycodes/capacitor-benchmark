@@ -1,0 +1,155 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T03:32:38.075217+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 14,
+            "passed": 14,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781580757155,
+            "stop": 1781580758075
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_echo_plugin_swift_exists",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781580757190,
+                "stop": 1781580757191,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_plugin_swift_imports_capacitor",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781580757192,
+                "stop": 1781580757193,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_plugin_swift_objc_annotation",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781580757193,
+                "stop": 1781580757194,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_plugin_swift_class_declaration",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781580757195,
+                "stop": 1781580757196,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_plugin_swift_identifier_constant",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781580757196,
+                "stop": 1781580757197,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_plugin_swift_jsname_constant",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781580757198,
+                "stop": 1781580757199,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_plugin_swift_plugin_methods_array",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781580757199,
+                "stop": 1781580757200,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_plugin_swift_echo_method_signature",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781580757201,
+                "stop": 1781580757202,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_plugin_swift_resolves_value_key",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781580757202,
+                "stop": 1781580757203,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_plugin_swift_balanced_braces",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781580757203,
+                "stop": 1781580757204,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_myviewcontroller_registers_echo_plugin",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781580757204,
+                "stop": 1781580757206,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_pbxproj_references_echo_plugin_swift",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781580757206,
+                "stop": 1781580757207,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_ts_wrapper_exists_and_registers_plugin",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781580757207,
+                "stop": 1781580757209,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_cap_sync_ios_succeeds",
+                "status": "passed",
+                "duration": 865,
+                "start": 1781580757209,
+                "stop": 1781580758074,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

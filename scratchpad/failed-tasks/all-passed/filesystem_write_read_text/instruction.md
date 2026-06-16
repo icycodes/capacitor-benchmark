@@ -1,0 +1,37 @@
+# Persist and Retrieve Plain Text with the Capacitor Filesystem Plugin
+
+## Background
+You are extending a small Vite + TypeScript web application that will eventually be packaged as a native mobile app via Capacitor v8. The `@capacitor/filesystem` plugin provides a NodeJS-like API for reading and writing files on the device. On the web target, the plugin transparently persists files inside an IndexedDB-backed store so that the same JavaScript code that runs on iOS and Android also works when verified inside the headless browser used by this task.
+
+A minimal Vite + TypeScript project, with Capacitor v8 core already installed and configured, has been pre-scaffolded for you at `/home/user/myapp`. Your job is to install the Capacitor Filesystem plugin and wire up a tiny UI that writes a fixed string to disk through `Filesystem.writeFile` and reads it back through `Filesystem.readFile`.
+
+## Requirements
+- Install `@capacitor/filesystem` at a version compatible with Capacitor v8 (i.e. major version `8`).
+- Implement a UI in `index.html` (and any TypeScript modules under `src/`) that contains:
+    - A `<button>` element with the HTML id `write-btn`.
+    - A `<button>` element with the HTML id `read-btn`.
+    - A `<span>` element with the HTML id `file-content` (its initial text content must be empty).
+- Clicking `#write-btn` must use the Capacitor Filesystem plugin to write the exact UTF-8 string `Hello Capacitor` to a file named `demo.txt` inside the `Directory.Data` directory. You may NOT shortcut the requirement by writing the bytes directly to `localStorage`, `IndexedDB`, or any other storage backend — the file MUST be written through `Filesystem.writeFile` using `Directory.Data` and `Encoding.UTF8`.
+- Clicking `#read-btn` must call `Filesystem.readFile({ path: 'demo.txt', directory: Directory.Data, encoding: Encoding.UTF8 })` and write the returned `data` value verbatim into the `textContent` of `#file-content`.
+- The persisted file must survive a page reload (the Filesystem plugin's web implementation uses IndexedDB, which is persistent across reloads in the same browser context). After reloading, clicking `#read-btn` alone must still populate `#file-content` with `Hello Capacitor` (without having to click `#write-btn` again first).
+- After installing the plugin, `npm run build` must succeed and `npx cap sync` must exit with status 0 against the produced web build (no native platforms need to be added).
+
+## Implementation Hints
+- The pre-scaffolded project already contains a working `capacitor.config.ts` with `webDir` set to `dist`, so you do not need to re-run `npx cap init`.
+- Install the plugin with `npm install @capacitor/filesystem@^8`.
+- Import `Filesystem`, `Directory`, and `Encoding` from `@capacitor/filesystem`.
+- Make sure the script that wires up the buttons is loaded as an ES module so that the import of `@capacitor/filesystem` resolves at runtime.
+- Vite serves the build output via `npm run preview`. The default build output directory is `dist` and matches the pre-configured `webDir`.
+
+## Acceptance Criteria
+- Project path: /home/user/myapp
+- Start command: `npm run preview -- --host 0.0.0.0 --port 4173 --strictPort`
+- Port: 4173
+- `package.json` must list `@capacitor/filesystem` with a version whose semver major is `8` in either `dependencies` or `devDependencies`.
+- `npm run build` must complete without errors and produce `dist/index.html`.
+- `npx cap sync` (executed after the production build) must exit with status 0.
+- The served page at `http://localhost:4173/` must contain a `<button>` element with `id="write-btn"`, a `<button>` element with `id="read-btn"`, and a `<span>` element with `id="file-content"`.
+- Browser behaviour (headless Chromium, fresh context):
+    - Clicking `#write-btn` followed by `#read-btn` must result in `#file-content` having text content exactly equal to `Hello Capacitor`.
+    - After a full page reload in the same browser context (so that IndexedDB is preserved), clicking `#read-btn` alone must again populate `#file-content` with `Hello Capacitor`.
+

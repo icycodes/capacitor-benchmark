@@ -1,0 +1,83 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T03:54:18.133239+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 6,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781582052973,
+            "stop": 1781582058133
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_package_json_lists_capacitor_network",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781582053286,
+                "stop": 1781582053288,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_installed_capacitor_network_major_version_is_8",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781582053288,
+                "stop": 1781582053289,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_npm_run_build_succeeds_and_produces_dist_index",
+                "status": "passed",
+                "duration": 748,
+                "start": 1781582053289,
+                "stop": 1781582054037,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_sync_succeeds",
+                "status": "passed",
+                "duration": 1167,
+                "start": 1781582054038,
+                "stop": 1781582055205,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_preview_server_responds_with_200",
+                "status": "passed",
+                "duration": 1529,
+                "start": 1781582055206,
+                "stop": 1781582056735,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_network_status_indicator_flow",
+                "status": "passed",
+                "duration": 1396,
+                "start": 1781582056736,
+                "stop": 1781582058132,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

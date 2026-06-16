@@ -1,0 +1,83 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T03:23:40.792250+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 6,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781580215168,
+            "stop": 1781580220792
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_package_json_declares_filesystem_plugin",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781580215337,
+                "stop": 1781580215339,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_filesystem_plugin_installed_at_major_8",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781580215340,
+                "stop": 1781580215341,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_npm_build_succeeds_and_produces_index_html",
+                "status": "passed",
+                "duration": 931,
+                "start": 1781580215341,
+                "stop": 1781580216272,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_sync_succeeds",
+                "status": "passed",
+                "duration": 1299,
+                "start": 1781580216272,
+                "stop": 1781580217571,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_index_served_with_required_elements",
+                "status": "passed",
+                "duration": 1532,
+                "start": 1781580217572,
+                "stop": 1781580219104,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_filesystem_write_then_read_populates_file_content",
+                "status": "passed",
+                "duration": 1686,
+                "start": 1781580219105,
+                "stop": 1781580220791,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

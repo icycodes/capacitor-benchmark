@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KV Admin</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      input {
+        padding: 0.4rem 0.6rem;
+        font-size: 1rem;
+        flex: 1;
+        min-width: 120px;
+      }
+      button {
+        padding: 0.4rem 0.8rem;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      #kv-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      #kv-list li {
+        padding: 0.3rem 0.5rem;
+        border-bottom: 1px solid #ddd;
+        font-family: monospace;
+        font-size: 0.95rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>KV Admin</h1>
+    <div class="controls">
+      <input id="kv-key" type="text" placeholder="Key" />
+      <input id="kv-value" type="text" placeholder="Value" />
+      <button id="kv-set-btn">Set</button>
+      <button id="kv-remove-btn">Remove</button>
+      <button id="kv-clear-btn">Clear All</button>
+    </div>
+    <ul id="kv-list"></ul>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

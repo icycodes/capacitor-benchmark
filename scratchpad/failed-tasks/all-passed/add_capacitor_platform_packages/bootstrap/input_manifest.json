@@ -1,0 +1,7 @@
+{
+  "library_name": "Capacitor",
+  "task_name": "add_capacitor_platform_packages",
+  "complexity_level": "simple single terminal command",
+  "research_plan_path": "plan.md",
+  "output_dir": "scratchpad/pending-tasks/"
+}

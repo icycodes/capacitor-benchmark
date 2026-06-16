@@ -1,0 +1,43 @@
+# Enable the CapacitorHttp Plugin and Display a Remote HTTP Status
+
+## Background
+Capacitor v8 ships a built-in `CapacitorHttp` plugin as part of `@capacitor/core`. When enabled in the Capacitor configuration file it routes `fetch`/`XMLHttpRequest` calls and direct `CapacitorHttp.get`/`post` calls through native HTTP libraries on iOS and Android, which sidesteps the WebView's CORS restrictions. By default, the plugin is **disabled** and must be opted into via the `plugins.CapacitorHttp.enabled` flag in `capacitor.config.ts`/`capacitor.config.json`.
+
+A Vite + TypeScript project has already been scaffolded for you at `/home/user/myapp`. Capacitor v8 is already installed and a `capacitor.config.ts` exists at the project root, but `CapacitorHttp` is not yet enabled and the page does not yet perform any network requests. Your job is to enable the plugin and wire up a tiny UI that uses `CapacitorHttp.get` to fetch JSON from a URL provided at runtime by the test fixture and then display the resulting HTTP status code on the page.
+
+## Requirements
+- Enable the `CapacitorHttp` plugin via the existing `capacitor.config.ts` so that `plugins.CapacitorHttp.enabled` is `true`. The structure must be valid Capacitor v8 configuration (the file is regex-checked for `plugins.CapacitorHttp.enabled === true`).
+- After modifying the config, building (`npm run build`) and syncing (`npx cap sync`) must continue to succeed.
+- Render a small UI in the existing Vite app that contains:
+    - A `<button>` element with the HTML id `fetch-btn`.
+    - A `<span>` element with the HTML id `http-status`. Its initial text content may be anything (e.g., empty), but it must be updated when the user clicks the button.
+- When the button is clicked, the page must:
+    1. Read the target URL from `window.__API_URL__` (the test fixture injects this value via Playwright's `addInitScript` before the page navigates). You may assume the value is a non-empty string.
+    2. Call `CapacitorHttp.get({ url: window.__API_URL__ })` (imported from `@capacitor/core`) and `await` the result.
+    3. Set the text content of `#http-status` to the stringified value of the response's `status` field (e.g., the literal text `"200"` for a 200 OK response).
+- The implementation MUST use `CapacitorHttp.get` from `@capacitor/core`. Using the global `fetch`/`XMLHttpRequest` is not acceptable for this task because the verifier inspects status reporting end-to-end through the plugin call.
+
+## Implementation Hints
+- `CapacitorHttp` is a property of `@capacitor/core`'s default export and does not require an additional `npm install`.
+- To enable the plugin in TypeScript config, add a top-level `plugins` key to the `CapacitorConfig` literal:
+  ```ts
+  const config: CapacitorConfig = {
+    // ...existing fields
+    plugins: {
+      CapacitorHttp: { enabled: true },
+    },
+  };
+  ```
+- Read the URL from `window.__API_URL__` inside the click handler so that the value injected by the test is available when the request is made.
+- The button and span must be present in the served HTML (either in `index.html` or rendered before the test interacts with the page). The verifier uses Playwright's `wait_for_selector`, so a small render delay is acceptable.
+
+## Acceptance Criteria
+- Project path: /home/user/myapp
+- Start command: `npm run preview -- --host 0.0.0.0 --port 4173`
+- Port: 4173
+- The Capacitor config file at the project root (either `capacitor.config.ts` or `capacitor.config.json`) must enable `CapacitorHttp` such that the resulting configuration satisfies `plugins.CapacitorHttp.enabled === true`. A regex-tolerant check accepts both `.ts` and `.json` representations.
+- `npm run build` exits with status 0 and produces `dist/index.html`.
+- `npx cap sync` exits with status 0.
+- The page served at `http://localhost:4173/` contains an element matching `<button id="fetch-btn">` and an element matching `<span id="http-status">`.
+- After Playwright launches headless Chromium, injects a fixture URL into `window.__API_URL__`, navigates to `http://localhost:4173/`, and clicks `#fetch-btn`, the text content of `#http-status` becomes the string `"200"` within a 10-second timeout.
+

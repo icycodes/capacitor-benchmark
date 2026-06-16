@@ -1,0 +1,23 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 12 items
+
+tests/test_final_state.py ............                                   [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_plugin_source_declares_correct_package
+PASSED tests/test_final_state.py::test_plugin_source_has_required_imports
+PASSED tests/test_final_state.py::test_plugin_has_capacitor_plugin_annotation
+PASSED tests/test_final_state.py::test_plugin_class_extends_plugin
+PASSED tests/test_final_state.py::test_plugin_has_echo_method
+PASSED tests/test_final_state.py::test_echo_method_uses_call_get_string_value
+PASSED tests/test_final_state.py::test_echo_method_puts_value_into_jsobject
+PASSED tests/test_final_state.py::test_echo_method_calls_resolve
+PASSED tests/test_final_state.py::test_main_activity_registers_echo_plugin
+PASSED tests/test_final_state.py::test_typescript_binding_exists_and_registers_plugin
+PASSED tests/test_final_state.py::test_gradle_build_succeeds_and_apk_exists
+PASSED tests/test_final_state.py::test_apk_dex_contains_echo_plugin_class
+============================== 12 passed in 3.75s ==============================

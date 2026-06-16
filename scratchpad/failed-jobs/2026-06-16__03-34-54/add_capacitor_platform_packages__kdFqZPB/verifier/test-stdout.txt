@@ -1,0 +1,17 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 6 items
+
+tests/test_final_state.py ......                                         [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_package_json_declares_capacitor_android_in_dependencies
+PASSED tests/test_final_state.py::test_package_json_declares_capacitor_ios_in_dependencies
+PASSED tests/test_final_state.py::test_capacitor_android_node_module_installed_with_v8
+PASSED tests/test_final_state.py::test_capacitor_ios_node_module_installed_with_v8
+PASSED tests/test_final_state.py::test_npm_run_build_succeeds_and_produces_dist_index_html
+PASSED tests/test_final_state.py::test_npx_cap_sync_exits_zero
+============================== 6 passed in 3.50s ===============================

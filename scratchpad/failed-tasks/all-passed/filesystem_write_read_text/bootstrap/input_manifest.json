@@ -1,0 +1,7 @@
+{
+  "library_name": "Capacitor",
+  "task_name": "filesystem_write_read_text",
+  "complexity_level": "multi-step sequential command set",
+  "research_plan_path": "plan.md",
+  "output_dir": "scratchpad/pending-tasks/"
+}

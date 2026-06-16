@@ -1,0 +1,140 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T03:38:12.042258+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 12,
+            "passed": 11,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781581088306,
+            "stop": 1781581092041
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_plugin_source_declares_correct_package",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781581088345,
+                "stop": 1781581088347,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_source_has_required_imports",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781581088348,
+                "stop": 1781581088349,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_has_capacitor_plugin_annotation",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781581088350,
+                "stop": 1781581088351,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_class_extends_plugin",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781581088351,
+                "stop": 1781581088352,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_has_echo_method",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781581088352,
+                "stop": 1781581088353,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_method_uses_call_get_string_value",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781581088354,
+                "stop": 1781581088355,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_method_puts_value_into_jsobject",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781581088355,
+                "stop": 1781581088356,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_method_calls_resolve",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781581088357,
+                "stop": 1781581088358,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_main_activity_registers_echo_plugin",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781581088358,
+                "stop": 1781581088359,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_typescript_binding_exists_and_registers_plugin",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 20,
+                "start": 1781581088360,
+                "stop": 1781581088380,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_typescript_binding_exists_and_registers_plugin():\n        assert os.path.isfile(ECHO_TS), f\"{ECHO_TS} does not exist.\"\n        with open(ECHO_TS) as f:\n            ts = f.read()\n    \n        import_pattern = (\n            r\"import\\s*\\{[^}]*\\bregisterPlugin\\b[^}]*\\}\\s*from\\s*\"\n            r\"['\\\"]@capacitor/core['\\\"]\"\n        )\n        assert re.search(import_pattern, ts), (\n            \"src/echo.ts must import registerPlugin from '@capacitor/core'.\"\n        )\n    \n        register_pattern = (\n            r\"registerPlugin\\s*(?:<[^>]*>)?\\s*\\(\\s*['\\\"]Echo['\\\"]\"\n        )\n>       assert re.search(register_pattern, ts), (\n            \"src/echo.ts must call registerPlugin with the exact string literal \"\n            '\"Echo\".'\n        )\nE       AssertionError: src/echo.ts must call registerPlugin with the exact string literal \"Echo\".\nE       assert None\nE        +  where None = <function search at 0x7feb0aff3ba0>('registerPlugin\\\\s*(?:<[^>]*>)?\\\\s*\\\\(\\\\s*[\\'\\\\\"]Echo[\\'\\\\\"]', \"import { registerPlugin } from '@capacitor/core';\\n\\nconst Echo = registerPlugin<{ echo: (options: { value: string }) => Promise<{ value: string }> }>('Echo');\\n\\nexport default Echo;\")\nE        +    where <function search at 0x7feb0aff3ba0> = re.search\n\ntests/test_final_state.py:185: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_gradle_build_succeeds_and_apk_exists",
+                "status": "passed",
+                "duration": 3503,
+                "start": 1781581088380,
+                "stop": 1781581091883,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_apk_dex_contains_echo_plugin_class",
+                "status": "passed",
+                "duration": 157,
+                "start": 1781581091884,
+                "stop": 1781581092041,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

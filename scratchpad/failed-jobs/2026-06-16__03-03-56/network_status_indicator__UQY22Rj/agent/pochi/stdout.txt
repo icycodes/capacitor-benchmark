@@ -1,0 +1,49 @@
+- Initializing MCP connections...
+You
+# Network Status Indicator with Capacitor Network Plugin ## Background You are extending a small Vite + TypeScript web application that will eventually be packaged as a native mobile app via Capacitor v8. The application needs to display whether the device is online or offline, and react instantly when the connectivity changes. Instead of relying solely on the browser's `navigator.onLine` property, you must use the official `@capacitor/network` plugin so the same code path will work later on iOS and Android. A minimal Vite + TypeScript project has already been scaffolded for you at `/home/user/myapp`, and Capacitor v8 (`@capacitor/core` and `@capacitor/cli`) plus a `capacitor.config.ts` are already in place. Your job is to install the Network plugin, wire it into the app's startup code, and keep a status indicator element in sync with the live connection state. ## Requirements * Install the `@capacitor/network` plugin at a version compatible with Capacitor v8 (major version `8`). * Render a `<span>` element with `id="net-status"` somewhere inside the document body of the served page. * On page load, query the current network status with `Network.getStatus()` and set `#net-status.textContent` to: * `"online"` when the returned `connected` property is `true`. * `"offline"` when the returned `connected` property is `false`. * Subscribe to live connectivity updates using `Network.addListener('networkStatusChange', ...)`. When the listener fires, update `#net-status.textContent` to `"online"` or `"offline"` based on the new `connected` value, without requiring a page reload. * `npm run build` must produce a working `dist/index.html`. * `npx cap sync` must run successfully against the produced web build. ## Implementation Hints * Import the plugin as `import { Network } from '@capacitor/network';` from inside an ES module entry point. * The Network plugin uses the browser's connectivity events as its fallback on the web target, so changes triggered through the test browser's `set_offline(...)` API will surface through both `Network.getStatus()` and the `'networkStatusChange'` event. * Make sure the indicator element exists in the DOM before you update its `textContent` (for example, by placing the `<span id="net-status">` inside `index.html` or by injecting it from the entry script before awaiting `Network.getStatus()`). * Use `await` (or `.then(...)`) when calling `Network.getStatus()`; do not assume the promise has already resolved when you read its result. ## Acceptance Criteria * Project path: /home/user/myapp * Start command: `npm run preview -- --host 0.0.0.0 --port 4173` * Port: 4173 * `package.json` must list `@capacitor/network` in either `dependencies` or `devDependencies`, and the installed version's major component must be exactly `8`. * `npm run build` must complete with exit code `0` and produce the file `/home/user/myapp/dist/index.html`. * `npx cap sync` executed in `/home/user/myapp` after the production build must exit with code `0`. * The served page at `http://localhost:4173/` must contain a single visible element matching the CSS selector `#net-status`. * When the page is opened in a headless Chromium browser with the default (online) context, `#net-status.textContent` must equal the string `"online"`. * When the browser context is switched to offline (via `context.set_offline(True)`) the value of `#net-status.textContent` must transition to the string `"offline"` without requiring a page reload, within 5 seconds. * When the browser context is switched back online (via `context.set_offline(False)`) the value of `#net-status.textContent` must transition back to the string `"online"` without requiring a page reload, within 5 seconds.   
+
+Pochi
+💭 Thinking for 231 characters   
+📂 Listing files in /home/user/myapp recursively ✔ 
+💭 Thinking for 299 characters   
+📋 Updating todo list (5 items) ✔ 
+📖 Reading home/user/myapp/package.json ✔ 
+💭 Thinking for 280 characters   
+📋 Updating todo list (5 items) ✔ 
+💫 Executing npm install @capacitor/network@8 ✔ 
+📖 Reading home/user/myapp/package.json ✔ 
+💭 Thinking for 238 characters   
+📋 Updating todo list (5 items) ✔ 
+📖 Reading home/user/myapp/index.html ✔ 
+💭 Thinking for 202 characters   
+🔧 Applying diff to home/user/myapp/index.html ✔ 
+📋 Updating todo list (5 items) ✔ 
+📖 Reading home/user/myapp/src/main.ts ✔ 
+💭 Thinking for 850 characters   
+✏️  Writing home/user/myapp/src/main.ts ✔ 
+📋 Updating todo list (5 items) ✔ 
+💫 Executing npm run build ✔ 
+📋 Updating todo list (5 items) ✔ 
+💫 Executing npx cap sync ✔ 
+📋 Updating todo list (5 items) ✔ 
+📖 Reading home/user/myapp/capacitor.config.ts ✔ 
+💭 Thinking for 255 characters   
+📖 Reading home/user/myapp/dist/index.html ✔ 
+💭 Thinking for 232 characters   
+💫 Executing npx tsc --noEmit ✔ 
+💭 Thinking for 681 characters   
+🎉 Task Completed
+I have successfully completed the implementation of the Network Status Indicator using the Capacitor Network plugin.
+
+Here is a summary of the actions taken:
+1. **Installed `@capacitor/network` version `^8.0.1`**: This is fully compatible with Capacitor v8 as requested.
+2. **Added the `#net-status` Element**: Updated `index.html` to render a `<span id="net-status">` element in the document body.
+3. **Wired Network Status Logic in `src/main.ts`**:
+   - Imported the `Network` plugin from `@capacitor/network`.
+   - Queried the initial network status on page load using `Network.getStatus()`, setting `#net-status.textContent` to `"online"` or `"offline"` based on the `connected` property.
+   - Subscribed to live updates using `Network.addListener('networkStatusChange', ...)` to dynamically update the text content when the device transitions between online and offline states.
+4. **Verified Build and Sync**:
+   - Ran `npm run build` which successfully produced the production-ready `dist/index.html` containing the `#net-status` element.
+   - Ran `npx cap sync` to synchronize the Capacitor configuration successfully.
+   - Verified that the TypeScript compilation passes without any errors.   
+  

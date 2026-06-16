@@ -1,0 +1,80 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T03:58:06.296819+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 5,
+            "passed": 3,
+            "failed": 2,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781582271753,
+            "stop": 1781582286296
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_capacitor_http_enabled_in_config",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781582271906,
+                "stop": 1781582271907,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_dist_index_html_exists",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781582271908,
+                "stop": 1781582271909,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_sync_succeeds",
+                "status": "passed",
+                "duration": 1243,
+                "start": 1781582271909,
+                "stop": 1781582273152,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_index_served_with_fetch_button_and_status_span",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 1564,
+                "start": 1781582273152,
+                "stop": 1781582274716,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "preview_server = 'http://127.0.0.1:4173/'\n\n    def test_index_served_with_fetch_button_and_status_span(preview_server):\n        response = requests.get(preview_server, timeout=30)\n        assert response.status_code == 200, (\n            f\"GET {preview_server} returned status {response.status_code}; expected 200.\"\n        )\n        body = response.text\n>       assert re.search(\n            r\"<button[^>]*\\bid\\s*=\\s*[\\\"']fetch-btn[\\\"']\", body\n        ), (\n            \"The served index.html must contain a <button> element with id=\\\"fetch-btn\\\". \"\n            f\"Got body:\\n{body[:1000]}\"\n        )\nE       AssertionError: The served index.html must contain a <button> element with id=\"fetch-btn\". Got body:\nE         <!DOCTYPE html>\nE         <html lang=\"en\">\nE           <head>\nE             <meta charset=\"UTF-8\" />\nE             <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\nE             <title>CapacitorHttp Demo</title>\nE             <script type=\"module\" crossorigin src=\"/assets/index-zgMz8DWW.js\"></script>\nE           </head>\nE           <body>\nE             <main id=\"app\">\nE               <h1>CapacitorHttp Demo</h1>\nE               <p>Wire up CapacitorHttp.get and replace this placeholder.</p>\nE             </main>\nE           </body>\nE         </html>\nE         \nE       assert None\nE        +  where None = <function search at 0x7f71bed37ba0>('<button[^>]*\\\\bid\\\\s*=\\\\s*[\\\\\"\\']fetch-btn[\\\\\"\\']', '<!DOCTYPE html>\\n<html lang=\"en\">\\n  <head>\\n    <meta charset=\"UTF-8\" />\\n    <meta name=\"viewport\" content=\"width=d...ttp Demo</h1>\\n      <p>Wire up CapacitorHttp.get and replace this placeholder.</p>\\n    </main>\\n  </body>\\n</html>\\n')\nE        +    where <function search at 0x7f71bed37ba0> = re.search\n\ntests/test_final_state.py:202: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_capacitorhttp_get_displays_status_200",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 11580,
+                "start": 1781582274716,
+                "stop": 1781582286296,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "preview_server = 'http://127.0.0.1:4173/'\nmock_api_server = 'http://127.0.0.1:5174/data.json'\n\n    def test_capacitorhttp_get_displays_status_200(preview_server, mock_api_server):\n        pytest.importorskip(\"playwright.sync_api\")\n        from playwright.sync_api import sync_playwright\n    \n        with sync_playwright() as p:\n            browser = p.chromium.launch(headless=True)\n            try:\n                context = browser.new_context()\n                # Inject the API URL the page must read at click time. The init script\n                # runs in every frame before any other script executes.\n                context.add_init_script(\n                    f\"window.__API_URL__ = {json.dumps(mock_api_server)};\"\n                )\n                page = context.new_page()\n                page.goto(preview_server, wait_until=\"load\")\n    \n                page.wait_for_selector(\"#fetch-btn\", state=\"attached\", timeout=10_000)\n                page.wait_for_selector(\"#http-status\", state=\"attached\", timeout=10_000)\n    \n                # Sanity check: the page sees the injected URL.\n                injected_url = page.evaluate(\"window.__API_URL__\")\n                assert injected_url == mock_api_server, (\n                    \"Expected window.__API_URL__ to be set by the test fixture; \"\n                    f\"got {injected_url!r}.\"\n                )\n    \n                page.click(\"#fetch-btn\")\n    \n>               page.wait_for_function(\n                    \"document.getElementById('http-status') && \"\n                    \"document.getElementById('http-status').textContent.trim() === '200'\",\n                    timeout=10_000,\n                )\n\ntests/test_final_state.py:249: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nusr/local/lib/python3.12/dist-packages/playwright/sync_api/_generated.py:12436: in wait_for_function\n    self._sync(\nusr/local/lib/python3.12/dist-packages/playwright/_impl/_page.py:1136: in wait_for_function\n    return await self._main_frame.wait_for_function(**locals_to_params(locals()))\nusr/local/lib/python3.12/dist-packages/playwright/_impl/_frame.py:910: in wait_for_function\n    await self._channel.send(\"waitForFunction\", self._timeout, params)\nusr/local/lib/python3.12/dist-packages/playwright/_impl/_connection.py:69: in send\n    return await self._connection.wrap_api_call(\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <playwright._impl._connection.Connection object at 0x7f71be0df830>\ncb = <function Channel.send.<locals>.<lambda> at 0x7f71bd096f20>\nis_internal = False, title = None\n\n    async def wrap_api_call(\n        self, cb: Callable[[], Any], is_internal: bool = False, title: str = None\n    ) -> Any:\n        if self._api_zone.get():\n            return await cb()\n        task = asyncio.current_task(self._loop)\n        st: List[inspect.FrameInfo] = getattr(\n            task, \"__pw_stack__\", None\n        ) or inspect.stack(0)\n    \n        parsed_st = _extract_stack_trace_information_from_stack(st, is_internal, title)\n        self._api_zone.set(parsed_st)\n        try:\n            return await cb()\n        except Exception as error:\n>           raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nE           playwright._impl._errors.TimeoutError: Page.wait_for_function: Timeout 10000ms exceeded.\n\nusr/local/lib/python3.12/dist-packages/playwright/_impl/_connection.py:559: TimeoutError",
+                "message": "The test failed in the call phase due to an exception"
+            }
+        ]
+    }
+}

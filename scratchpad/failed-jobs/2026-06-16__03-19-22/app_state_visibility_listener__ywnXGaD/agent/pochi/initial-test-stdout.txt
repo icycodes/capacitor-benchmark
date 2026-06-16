@@ -1,0 +1,78 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /bootstrap
+plugins: xprocess-1.0.2, json-ctrf-0.5.2
+collected 21 items
+
+bootstrap/test_initial_state.py::test_node_available PASSED
+bootstrap/test_initial_state.py::test_node_version_is_22_or_higher PASSED
+bootstrap/test_initial_state.py::test_npm_available PASSED
+bootstrap/test_initial_state.py::test_npx_available PASSED
+bootstrap/test_initial_state.py::test_project_directory_exists PASSED
+bootstrap/test_initial_state.py::test_src_directory_exists PASSED
+bootstrap/test_initial_state.py::test_package_json_exists PASSED
+bootstrap/test_initial_state.py::test_package_json_is_valid_json PASSED
+bootstrap/test_initial_state.py::test_capacitor_core_and_cli_pre_installed PASSED
+bootstrap/test_initial_state.py::test_app_plugin_not_yet_installed PASSED
+bootstrap/test_initial_state.py::test_app_plugin_node_modules_absent PASSED
+bootstrap/test_initial_state.py::test_node_modules_installed PASSED
+bootstrap/test_initial_state.py::test_vite_installed PASSED
+bootstrap/test_initial_state.py::test_index_html_exists PASSED
+bootstrap/test_initial_state.py::test_index_html_does_not_contain_app_state_element PASSED
+bootstrap/test_initial_state.py::test_main_ts_exists PASSED
+bootstrap/test_initial_state.py::test_capacitor_config_present PASSED
+bootstrap/test_initial_state.py::test_initial_sources_do_not_import_capacitor_app FAILED
+bootstrap/test_initial_state.py::test_initial_sources_do_not_call_app_state_change_listener FAILED
+bootstrap/test_initial_state.py::test_initial_dist_absent PASSED
+bootstrap/test_initial_state.py::test_playwright_chromium_installed_for_verifier PASSED
+
+=================================== FAILURES ===================================
+_______________ test_initial_sources_do_not_import_capacitor_app _______________
+
+    def test_initial_sources_do_not_import_capacitor_app():
+        """No file under src/ should already import from @capacitor/app."""
+        pattern = re.compile(r"@capacitor/app")
+        for root, _, files in os.walk(SRC_DIR):
+            for name in files:
+                if not name.endswith((".ts", ".tsx", ".js", ".mjs")):
+                    continue
+                path = os.path.join(root, name)
+                with open(path) as f:
+                    content = f.read()
+>               assert not pattern.search(content), (
+                    f"The initial source {path} must not already import "
+                    "from '@capacitor/app'."
+                )
+E               AssertionError: The initial source /home/user/myapp/src/main.ts must not already import from '@capacitor/app'.
+E               assert not <re.Match object; span=(47, 61), match='@capacitor/app'>
+E                +  where <re.Match object; span=(47, 61), match='@capacitor/app'> = <built-in method search of re.Pattern object at 0x7f60d6bcb400>('// Initial scaffold. The executor must install @capacitor/app v8, add a\n// `<span id="app-state">` element to the page, and subscribe to\n// App.addListener(\'appStateChange\', ({ isActive }) => ...) so that the span\'s\n// textContent reads "active" or "inactive" depending on isActive.\nconst app = document.getElementById("app");\nif (app) {\n  const note = document.createElement("p");\n  note.textContent = "Replace me with the App state visibility integration.";\n  app.appendChild(note);\n}\n')
+E                +    where <built-in method search of re.Pattern object at 0x7f60d6bcb400> = re.compile('@capacitor/app').search
+
+bootstrap/test_initial_state.py:157: AssertionError
+__________ test_initial_sources_do_not_call_app_state_change_listener __________
+
+    def test_initial_sources_do_not_call_app_state_change_listener():
+        """No source file should already register an appStateChange listener."""
+        pattern = re.compile(r"appStateChange")
+        for root, _, files in os.walk(SRC_DIR):
+            for name in files:
+                if not name.endswith((".ts", ".tsx", ".js", ".mjs")):
+                    continue
+                path = os.path.join(root, name)
+                with open(path) as f:
+                    content = f.read()
+>               assert not pattern.search(content), (
+                    f"The initial source {path} must not already reference "
+                    "'appStateChange'."
+                )
+E               AssertionError: The initial source /home/user/myapp/src/main.ts must not already reference 'appStateChange'.
+E               assert not <re.Match object; span=(157, 171), match='appStateChange'>
+E                +  where <re.Match object; span=(157, 171), match='appStateChange'> = <built-in method search of re.Pattern object at 0x7f60d6bcb570>('// Initial scaffold. The executor must install @capacitor/app v8, add a\n// `<span id="app-state">` element to the page, and subscribe to\n// App.addListener(\'appStateChange\', ({ isActive }) => ...) so that the span\'s\n// textContent reads "active" or "inactive" depending on isActive.\nconst app = document.getElementById("app");\nif (app) {\n  const note = document.createElement("p");\n  note.textContent = "Replace me with the App state visibility integration.";\n  app.appendChild(note);\n}\n')
+E                +    where <built-in method search of re.Pattern object at 0x7f60d6bcb570> = re.compile('appStateChange').search
+
+bootstrap/test_initial_state.py:173: AssertionError
+=========================== short test summary info ============================
+FAILED bootstrap/test_initial_state.py::test_initial_sources_do_not_import_capacitor_app
+FAILED bootstrap/test_initial_state.py::test_initial_sources_do_not_call_app_state_change_listener
+========================= 2 failed, 19 passed in 0.11s =========================
+pytest-xprocess reminder::Be sure to terminate the started process by running 'pytest --xkill' if you have not explicitly done so in your fixture with 'xprocess.getinfo(<process_name>).terminate()'.

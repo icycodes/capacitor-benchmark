@@ -1,0 +1,52 @@
+- Initializing MCP connections...
+You
+# Copy and Paste Text with the Capacitor Clipboard Plugin ## Background You are extending a small Vite + TypeScript web application that will eventually be packaged as a native mobile app via Capacitor v8. The `@capacitor/clipboard` plugin exposes a unified API for writing to and reading from the system clipboard on iOS, Android, and Web. On the web target, the plugin delegates to the standard browser `navigator.clipboard` API, so the very same JavaScript code that runs on a mobile device also works inside the headless Chromium browser used by this task's verifier. A minimal Vite + TypeScript project, with Capacitor v8 core/CLI already installed and configured, has been pre-scaffolded for you at `/home/user/myapp`. Your job is to install the Capacitor Clipboard plugin and wire up a tiny UI that copies the current value of a text input to the clipboard through `Clipboard.write` and pastes it back through `Clipboard.read`. ## Requirements * Install `@capacitor/clipboard` at a version compatible with Capacitor v8 (i.e. major version `8`). * Implement a UI in `index.html` (and any TypeScript modules under `src/`) that contains: * An `<input>` element with the HTML id `clip-input`. * A `<button>` element with the HTML id `clip-write-btn`. * A `<button>` element with the HTML id `clip-read-btn`. * A `<span>` element with the HTML id `clip-output` (its initial text content must be empty). * Clicking `#clip-write-btn` must call `Clipboard.write({ string: <current value of #clip-input> })`. You may NOT shortcut the requirement by writing directly to `navigator.clipboard.writeText` or by storing the value in a local JavaScript variable / `localStorage` — the value MUST be copied to the system clipboard through the Capacitor Clipboard plugin. * Clicking `#clip-read-btn` must call `Clipboard.read()` and write the returned `value` (a string) verbatim into the `textContent` of `#clip-output`. * After installing the plugin, `npm run build` must succeed and `npx cap sync` must exit with status 0 against the produced web build (no native platforms need to be added). ## Implementation Hints * The pre-scaffolded project already contains a working `capacitor.config.ts` with `webDir` set to `dist`, so you do not need to re-run `npx cap init`. * Install the plugin with `npm install @capacitor/clipboard@^8`. * Import `Clipboard` from `@capacitor/clipboard`. * The `Clipboard.read()` method returns a `Promise<{ value: string; type: string }>`; only the `value` field needs to be displayed. * Make sure the script that wires up the buttons is loaded as an ES module so that the import of `@capacitor/clipboard` resolves at runtime. * Vite serves the build output via `npm run preview`. The default build output directory is `dist` and matches the pre-configured `webDir`. ## Acceptance Criteria * Project path: /home/user/myapp * Start command: `npm run preview -- --host 0.0.0.0 --port 4173 --strictPort` * Port: 4173 * `package.json` must list `@capacitor/clipboard` with a version whose semver major is `8` in either `dependencies` or `devDependencies`. * `npm run build` must complete without errors and produce `dist/index.html`. * `npx cap sync` (executed after the production build) must exit with status 0. * The served page at `http://localhost:4173/` must contain an `<input>` element with `id="clip-input"`, a `<button>` element with `id="clip-write-btn"`, a `<button>` element with `id="clip-read-btn"`, and a `<span>` element with `id="clip-output"`. * Browser behaviour (headless Chromium with clipboard permissions granted): * Filling `#clip-input` with `benchmark text` and clicking `#clip-write-btn` must copy the string to the system clipboard via the Capacitor Clipboard plugin. * Clicking `#clip-read-btn` afterwards must populate `#clip-output` with text content exactly equal to `benchmark text`. * Reading the underlying browser clipboard with `navigator.clipboard.readText()` after the write must also return `benchmark text` (this proves the plugin actually wrote to the system clipboard, not to a local variable).   
+
+Pochi
+I'll start by exploring the pre-scaffolded project structure to understand what we're working with.   
+📂 Listing files in /home/user/myapp recursively ✔ 
+Let me read the key project files first.   
+📖 Reading /home/user/myapp/package.json ✔ 
+📖 Reading /home/user/myapp/index.html ✔ 
+📖 Reading /home/user/myapp/src/main.ts ✔ 
+📖 Reading /home/user/myapp/capacitor.config.ts ✔ 
+📖 Reading /home/user/myapp/tsconfig.json ✔ 
+Good, I have a clear picture of the project. Now let me create a todo list and execute the steps.   
+📋 Updating todo list (5 items) ✔ 
+💫 Executing cd /home/user/myapp && npm install @capacitor/clipboard@^8 ✔ 
+📋 Updating todo list (5 items) ✔ 
+Now let me update `index.html` with the required UI elements and `src/main.ts` with the Clipboard logic.   
+🔧 Applying diff to /home/user/myapp/index.html ✔ 
+📋 Updating todo list (5 items) ✔ 
+✏️  Writing /home/user/myapp/src/main.ts ✔ 
+📋 Updating todo list (5 items) ✔ 
+💫 Executing cd /home/user/myapp && npm run build ✔ 
+Build succeeded. Let me verify `dist/index.html` exists and then run `npx cap sync`.   
+💫 Executing cd /home/user/myapp && npx cap sync ✔ 
+Both `npm run build` and `npx cap sync` succeeded. Let me verify the final state of all files.   
+📋 Updating todo list (5 items) ✔ 
+Let me verify the final state of the key files and confirm the package.json has the clipboard dependency.   
+📖 Reading /home/user/myapp/package.json ✔ 
+📖 Reading /home/user/myapp/index.html ✔ 
+📖 Reading /home/user/myapp/src/main.ts ✔ 
+Everything is in order. Let me also quickly verify the built `dist/index.html` contains the expected elements.   
+📖 Reading /home/user/myapp/dist/index.html ✔ 
+🎉 Task Completed
+All requirements have been implemented successfully. Here's a summary of what was done:
+
+**1. Installed `@capacitor/clipboard@^8`** — version `^8.0.1` was added to `dependencies` in `package.json`.
+
+**2. Updated `index.html`** — Added the four required elements:
+- `<input id="clip-input">` — text input for entering the value to copy
+- `<button id="clip-write-btn">` — triggers `Clipboard.write()`
+- `<button id="clip-read-btn">` — triggers `Clipboard.read()`
+- `<span id="clip-output">` — displays the read result (initially empty)
+
+**3. Updated `src/main.ts`** — Imports `Clipboard` from `@capacitor/clipboard` and wires up:
+- `#clip-write-btn` click → `Clipboard.write({ string: <value of #clip-input> })`
+- `#clip-read-btn` click → `Clipboard.read()` → writes `result.value` to `#clip-output.textContent`
+
+**4. Build & Sync verified:**
+- `npm run build` — ✅ exits 0, produces `dist/index.html`
+- `npx cap sync` — ✅ exits 0 against the web build   
+  

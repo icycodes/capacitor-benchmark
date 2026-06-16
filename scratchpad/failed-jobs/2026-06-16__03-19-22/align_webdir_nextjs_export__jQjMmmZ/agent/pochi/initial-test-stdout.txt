@@ -1,0 +1,18 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /bootstrap
+plugins: json-ctrf-0.5.2
+collected 10 items
+
+bootstrap/test_initial_state.py::test_node_available PASSED
+bootstrap/test_initial_state.py::test_npm_available PASSED
+bootstrap/test_initial_state.py::test_project_dir_exists PASSED
+bootstrap/test_initial_state.py::test_package_json_exists_and_references_next PASSED
+bootstrap/test_initial_state.py::test_package_json_has_build_script PASSED
+bootstrap/test_initial_state.py::test_node_modules_installed PASSED
+bootstrap/test_initial_state.py::test_next_config_exists_without_static_export PASSED
+bootstrap/test_initial_state.py::test_capacitor_config_webdir_is_out PASSED
+bootstrap/test_initial_state.py::test_capacitor_cli_available_in_project PASSED
+bootstrap/test_initial_state.py::test_initial_build_and_sync_fails PASSED
+
+============================= 10 passed in 30.55s ==============================

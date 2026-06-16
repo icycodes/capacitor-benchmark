@@ -1,0 +1,158 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T03:44:24.409667+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 14,
+            "passed": 13,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781581463133,
+            "stop": 1781581464409
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_echo_plugin_swift_exists",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781581463181,
+                "stop": 1781581463183,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_plugin_swift_imports_capacitor",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781581463184,
+                "stop": 1781581463186,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_plugin_swift_objc_annotation",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781581463186,
+                "stop": 1781581463188,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_plugin_swift_class_declaration",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781581463188,
+                "stop": 1781581463190,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_plugin_swift_identifier_constant",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781581463190,
+                "stop": 1781581463192,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_plugin_swift_jsname_constant",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781581463192,
+                "stop": 1781581463193,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_plugin_swift_plugin_methods_array",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781581463194,
+                "stop": 1781581463195,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_plugin_swift_echo_method_signature",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781581463195,
+                "stop": 1781581463196,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_plugin_swift_resolves_value_key",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781581463197,
+                "stop": 1781581463198,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_plugin_swift_balanced_braces",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781581463198,
+                "stop": 1781581463199,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_myviewcontroller_registers_echo_plugin",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781581463200,
+                "stop": 1781581463202,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_pbxproj_references_echo_plugin_swift",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781581463203,
+                "stop": 1781581463204,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_echo_ts_wrapper_exists_and_registers_plugin",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 30,
+                "start": 1781581463204,
+                "stop": 1781581463234,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_echo_ts_wrapper_exists_and_registers_plugin():\n        assert os.path.isfile(ECHO_TS_PATH), (\n            f\"TypeScript wrapper {ECHO_TS_PATH} must exist.\"\n        )\n        content = _read(ECHO_TS_PATH)\n        assert re.search(\n            r\"import\\s*\\{[^}]*\\bregisterPlugin\\b[^}]*\\}\\s*from\\s*['\\\"]@capacitor/core['\\\"]\",\n            content,\n        ), (\n            \"src/echo.ts must import `registerPlugin` from `@capacitor/core`.\"\n        )\n>       assert re.search(\n            r\"registerPlugin\\s*(?:<[^>]+>)?\\s*\\(\\s*['\\\"]Echo['\\\"]\",\n            content,\n        ), (\n            \"src/echo.ts must call `registerPlugin('Echo')` (or `registerPlugin<...>('Echo')`).\"\n        )\nE       AssertionError: src/echo.ts must call `registerPlugin('Echo')` (or `registerPlugin<...>('Echo')`).\nE       assert None\nE        +  where None = <function search at 0x7fb62d8f7ba0>('registerPlugin\\\\s*(?:<[^>]+>)?\\\\s*\\\\(\\\\s*[\\'\\\\\"]Echo[\\'\\\\\"]', \"import { registerPlugin } from '@capacitor/core';\\n\\nconst Echo = registerPlugin<{ echo: (options: { value: string }) => Promise<{ value: string }> }>('Echo');\\n\\nexport default Echo;\")\nE        +    where <function search at 0x7fb62d8f7ba0> = re.search\n\ntests/test_final_state.py:160: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_cap_sync_ios_succeeds",
+                "status": "passed",
+                "duration": 1174,
+                "start": 1781581463234,
+                "stop": 1781581464408,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

@@ -1,0 +1,110 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T03:16:53.731134+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 9,
+            "passed": 9,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781579810853,
+            "stop": 1781579813730
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_every_capacitor_specifier_in_package_json_is_v8",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781579810899,
+                "stop": 1781579810901,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_installed_capacitor_core_is_v8",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781579810902,
+                "stop": 1781579810904,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_installed_capacitor_cli_is_v8",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781579810904,
+                "stop": 1781579810907,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_installed_capacitor_preferences_is_v8",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781579810907,
+                "stop": 1781579810909,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_all_installed_capacitor_packages_are_v8",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781579810910,
+                "stop": 1781579810911,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_package_lock_exists_and_was_regenerated",
+                "status": "passed",
+                "duration": 5,
+                "start": 1781579810912,
+                "stop": 1781579810917,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_npm_run_build_succeeds_and_produces_dist_index_html",
+                "status": "passed",
+                "duration": 1336,
+                "start": 1781579810918,
+                "stop": 1781579812254,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_npx_cap_sync_exits_zero_with_no_version_mismatch_warning",
+                "status": "passed",
+                "duration": 1470,
+                "start": 1781579812254,
+                "stop": 1781579813724,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_config_app_id_app_name_webdir_unchanged",
+                "status": "passed",
+                "duration": 5,
+                "start": 1781579813725,
+                "stop": 1781579813730,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

@@ -1,0 +1,39 @@
+# Integrate Capacitor v8 into a Vite + React + TypeScript Project
+
+## Background
+You have a bare Vite + React + TypeScript project pre-scaffolded at `/home/user/myapp`. The project has no Capacitor dependencies, no Capacitor configuration, and no native platforms added yet. Your job is to integrate Capacitor v8 into this project using the **non-interactive** CLI flow so the project is ready to be synced to a native platform later. You do NOT need to add the Android or iOS platforms in this task.
+
+Node.js and npm are already installed and the project's existing dependencies (Vite, React, TypeScript) are already installed in `node_modules`.
+
+## Requirements
+- Add Capacitor v8 to the existing project:
+  - Install `@capacitor/core` (any 8.x version) as a runtime dependency.
+  - Install `@capacitor/cli` (any 8.x version), normally as a dev dependency.
+- Create a Capacitor configuration file at the project root using the non-interactive `cap init` flow with:
+  - appName: `React Demo`
+  - appId: `com.example.reactdemo`
+  - web directory: `dist`
+- The project must still be buildable with `npm run build`, and the build must produce `dist/index.html`.
+- After building, `npx cap sync` must complete successfully (exit code 0). Since no native platforms are added, `cap sync` is expected to succeed without copying to any native project.
+- The Vite preview server (`npm run preview`) must still serve the built app on its default port (`4173`).
+
+## Implementation Hints
+- Use the official Capacitor CLI non-interactive initialization flow (see the Capacitor v8 docs for `cap init`). Pass the app name, app ID, and `--web-dir` value directly so no interactive prompt is triggered.
+- Install Capacitor packages with `npm install`. The `@capacitor/core` package belongs in `dependencies`; `@capacitor/cli` is usually installed as a `devDependency`.
+- Make sure the generated Capacitor config file is at the project root (`capacitor.config.ts`, `capacitor.config.json`, or `capacitor.config.js`).
+- Run the production build BEFORE running `cap sync`, because `cap sync` reads from the `webDir` directory.
+
+## Acceptance Criteria
+- Project path: `/home/user/myapp`
+- `package.json` must list `@capacitor/core` at a version satisfying `8.x` under `dependencies`.
+- `package.json` must list `@capacitor/cli` at a version satisfying `8.x` under either `devDependencies` or `dependencies`.
+- A Capacitor configuration file must exist at the project root. It must be exactly one of: `capacitor.config.ts`, `capacitor.config.json`, or `capacitor.config.js`. The configuration must define:
+  - `appName` equal to `React Demo`
+  - `appId` equal to `com.example.reactdemo`
+  - `webDir` equal to `dist`
+- Build command: `npm run build` — must exit with code 0 and produce the file `/home/user/myapp/dist/index.html`.
+- Sync command: `npx cap sync` — must exit with code 0 when run AFTER the build.
+- Start command for preview verification: `npm run preview -- --host 127.0.0.1 --port 4173`
+- Preview port: `4173`
+- HTTP GET `http://localhost:4173/` must respond with status code 200 and the response body must include the React root element `<div id="root">`.
+

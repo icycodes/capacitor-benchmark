@@ -1,0 +1,351 @@
+Trial custom_android_counter_plugin__igtbYtR failed: Docker compose command failed for environment custom_android_counter_plugin. Command: docker compose --project-name custom_android_counter_plugin__igtbytr --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/custom_android_counter_plugin/environment -f /tmp/tmp2nm1__l0/custom_android_counter_plugin__igtbYtR-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpoijsbmyq/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 5.61kB done
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/ubuntu:24.04
+#2 DONE 0.0s
+
+#3 [main internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [main  1/11] FROM docker.io/library/ubuntu:24.04
+#4 DONE 0.0s
+
+#5 [main  5/11] RUN mkdir -p /home/user && chmod 0755 /home/user
+#5 CACHED
+
+#6 [main  6/11] RUN mkdir -p /home/user/myapp /home/user/myapp/dist /home/user/myapp/src &&     cd /home/user/myapp &&     cat >package.json <<'JSON'
+#6 CACHED
+
+#7 [main  9/11] RUN cat >/home/user/myapp/src/index.ts <<'TS'
+#7 CACHED
+
+#8 [main  3/11] RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - &&     apt-get install -y --no-install-recommends nodejs &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#8 CACHED
+
+#9 [main  2/11] RUN apt-get update -y &&     apt-get install -y --no-install-recommends         curl wget ca-certificates git python3 python3-pip python3-pytest bash ripgrep         unzip zip xz-utils openjdk-17-jdk-headless fontconfig file &&     ln -sf /usr/bin/python3 /usr/bin/python &&     pip3 install --break-system-packages pytest-json-ctrf &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#9 CACHED
+
+#10 [main  8/11] RUN cat >/home/user/myapp/dist/app.js <<'JS'
+#10 CACHED
+
+#11 [main  4/11] RUN mkdir -p "/opt/android-sdk/cmdline-tools" &&     cd /tmp &&     curl -fsSL -o cmdline-tools.zip         https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip &&     unzip -q cmdline-tools.zip -d "/opt/android-sdk/cmdline-tools" &&     mv "/opt/android-sdk/cmdline-tools/cmdline-tools"        "/opt/android-sdk/cmdline-tools/latest" &&     rm -f cmdline-tools.zip &&     yes | "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null &&     "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager"         "platform-tools"         "platforms;android-35"         "build-tools;35.0.0" >/dev/null
+#11 CACHED
+
+#12 [main  7/11] RUN cat >/home/user/myapp/dist/index.html <<'HTML'
+#12 CACHED
+
+#13 [main 10/11] RUN cd /home/user/myapp &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D         @capacitor/cli@^8 typescript@^5 &&     npx --yes cap init "MyApp" "com.example.myapp" --web-dir dist &&     npx --yes cap add android
+#13 CACHED
+
+#14 [main 11/11] RUN cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle
+#14 0.442 Downloading https://services.gradle.org/distributions/gradle-8.14.3-all.zip
+#14 1.390 .....................10%.....................20%......................30%.....................40%......................50%.....................60%.....................70%......................80%.....................90%......................100%
+#14 9.962 
+#14 9.963 Welcome to Gradle 8.14.3!
+#14 9.963 
+#14 9.963 Here are the highlights of this release:
+#14 9.963  - Java 24 support
+#14 9.964  - GraalVM Native Image toolchain selection
+#14 9.964  - Enhancements to test reporting
+#14 9.964  - Build Authoring improvements
+#14 9.964 
+#14 9.964 For more details see https://docs.gradle.org/8.14.3/release-notes.html
+#14 9.964 
+#14 10.16 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#14 12.26 Daemon will be stopped at the end of the build 
+#14 48.67 
+#14 48.67 > Configure project :app
+#14 48.67 WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+#14 54.77 
+#14 54.77 > Configure project :capacitor-cordova-android-plugins
+#14 54.77 WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+#14 58.16 Checking the license for package Android SDK Platform 36 in /opt/android-sdk/licenses
+#14 58.16 License for package Android SDK Platform 36 accepted.
+#14 58.16 Preparing "Install Android SDK Platform 36 (revision 2)".
+#14 69.06 "Install Android SDK Platform 36 (revision 2)" ready.
+#14 69.06 Installing Android SDK Platform 36 in /opt/android-sdk/platforms/android-36
+#14 69.06 "Install Android SDK Platform 36 (revision 2)" complete.
+#14 69.57 "Install Android SDK Platform 36 (revision 2)" finished.
+#14 69.77 [=========                              ] 25%                                   
+#14 71.96 > Task :app:preBuild UP-TO-DATE
+#14 71.96 > Task :app:preDebugBuild UP-TO-DATE
+#14 72.06 > Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+#14 72.17 > Task :capacitor-android:preBuild UP-TO-DATE
+#14 72.17 > Task :capacitor-android:preDebugBuild UP-TO-DATE
+#14 72.26 > Task :capacitor-cordova-android-plugins:preBuild UP-TO-DATE
+#14 72.27 > Task :capacitor-cordova-android-plugins:preDebugBuild UP-TO-DATE
+#14 72.27 > Task :capacitor-android:writeDebugAarMetadata
+#14 72.27 > Task :capacitor-cordova-android-plugins:writeDebugAarMetadata
+#14 72.37 > Task :app:javaPreCompileDebug
+#14 72.37 > Task :capacitor-android:processDebugNavigationResources
+#14 76.66 > Task :capacitor-cordova-android-plugins:processDebugNavigationResources
+#14 76.66 > Task :app:checkDebugAarMetadata
+#14 76.86 > Task :app:processDebugNavigationResources
+#14 77.26 > Task :app:generateDebugResValues
+#14 77.26 > Task :app:compileDebugNavigationResources
+#14 77.26 > Task :capacitor-android:generateDebugResValues
+#14 77.36 > Task :capacitor-android:generateDebugResources
+#14 77.56 > Task :capacitor-android:packageDebugResources
+#14 77.56 > Task :capacitor-cordova-android-plugins:generateDebugResValues
+#14 77.56 > Task :capacitor-cordova-android-plugins:generateDebugResources
+#14 77.56 > Task :capacitor-cordova-android-plugins:packageDebugResources
+#14 77.76 > Task :app:mapDebugSourceSetPaths
+#14 77.87 > Task :app:generateDebugResources
+#14 79.36 > Task :app:packageDebugResources
+#14 80.36 > Task :app:mergeDebugResources
+#14 81.06 > Task :app:createDebugCompatibleScreenManifests
+#14 81.06 > Task :app:extractDeepLinksDebug
+#14 81.06 > Task :capacitor-android:extractDeepLinksDebug
+#14 81.16 > Task :capacitor-cordova-android-plugins:extractDeepLinksDebug
+#14 81.26 > Task :capacitor-android:compileDebugLibraryResources
+#14 81.36 > Task :capacitor-cordova-android-plugins:compileDebugLibraryResources
+#14 81.36 > Task :app:parseDebugLocalResources
+#14 81.36 > Task :capacitor-android:processDebugManifest
+#14 81.46 > Task :capacitor-android:parseDebugLocalResources
+#14 81.46 > Task :capacitor-cordova-android-plugins:processDebugManifest
+#14 81.46 > Task :capacitor-cordova-android-plugins:parseDebugLocalResources
+#14 81.47 > Task :capacitor-android:javaPreCompileDebug
+#14 81.96 > Task :app:processDebugMainManifest
+#14 82.86 > Task :app:processDebugManifest
+#14 82.96 > Task :app:processDebugManifestForPackage
+#14 82.96 > Task :capacitor-cordova-android-plugins:javaPreCompileDebug
+#14 83.06 > Task :capacitor-cordova-android-plugins:generateDebugRFile
+#14 83.06 > Task :app:mergeDebugShaders
+#14 83.06 > Task :capacitor-android:generateDebugRFile
+#14 83.06 > Task :capacitor-cordova-android-plugins:compileDebugJavaWithJavac NO-SOURCE
+#14 85.86 > Task :app:processDebugResources
+#14 93.66 > Task :capacitor-android:compileDebugJavaWithJavac FAILED
+#14 93.76 
+#14 93.76 [Incubating] Problems report is available at: file:///home/user/myapp/android/build/reports/problems/problems-report.html
+#14 93.76 40 actionable tasks: 40 executed
+#14 93.77 FAILURE: Build failed with an exception.
+#14 93.77 
+#14 93.77 * What went wrong:
+#14 93.77 Execution failed for task ':capacitor-android:compileDebugJavaWithJavac'.
+#14 93.77 > Java compilation initialization error
+#14 93.77     error: invalid source release: 21
+#14 93.77 
+#14 93.77 * Try:
+#14 93.77 > Run with --stacktrace option to get the stack trace.
+#14 93.77 > Run with --info or --debug option to get more log output.
+#14 93.77 > Run with --scan to get full insights.
+#14 93.77 > Get more help at https://help.gradle.org.
+#14 93.77 
+#14 93.77 BUILD FAILED in 1m 33s
+#14 93.77 
+#14 ERROR: process "/bin/sh -c cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle" did not complete successfully: exit code: 1
+------
+ > [main 11/11] RUN cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle:
+93.77     error: invalid source release: 21
+93.77 
+93.77 * Try:
+93.77 > Run with --stacktrace option to get the stack trace.
+93.77 > Run with --info or --debug option to get more log output.
+93.77 > Run with --scan to get full insights.
+93.77 > Get more help at https://help.gradle.org.
+93.77 
+93.77 BUILD FAILED in 1m 33s
+93.77 
+------
+failed to solve: process "/bin/sh -c cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle" did not complete successfully: exit code: 1
+. Stderr: None. 
+Failed to download artifact '/home/user' (best-effort)
+Traceback (most recent call last):
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 160, in run
+    await self._prepare()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 187, in _prepare
+    await self._setup_agent_environment()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 612, in _setup_agent_environment
+    await self._start_agent_environment()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 618, in _start_agent_environment
+    await asyncio.wait_for(
+    ...<4 lines>...
+    )
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 517, in start
+    await self._run_docker_compose_command(["build"])
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 418, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment custom_android_counter_plugin. Command: docker compose --project-name custom_android_counter_plugin__igtbytr --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/custom_android_counter_plugin/environment -f /tmp/tmp2nm1__l0/custom_android_counter_plugin__igtbYtR-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpoijsbmyq/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 5.61kB done
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/ubuntu:24.04
+#2 DONE 0.0s
+
+#3 [main internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [main  1/11] FROM docker.io/library/ubuntu:24.04
+#4 DONE 0.0s
+
+#5 [main  5/11] RUN mkdir -p /home/user && chmod 0755 /home/user
+#5 CACHED
+
+#6 [main  6/11] RUN mkdir -p /home/user/myapp /home/user/myapp/dist /home/user/myapp/src &&     cd /home/user/myapp &&     cat >package.json <<'JSON'
+#6 CACHED
+
+#7 [main  9/11] RUN cat >/home/user/myapp/src/index.ts <<'TS'
+#7 CACHED
+
+#8 [main  3/11] RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - &&     apt-get install -y --no-install-recommends nodejs &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#8 CACHED
+
+#9 [main  2/11] RUN apt-get update -y &&     apt-get install -y --no-install-recommends         curl wget ca-certificates git python3 python3-pip python3-pytest bash ripgrep         unzip zip xz-utils openjdk-17-jdk-headless fontconfig file &&     ln -sf /usr/bin/python3 /usr/bin/python &&     pip3 install --break-system-packages pytest-json-ctrf &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#9 CACHED
+
+#10 [main  8/11] RUN cat >/home/user/myapp/dist/app.js <<'JS'
+#10 CACHED
+
+#11 [main  4/11] RUN mkdir -p "/opt/android-sdk/cmdline-tools" &&     cd /tmp &&     curl -fsSL -o cmdline-tools.zip         https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip &&     unzip -q cmdline-tools.zip -d "/opt/android-sdk/cmdline-tools" &&     mv "/opt/android-sdk/cmdline-tools/cmdline-tools"        "/opt/android-sdk/cmdline-tools/latest" &&     rm -f cmdline-tools.zip &&     yes | "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null &&     "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager"         "platform-tools"         "platforms;android-35"         "build-tools;35.0.0" >/dev/null
+#11 CACHED
+
+#12 [main  7/11] RUN cat >/home/user/myapp/dist/index.html <<'HTML'
+#12 CACHED
+
+#13 [main 10/11] RUN cd /home/user/myapp &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D         @capacitor/cli@^8 typescript@^5 &&     npx --yes cap init "MyApp" "com.example.myapp" --web-dir dist &&     npx --yes cap add android
+#13 CACHED
+
+#14 [main 11/11] RUN cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle
+#14 0.442 Downloading https://services.gradle.org/distributions/gradle-8.14.3-all.zip
+#14 1.390 .....................10%.....................20%......................30%.....................40%......................50%.....................60%.....................70%......................80%.....................90%......................100%
+#14 9.962 
+#14 9.963 Welcome to Gradle 8.14.3!
+#14 9.963 
+#14 9.963 Here are the highlights of this release:
+#14 9.963  - Java 24 support
+#14 9.964  - GraalVM Native Image toolchain selection
+#14 9.964  - Enhancements to test reporting
+#14 9.964  - Build Authoring improvements
+#14 9.964 
+#14 9.964 For more details see https://docs.gradle.org/8.14.3/release-notes.html
+#14 9.964 
+#14 10.16 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#14 12.26 Daemon will be stopped at the end of the build 
+#14 48.67 
+#14 48.67 > Configure project :app
+#14 48.67 WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+#14 54.77 
+#14 54.77 > Configure project :capacitor-cordova-android-plugins
+#14 54.77 WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+#14 58.16 Checking the license for package Android SDK Platform 36 in /opt/android-sdk/licenses
+#14 58.16 License for package Android SDK Platform 36 accepted.
+#14 58.16 Preparing "Install Android SDK Platform 36 (revision 2)".
+#14 69.06 "Install Android SDK Platform 36 (revision 2)" ready.
+#14 69.06 Installing Android SDK Platform 36 in /opt/android-sdk/platforms/android-36
+#14 69.06 "Install Android SDK Platform 36 (revision 2)" complete.
+#14 69.57 "Install Android SDK Platform 36 (revision 2)" finished.
+#14 69.77 [=========                              ] 25%                                   
+#14 71.96 > Task :app:preBuild UP-TO-DATE
+#14 71.96 > Task :app:preDebugBuild UP-TO-DATE
+#14 72.06 > Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+#14 72.17 > Task :capacitor-android:preBuild UP-TO-DATE
+#14 72.17 > Task :capacitor-android:preDebugBuild UP-TO-DATE
+#14 72.26 > Task :capacitor-cordova-android-plugins:preBuild UP-TO-DATE
+#14 72.27 > Task :capacitor-cordova-android-plugins:preDebugBuild UP-TO-DATE
+#14 72.27 > Task :capacitor-android:writeDebugAarMetadata
+#14 72.27 > Task :capacitor-cordova-android-plugins:writeDebugAarMetadata
+#14 72.37 > Task :app:javaPreCompileDebug
+#14 72.37 > Task :capacitor-android:processDebugNavigationResources
+#14 76.66 > Task :capacitor-cordova-android-plugins:processDebugNavigationResources
+#14 76.66 > Task :app:checkDebugAarMetadata
+#14 76.86 > Task :app:processDebugNavigationResources
+#14 77.26 > Task :app:generateDebugResValues
+#14 77.26 > Task :app:compileDebugNavigationResources
+#14 77.26 > Task :capacitor-android:generateDebugResValues
+#14 77.36 > Task :capacitor-android:generateDebugResources
+#14 77.56 > Task :capacitor-android:packageDebugResources
+#14 77.56 > Task :capacitor-cordova-android-plugins:generateDebugResValues
+#14 77.56 > Task :capacitor-cordova-android-plugins:generateDebugResources
+#14 77.56 > Task :capacitor-cordova-android-plugins:packageDebugResources
+#14 77.76 > Task :app:mapDebugSourceSetPaths
+#14 77.87 > Task :app:generateDebugResources
+#14 79.36 > Task :app:packageDebugResources
+#14 80.36 > Task :app:mergeDebugResources
+#14 81.06 > Task :app:createDebugCompatibleScreenManifests
+#14 81.06 > Task :app:extractDeepLinksDebug
+#14 81.06 > Task :capacitor-android:extractDeepLinksDebug
+#14 81.16 > Task :capacitor-cordova-android-plugins:extractDeepLinksDebug
+#14 81.26 > Task :capacitor-android:compileDebugLibraryResources
+#14 81.36 > Task :capacitor-cordova-android-plugins:compileDebugLibraryResources
+#14 81.36 > Task :app:parseDebugLocalResources
+#14 81.36 > Task :capacitor-android:processDebugManifest
+#14 81.46 > Task :capacitor-android:parseDebugLocalResources
+#14 81.46 > Task :capacitor-cordova-android-plugins:processDebugManifest
+#14 81.46 > Task :capacitor-cordova-android-plugins:parseDebugLocalResources
+#14 81.47 > Task :capacitor-android:javaPreCompileDebug
+#14 81.96 > Task :app:processDebugMainManifest
+#14 82.86 > Task :app:processDebugManifest
+#14 82.96 > Task :app:processDebugManifestForPackage
+#14 82.96 > Task :capacitor-cordova-android-plugins:javaPreCompileDebug
+#14 83.06 > Task :capacitor-cordova-android-plugins:generateDebugRFile
+#14 83.06 > Task :app:mergeDebugShaders
+#14 83.06 > Task :capacitor-android:generateDebugRFile
+#14 83.06 > Task :capacitor-cordova-android-plugins:compileDebugJavaWithJavac NO-SOURCE
+#14 85.86 > Task :app:processDebugResources
+#14 93.66 > Task :capacitor-android:compileDebugJavaWithJavac FAILED
+#14 93.76 
+#14 93.76 [Incubating] Problems report is available at: file:///home/user/myapp/android/build/reports/problems/problems-report.html
+#14 93.76 40 actionable tasks: 40 executed
+#14 93.77 FAILURE: Build failed with an exception.
+#14 93.77 
+#14 93.77 * What went wrong:
+#14 93.77 Execution failed for task ':capacitor-android:compileDebugJavaWithJavac'.
+#14 93.77 > Java compilation initialization error
+#14 93.77     error: invalid source release: 21
+#14 93.77 
+#14 93.77 * Try:
+#14 93.77 > Run with --stacktrace option to get the stack trace.
+#14 93.77 > Run with --info or --debug option to get more log output.
+#14 93.77 > Run with --scan to get full insights.
+#14 93.77 > Get more help at https://help.gradle.org.
+#14 93.77 
+#14 93.77 BUILD FAILED in 1m 33s
+#14 93.77 
+#14 ERROR: process "/bin/sh -c cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle" did not complete successfully: exit code: 1
+------
+ > [main 11/11] RUN cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle:
+93.77     error: invalid source release: 21
+93.77 
+93.77 * Try:
+93.77 > Run with --stacktrace option to get the stack trace.
+93.77 > Run with --info or --debug option to get more log output.
+93.77 > Run with --scan to get full insights.
+93.77 > Get more help at https://help.gradle.org.
+93.77 
+93.77 BUILD FAILED in 1m 33s
+93.77 
+------
+failed to solve: process "/bin/sh -c cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle" did not complete successfully: exit code: 1
+. Stderr: None. 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/artifact_handler.py", line 195, in _download_artifact
+    await source_env.download_file(
+    ...<2 lines>...
+    )
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 609, in download_file
+    await self._platform.download_file(source_path, target_path)
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker_unix.py", line 48, in download_file
+    await self._env._run_docker_compose_command(
+    ...<2 lines>...
+    )
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 418, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment custom_android_counter_plugin. Command: docker compose --project-name custom_android_counter_plugin__igtbytr --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/custom_android_counter_plugin/environment -f /tmp/tmp2nm1__l0/custom_android_counter_plugin__igtbYtR-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpoijsbmyq/docker-compose-mounts.json cp main:/home/user jobs/2026-06-16__03-19-22/custom_android_counter_plugin__igtbYtR/artifacts/user. Return code: 1. Stdout: no container found for service "main"
+. Stderr: None. 

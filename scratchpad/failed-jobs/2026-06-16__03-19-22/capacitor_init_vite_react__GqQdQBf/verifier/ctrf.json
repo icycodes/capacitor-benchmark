@@ -1,0 +1,92 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T03:23:06.271679+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 7,
+            "passed": 7,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781580179435,
+            "stop": 1781580186271
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_package_json_lists_capacitor_core_8x",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781580179710,
+                "stop": 1781580179712,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_package_json_lists_capacitor_cli_8x",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781580179713,
+                "stop": 1781580179715,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_config_file_present_and_unique",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781580179715,
+                "stop": 1781580179716,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_config_values",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781580179717,
+                "stop": 1781580179719,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_npm_run_build_succeeds_and_produces_index_html",
+                "status": "passed",
+                "duration": 4022,
+                "start": 1781580179719,
+                "stop": 1781580183741,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_npx_cap_sync_succeeds",
+                "status": "passed",
+                "duration": 1400,
+                "start": 1781580183742,
+                "stop": 1781580185142,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_preview_returns_200_with_react_root",
+                "status": "passed",
+                "duration": 1127,
+                "start": 1781580185143,
+                "stop": 1781580186270,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

@@ -1,0 +1,54 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /bootstrap
+plugins: json-ctrf-0.5.2
+collected 14 items
+
+bootstrap/test_initial_state.py::test_node_available PASSED
+bootstrap/test_initial_state.py::test_node_version_is_22_or_higher PASSED
+bootstrap/test_initial_state.py::test_npm_available PASSED
+bootstrap/test_initial_state.py::test_npx_available PASSED
+bootstrap/test_initial_state.py::test_project_directory_exists PASSED
+bootstrap/test_initial_state.py::test_package_json_exists PASSED
+bootstrap/test_initial_state.py::test_package_json_is_valid_json PASSED
+bootstrap/test_initial_state.py::test_capacitor_core_and_cli_preinstalled PASSED
+bootstrap/test_initial_state.py::test_vite_installed PASSED
+bootstrap/test_initial_state.py::test_node_modules_installed PASSED
+bootstrap/test_initial_state.py::test_capacitor_config_present PASSED
+bootstrap/test_initial_state.py::test_splash_screen_plugin_not_yet_installed PASSED
+bootstrap/test_initial_state.py::test_capacitor_config_has_no_splash_screen_options PASSED
+bootstrap/test_initial_state.py::test_src_does_not_reference_splash_screen_plugin FAILED
+
+=================================== FAILURES ===================================
+_______________ test_src_does_not_reference_splash_screen_plugin _______________
+
+    def test_src_does_not_reference_splash_screen_plugin():
+        """No TS source file should already import @capacitor/splash-screen."""
+        src_dir = os.path.join(PROJECT_DIR, "src")
+        assert os.path.isdir(src_dir), f"Expected a src/ directory at {src_dir}."
+        import_re = re.compile(r"""from\s+['"]@capacitor/splash-screen['"]""")
+        hide_re = re.compile(r"SplashScreen\s*\.\s*hide\s*\(")
+        for root, _dirs, files in os.walk(src_dir):
+            for name in files:
+                if not name.endswith((".ts", ".tsx", ".mts", ".cts")):
+                    continue
+                path = os.path.join(root, name)
+                with open(path) as f:
+                    source = f.read()
+                assert not import_re.search(source), (
+                    f"{path} must NOT already import from '@capacitor/splash-screen' in "
+                    "the initial state."
+                )
+>               assert not hide_re.search(source), (
+                    f"{path} must NOT already call SplashScreen.hide() in the initial "
+                    "state."
+                )
+E               AssertionError: /home/user/myapp/src/main.ts must NOT already call SplashScreen.hide() in the initial state.
+E               assert not <re.Match object; span=(146, 164), match='SplashScreen.hide('>
+E                +  where <re.Match object; span=(146, 164), match='SplashScreen.hide('> = <built-in method search of re.Pattern object at 0x7ff1c91c4e40>('// Initial scaffold. The executor must install @capacitor/splash-screen@^8,\n// configure plugins.SplashScreen in capacitor.config.ts, and call\n// SplashScreen.hide() from a TS module after the DOM is ready.\nconst app = document.getElementById("app");\nif (app) {\n  const note = document.createElement("p");\n  note.textContent = "Replace me with a SplashScreen.hide() call.";\n  app.appendChild(note);\n}\n')
+E                +    where <built-in method search of re.Pattern object at 0x7ff1c91c4e40> = re.compile('SplashScreen\\s*\\.\\s*hide\\s*\\(').search
+
+bootstrap/test_initial_state.py:153: AssertionError
+=========================== short test summary info ============================
+FAILED bootstrap/test_initial_state.py::test_src_does_not_reference_splash_screen_plugin
+========================= 1 failed, 13 passed in 0.14s =========================

@@ -1,0 +1,25 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /bootstrap
+plugins: json-ctrf-0.5.2
+collected 17 items
+
+bootstrap/test_initial_state.py::test_node_available PASSED
+bootstrap/test_initial_state.py::test_node_version_is_22_or_higher PASSED
+bootstrap/test_initial_state.py::test_npm_available PASSED
+bootstrap/test_initial_state.py::test_npx_available PASSED
+bootstrap/test_initial_state.py::test_project_directory_exists PASSED
+bootstrap/test_initial_state.py::test_package_json_exists PASSED
+bootstrap/test_initial_state.py::test_package_json_is_valid_json PASSED
+bootstrap/test_initial_state.py::test_capacitor_config_file_present PASSED
+bootstrap/test_initial_state.py::test_index_html_exists PASSED
+bootstrap/test_initial_state.py::test_node_modules_installed PASSED
+bootstrap/test_initial_state.py::test_capacitor_core_declared_on_v7 PASSED
+bootstrap/test_initial_state.py::test_capacitor_preferences_declared_on_v7 PASSED
+bootstrap/test_initial_state.py::test_capacitor_cli_declared_on_v7 PASSED
+bootstrap/test_initial_state.py::test_installed_capacitor_core_is_v7 PASSED
+bootstrap/test_initial_state.py::test_installed_capacitor_cli_is_v7 PASSED
+bootstrap/test_initial_state.py::test_installed_capacitor_preferences_is_v7 PASSED
+bootstrap/test_initial_state.py::test_initial_capacitor_config_snapshot_present PASSED
+
+============================== 17 passed in 0.10s ==============================

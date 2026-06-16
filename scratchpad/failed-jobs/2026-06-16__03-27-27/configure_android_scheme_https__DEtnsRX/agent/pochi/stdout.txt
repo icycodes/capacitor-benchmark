@@ -1,0 +1,14 @@
+- Initializing MCP connections...
+You
+# Configure Capacitor Android Scheme to HTTPS with Custom Hostname ## Background A Vite + Capacitor v8 project is pre-scaffolded at `/home/user/myapp`. The mobile app calls a remote backend that whitelists CORS origins on a per-host basis. Because of https://github.com/ionic-team/capacitor/issues/6936, the existing custom `app://` scheme is sent to the backend without its hostname (just `app://`), causing every request to be rejected by CORS. The accepted workaround documented in the Capacitor community is to load the WebView under a standard `https` scheme together with a fixed custom hostname, so that the WebView origin Android emits matches the value whitelisted on the backend (`https://myapp.example.com`). ## Requirements * Update the Capacitor config so that the Android WebView serves the application from `https://myapp.example.com` instead of the existing `app://localhost` scheme. * Keep all previously configured Capacitor app metadata intact (the app name, application ID, and web assets directory must NOT change). * The web project must continue to build cleanly with `npm run build`. * After the config change, the Capacitor CLI sync step must complete successfully so that the Android native project picks up the new scheme/hostname. ## Implementation Hints * Read `/home/user/myapp/capacitor.config.ts` to understand the current configuration and the existing app metadata. * The Capacitor config's `server` section is the place to control the local scheme and hostname that the WebView uses. See the https://capacitorjs.com/docs/config for the `server.androidScheme` and `server.hostname` keys. * After updating the config, run `npm run build` and then `npx cap sync` from the project root so that the native Android project is rewritten with the new values. ## Acceptance Criteria * Project path: `/home/user/myapp` * `/home/user/myapp/capacitor.config.ts` (or `capacitor.config.json` if you replace it) must declare a `server` configuration that sets `androidScheme` to `https` and `hostname` to `myapp.example.com`. * The existing `appId`, `appName`, and `webDir` values present in the initial config must remain unchanged. * Running `npm run build` in `/home/user/myapp` exits with status code 0 and produces `/home/user/myapp/dist/index.html`. * Running `npx cap sync` in `/home/user/myapp` exits with status code 0.   
+
+Pochi
+💭 Thinking for 577 characters   
+📖 Reading /home/user/myapp/capacitor.config.ts ✔ 
+💭 Thinking for 306 characters   
+🔧 Applying diff to /home/user/myapp/capacitor.config.ts ✔ 
+💭 Thinking for 225 characters   
+💫 Executing npm run build && npx cap sync ✔ 
+🎉 Task Completed
+The Capacitor configuration has been updated to use the `https` scheme and the `myapp.example.com` hostname for Android. I also ran `npm run build` and `npx cap sync` to apply the changes to the Android native project.   
+  

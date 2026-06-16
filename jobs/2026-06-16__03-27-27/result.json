@@ -1,0 +1,65 @@
+{
+    "id": "385198ad-dec3-41b8-b2c4-2ffa5948aa02",
+    "started_at": "2026-06-16T03:27:29.718230",
+    "updated_at": "2026-06-16T03:34:51.937004",
+    "finished_at": "2026-06-16T03:34:51.937004",
+    "n_total_trials": 20,
+    "stats": {
+        "n_completed_trials": 20,
+        "n_errored_trials": 8,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "pochi__gemini-3.1-pro__pending-tasks": {
+                "n_trials": 12,
+                "n_errors": 8,
+                "metrics": [
+                    {
+                        "mean": 0.55
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "custom_android_echo_plugin__mGdPMVM",
+                            "clipboard_write_read__ZjomvL4",
+                            "add_capacitor_platform_packages__TKb5Y3w",
+                            "capacitor_init_vite_react__Dzxwa3Q",
+                            "filesystem_write_read_text__ECDii3P",
+                            "configure_android_scheme_https__DEtnsRX",
+                            "custom_ios_echo_plugin__iBMaAe8",
+                            "network_status_indicator__QTwDypn",
+                            "align_webdir_nextjs_export__RDU3dAj",
+                            "upgrade_capacitor_v7_to_v8__yKAQPd5",
+                            "preferences_multi_key_crud__7eogiXG"
+                        ],
+                        "0.0": [
+                            "enable_capacitorhttp_plugin__3B3MUus"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "InitialStateError": [
+                        "dialog_prompt_result__c5G7sj6",
+                        "configure_splashscreen_plugin_op__oUJzkX2",
+                        "device_info_dual_field__UzNRvv5",
+                        "capacitorhttp_external_api_call__T925aQS",
+                        "status_bar_install_and_call__3XNM2yA",
+                        "share_text_payload__4r6fVzh",
+                        "app_state_visibility_listener__rCAEVKM"
+                    ],
+                    "RuntimeError": [
+                        "custom_android_counter_plugin__EkZA7N2"
+                    ]
+                }
+            }
+        },
+        "n_input_tokens": 0,
+        "n_cache_tokens": 0,
+        "n_output_tokens": 189011,
+        "cost_usd": null
+    }
+}

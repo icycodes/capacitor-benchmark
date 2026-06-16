@@ -1,0 +1,83 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T03:36:58.926191+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 6,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781581015416,
+            "stop": 1781581018925
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_package_json_declares_capacitor_android_in_dependencies",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781581015487,
+                "stop": 1781581015490,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_package_json_declares_capacitor_ios_in_dependencies",
+                "status": "passed",
+                "duration": 7,
+                "start": 1781581015491,
+                "stop": 1781581015498,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_android_node_module_installed_with_v8",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781581015499,
+                "stop": 1781581015501,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_ios_node_module_installed_with_v8",
+                "status": "passed",
+                "duration": 4,
+                "start": 1781581015501,
+                "stop": 1781581015505,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_npm_run_build_succeeds_and_produces_dist_index_html",
+                "status": "passed",
+                "duration": 1241,
+                "start": 1781581015505,
+                "stop": 1781581016746,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_npx_cap_sync_exits_zero",
+                "status": "passed",
+                "duration": 2178,
+                "start": 1781581016747,
+                "stop": 1781581018925,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

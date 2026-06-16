@@ -1,0 +1,119 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: xprocess-1.0.2, json-ctrf-0.5.2
+collected 8 items
+
+tests/test_final_state.py .......F                                       [100%]
+
+=================================== FAILURES ===================================
+______________________ test_kv_admin_multi_key_crud_flow _______________________
+
+preview_server = 'http://127.0.0.1:4173/'
+
+    def test_kv_admin_multi_key_crud_flow(preview_server):
+        pytest.importorskip("playwright.sync_api")
+        from playwright.sync_api import sync_playwright
+    
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            try:
+                # Fresh context => empty localStorage by default.
+                context = browser.new_context()
+                page = context.new_page()
+                page.goto(preview_server, wait_until="load")
+                page.wait_for_selector("#kv-list", state="attached", timeout=10_000)
+                page.wait_for_selector("#kv-set-btn", state="visible", timeout=10_000)
+                page.wait_for_timeout(300)
+    
+                # Initial state: zero entries.
+                assert _list_count(page) == 0, (
+                    "On first load with no stored preferences, #kv-list must have zero "
+                    f"<li> children; got {_list_count(page)}."
+                )
+    
+                # Set alpha=one.
+                page.fill("#kv-key", "alpha")
+                page.fill("#kv-value", "one")
+                page.click("#kv-set-btn")
+                _wait_list_count(page, 1)
+    
+                # Set beta=two.
+                page.fill("#kv-key", "beta")
+                page.fill("#kv-value", "two")
+                page.click("#kv-set-btn")
+                _wait_list_count(page, 2)
+    
+                texts_sorted = sorted(_list_texts(page))
+                assert texts_sorted == ["alpha=one", "beta=two"], (
+                    "After setting alpha=one and beta=two, #kv-list must contain exactly the "
+                    f"items ['alpha=one', 'beta=two'] (sorted); got {texts_sorted!r}."
+                )
+    
+                assert _localstorage(page, "alpha") == "one", (
+                    "Expected CapacitorStorage.alpha to equal 'one' in localStorage after Set; "
+                    f"got {_localstorage(page, 'alpha')!r}."
+                )
+                assert _localstorage(page, "beta") == "two", (
+                    "Expected CapacitorStorage.beta to equal 'two' in localStorage after Set; "
+                    f"got {_localstorage(page, 'beta')!r}."
+                )
+    
+                # Reload — persistence check.
+                page.reload(wait_until="load")
+                page.wait_for_selector("#kv-list", state="attached", timeout=10_000)
+>               _wait_list_count(page, 2, timeout_ms=10_000)
+
+tests/test_final_state.py:278: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_final_state.py:221: in _wait_list_count
+    page.wait_for_function(
+usr/local/lib/python3.12/dist-packages/playwright/sync_api/_generated.py:12436: in wait_for_function
+    self._sync(
+usr/local/lib/python3.12/dist-packages/playwright/_impl/_page.py:1136: in wait_for_function
+    return await self._main_frame.wait_for_function(**locals_to_params(locals()))
+usr/local/lib/python3.12/dist-packages/playwright/_impl/_frame.py:910: in wait_for_function
+    await self._channel.send("waitForFunction", self._timeout, params)
+usr/local/lib/python3.12/dist-packages/playwright/_impl/_connection.py:69: in send
+    return await self._connection.wrap_api_call(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <playwright._impl._connection.Connection object at 0x7f0b962385c0>
+cb = <function Channel.send.<locals>.<lambda> at 0x7f0b950a87c0>
+is_internal = False, title = None
+
+    async def wrap_api_call(
+        self, cb: Callable[[], Any], is_internal: bool = False, title: str = None
+    ) -> Any:
+        if self._api_zone.get():
+            return await cb()
+        task = asyncio.current_task(self._loop)
+        st: List[inspect.FrameInfo] = getattr(
+            task, "__pw_stack__", None
+        ) or inspect.stack(0)
+    
+        parsed_st = _extract_stack_trace_information_from_stack(st, is_internal, title)
+        self._api_zone.set(parsed_st)
+        try:
+            return await cb()
+        except Exception as error:
+>           raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E           playwright._impl._errors.TimeoutError: Page.wait_for_function: Timeout 10000ms exceeded.
+
+usr/local/lib/python3.12/dist-packages/playwright/_impl/_connection.py:559: TimeoutError
+==================================== PASSES ====================================
+____________________ test_index_served_with_kv_admin_markup ____________________
+---------------------------- Captured stdout setup -----------------------------
+/tests/.pytest_cache/d/.xprocess/vite_preview$ npm run preview -- --host 0.0.0.0 --port 4173 --strictPort
+process 'vite_preview' started pid=1160
+vite_preview process startup detected
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_capacitor_config_values
+PASSED tests/test_final_state.py::test_package_json_lists_capacitor_dependencies
+PASSED tests/test_final_state.py::test_preferences_plugin_major_version_is_8
+PASSED tests/test_final_state.py::test_dist_index_html_exists
+PASSED tests/test_final_state.py::test_npm_build_succeeds
+PASSED tests/test_final_state.py::test_capacitor_sync_succeeds
+PASSED tests/test_final_state.py::test_index_served_with_kv_admin_markup
+FAILED tests/test_final_state.py::test_kv_admin_multi_key_crud_flow - playwri...
+========================= 1 failed, 7 passed in 16.54s =========================

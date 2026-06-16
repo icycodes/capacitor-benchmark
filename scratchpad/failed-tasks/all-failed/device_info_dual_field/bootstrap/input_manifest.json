@@ -1,0 +1,7 @@
+{
+  "library_name": "Capacitor",
+  "task_name": "device_info_dual_field",
+  "complexity_level": "multi-step sequential command set",
+  "research_plan_path": "plan.md",
+  "output_dir": "scratchpad/pending-tasks/"
+}
