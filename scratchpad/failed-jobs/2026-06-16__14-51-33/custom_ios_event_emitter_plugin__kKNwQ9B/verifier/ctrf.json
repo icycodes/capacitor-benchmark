@@ -1,0 +1,230 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T15:10:50.727007+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 17,
+            "passed": 1,
+            "failed": 16,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781622648623,
+            "stop": 1781622650726
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_exists",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 18,
+                "start": 1781622648667,
+                "stop": 1781622648685,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_timer_emitter_plugin_swift_exists():\n>       assert os.path.isfile(TIMER_PLUGIN_PATH), (\n            f\"Expected Swift plugin source at {TIMER_PLUGIN_PATH} but it does not exist.\"\n        )\nE       AssertionError: Expected Swift plugin source at /home/user/myapp/ios/App/App/TimerEmitterPlugin.swift but it does not exist.\nE       assert False\nE        +  where False = <function isfile at 0x7f3794d84220>('/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift')\nE        +    where <function isfile at 0x7f3794d84220> = <module 'posixpath' (frozen)>.isfile\nE        +      where <module 'posixpath' (frozen)> = os.path\n\ntests/test_final_state.py:20: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_imports_capacitor",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 6,
+                "start": 1781622648686,
+                "stop": 1781622648692,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_timer_emitter_plugin_swift_imports_capacitor():\n>       content = _read(TIMER_PLUGIN_PATH)\n\ntests/test_final_state.py:26: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\n    def _read(path: str) -> str:\n>       with open(path, \"r\", encoding=\"utf-8\") as f:\nE       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\ntests/test_final_state.py:15: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_objc_annotation",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 7,
+                "start": 1781622648693,
+                "stop": 1781622648700,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_timer_emitter_plugin_swift_objc_annotation():\n>       content = _read(TIMER_PLUGIN_PATH)\n\ntests/test_final_state.py:33: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\n    def _read(path: str) -> str:\n>       with open(path, \"r\", encoding=\"utf-8\") as f:\nE       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\ntests/test_final_state.py:15: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_class_declaration",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 6,
+                "start": 1781622648701,
+                "stop": 1781622648707,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_timer_emitter_plugin_swift_class_declaration():\n>       content = _read(TIMER_PLUGIN_PATH)\n\ntests/test_final_state.py:41: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\n    def _read(path: str) -> str:\n>       with open(path, \"r\", encoding=\"utf-8\") as f:\nE       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\ntests/test_final_state.py:15: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_identifier_constant",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 6,
+                "start": 1781622648708,
+                "stop": 1781622648714,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_timer_emitter_plugin_swift_identifier_constant():\n>       content = _read(TIMER_PLUGIN_PATH)\n\ntests/test_final_state.py:55: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\n    def _read(path: str) -> str:\n>       with open(path, \"r\", encoding=\"utf-8\") as f:\nE       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\ntests/test_final_state.py:15: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_jsname_constant",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 6,
+                "start": 1781622648715,
+                "stop": 1781622648721,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_timer_emitter_plugin_swift_jsname_constant():\n>       content = _read(TIMER_PLUGIN_PATH)\n\ntests/test_final_state.py:63: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\n    def _read(path: str) -> str:\n>       with open(path, \"r\", encoding=\"utf-8\") as f:\nE       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\ntests/test_final_state.py:15: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_plugin_methods_array",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 6,
+                "start": 1781622648721,
+                "stop": 1781622648727,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_timer_emitter_plugin_swift_plugin_methods_array():\n>       content = _read(TIMER_PLUGIN_PATH)\n\ntests/test_final_state.py:71: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\n    def _read(path: str) -> str:\n>       with open(path, \"r\", encoding=\"utf-8\") as f:\nE       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\ntests/test_final_state.py:15: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_start_timer_method_signature",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 6,
+                "start": 1781622648728,
+                "stop": 1781622648734,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_timer_emitter_plugin_swift_start_timer_method_signature():\n>       content = _read(TIMER_PLUGIN_PATH)\n\ntests/test_final_state.py:95: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\n    def _read(path: str) -> str:\n>       with open(path, \"r\", encoding=\"utf-8\") as f:\nE       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\ntests/test_final_state.py:15: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_stop_timer_method_signature",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 6,
+                "start": 1781622648735,
+                "stop": 1781622648741,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_timer_emitter_plugin_swift_stop_timer_method_signature():\n>       content = _read(TIMER_PLUGIN_PATH)\n\ntests/test_final_state.py:106: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\n    def _read(path: str) -> str:\n>       with open(path, \"r\", encoding=\"utf-8\") as f:\nE       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\ntests/test_final_state.py:15: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_uses_scheduled_timer",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 6,
+                "start": 1781622648741,
+                "stop": 1781622648747,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_timer_emitter_plugin_swift_uses_scheduled_timer():\n>       content = _read(TIMER_PLUGIN_PATH)\n\ntests/test_final_state.py:117: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\n    def _read(path: str) -> str:\n>       with open(path, \"r\", encoding=\"utf-8\") as f:\nE       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\ntests/test_final_state.py:15: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_notifies_tick_with_count",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 6,
+                "start": 1781622648748,
+                "stop": 1781622648754,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_timer_emitter_plugin_swift_notifies_tick_with_count():\n>       content = _read(TIMER_PLUGIN_PATH)\n\ntests/test_final_state.py:125: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\n    def _read(path: str) -> str:\n>       with open(path, \"r\", encoding=\"utf-8\") as f:\nE       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\ntests/test_final_state.py:15: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_invalidates_timer",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 6,
+                "start": 1781622648754,
+                "stop": 1781622648760,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_timer_emitter_plugin_swift_invalidates_timer():\n>       content = _read(TIMER_PLUGIN_PATH)\n\ntests/test_final_state.py:137: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\n    def _read(path: str) -> str:\n>       with open(path, \"r\", encoding=\"utf-8\") as f:\nE       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\ntests/test_final_state.py:15: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_balanced_braces",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 6,
+                "start": 1781622648761,
+                "stop": 1781622648767,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_timer_emitter_plugin_swift_balanced_braces():\n>       content = _read(TIMER_PLUGIN_PATH)\n\ntests/test_final_state.py:145: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath = '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\n    def _read(path: str) -> str:\n>       with open(path, \"r\", encoding=\"utf-8\") as f:\nE       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift'\n\ntests/test_final_state.py:15: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_final_state.py::test_myviewcontroller_registers_timer_emitter_plugin",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 6,
+                "start": 1781622648767,
+                "stop": 1781622648773,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_myviewcontroller_registers_timer_emitter_plugin():\n        content = _read(MY_VC_PATH)\n>       assert (\n            re.search(\n                r\"override\\s+open\\s+func\\s+capacitorDidLoad\\s*\\(\\s*\\)\",\n                content,\n            )\n            or re.search(\n                r\"override\\s+public\\s+func\\s+capacitorDidLoad\\s*\\(\\s*\\)\",\n                content,\n            )\n            or re.search(\n                r\"override\\s+func\\s+capacitorDidLoad\\s*\\(\\s*\\)\",\n                content,\n            )\n        ), \"MyViewController.swift must override `capacitorDidLoad()`.\"\nE       AssertionError: MyViewController.swift must override `capacitorDidLoad()`.\nE       assert (None or None or None)\nE        +  where None = <function search at 0x7f3794e0fba0>('override\\\\s+open\\\\s+func\\\\s+capacitorDidLoad\\\\s*\\\\(\\\\s*\\\\)', 'import UIKit\\nimport Capacitor\\n\\nclass MyViewController: CAPBridgeViewController {\\n    // Add Capacitor-specific overrides here, such as capacitorDidLoad() for\\n    // registering custom local plugins.\\n}\\n')\nE        +    where <function search at 0x7f3794e0fba0> = re.search\nE        +  and   None = <function search at 0x7f3794e0fba0>('override\\\\s+public\\\\s+func\\\\s+capacitorDidLoad\\\\s*\\\\(\\\\s*\\\\)', 'import UIKit\\nimport Capacitor\\n\\nclass MyViewController: CAPBridgeViewController {\\n    // Add Capacitor-specific overrides here, such as capacitorDidLoad() for\\n    // registering custom local plugins.\\n}\\n')\nE        +    where <function search at 0x7f3794e0fba0> = re.search\nE        +  and   None = <function search at 0x7f3794e0fba0>('override\\\\s+func\\\\s+capacitorDidLoad\\\\s*\\\\(\\\\s*\\\\)', 'import UIKit\\nimport Capacitor\\n\\nclass MyViewController: CAPBridgeViewController {\\n    // Add Capacitor-specific overrides here, such as capacitorDidLoad() for\\n    // registering custom local plugins.\\n}\\n')\nE        +    where <function search at 0x7f3794e0fba0> = re.search\n\ntests/test_final_state.py:159: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_pbxproj_references_timer_emitter_plugin_swift",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 5,
+                "start": 1781622648774,
+                "stop": 1781622648779,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_pbxproj_references_timer_emitter_plugin_swift():\n        content = _read(PBXPROJ_PATH)\n        occurrences = content.count(\"TimerEmitterPlugin.swift\")\n>       assert occurrences >= 2, (\n            f\"project.pbxproj must reference `TimerEmitterPlugin.swift` at least twice \"\n            f\"(once in PBXFileReference and once in PBXSourcesBuildPhase); \"\n            f\"found {occurrences} occurrence(s).\"\n        )\nE       AssertionError: project.pbxproj must reference `TimerEmitterPlugin.swift` at least twice (once in PBXFileReference and once in PBXSourcesBuildPhase); found 0 occurrence(s).\nE       assert 0 >= 2\n\ntests/test_final_state.py:186: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_ts_wrapper_exists_and_registers_plugin",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 5,
+                "start": 1781622648779,
+                "stop": 1781622648784,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_timer_emitter_ts_wrapper_exists_and_registers_plugin():\n>       assert os.path.isfile(TIMER_TS_PATH), (\n            f\"TypeScript wrapper {TIMER_TS_PATH} must exist.\"\n        )\nE       AssertionError: TypeScript wrapper /home/user/myapp/src/timer-emitter.ts must exist.\nE       assert False\nE        +  where False = <function isfile at 0x7f3794d84220>('/home/user/myapp/src/timer-emitter.ts')\nE        +    where <function isfile at 0x7f3794d84220> = <module 'posixpath' (frozen)>.isfile\nE        +      where <module 'posixpath' (frozen)> = os.path\n\ntests/test_final_state.py:194: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_cap_sync_ios_succeeds",
+                "status": "passed",
+                "duration": 1942,
+                "start": 1781622648784,
+                "stop": 1781622650726,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

@@ -1,0 +1,7 @@
+OK: installed @capacitor/push-notifications v8 as a runtime dependency
+OK: applied google-services gradle plugin classpath com.google.gms:google-services:4.4.2 in android/build.gradle
+OK: applied com.google.gms.google-services plugin in android/app/build.gradle via try/catch apply block
+OK: added firebase-messaging implementation dependency com.google.firebase:firebase-messaging:25.0.1 in android/app/build.gradle
+OK: created google-services.json placeholder at android/app/google-services.json with package_name com.example.myapp
+OK: created src/push.ts with initPush() that calls requestPermissions() before register()
+OK: registered listeners for registration, registrationError, pushNotificationReceived, pushNotificationActionPerformed events

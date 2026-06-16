@@ -1,0 +1,92 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T14:27:12.735789+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 7,
+            "passed": 7,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781620026213,
+            "stop": 1781620032735
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_capacitor_config_enables_cookies",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781620026241,
+                "stop": 1781620026243,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_session_module_exists",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781620026243,
+                "stop": 1781620026244,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_session_imports_capacitor_apis",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781620026244,
+                "stop": 1781620026245,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_session_exposes_required_async_functions",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781620026246,
+                "stop": 1781620026247,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_session_references_session_id_and_clear_all_cookies",
+                "status": "passed",
+                "duration": 0,
+                "start": 1781620026248,
+                "stop": 1781620026248,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_typescript_typecheck_succeeds",
+                "status": "passed",
+                "duration": 2196,
+                "start": 1781620026249,
+                "stop": 1781620028445,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_behavioral_run_passes",
+                "status": "passed",
+                "duration": 4290,
+                "start": 1781620028445,
+                "stop": 1781620032735,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

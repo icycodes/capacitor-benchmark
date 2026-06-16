@@ -1,0 +1,117 @@
+{
+    "id": "17fb9873-4069-4a89-ad2b-06233e20e223",
+    "task_name": "custom_android_bidirectional_counter_plugin",
+    "trial_name": "custom_android_bidirectional_cou__wa3sm6o",
+    "trial_uri": "file:///home/kweizh/zealt/zealt-agent/jobs/2026-06-16__14-07-00/custom_android_bidirectional_cou__wa3sm6o",
+    "task_id": {
+        "path": "/home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/custom_android_bidirectional_counter_plugin"
+    },
+    "source": "pending-tasks",
+    "task_checksum": "b68175d89e28c61fe5be7bc9ef080f71e67eb3ba172db5e3cbc7c6419a206dfc",
+    "config": {
+        "task": {
+            "path": "/home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/custom_android_bidirectional_counter_plugin",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": "pending-tasks"
+        },
+        "trial_name": "custom_android_bidirectional_cou__wa3sm6o",
+        "trials_dir": "jobs/2026-06-16__14-07-00",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": null,
+            "import_path": "agents.pochi:Pochi",
+            "model_name": "anthropic/claude-4-6-sonnet",
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {},
+            "env": {},
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "suppress_override_warnings": false,
+            "mounts": [
+                {
+                    "type": "bind",
+                    "source": "test_initial_state.py",
+                    "target": "/bootstrap/test_initial_state.py"
+                }
+            ],
+            "extra_docker_compose": [],
+            "env": {},
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "env": {},
+            "disable": false
+        },
+        "artifacts": [
+            "/home/user"
+        ],
+        "extra_instruction_paths": [],
+        "job_id": "e81a5121-6b61-46ab-9a94-a10f8d997989"
+    },
+    "agent_info": {
+        "name": "pochi",
+        "version": "0.6.14",
+        "model_info": {
+            "name": "claude-4-6-sonnet",
+            "provider": "anthropic"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 0,
+        "n_cache_tokens": 0,
+        "n_output_tokens": 34053,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-06-16T14:07:08.639377Z",
+    "finished_at": "2026-06-16T14:12:05.228916Z",
+    "environment_setup": {
+        "started_at": "2026-06-16T14:07:08.840960Z",
+        "finished_at": "2026-06-16T14:07:12.594308Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-06-16T14:07:12.594347Z",
+        "finished_at": "2026-06-16T14:07:26.903216Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-06-16T14:07:26.903364Z",
+        "finished_at": "2026-06-16T14:11:33.245388Z"
+    },
+    "verifier": {
+        "started_at": "2026-06-16T14:11:44.358722Z",
+        "finished_at": "2026-06-16T14:11:53.023496Z"
+    },
+    "step_results": null
+}

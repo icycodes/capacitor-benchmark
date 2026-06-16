@@ -1,0 +1,117 @@
+{
+    "id": "9de1f008-f0fa-4843-9a22-2f864b504d51",
+    "task_name": "upgrade_v7_to_v8_full_android_toolchain",
+    "trial_name": "upgrade_v7_to_v8_full_android_to__sNecg8F",
+    "trial_uri": "file:///home/kweizh/zealt/zealt-agent/jobs/2026-06-16__14-20-51/upgrade_v7_to_v8_full_android_to__sNecg8F",
+    "task_id": {
+        "path": "/home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/upgrade_v7_to_v8_full_android_toolchain"
+    },
+    "source": "pending-tasks",
+    "task_checksum": "4aab1c9fe77a2d5d83fbb1c2f8e0811482d9137445f76b16835ee6549486de81",
+    "config": {
+        "task": {
+            "path": "/home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/upgrade_v7_to_v8_full_android_toolchain",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": "pending-tasks"
+        },
+        "trial_name": "upgrade_v7_to_v8_full_android_to__sNecg8F",
+        "trials_dir": "jobs/2026-06-16__14-20-51",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": null,
+            "import_path": "agents.pochi:Pochi",
+            "model_name": "google/gemini-3.1-pro",
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {},
+            "env": {},
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "suppress_override_warnings": false,
+            "mounts": [
+                {
+                    "type": "bind",
+                    "source": "test_initial_state.py",
+                    "target": "/bootstrap/test_initial_state.py"
+                }
+            ],
+            "extra_docker_compose": [],
+            "env": {},
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "env": {},
+            "disable": false
+        },
+        "artifacts": [
+            "/home/user"
+        ],
+        "extra_instruction_paths": [],
+        "job_id": "e8e80dc3-04bc-490c-83fa-a94513e56761"
+    },
+    "agent_info": {
+        "name": "pochi",
+        "version": "0.6.14",
+        "model_info": {
+            "name": "gemini-3.1-pro",
+            "provider": "google"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 0,
+        "n_cache_tokens": 0,
+        "n_output_tokens": 15072,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-06-16T14:22:13.144799Z",
+    "finished_at": "2026-06-16T14:24:44.005433Z",
+    "environment_setup": {
+        "started_at": "2026-06-16T14:22:13.153793Z",
+        "finished_at": "2026-06-16T14:22:18.732635Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-06-16T14:22:18.732712Z",
+        "finished_at": "2026-06-16T14:22:49.635797Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-06-16T14:22:49.636026Z",
+        "finished_at": "2026-06-16T14:24:18.851679Z"
+    },
+    "verifier": {
+        "started_at": "2026-06-16T14:24:28.568224Z",
+        "finished_at": "2026-06-16T14:24:29.699674Z"
+    },
+    "step_results": null
+}

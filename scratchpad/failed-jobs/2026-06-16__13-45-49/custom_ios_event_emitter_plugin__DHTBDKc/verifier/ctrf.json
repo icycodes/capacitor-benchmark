@@ -1,0 +1,191 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T14:00:15.060528+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 17,
+            "passed": 14,
+            "failed": 3,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781618411739,
+            "stop": 1781618415060
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_exists",
+                "status": "passed",
+                "duration": 5,
+                "start": 1781618411872,
+                "stop": 1781618411877,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_imports_capacitor",
+                "status": "passed",
+                "duration": 5,
+                "start": 1781618411877,
+                "stop": 1781618411882,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_objc_annotation",
+                "status": "passed",
+                "duration": 4,
+                "start": 1781618411884,
+                "stop": 1781618411888,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_class_declaration",
+                "status": "passed",
+                "duration": 4,
+                "start": 1781618411889,
+                "stop": 1781618411893,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_identifier_constant",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781618411894,
+                "stop": 1781618411897,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_jsname_constant",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781618411899,
+                "stop": 1781618411902,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_plugin_methods_array",
+                "status": "passed",
+                "duration": 5,
+                "start": 1781618411904,
+                "stop": 1781618411909,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_start_timer_method_signature",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 60,
+                "start": 1781618411911,
+                "stop": 1781618411971,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_timer_emitter_plugin_swift_start_timer_method_signature():\n        content = _read(TIMER_PLUGIN_PATH)\n>       assert re.search(\n            r\"@objc\\s+func\\s+startTimer\\s*\\(\\s*_\\s+call\\s*:\\s*CAPPluginCall\\s*\\)\",\n            content,\n        ), (\n            \"TimerEmitterPlugin.swift must define \"\n            \"`@objc func startTimer(_ call: CAPPluginCall)`.\"\n        )\nE       AssertionError: TimerEmitterPlugin.swift must define `@objc func startTimer(_ call: CAPPluginCall)`.\nE       assert None\nE        +  where None = <function search at 0x7efc61c3fba0>('@objc\\\\s+func\\\\s+startTimer\\\\s*\\\\(\\\\s*_\\\\s+call\\\\s*:\\\\s*CAPPluginCall\\\\s*\\\\)', 'import Foundation\\nimport Capacitor\\n\\n@objc(TimerEmitterPlugin)\\npublic class TimerEmitterPlugin: CAPPlugin, CAPBrid...    self.timer = nil\\n            }\\n            self.counter = 0\\n\\n            call.resolve()\\n        }\\n    }\\n}\\n')\nE        +    where <function search at 0x7efc61c3fba0> = re.search\n\ntests/test_final_state.py:96: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_stop_timer_method_signature",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 13,
+                "start": 1781618411972,
+                "stop": 1781618411985,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_timer_emitter_plugin_swift_stop_timer_method_signature():\n        content = _read(TIMER_PLUGIN_PATH)\n>       assert re.search(\n            r\"@objc\\s+func\\s+stopTimer\\s*\\(\\s*_\\s+call\\s*:\\s*CAPPluginCall\\s*\\)\",\n            content,\n        ), (\n            \"TimerEmitterPlugin.swift must define \"\n            \"`@objc func stopTimer(_ call: CAPPluginCall)`.\"\n        )\nE       AssertionError: TimerEmitterPlugin.swift must define `@objc func stopTimer(_ call: CAPPluginCall)`.\nE       assert None\nE        +  where None = <function search at 0x7efc61c3fba0>('@objc\\\\s+func\\\\s+stopTimer\\\\s*\\\\(\\\\s*_\\\\s+call\\\\s*:\\\\s*CAPPluginCall\\\\s*\\\\)', 'import Foundation\\nimport Capacitor\\n\\n@objc(TimerEmitterPlugin)\\npublic class TimerEmitterPlugin: CAPPlugin, CAPBrid...    self.timer = nil\\n            }\\n            self.counter = 0\\n\\n            call.resolve()\\n        }\\n    }\\n}\\n')\nE        +    where <function search at 0x7efc61c3fba0> = re.search\n\ntests/test_final_state.py:107: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_uses_scheduled_timer",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781618411986,
+                "stop": 1781618411989,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_notifies_tick_with_count",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781618411990,
+                "stop": 1781618411991,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_invalidates_timer",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781618411992,
+                "stop": 1781618411995,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_balanced_braces",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781618411996,
+                "stop": 1781618411999,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_myviewcontroller_registers_timer_emitter_plugin",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781618412000,
+                "stop": 1781618412002,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_pbxproj_references_timer_emitter_plugin_swift",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781618412003,
+                "stop": 1781618412005,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_ts_wrapper_exists_and_registers_plugin",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 16,
+                "start": 1781618412007,
+                "stop": 1781618412023,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_timer_emitter_ts_wrapper_exists_and_registers_plugin():\n        assert os.path.isfile(TIMER_TS_PATH), (\n            f\"TypeScript wrapper {TIMER_TS_PATH} must exist.\"\n        )\n        content = _read(TIMER_TS_PATH)\n        assert re.search(\n            r\"import\\s*\\{[^}]*\\bregisterPlugin\\b[^}]*\\}\\s*from\\s*['\\\"]@capacitor/core['\\\"]\",\n            content,\n        ), \"src/timer-emitter.ts must import `registerPlugin` from `@capacitor/core`.\"\n        assert re.search(\n            r\"registerPlugin\\s*(?:<[^>]+>)?\\s*\\(\\s*['\\\"]TimerEmitter['\\\"]\",\n            content,\n        ), (\n            \"src/timer-emitter.ts must call `registerPlugin('TimerEmitter')` \"\n            \"(or `registerPlugin<...>('TimerEmitter')`).\"\n        )\n        # Interface should describe startTimer with intervalMs parameter.\n        assert re.search(\n            r\"startTimer\\s*\\(\\s*[A-Za-z0-9_]*\\s*:?\\s*\\{[^}]*intervalMs\\s*:\\s*number\",\n            content,\n            re.DOTALL,\n        ), (\n            \"src/timer-emitter.ts must declare a `startTimer` method whose options object \"\n            \"includes an `intervalMs: number` field.\"\n        )\n        # Should declare stopTimer method.\n        assert re.search(r\"stopTimer\\s*\\(\\s*\\)\", content), (\n            \"src/timer-emitter.ts must declare a `stopTimer()` method on the plugin interface.\"\n        )\n        # Should declare an addListener overload for the 'tick' event with a {count: number} payload.\n>       assert re.search(\n            r\"addListener\\s*\\(\\s*['\\\"]tick['\\\"]\",\n            content,\n        ), (\n            \"src/timer-emitter.ts must declare an `addListener('tick', ...)` overload \"\n            \"on the plugin interface.\"\n        )\nE       AssertionError: src/timer-emitter.ts must declare an `addListener('tick', ...)` overload on the plugin interface.\nE       assert None\nE        +  where None = <function search at 0x7efc61c3fba0>('addListener\\\\s*\\\\(\\\\s*[\\'\\\\\"]tick[\\'\\\\\"]', \"import { registerPlugin } from '@capacitor/core';\\nimport type { PluginListenerHandle } from '@capacitor/core';\\n\\nex...dle>;\\n}\\n\\nconst TimerEmitter = registerPlugin<TimerEmitterPlugin>('TimerEmitter');\\n\\nexport default TimerEmitter;\\n\")\nE        +    where <function search at 0x7efc61c3fba0> = re.search\n\ntests/test_final_state.py:223: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_cap_sync_ios_succeeds",
+                "status": "passed",
+                "duration": 3036,
+                "start": 1781618412023,
+                "stop": 1781618415059,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

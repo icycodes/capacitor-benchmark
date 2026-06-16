@@ -1,0 +1,26 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 15 items
+
+tests/test_final_state.py ...............                                [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_plugin_source_declares_correct_package
+PASSED tests/test_final_state.py::test_plugin_source_has_required_capacitor_imports
+PASSED tests/test_final_state.py::test_plugin_source_has_required_android_sensor_imports
+PASSED tests/test_final_state.py::test_plugin_has_capacitor_plugin_annotation
+PASSED tests/test_final_state.py::test_plugin_class_extends_plugin_and_implements_sensor_event_listener
+PASSED tests/test_final_state.py::test_plugin_has_get_light_level_method
+PASSED tests/test_final_state.py::test_get_light_level_method_puts_value_and_resolves
+PASSED tests/test_final_state.py::test_plugin_overrides_handle_on_resume_and_registers_listener
+PASSED tests/test_final_state.py::test_plugin_overrides_handle_on_pause_and_unregisters_listener
+PASSED tests/test_final_state.py::test_plugin_implements_on_sensor_changed_reading_values_zero
+PASSED tests/test_final_state.py::test_plugin_references_type_light
+PASSED tests/test_final_state.py::test_main_activity_registers_ambient_light_plugin
+PASSED tests/test_final_state.py::test_typescript_binding_exists_and_registers_plugin
+PASSED tests/test_final_state.py::test_gradle_build_succeeds_and_apk_exists
+PASSED tests/test_final_state.py::test_apk_dex_contains_ambient_light_plugin_class
+============================== 15 passed in 4.02s ==============================

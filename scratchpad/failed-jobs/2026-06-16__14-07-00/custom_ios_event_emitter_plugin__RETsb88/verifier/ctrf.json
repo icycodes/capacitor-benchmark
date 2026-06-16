@@ -1,0 +1,185 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T14:14:34.512510+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 17,
+            "passed": 16,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781619273551,
+            "stop": 1781619274512
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_exists",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781619273595,
+                "stop": 1781619273596,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_imports_capacitor",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781619273596,
+                "stop": 1781619273597,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_objc_annotation",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781619273597,
+                "stop": 1781619273598,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_class_declaration",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781619273599,
+                "stop": 1781619273600,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_identifier_constant",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781619273600,
+                "stop": 1781619273601,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_jsname_constant",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781619273602,
+                "stop": 1781619273603,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_plugin_methods_array",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781619273603,
+                "stop": 1781619273605,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_start_timer_method_signature",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781619273605,
+                "stop": 1781619273606,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_stop_timer_method_signature",
+                "status": "passed",
+                "duration": 0,
+                "start": 1781619273607,
+                "stop": 1781619273607,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_uses_scheduled_timer",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781619273608,
+                "stop": 1781619273609,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_notifies_tick_with_count",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781619273609,
+                "stop": 1781619273610,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_invalidates_timer",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781619273610,
+                "stop": 1781619273611,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_plugin_swift_balanced_braces",
+                "status": "passed",
+                "duration": 0,
+                "start": 1781619273612,
+                "stop": 1781619273612,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_myviewcontroller_registers_timer_emitter_plugin",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781619273613,
+                "stop": 1781619273614,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_pbxproj_references_timer_emitter_plugin_swift",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781619273614,
+                "stop": 1781619273615,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_timer_emitter_ts_wrapper_exists_and_registers_plugin",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 22,
+                "start": 1781619273615,
+                "stop": 1781619273637,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_timer_emitter_ts_wrapper_exists_and_registers_plugin():\n        assert os.path.isfile(TIMER_TS_PATH), (\n            f\"TypeScript wrapper {TIMER_TS_PATH} must exist.\"\n        )\n        content = _read(TIMER_TS_PATH)\n        assert re.search(\n            r\"import\\s*\\{[^}]*\\bregisterPlugin\\b[^}]*\\}\\s*from\\s*['\\\"]@capacitor/core['\\\"]\",\n            content,\n        ), \"src/timer-emitter.ts must import `registerPlugin` from `@capacitor/core`.\"\n        assert re.search(\n            r\"registerPlugin\\s*(?:<[^>]+>)?\\s*\\(\\s*['\\\"]TimerEmitter['\\\"]\",\n            content,\n        ), (\n            \"src/timer-emitter.ts must call `registerPlugin('TimerEmitter')` \"\n            \"(or `registerPlugin<...>('TimerEmitter')`).\"\n        )\n        # Interface should describe startTimer with intervalMs parameter.\n        assert re.search(\n            r\"startTimer\\s*\\(\\s*[A-Za-z0-9_]*\\s*:?\\s*\\{[^}]*intervalMs\\s*:\\s*number\",\n            content,\n            re.DOTALL,\n        ), (\n            \"src/timer-emitter.ts must declare a `startTimer` method whose options object \"\n            \"includes an `intervalMs: number` field.\"\n        )\n        # Should declare stopTimer method.\n        assert re.search(r\"stopTimer\\s*\\(\\s*\\)\", content), (\n            \"src/timer-emitter.ts must declare a `stopTimer()` method on the plugin interface.\"\n        )\n        # Should declare an addListener overload for the 'tick' event with a {count: number} payload.\n>       assert re.search(\n            r\"addListener\\s*\\(\\s*['\\\"]tick['\\\"]\",\n            content,\n        ), (\n            \"src/timer-emitter.ts must declare an `addListener('tick', ...)` overload \"\n            \"on the plugin interface.\"\n        )\nE       AssertionError: src/timer-emitter.ts must declare an `addListener('tick', ...)` overload on the plugin interface.\nE       assert None\nE        +  where None = <function search at 0x7f3eb7f6bba0>('addListener\\\\s*\\\\(\\\\s*[\\'\\\\\"]tick[\\'\\\\\"]', \"import { registerPlugin } from '@capacitor/core';\\nimport type { PluginListenerHandle } from '@capacitor/core';\\n\\nex...dle>;\\n}\\n\\nconst TimerEmitter = registerPlugin<TimerEmitterPlugin>('TimerEmitter');\\n\\nexport default TimerEmitter;\\n\")\nE        +    where <function search at 0x7f3eb7f6bba0> = re.search\n\ntests/test_final_state.py:223: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_cap_sync_ios_succeeds",
+                "status": "passed",
+                "duration": 874,
+                "start": 1781619273638,
+                "stop": 1781619274512,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

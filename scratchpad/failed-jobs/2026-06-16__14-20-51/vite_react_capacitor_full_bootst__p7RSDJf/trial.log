@@ -1,0 +1,225 @@
+Trial vite_react_capacitor_full_bootst__p7RSDJf failed: Docker compose command failed for environment vite_react_capacitor_full_bootstrap. Command: docker compose --project-name vite_react_capacitor_full_bootst__p7rsdjf --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/vite_react_capacitor_full_bootstrap/environment -f /tmp/tmpb9d8090t/vite_react_capacitor_full_bootst__p7RSDJf-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpzxuk2bcd/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main  1/12] FROM docker.io/library/ubuntu:24.04
+#1 DONE 0.0s
+
+#2 [main internal] load build definition from Dockerfile
+#2 transferring dockerfile: 4.79kB done
+#2 DONE 0.0s
+
+#3 [main internal] load metadata for docker.io/library/ubuntu:24.04
+#3 DONE 0.0s
+
+#4 [main internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [main 2/7] RUN apt-get update -y &&     apt-get install -y --no-install-recommends         curl wget ca-certificates git python3 python3-pip python3-pytest bash ripgrep         unzip zip xz-utils openjdk-21-jdk-headless fontconfig file &&     ln -sf /usr/bin/python3 /usr/bin/python &&     pip3 install --break-system-packages pytest-json-ctrf &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [main 3/7] RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - &&     apt-get install -y --no-install-recommends nodejs &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#6 CACHED
+
+#7 [main 4/7] RUN mkdir -p "/opt/android-sdk/cmdline-tools" &&     cd /tmp &&     curl -fsSL -o cmdline-tools.zip         https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip &&     unzip -q cmdline-tools.zip -d "/opt/android-sdk/cmdline-tools" &&     mv "/opt/android-sdk/cmdline-tools/cmdline-tools"        "/opt/android-sdk/cmdline-tools/latest" &&     rm -f cmdline-tools.zip &&     yes | "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null &&     "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager"         "platform-tools"         "platforms;android-35"         "build-tools;35.0.0" >/dev/null
+#7 CACHED
+
+#8 [main 5/7] RUN mkdir -p /home/user && chmod 0755 /home/user
+#8 CACHED
+
+#9 [main 6/7] RUN mkdir -p /tmp/prewarm &&     cd /tmp/prewarm &&     npm create vite@latest myapp -- --template react-ts &&     cd myapp &&     npm install --no-audit --no-fund --silent &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D @capacitor/cli@^8 &&     npx --yes cap init "My App" "com.example.myapp" --web-dir dist &&     npx --yes cap add android &&     cd android &&     ./gradlew --no-daemon help >/dev/null &&     cd / &&     rm -rf /tmp/prewarm
+#9 1.742 npm warn exec The following package was not found and will be installed: create-vite@9.0.7
+#9 2.263 
+#9 2.263 > npx
+#9 2.263 > create-vite myapp --template react-ts
+#9 2.263 
+#9 2.371 │
+#9 2.371 ◇  Scaffolding project in /tmp/prewarm/myapp...
+#9 2.380 │
+#9 2.380 └  Done. Now run:
+#9 2.380 
+#9 2.380   cd myapp
+#9 2.380   npm install
+#9 2.380   npm run dev
+#9 2.380 
+#9 2.400 npm notice
+#9 2.400 npm notice New major version of npm available! 10.9.8 -> 11.17.0
+#9 2.400 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.17.0
+#9 2.400 npm notice To update run: npm install -g npm@11.17.0
+#9 2.400 npm notice
+#9 32.00 ✔ Creating capacitor.config.ts in /tmp/prewarm/myapp in 2.14ms
+#9 32.00 [success] capacitor.config.ts created!
+#9 32.00 
+#9 32.00 Next steps: 
+#9 32.00 https://capacitorjs.com/docs/getting-started#where-to-go-next
+#9 33.23 ✔ Adding native android project in android in 82.92ms
+#9 33.23 ✔ add in 83.99ms
+#9 33.26 [warn] sync could not run--missing dist directory.
+#9 33.26 [success] android platform added!
+#9 33.26 Follow the Developer Workflow guide to get building:
+#9 33.26 https://capacitorjs.com/docs/basics/workflow
+#9 68.85 
+#9 68.85 FAILURE: Build failed with an exception.
+#9 68.85 
+#9 68.85 * Where:
+#9 68.85 Settings file '/tmp/prewarm/myapp/android/settings.gradle' line: 5
+#9 68.85 
+#9 68.85 * What went wrong:
+#9 68.85 A problem occurred evaluating settings 'android'.
+#9 68.85 > Could not read script '/tmp/prewarm/myapp/android/capacitor.settings.gradle' as it does not exist.
+#9 68.85 
+#9 68.85 * Try:
+#9 68.85 > Run with --stacktrace option to get the stack trace.
+#9 68.85 > Run with --info or --debug option to get more log output.
+#9 68.85 > Run with --scan to get full insights.
+#9 68.85 > Get more help at https://help.gradle.org.
+#9 68.85 
+#9 68.85 BUILD FAILED in 35s
+#9 ERROR: process "/bin/sh -c mkdir -p /tmp/prewarm &&     cd /tmp/prewarm &&     npm create vite@latest myapp -- --template react-ts &&     cd myapp &&     npm install --no-audit --no-fund --silent &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D @capacitor/cli@^8 &&     npx --yes cap init \"My App\" \"com.example.myapp\" --web-dir dist &&     npx --yes cap add android &&     cd android &&     ./gradlew --no-daemon help >/dev/null &&     cd / &&     rm -rf /tmp/prewarm" did not complete successfully: exit code: 1
+------
+ > [main 6/7] RUN mkdir -p /tmp/prewarm &&     cd /tmp/prewarm &&     npm create vite@latest myapp -- --template react-ts &&     cd myapp &&     npm install --no-audit --no-fund --silent &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D @capacitor/cli@^8 &&     npx --yes cap init "My App" "com.example.myapp" --web-dir dist &&     npx --yes cap add android &&     cd android &&     ./gradlew --no-daemon help >/dev/null &&     cd / &&     rm -rf /tmp/prewarm:
+68.85 A problem occurred evaluating settings 'android'.
+68.85 > Could not read script '/tmp/prewarm/myapp/android/capacitor.settings.gradle' as it does not exist.
+68.85 
+68.85 * Try:
+68.85 > Run with --stacktrace option to get the stack trace.
+68.85 > Run with --info or --debug option to get more log output.
+68.85 > Run with --scan to get full insights.
+68.85 > Get more help at https://help.gradle.org.
+68.85 
+68.85 BUILD FAILED in 35s
+------
+failed to solve: process "/bin/sh -c mkdir -p /tmp/prewarm &&     cd /tmp/prewarm &&     npm create vite@latest myapp -- --template react-ts &&     cd myapp &&     npm install --no-audit --no-fund --silent &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D @capacitor/cli@^8 &&     npx --yes cap init \"My App\" \"com.example.myapp\" --web-dir dist &&     npx --yes cap add android &&     cd android &&     ./gradlew --no-daemon help >/dev/null &&     cd / &&     rm -rf /tmp/prewarm" did not complete successfully: exit code: 1
+. Stderr: None. 
+Failed to download artifact '/home/user' (best-effort)
+Traceback (most recent call last):
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 160, in run
+    await self._prepare()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 187, in _prepare
+    await self._setup_agent_environment()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 612, in _setup_agent_environment
+    await self._start_agent_environment()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 618, in _start_agent_environment
+    await asyncio.wait_for(
+    ...<4 lines>...
+    )
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 517, in start
+    await self._run_docker_compose_command(["build"])
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 418, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment vite_react_capacitor_full_bootstrap. Command: docker compose --project-name vite_react_capacitor_full_bootst__p7rsdjf --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/vite_react_capacitor_full_bootstrap/environment -f /tmp/tmpb9d8090t/vite_react_capacitor_full_bootst__p7RSDJf-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpzxuk2bcd/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main  1/12] FROM docker.io/library/ubuntu:24.04
+#1 DONE 0.0s
+
+#2 [main internal] load build definition from Dockerfile
+#2 transferring dockerfile: 4.79kB done
+#2 DONE 0.0s
+
+#3 [main internal] load metadata for docker.io/library/ubuntu:24.04
+#3 DONE 0.0s
+
+#4 [main internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [main 2/7] RUN apt-get update -y &&     apt-get install -y --no-install-recommends         curl wget ca-certificates git python3 python3-pip python3-pytest bash ripgrep         unzip zip xz-utils openjdk-21-jdk-headless fontconfig file &&     ln -sf /usr/bin/python3 /usr/bin/python &&     pip3 install --break-system-packages pytest-json-ctrf &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [main 3/7] RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - &&     apt-get install -y --no-install-recommends nodejs &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#6 CACHED
+
+#7 [main 4/7] RUN mkdir -p "/opt/android-sdk/cmdline-tools" &&     cd /tmp &&     curl -fsSL -o cmdline-tools.zip         https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip &&     unzip -q cmdline-tools.zip -d "/opt/android-sdk/cmdline-tools" &&     mv "/opt/android-sdk/cmdline-tools/cmdline-tools"        "/opt/android-sdk/cmdline-tools/latest" &&     rm -f cmdline-tools.zip &&     yes | "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null &&     "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager"         "platform-tools"         "platforms;android-35"         "build-tools;35.0.0" >/dev/null
+#7 CACHED
+
+#8 [main 5/7] RUN mkdir -p /home/user && chmod 0755 /home/user
+#8 CACHED
+
+#9 [main 6/7] RUN mkdir -p /tmp/prewarm &&     cd /tmp/prewarm &&     npm create vite@latest myapp -- --template react-ts &&     cd myapp &&     npm install --no-audit --no-fund --silent &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D @capacitor/cli@^8 &&     npx --yes cap init "My App" "com.example.myapp" --web-dir dist &&     npx --yes cap add android &&     cd android &&     ./gradlew --no-daemon help >/dev/null &&     cd / &&     rm -rf /tmp/prewarm
+#9 1.742 npm warn exec The following package was not found and will be installed: create-vite@9.0.7
+#9 2.263 
+#9 2.263 > npx
+#9 2.263 > create-vite myapp --template react-ts
+#9 2.263 
+#9 2.371 │
+#9 2.371 ◇  Scaffolding project in /tmp/prewarm/myapp...
+#9 2.380 │
+#9 2.380 └  Done. Now run:
+#9 2.380 
+#9 2.380   cd myapp
+#9 2.380   npm install
+#9 2.380   npm run dev
+#9 2.380 
+#9 2.400 npm notice
+#9 2.400 npm notice New major version of npm available! 10.9.8 -> 11.17.0
+#9 2.400 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.17.0
+#9 2.400 npm notice To update run: npm install -g npm@11.17.0
+#9 2.400 npm notice
+#9 32.00 ✔ Creating capacitor.config.ts in /tmp/prewarm/myapp in 2.14ms
+#9 32.00 [success] capacitor.config.ts created!
+#9 32.00 
+#9 32.00 Next steps: 
+#9 32.00 https://capacitorjs.com/docs/getting-started#where-to-go-next
+#9 33.23 ✔ Adding native android project in android in 82.92ms
+#9 33.23 ✔ add in 83.99ms
+#9 33.26 [warn] sync could not run--missing dist directory.
+#9 33.26 [success] android platform added!
+#9 33.26 Follow the Developer Workflow guide to get building:
+#9 33.26 https://capacitorjs.com/docs/basics/workflow
+#9 68.85 
+#9 68.85 FAILURE: Build failed with an exception.
+#9 68.85 
+#9 68.85 * Where:
+#9 68.85 Settings file '/tmp/prewarm/myapp/android/settings.gradle' line: 5
+#9 68.85 
+#9 68.85 * What went wrong:
+#9 68.85 A problem occurred evaluating settings 'android'.
+#9 68.85 > Could not read script '/tmp/prewarm/myapp/android/capacitor.settings.gradle' as it does not exist.
+#9 68.85 
+#9 68.85 * Try:
+#9 68.85 > Run with --stacktrace option to get the stack trace.
+#9 68.85 > Run with --info or --debug option to get more log output.
+#9 68.85 > Run with --scan to get full insights.
+#9 68.85 > Get more help at https://help.gradle.org.
+#9 68.85 
+#9 68.85 BUILD FAILED in 35s
+#9 ERROR: process "/bin/sh -c mkdir -p /tmp/prewarm &&     cd /tmp/prewarm &&     npm create vite@latest myapp -- --template react-ts &&     cd myapp &&     npm install --no-audit --no-fund --silent &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D @capacitor/cli@^8 &&     npx --yes cap init \"My App\" \"com.example.myapp\" --web-dir dist &&     npx --yes cap add android &&     cd android &&     ./gradlew --no-daemon help >/dev/null &&     cd / &&     rm -rf /tmp/prewarm" did not complete successfully: exit code: 1
+------
+ > [main 6/7] RUN mkdir -p /tmp/prewarm &&     cd /tmp/prewarm &&     npm create vite@latest myapp -- --template react-ts &&     cd myapp &&     npm install --no-audit --no-fund --silent &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D @capacitor/cli@^8 &&     npx --yes cap init "My App" "com.example.myapp" --web-dir dist &&     npx --yes cap add android &&     cd android &&     ./gradlew --no-daemon help >/dev/null &&     cd / &&     rm -rf /tmp/prewarm:
+68.85 A problem occurred evaluating settings 'android'.
+68.85 > Could not read script '/tmp/prewarm/myapp/android/capacitor.settings.gradle' as it does not exist.
+68.85 
+68.85 * Try:
+68.85 > Run with --stacktrace option to get the stack trace.
+68.85 > Run with --info or --debug option to get more log output.
+68.85 > Run with --scan to get full insights.
+68.85 > Get more help at https://help.gradle.org.
+68.85 
+68.85 BUILD FAILED in 35s
+------
+failed to solve: process "/bin/sh -c mkdir -p /tmp/prewarm &&     cd /tmp/prewarm &&     npm create vite@latest myapp -- --template react-ts &&     cd myapp &&     npm install --no-audit --no-fund --silent &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D @capacitor/cli@^8 &&     npx --yes cap init \"My App\" \"com.example.myapp\" --web-dir dist &&     npx --yes cap add android &&     cd android &&     ./gradlew --no-daemon help >/dev/null &&     cd / &&     rm -rf /tmp/prewarm" did not complete successfully: exit code: 1
+. Stderr: None. 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/artifact_handler.py", line 195, in _download_artifact
+    await source_env.download_file(
+    ...<2 lines>...
+    )
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 609, in download_file
+    await self._platform.download_file(source_path, target_path)
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker_unix.py", line 48, in download_file
+    await self._env._run_docker_compose_command(
+    ...<2 lines>...
+    )
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 418, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment vite_react_capacitor_full_bootstrap. Command: docker compose --project-name vite_react_capacitor_full_bootst__p7rsdjf --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/vite_react_capacitor_full_bootstrap/environment -f /tmp/tmpb9d8090t/vite_react_capacitor_full_bootst__p7RSDJf-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpzxuk2bcd/docker-compose-mounts.json cp main:/home/user jobs/2026-06-16__14-20-51/vite_react_capacitor_full_bootst__p7RSDJf/artifacts/user. Return code: 1. Stdout: no container found for service "main"
+. Stderr: None. 

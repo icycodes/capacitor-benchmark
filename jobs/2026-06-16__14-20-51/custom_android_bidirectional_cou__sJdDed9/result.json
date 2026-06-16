@@ -1,0 +1,117 @@
+{
+    "id": "c5365ec0-b2c1-4c4b-85e5-5d208c2a8327",
+    "task_name": "custom_android_bidirectional_counter_plugin",
+    "trial_name": "custom_android_bidirectional_cou__sJdDed9",
+    "trial_uri": "file:///home/kweizh/zealt/zealt-agent/jobs/2026-06-16__14-20-51/custom_android_bidirectional_cou__sJdDed9",
+    "task_id": {
+        "path": "/home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/custom_android_bidirectional_counter_plugin"
+    },
+    "source": "pending-tasks",
+    "task_checksum": "b68175d89e28c61fe5be7bc9ef080f71e67eb3ba172db5e3cbc7c6419a206dfc",
+    "config": {
+        "task": {
+            "path": "/home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/custom_android_bidirectional_counter_plugin",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": "pending-tasks"
+        },
+        "trial_name": "custom_android_bidirectional_cou__sJdDed9",
+        "trials_dir": "jobs/2026-06-16__14-20-51",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": null,
+            "import_path": "agents.pochi:Pochi",
+            "model_name": "google/gemini-3.1-pro",
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {},
+            "env": {},
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "suppress_override_warnings": false,
+            "mounts": [
+                {
+                    "type": "bind",
+                    "source": "test_initial_state.py",
+                    "target": "/bootstrap/test_initial_state.py"
+                }
+            ],
+            "extra_docker_compose": [],
+            "env": {},
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "env": {},
+            "disable": false
+        },
+        "artifacts": [
+            "/home/user"
+        ],
+        "extra_instruction_paths": [],
+        "job_id": "e8e80dc3-04bc-490c-83fa-a94513e56761"
+    },
+    "agent_info": {
+        "name": "pochi",
+        "version": "0.6.14",
+        "model_info": {
+            "name": "gemini-3.1-pro",
+            "provider": "google"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 0,
+        "n_cache_tokens": 0,
+        "n_output_tokens": 17291,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 0.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-06-16T14:20:56.556952Z",
+    "finished_at": "2026-06-16T14:24:25.573294Z",
+    "environment_setup": {
+        "started_at": "2026-06-16T14:20:56.734879Z",
+        "finished_at": "2026-06-16T14:21:00.709063Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-06-16T14:21:00.709130Z",
+        "finished_at": "2026-06-16T14:21:15.565752Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-06-16T14:21:15.565864Z",
+        "finished_at": "2026-06-16T14:23:56.940264Z"
+    },
+    "verifier": {
+        "started_at": "2026-06-16T14:24:05.673662Z",
+        "finished_at": "2026-06-16T14:24:12.801160Z"
+    },
+    "step_results": null
+}

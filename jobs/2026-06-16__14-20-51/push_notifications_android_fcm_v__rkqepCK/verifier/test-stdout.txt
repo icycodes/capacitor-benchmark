@@ -1,0 +1,20 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.0
+collected 9 items
+
+tests/test_final_state.py .........                                      [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_setup_log_exists_and_contains_required_changes
+PASSED tests/test_final_state.py::test_push_notifications_dependency_added_with_v8
+PASSED tests/test_final_state.py::test_top_level_gradle_has_google_services_classpath
+PASSED tests/test_final_state.py::test_app_gradle_applies_google_services_plugin
+PASSED tests/test_final_state.py::test_app_gradle_has_firebase_messaging_dependency
+PASSED tests/test_final_state.py::test_google_services_json_exists_and_is_valid
+PASSED tests/test_final_state.py::test_push_ts_imports_plugin_and_exports_init_push
+PASSED tests/test_final_state.py::test_push_ts_registers_all_four_event_listeners
+PASSED tests/test_final_state.py::test_push_ts_requests_permissions_before_register_and_guards_on_granted
+============================== 9 passed in 0.07s ===============================

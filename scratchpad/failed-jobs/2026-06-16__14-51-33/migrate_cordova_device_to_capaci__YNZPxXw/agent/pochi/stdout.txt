@@ -1,0 +1,103 @@
+- Initializing MCP connections...
+You
+# Migrate from `cordova-plugin-device` to `@capacitor/device` ## Background A hybrid mobile project located at `/home/user/myproject` currently uses the legacy `cordova-plugin-device` plugin (loaded via `cordova.js`) to obtain device metadata. Capacitor is already installed in the project, but the device reader still depends on the old Cordova plugin and the global `window.device` object. Your job is to migrate the project so that all device information is sourced from the official `@capacitor/device` plugin instead. ## Requirements * Uninstall the Cordova device plugin from the project's npm dependencies (it must be removed from `package.json` / `package-lock.json` and from `node_modules`). * Install the official `@capacitor/device` plugin and register it inside the Capacitor configuration so it is discoverable by `npx cap sync`. * Remove every reference to `cordova.js` from `www/index.html` (the `<script src="cordova.js"></script>` tag must no longer exist). * Remove every usage of the deprecated `window.device` global from the project source code (e.g. `www/js/device-info.js`). Nothing in the migrated source files may still reference `window.device` or `cordova.plugins.device`. * Rewrite the device-info reader so that it uses the `@capacitor/device` plugin API, calling `Device.getInfo()`, `Device.getId()`, and `Device.getBatteryInfo()` via `async`/`await`. * Expose the migrated reader as a Node-callable script that, when executed, prints a single JSON object on stdout combining the three API responses. * Run `npx cap sync` after the migration and capture its output so the verifier can confirm the sync step completed successfully. ## Implementation Hints * Look at the existing Cordova-based reader to understand which fields it exposes (uuid, model, platform, version, manufacturer, battery level, charging state) and map them to the modern Capacitor Device API equivalents. * The `@capacitor/device` web implementation reads from `navigator`, so the Node command-line wrapper must set up a minimal `navigator`/`window` shim before importing the plugin so it can execute outside a real browser. * Capacitor configuration lives in `capacitor.config.json` at the project root. Adjust it as needed (for example, remove obsolete Cordova-only preferences and make sure the project still validates) so that `npx cap sync` exits with code 0. * The verifier will read both static project files and the recorded `npx cap sync` log, then re-run the migrated reader script. Make sure the script is idempotent and produces deterministic JSON keys. ## Acceptance Criteria * Project path: `/home/user/myproject` * Ensure the migration is actually performed and the artifacts below exist. * Log file: `/home/user/myproject/sync.log` — must contain the full stdout/stderr of a successful `npx cap sync` run (the file must include the literal substring `sync finished` somewhere in its contents). * `package.json` must NOT contain `cordova-plugin-device` in either `dependencies` or `devDependencies`, and must contain `@capacitor/device` in `dependencies`. * `node_modules/@capacitor/device` must exist and `node_modules/cordova-plugin-device` must NOT exist after migration. * `www/index.html` must NOT contain the substring `cordova.js`. * No file under `www/` may contain the substrings `window.device` or `cordova.plugins.device` (search is case-sensitive). * The migrated reader module must be invokable as `node /home/user/myproject/scripts/device-report.mjs` (or the equivalent CommonJS `.js`). When invoked, it must print exactly one line of JSON to stdout that, when parsed, satisfies the following shape: ```json { "info": { "platform": string, "operatingSystem": string, "osVersion": string, "manufacturer": string, "model": string, "isVirtual": boolean, "webViewVersion": string }, "id": { "identifier": string }, "battery": { "batteryLevel": number, "isCharging": boolean } } ``` All listed fields must be present (the `info.platform` value will be `"web"` when running under Node). * The reader source must import the `Device` symbol from `@capacitor/device` (verifier searches for the literal `from '@capacitor/device'` or `require('@capacitor/device')`) and must call all three of `Device.getInfo`, `Device.getId`, and `Device.getBatteryInfo`. * `npx cap sync` must exit with status 0 when re-run by the verifier inside the project directory.   
+
+Pochi
+I'll start by exploring the project structure to understand the current state before planning the migration.   
+📂 Listing files in /home/user/myproject recursively ✔ 
+Let me read the key files in parallel to understand the current state:   
+📖 Reading /home/user/myproject/package.json ✔ 
+📖 Reading /home/user/myproject/capacitor.config.json ✔ 
+📖 Reading /home/user/myproject/www/index.html ✔ 
+📖 Reading /home/user/myproject/www/js/device-info.js ✔ 
+Now let me check if `@capacitor/device` is already available in node_modules and check the existing scripts directory:   
+💫 Executing ls /home/user/myproject/node_modules/@capacitor/device 2>/dev/null; echo "EXIT:$?" ✔ 
+💫 Executing ls -la /home/user/myproject/scripts 2>/dev/null; echo "EXIT:$?" ✔ 
+💫 Executing ls /home/user/myproject/node_modules/cordova-plugin-device 2>/dev/null; echo "EXIT:$?" ✔ 
+Good. Now I have a clear picture. Let me create a task list and start the migration.   
+📋 Updating todo list (7 items) ✔ 
+📋 Updating todo list (7 items) ✔ 
+Step 1: Uninstall `cordova-plugin-device`:   
+💫 Executing cd /home/user/myproject && npm uninstall cordova-plugin-device 2>&1 ✔ 
+📋 Updating todo list (7 items) ✔ 
+Step 2: Install `@capacitor/device`:   
+💫 Executing cd /home/user/myproject && npm install @capacitor/device 2>&1 ✔ 
+📋 Updating todo list (7 items) ✔ 
+Now let me check the `@capacitor/device` package to understand its API exports:   
+📖 Reading /home/user/myproject/node_modules/@capacitor/device/package.json ✔ 
+📖 Reading /home/user/myproject/node_modules/@capacitor/device/dist/esm/index.d.ts ✔ 
+📖 Reading /home/user/myproject/node_modules/@capacitor/device/dist/esm/definitions.d.ts ✔ 
+Now let me check the web implementation to understand what shims are needed for Node:   
+📖 Reading /home/user/myproject/node_modules/@capacitor/device/dist/esm/web.js ✔ 
+Now I have a clear picture of the web implementation. The `getInfo()` and `getBatteryInfo()` rely on `navigator`, so the Node script will need to shim those. Let me also check the CJS version:   
+📖 Reading /home/user/myproject/node_modules/@capacitor/device/dist/plugin.cjs.js ✔ 
+I see the issue: `getInfo()` requires `navigator.userAgent` and `getBatteryInfo()` requires `navigator.getBattery`. For the Node script, I'll need to shim those. Also, `parseUa` references `window` directly. Let me now do all the remaining file modifications in parallel:   
+📋 Updating todo list (7 items) ✔ 
+🔧 Applying diff to /home/user/myproject/www/index.html ✔ 
+🔧 Applying diff to /home/user/myproject/www/js/device-info.js ✔ 
+📋 Updating todo list (7 items) ✔ 
+Now create the `scripts` directory and the Node-callable reader script. The `@capacitor/device` CJS plugin (`plugin.cjs.js`) calls `core.registerPlugin('Device', ...)` which internally uses `core.WebPlugin`. Looking at the web implementation, `getInfo()` needs `navigator.userAgent` and `navigator.vendor`, `getBatteryInfo()` needs `navigator.getBattery`, and `parseUa` references `window`. I need to shim all of these:   
+💫 Executing mkdir -p /home/user/myproject/scripts ✔ 
+✏️  Writing /home/user/myproject/scripts/device-report.mjs ✔ 
+Now let me test the script to make sure it works:   
+💫 Executing cd /home/user/myproject && node scripts/device-report.mjs 2>&1 ✖ "Command exited with code 1"
+The `getBatteryInfo` check is `typeof navigator === 'undefined' || !navigator.getBattery`. The issue is that the module's `navigator` reference might be captured at import time. Let me check how the CJS module resolves `navigator` — it uses a bare `navigator` reference, not `globalThis.navigator`. In Node.js CJS modules, bare `navigator` would throw a ReferenceError if not defined as a global. Let me check:   
+💫 Executing cd /home/user/myproject && node -e "globalThis.navigator = { userAgent: 'test', vendor: 'test', getBattery: () => Promise.resolve({ level: 1, charging: true }) }; const m = require('@capacitor/device'); console.log(Object.keys(m));" 2>&1 ✔ 
+💫 Executing cd /home/user/myproject && node -e "
+globalThis.navigator = { userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', vendor: 'Google Inc.', language: 'en-US', getBattery: () => Promise.resolve({ level: 1, charging: true }) };
+globalThis.window = globalThis;
+const { Device } = require('@capacitor/device');
+(async () => {
+  const info = await Device.getInfo();
+  console.log('INFO:', JSON.stringify(info));
+  const id = await Device.getId();
+  console.log('ID:', JSON.stringify(id));
+  const battery = await Device.getBatteryInfo();
+  console.log('BATTERY:', JSON.stringify(battery));
+})().catch(e => console.error(e));
+" 2>&1 ✔ 
+The `getBatteryInfo` call is still failing. The check is `typeof navigator === 'undefined' || !navigator.getBattery`. The fact that it throws means the `navigator` reference resolves but `getBattery` is somehow not being seen. Let me check more carefully — the CJS module uses bare `navigator` which in Node.js CJS context resolves to the global scope. But `globalThis.navigator` should be available as bare `navigator` in a CJS module. Let me verify:   
+💫 Executing cd /home/user/myproject && node -e "
+globalThis.navigator = { userAgent: 'test', vendor: 'test', getBattery: () => Promise.resolve({ level: 1, charging: true }) };
+console.log('typeof navigator:', typeof navigator);
+console.log('navigator.getBattery:', typeof navigator.getBattery);
+" 2>&1 ✔ 
+Interesting — `typeof navigator` is `object` but `navigator.getBattery` is `undefined`. That's odd. Let me check more:   
+💫 Executing cd /home/user/myproject && node -e "
+globalThis.navigator = { userAgent: 'test', vendor: 'test', getBattery: () => Promise.resolve({ level: 1, charging: true }) };
+console.log('navigator keys:', Object.keys(navigator));
+console.log('navigator.getBattery:', navigator.getBattery);
+console.log('typeof navigator.getBattery:', typeof navigator.getBattery);
+" 2>&1 ✔ 
+That's very strange — `Object.keys` returns `[]` but we set three properties. This must mean that `navigator` is being intercepted or is a special object. Let me check if there's a pre-existing `navigator` global:   
+💫 Executing cd /home/user/myproject && node -e "
+console.log('navigator before:', typeof navigator);
+globalThis.navigator = { userAgent: 'test', vendor: 'test', getBattery: () => Promise.resolve({ level: 1, charging: true }) };
+console.log('navigator after:', typeof navigator);
+console.log('keys:', Object.keys(globalThis.navigator));
+console.log('getBattery:', globalThis.navigator.getBattery);
+" 2>&1 ✔ 
+There's already a `navigator` global in this Node.js version (v22). It's likely a web-compat `navigator` object that's read-only. Let me check:   
+💫 Executing cd /home/user/myproject && node -e "
+console.log(Object.getOwnPropertyDescriptor(globalThis, 'navigator'));
+console.log(Object.keys(globalThis.navigator));
+console.log(globalThis.navigator.userAgent);
+" 2>&1 ✔ 
+Node.js v22 has a built-in `navigator` getter with no setter. I need to use `Object.defineProperty` to override it:   
+💫 Executing cd /home/user/myproject && node -e "
+Object.defineProperty(globalThis, 'navigator', {
+  value: { userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', vendor: 'Google Inc.', language: 'en-US', getBattery: () => Promise.resolve({ level: 1, charging: true }) },
+  writable: true,
+  configurable: true,
+});
+globalThis.window = globalThis;
+const { Device } = require('@capacitor/device');
+(async () => {
+  const info = await Device.getInfo();
+  console.log('INFO:', JSON.stringify(info));
+  const id = await Device.getId();
+  console.log('ID:', JSON.stringify(id));
+  const battery = await Device.getBatteryInfo();
+  console.log('BATTERY:', JSON.stringify(battery));
+})().catch(e => console.error(e));
+" 2>&1 ✔ 

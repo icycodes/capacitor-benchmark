@@ -1,0 +1,218 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T14:21:59.466368+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 17,
+            "passed": 17,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781619718808,
+            "stop": 1781619719465
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_plutil_lint_passes",
+                "status": "passed",
+                "duration": 130,
+                "start": 1781619718931,
+                "stop": 1781619719061,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_permission_key_present",
+                "status": "passed",
+                "duration": 5,
+                "start": 1781619719063,
+                "stop": 1781619719068,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "tags": [
+                    "parametrize::key::['NSCameraUsageDescription', 'NSMicrophoneUsageDescription', 'NSPhotoLibraryUsageDescription', 'NSPhotoLibraryAddUsageDescription']"
+                ]
+            },
+            {
+                "name": "test_final_state.py::test_permission_key_present",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781619719069,
+                "stop": 1781619719071,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "tags": [
+                    "parametrize::key::['NSCameraUsageDescription', 'NSMicrophoneUsageDescription', 'NSPhotoLibraryUsageDescription', 'NSPhotoLibraryAddUsageDescription']"
+                ]
+            },
+            {
+                "name": "test_final_state.py::test_permission_key_present",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781619719072,
+                "stop": 1781619719075,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "tags": [
+                    "parametrize::key::['NSCameraUsageDescription', 'NSMicrophoneUsageDescription', 'NSPhotoLibraryUsageDescription', 'NSPhotoLibraryAddUsageDescription']"
+                ]
+            },
+            {
+                "name": "test_final_state.py::test_permission_key_present",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781619719076,
+                "stop": 1781619719079,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "tags": [
+                    "parametrize::key::['NSCameraUsageDescription', 'NSMicrophoneUsageDescription', 'NSPhotoLibraryUsageDescription', 'NSPhotoLibraryAddUsageDescription']"
+                ]
+            },
+            {
+                "name": "test_final_state.py::test_permission_value_is_meaningful_string",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781619719081,
+                "stop": 1781619719084,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "tags": [
+                    "parametrize::key::['NSCameraUsageDescription', 'NSMicrophoneUsageDescription', 'NSPhotoLibraryUsageDescription', 'NSPhotoLibraryAddUsageDescription']"
+                ]
+            },
+            {
+                "name": "test_final_state.py::test_permission_value_is_meaningful_string",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781619719085,
+                "stop": 1781619719087,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "tags": [
+                    "parametrize::key::['NSCameraUsageDescription', 'NSMicrophoneUsageDescription', 'NSPhotoLibraryUsageDescription', 'NSPhotoLibraryAddUsageDescription']"
+                ]
+            },
+            {
+                "name": "test_final_state.py::test_permission_value_is_meaningful_string",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781619719088,
+                "stop": 1781619719091,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "tags": [
+                    "parametrize::key::['NSCameraUsageDescription', 'NSMicrophoneUsageDescription', 'NSPhotoLibraryUsageDescription', 'NSPhotoLibraryAddUsageDescription']"
+                ]
+            },
+            {
+                "name": "test_final_state.py::test_permission_value_is_meaningful_string",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781619719092,
+                "stop": 1781619719095,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "tags": [
+                    "parametrize::key::['NSCameraUsageDescription', 'NSMicrophoneUsageDescription', 'NSPhotoLibraryUsageDescription', 'NSPhotoLibraryAddUsageDescription']"
+                ]
+            },
+            {
+                "name": "test_final_state.py::test_preserved_plist_string_keys",
+                "status": "passed",
+                "duration": 4,
+                "start": 1781619719096,
+                "stop": 1781619719100,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "tags": [
+                    "parametrize::key,expected::[('CFBundleIdentifier', '$(PRODUCT_BUNDLE_IDENTIFIER)'), ('CFBundleName', '$(PRODUCT_NAME)'), ('CFBundleDisplayName', 'MyApp'), ('UILaunchStoryboardName', 'LaunchScreen')]"
+                ]
+            },
+            {
+                "name": "test_final_state.py::test_preserved_plist_string_keys",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781619719101,
+                "stop": 1781619719104,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "tags": [
+                    "parametrize::key,expected::[('CFBundleIdentifier', '$(PRODUCT_BUNDLE_IDENTIFIER)'), ('CFBundleName', '$(PRODUCT_NAME)'), ('CFBundleDisplayName', 'MyApp'), ('UILaunchStoryboardName', 'LaunchScreen')]"
+                ]
+            },
+            {
+                "name": "test_final_state.py::test_preserved_plist_string_keys",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781619719105,
+                "stop": 1781619719108,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "tags": [
+                    "parametrize::key,expected::[('CFBundleIdentifier', '$(PRODUCT_BUNDLE_IDENTIFIER)'), ('CFBundleName', '$(PRODUCT_NAME)'), ('CFBundleDisplayName', 'MyApp'), ('UILaunchStoryboardName', 'LaunchScreen')]"
+                ]
+            },
+            {
+                "name": "test_final_state.py::test_preserved_plist_string_keys",
+                "status": "passed",
+                "duration": 4,
+                "start": 1781619719109,
+                "stop": 1781619719113,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "tags": [
+                    "parametrize::key,expected::[('CFBundleIdentifier', '$(PRODUCT_BUNDLE_IDENTIFIER)'), ('CFBundleName', '$(PRODUCT_NAME)'), ('CFBundleDisplayName', 'MyApp'), ('UILaunchStoryboardName', 'LaunchScreen')]"
+                ]
+            },
+            {
+                "name": "test_final_state.py::test_preserved_required_device_capabilities",
+                "status": "passed",
+                "duration": 4,
+                "start": 1781619719115,
+                "stop": 1781619719119,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_preserved_supported_interface_orientations",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781619719121,
+                "stop": 1781619719123,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_config_ios_content_inset_always",
+                "status": "passed",
+                "duration": 165,
+                "start": 1781619719124,
+                "stop": 1781619719289,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_config_preserves_original_fields",
+                "status": "passed",
+                "duration": 174,
+                "start": 1781619719291,
+                "stop": 1781619719465,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

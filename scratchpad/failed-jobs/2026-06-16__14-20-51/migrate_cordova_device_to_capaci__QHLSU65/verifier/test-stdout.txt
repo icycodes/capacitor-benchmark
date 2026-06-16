@@ -1,0 +1,77 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 12 items
+
+tests/test_final_state.py F..........F                                   [100%]
+
+=================================== FAILURES ===================================
+__________________ test_sync_log_exists_and_indicates_success __________________
+
+    def test_sync_log_exists_and_indicates_success():
+        assert os.path.isfile(SYNC_LOG), (
+            f"Expected sync log at {SYNC_LOG} produced by the agent's `npx cap sync` run."
+        )
+        with open(SYNC_LOG, "r", errors="replace") as f:
+            content = f.read()
+        assert content.strip(), f"Sync log {SYNC_LOG} is empty."
+>       assert "sync finished" in content, (
+            "Expected the sync log to contain the literal substring 'sync finished' "
+            "indicating a successful `npx cap sync` run."
+        )
+E       AssertionError: Expected the sync log to contain the literal substring 'sync finished' indicating a successful `npx cap sync` run.
+E       assert 'sync finished' in '✔ Copying web assets from www to android/app/src/main/assets/public in 16.22ms\n✔ Creating capacitor.config.json in a...ice@8.0.2\n✔ update android in 51.80ms\n✔ copy web in 2.74ms\n✔ update web in 4.18ms\n[info] Sync finished in 0.113s\n'
+
+tests/test_final_state.py:43: AssertionError
+_________________________ test_npx_cap_sync_runs_clean _________________________
+
+    def test_npx_cap_sync_runs_clean():
+        result = subprocess.run(
+            ["npx", "cap", "sync"],
+            capture_output=True,
+            text=True,
+            cwd=PROJECT_DIR,
+            timeout=300,
+        )
+        assert result.returncode == 0, (
+            "Expected `npx cap sync` to exit 0 after migration. "
+            f"stdout:\n{result.stdout}\nstderr:\n{result.stderr}"
+        )
+        combined = result.stdout + result.stderr
+>       assert "sync finished" in combined, (
+            "Expected `npx cap sync` output to include 'sync finished'. "
+            f"stdout:\n{result.stdout}\nstderr:\n{result.stderr}"
+        )
+E       AssertionError: Expected `npx cap sync` output to include 'sync finished'. stdout:
+E         ✔ Copying web assets from www to android/app/src/main/assets/public in 17.70ms
+E         ✔ Creating capacitor.config.json in android/app/src/main/assets in 1.25ms
+E         ✔ copy android in 41.77ms
+E         ✔ Updating Android plugins in 2.66ms
+E         [info] Found 1 Capacitor plugin for android:
+E                @capacitor/device@8.0.2
+E         ✔ update android in 73.99ms
+E         ✔ copy web in 8.19ms
+E         ✔ update web in 6.18ms
+E         [info] Sync finished in 0.178s
+E         
+E         stderr:
+E         
+E       assert 'sync finished' in '✔ Copying web assets from www to android/app/src/main/assets/public in 17.70ms\n✔ Creating capacitor.config.json in a...ice@8.0.2\n✔ update android in 73.99ms\n✔ copy web in 8.19ms\n✔ update web in 6.18ms\n[info] Sync finished in 0.178s\n'
+
+tests/test_final_state.py:248: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_package_json_does_not_depend_on_cordova_plugin_device
+PASSED tests/test_final_state.py::test_cordova_plugin_device_removed_from_node_modules
+PASSED tests/test_final_state.py::test_package_json_depends_on_capacitor_device
+PASSED tests/test_final_state.py::test_capacitor_device_present_in_node_modules
+PASSED tests/test_final_state.py::test_index_html_does_not_reference_cordova_js
+PASSED tests/test_final_state.py::test_no_legacy_window_device_usages_under_www
+PASSED tests/test_final_state.py::test_migrated_reader_script_exists
+PASSED tests/test_final_state.py::test_migrated_reader_imports_capacitor_device
+PASSED tests/test_final_state.py::test_migrated_reader_uses_all_three_device_apis
+PASSED tests/test_final_state.py::test_migrated_reader_runs_and_prints_valid_json
+FAILED tests/test_final_state.py::test_sync_log_exists_and_indicates_success
+FAILED tests/test_final_state.py::test_npx_cap_sync_runs_clean - AssertionErr...
+========================= 2 failed, 10 passed in 1.55s =========================

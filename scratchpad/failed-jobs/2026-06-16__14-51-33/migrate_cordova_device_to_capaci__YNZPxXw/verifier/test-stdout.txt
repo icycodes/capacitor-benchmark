@@ -1,0 +1,111 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 12 items
+
+tests/test_final_state.py F.........FF                                   [100%]
+
+=================================== FAILURES ===================================
+__________________ test_sync_log_exists_and_indicates_success __________________
+
+    def test_sync_log_exists_and_indicates_success():
+>       assert os.path.isfile(SYNC_LOG), (
+            f"Expected sync log at {SYNC_LOG} produced by the agent's `npx cap sync` run."
+        )
+E       AssertionError: Expected sync log at /home/user/myproject/sync.log produced by the agent's `npx cap sync` run.
+E       assert False
+E        +  where False = <function isfile at 0x7fec0c9a8220>('/home/user/myproject/sync.log')
+E        +    where <function isfile at 0x7fec0c9a8220> = <module 'posixpath' (frozen)>.isfile
+E        +      where <module 'posixpath' (frozen)> = os.path
+
+tests/test_final_state.py:37: AssertionError
+_______________ test_migrated_reader_runs_and_prints_valid_json ________________
+
+    def test_migrated_reader_runs_and_prints_valid_json():
+        path = _find_reader_path()
+        assert path is not None, "Migrated reader script not found."
+        result = subprocess.run(
+            ["node", path],
+            capture_output=True,
+            text=True,
+            cwd=PROJECT_DIR,
+            timeout=60,
+        )
+>       assert result.returncode == 0, (
+            f"Expected `node {path}` to exit 0. stderr:\n{result.stderr}\nstdout:\n{result.stdout}"
+        )
+E       AssertionError: Expected `node /home/user/myproject/scripts/device-report.mjs` to exit 0. stderr:
+E         /home/user/myproject/node_modules/@capacitor/core/dist/index.cjs.js:283
+E                 return new Capacitor.Exception(msg, exports.ExceptionCode.Unavailable);
+E                        ^
+E         
+E         CapacitorException [Error]: Device API not available in this browser
+E             at DeviceWeb.unavailable (/home/user/myproject/node_modules/@capacitor/core/dist/index.cjs.js:283:16)
+E             at DeviceWeb.getBatteryInfo (/home/user/myproject/node_modules/@capacitor/device/dist/plugin.cjs.js:33:24)
+E             at /home/user/myproject/node_modules/@capacitor/core/dist/index.cjs.js:121:35
+E             at async Promise.all (index 2)
+E             at async file:///home/user/myproject/scripts/device-report.mjs:26:29 {
+E           code: 'UNAVAILABLE',
+E           data: undefined
+E         }
+E         
+E         Node.js v22.22.3
+E         
+E         stdout:
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['node', '/home/user/myproject/scripts/device-report.mjs'], returncode=1, stdout='', stderr="/ho.../user/myproject/scripts/device-report.mjs:26:29 {\n  code: 'UNAVAILABLE',\n  data: undefined\n}\n\nNode.js v22.22.3\n").returncode
+
+tests/test_final_state.py:177: AssertionError
+_________________________ test_npx_cap_sync_runs_clean _________________________
+
+    def test_npx_cap_sync_runs_clean():
+        result = subprocess.run(
+            ["npx", "cap", "sync"],
+            capture_output=True,
+            text=True,
+            cwd=PROJECT_DIR,
+            timeout=300,
+        )
+        assert result.returncode == 0, (
+            "Expected `npx cap sync` to exit 0 after migration. "
+            f"stdout:\n{result.stdout}\nstderr:\n{result.stderr}"
+        )
+        combined = result.stdout + result.stderr
+>       assert "sync finished" in combined, (
+            "Expected `npx cap sync` output to include 'sync finished'. "
+            f"stdout:\n{result.stdout}\nstderr:\n{result.stderr}"
+        )
+E       AssertionError: Expected `npx cap sync` output to include 'sync finished'. stdout:
+E         ✔ Copying web assets from www to android/app/src/main/assets/public in 42.03ms
+E         ✔ Creating capacitor.config.json in android/app/src/main/assets in 93.69ms
+E         ✔ copy android in 151.17ms
+E         ✔ Updating Android plugins in 1.59ms
+E         [info] Found 1 Capacitor plugin for android:
+E                @capacitor/device@8.0.2
+E         ✔ update android in 164.23ms
+E         ✔ copy web in 3.96ms
+E         ✔ update web in 5.40ms
+E         [info] Sync finished in 0.359s
+E         
+E         stderr:
+E         
+E       assert 'sync finished' in '✔ Copying web assets from www to android/app/src/main/assets/public in 42.03ms\n✔ Creating capacitor.config.json in a...ce@8.0.2\n✔ update android in 164.23ms\n✔ copy web in 3.96ms\n✔ update web in 5.40ms\n[info] Sync finished in 0.359s\n'
+
+tests/test_final_state.py:248: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_package_json_does_not_depend_on_cordova_plugin_device
+PASSED tests/test_final_state.py::test_cordova_plugin_device_removed_from_node_modules
+PASSED tests/test_final_state.py::test_package_json_depends_on_capacitor_device
+PASSED tests/test_final_state.py::test_capacitor_device_present_in_node_modules
+PASSED tests/test_final_state.py::test_index_html_does_not_reference_cordova_js
+PASSED tests/test_final_state.py::test_no_legacy_window_device_usages_under_www
+PASSED tests/test_final_state.py::test_migrated_reader_script_exists
+PASSED tests/test_final_state.py::test_migrated_reader_imports_capacitor_device
+PASSED tests/test_final_state.py::test_migrated_reader_uses_all_three_device_apis
+FAILED tests/test_final_state.py::test_sync_log_exists_and_indicates_success
+FAILED tests/test_final_state.py::test_migrated_reader_runs_and_prints_valid_json
+FAILED tests/test_final_state.py::test_npx_cap_sync_runs_clean - AssertionErr...
+========================= 3 failed, 9 passed in 1.73s ==========================

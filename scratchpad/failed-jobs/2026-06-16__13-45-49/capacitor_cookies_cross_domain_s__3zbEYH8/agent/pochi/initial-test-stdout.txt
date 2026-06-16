@@ -1,0 +1,20 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /bootstrap
+plugins: json-ctrf-0.5.2
+collected 12 items
+
+bootstrap/test_initial_state.py::test_node_available PASSED
+bootstrap/test_initial_state.py::test_npx_available PASSED
+bootstrap/test_initial_state.py::test_project_directory_exists PASSED
+bootstrap/test_initial_state.py::test_package_json_exists PASSED
+bootstrap/test_initial_state.py::test_capacitor_core_installed PASSED
+bootstrap/test_initial_state.py::test_capacitor_cli_installed PASSED
+bootstrap/test_initial_state.py::test_typescript_available_in_project PASSED
+bootstrap/test_initial_state.py::test_capacitor_config_present PASSED
+bootstrap/test_initial_state.py::test_tsconfig_present PASSED
+bootstrap/test_initial_state.py::test_src_dir_present_and_session_not_yet_written PASSED
+bootstrap/test_initial_state.py::test_verifier_assets_present PASSED
+bootstrap/test_initial_state.py::test_tsc_can_parse_starter_project PASSED
+
+============================== 12 passed in 2.39s ==============================

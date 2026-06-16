@@ -1,0 +1,6 @@
+OK: added @capacitor/push-notifications dependency to package.json
+OK: added google-services gradle plugin classpath to android/build.gradle
+OK: applied google-services gradle plugin in android/app/build.gradle
+OK: added firebase-messaging implementation dependency in android/app/build.gradle
+OK: created google-services.json placeholder at android/app/google-services.json
+OK: created src/push.ts with requestPermissions and register flow

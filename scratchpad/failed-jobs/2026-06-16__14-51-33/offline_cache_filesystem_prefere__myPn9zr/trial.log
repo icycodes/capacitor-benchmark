@@ -1,0 +1,112 @@
+Skipping image OS validation for hb__offline_cache_filesystem_preferences_sync: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-mypn9zr > /logs/artifacts/run-id && echo offline_cache_filesystem_prefere__myPn9zr > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model deepseek/deepseek-4-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Conditional Offline Cache with CapacitorHttp, Filesystem, and Preferences
+
+## Background
+You are building a Vite + TypeScript web application that will eventually ship as a Capacitor v8 native app. The app needs to talk to a slow, rate-limited JSON API while remaining usable when the network is unavailable. The Capacitor v8 toolkit is well suited for this: `CapacitorHttp` issues real native (or `fetch`-backed) HTTP requests, `@capacitor/filesystem` persists arbitrary byte blobs on disk, and `@capacitor/preferences` keeps lightweight key/value metadata safe across reloads and OS garbage collection. Combined, they form a small ETag-aware offline cache that survives reloads, never re-downloads unchanged payloads, and works the same on iOS, Android, and the web preview that this task is verified against.
+
+A minimal Vite + TypeScript project has already been scaffolded for you at `/home/user/myapp`. A small Node HTTP fixture server that mimics an ETag-aware JSON API is started on port 4174 by the verifier before the browser-driven checks run. Your job is to integrate Capacitor v8, implement the offline-cache module, and surface its behavior through a minimal UI so that an automated test can drive it end-to-end.
+
+## Requirements
+- Integrate Capacitor v8 into the existing Vite project using the non-interactive CLI flow. The Capacitor app must be configured with:
+    - App name: `Offline Cache Demo`
+    - Application/package id: `com.example.offlinecache`
+    - Web assets directory aligned with Vite's build output (`dist`).
+    - `CapacitorHttp` plugin enabled (`plugins.CapacitorHttp.enabled = true`).
+- Install and use the following Capacitor v8 plugins (in versions compatible with `@capacitor/core@^8`): `@capacitor/filesystem` and `@capacitor/preferences`. `CapacitorHttp` ships inside `@capacitor/core` and does not require a separate package.
+- Implement an offline-cache module at `src/cache/offlineCache.ts` that exports exactly two async functions:
+    - `getCached(key: string, url: string): Promise<{ data: unknown; source: 'network' | 'cache' }>`
+        - On the very first call for a given key (no metadata yet), issue a `CapacitorHttp.get` to `url`, take the response's `ETag` header (case-insensitive), persist the response body verbatim to `Filesystem.writeFile({ path: 'cache/<key>.json', directory: Directory.Cache, encoding: Encoding.UTF8, recursive: true })`, persist the metadata `{ etag: <etag>, fetchedAt: Date.now() }` as a JSON string under the Preferences key `cache_meta:<key>`, and return `{ data: <parsed JSON of the response>, source: 'network' }`.
+        - On subsequent calls for a given key, look up the stored metadata, send a conditional `CapacitorHttp.get` with the `If-None-Match` header set to the stored ETag, and:
+            - On `304 Not Modified`, read the cached file back via `Filesystem.readFile`, parse it as JSON, refresh only the `fetchedAt` timestamp in Preferences (the stored ETag must stay the same), and return `{ data, source: 'cache' }`.
+            - On `200 OK` with a different ETag, overwrite the on-disk file, update both `etag` and `fetchedAt` in Preferences, and return `{ data, source: 'network' }`.
+    - `invalidate(key: string): Promise<void>` removes both the on-disk file (`cache/<key>.json` in `Directory.Cache`) and the `cache_meta:<key>` Preferences entry. Missing files or missing metadata must not throw — `invalidate` is idempotent.
+- The module MUST go through `CapacitorHttp.get` from `@capacitor/core` for every outbound HTTP request. Do NOT call `window.fetch`, `XMLHttpRequest`, or any third-party HTTP client directly.
+- The persisted JSON file MUST go through `Filesystem.writeFile` with `Directory.Cache` and `Encoding.UTF8`. The metadata MUST go through `@capacitor/preferences` under the exact key `cache_meta:<key>`.
+- Implement a minimal UI in `index.html` (and supporting TypeScript modules under `src/`) that wires the module to the page:
+    - An `<input>` with the HTML id `url-input` whose `value` is the URL the next `getCached` call will use.
+    - A `<button>` with the HTML id `fetch-button` that, when clicked, calls `getCached('demo', urlInput.value)` and renders the result.
+    - A `<button>` with the HTML id `invalidate-button` that, when clicked, calls `invalidate('demo')` and updates the status.
+    - An element with the HTML id `status` whose text content reflects the current state. It MUST take one of these exact values, in order: `idle` (initial), `fetching` (while a `getCached` call is in flight), `success` (after a successful `getCached`), `invalidated` (after a successful `invalidate('demo')`), or `error: <message>` (any thrown error).
+    - An element with the HTML id `data` whose text content holds `JSON.stringify(result.data)` after a successful `getCached`, and is empty otherwise (including after `invalidate`).
+    - An element with the HTML id `source` whose text content equals `network` or `cache` after the most recent successful `getCached`, and is empty otherwise.
+    - An element with the HTML id `meta-etag` whose text content equals the current `etag` stored in Preferences for the `demo` key (empty when no metadata exists).
+    - An element with the HTML id `meta-fetched-at` whose text content equals the current `fetchedAt` stored in Preferences for the `demo` key as a plain decimal integer (empty when no metadata exists).
+- `npm run build` and `npx cap sync` MUST both complete with exit status 0.
+
+## Implementation Hints
+- Use `npx cap init` with positional `appName` and `appId` arguments and the `--web-dir` flag to avoid the interactive prompt, then edit the generated `capacitor.config.ts` to add the `plugins.CapacitorHttp.enabled = true` entry.
+- `CapacitorHttp.get`, on web, returns an `HttpResponse` with `status`, `headers`, and `data` fields. Headers are returned as a plain object whose key casing is platform-dependent — look up the `ETag` header case-insensitively. The `data` field is already parsed when the server responds with `Content-Type: application/json`; do not double-parse it.
+- Because we are caching a JSON resource, persist the canonical string form (`JSON.stringify(result.data)`) to disk so that `Filesystem.readFile({ encoding: Encoding.UTF8 })` can be fed straight into `JSON.parse`.
+- The Capacitor Filesystem web implementation auto-creates parent directories when `recursive: true` is passed to `writeFile`. Pass it on every write so the `cache/` sub-folder is created lazily.
+- The Preferences web implementation falls back to `localStorage`; store the metadata as JSON.
+- A 304 response carries no body, so make sure your code does not attempt to parse `response.data` when `response.status === 304`.
+- Make sure the script that wires up the buttons is loaded as an ES module so that the `@capacitor/*` packages are resolved correctly by Vite.
+
+## Acceptance Criteria
+- Project path: /home/user/myapp
+- Start command: `npm run preview -- --host 0.0.0.0 --port 4173`
+- Port: 4173
+- `capacitor.config.ts` (or `capacitor.config.json`) must exist at the project root with `appName` equal to `Offline Cache Demo`, `appId` equal to `com.example.offlinecache`, `webDir` equal to `dist`, and the `CapacitorHttp` plugin enabled.
+- `package.json` must list `@capacitor/core`, `@capacitor/cli`, `@capacitor/filesystem`, and `@capacitor/preferences` as dependencies (any of `dependencies` or `devDependencies`).
+- `src/cache/offlineCache.ts` must exist and export `getCached` and `invalidate`. Its source must contain literal references to `CapacitorHttp`, `Filesystem`, and `Preferences` (i.e. the module must be implemented in terms of those Capacitor APIs).
+- `src/cache/offlineCache.ts` must not contain literal references to `window.fetch`, `XMLHttpRequest`, `axios`, or any other competing HTTP client used outside `CapacitorHttp`.
+- `npm run build` must complete without errors and produce a `dist/index.html` file.
+- `npx cap sync` must exit with status 0.
+- The served page at `http://localhost:4173/` must contain elements with the HTML ids `url-input`, `fetch-button`, `invalidate-button`, `status`, `data`, `source`, `meta-etag`, and `meta-fetched-at`.
+- On initial load, `#status` must contain the literal text `idle`, while `#data`, `#source`, `#meta-etag`, and `#meta-fetched-at` must be empty.
+- Behavior under an ETag-aware fixture server (started by the verifier on port 4174, exposing `GET /api/data` with ETag/If-None-Match support, plus control endpoints to rotate the payload and read traffic stats):
+    - **First fetch for a fresh key**: setting `#url-input` to the fixture URL and clicking `#fetch-button` must transition `#status` from `fetching` to `success`, set `#source` to `network`, render `#data` to the fixture's current JSON body (as `JSON.stringify`), and populate `#meta-etag` with the fixture's current ETag and `#meta-fetched-at` with a numeric millisecond timestamp.
+    - **Second fetch with unchanged content**: clicking `#fetch-button` again must end with `#status` equal to `success`, `#source` equal to `cache`, `#data` still equal to the same JSON body, and `#meta-etag` unchanged. The verifier's fixture server must record a second request that carried an `If-None-Match` header equal to the stored ETag and must have returned `304`.
+    - **Invalidate**: clicking `#invalidate-button` must transition `#status` to `invalidated`, clear `#data`, `#source`, `#meta-etag`, and `#meta-fetched-at`, and remove both the `cache_meta:demo` Preferences entry and the on-disk `cache/demo.json` file (verified through an in-page evaluation that calls `Preferences.get` and `Filesystem.readFile` directly).
+    - **Re-fetch after invalidate**: clicking `#fetch-button` again must yield `#status` = `success`, `#source` = `network`, and freshly populated metadata, with the fixture server recording a new request that did NOT include an `If-None-Match` header.
+    - **Server-side payload rotation**: when the fixture is asked to rotate its payload (changing both body and ETag) and `#fetch-button` is clicked, the next call must yield `#status` = `success`, `#source` = `network`, `#data` equal to the new body, and `#meta-etag` equal to the new ETag. A subsequent click must then yield `#source` = `cache` and confirm `If-None-Match` was sent with the new ETag.
+
+
+EOF
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured

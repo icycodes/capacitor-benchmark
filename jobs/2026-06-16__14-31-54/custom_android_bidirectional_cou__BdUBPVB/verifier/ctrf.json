@@ -1,0 +1,176 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T14:37:06.104534+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 16,
+            "passed": 15,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781620620456,
+            "stop": 1781620626104
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_plugin_source_declares_correct_package",
+                "status": "passed",
+                "duration": 4,
+                "start": 1781620620533,
+                "stop": 1781620620537,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_source_has_required_imports",
+                "status": "passed",
+                "duration": 5,
+                "start": 1781620620537,
+                "stop": 1781620620542,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_has_capacitor_plugin_annotation",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781620620543,
+                "stop": 1781620620544,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_class_extends_plugin",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781620620545,
+                "stop": 1781620620546,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_has_int_instance_field",
+                "status": "passed",
+                "duration": 4,
+                "start": 1781620620547,
+                "stop": 1781620620551,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_has_increment_reset_get_value_methods",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781620620551,
+                "stop": 1781620620553,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_increment_emits_change_event_and_resolves",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781620620554,
+                "stop": 1781620620556,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_reset_emits_change_event_and_resolves",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781620620556,
+                "stop": 1781620620557,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_get_value_resolves_but_does_not_emit",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781620620558,
+                "stop": 1781620620559,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_main_activity_registers_counter_plugin",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781620620559,
+                "stop": 1781620620561,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_typescript_binding_registers_counter_plugin",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781620620561,
+                "stop": 1781620620564,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_typescript_binding_interface_declares_methods",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 28,
+                "start": 1781620620564,
+                "stop": 1781620620592,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_typescript_binding_interface_declares_methods():\n        with open(COUNTER_TS) as f:\n            ts = f.read()\n        stripped = _strip_comments(ts)\n        # Find any interface or type alias declaration block.\n        type_decls = re.findall(\n            r\"(?:interface\\s+\\w+\\s*\\{[^}]*\\}|type\\s+\\w+\\s*=\\s*\\{[^}]*\\})\",\n            stripped,\n            re.DOTALL,\n        )\n        assert type_decls, (\n            \"src/counter.ts must declare a TypeScript interface or type alias \"\n            \"describing the Counter plugin.\"\n        )\n        for required in (\"increment\", \"reset\", \"getValue\", \"addListener\"):\n>           assert any(re.search(rf\"\\b{required}\\b\", decl) for decl in type_decls), (\n                f\"src/counter.ts plugin interface must declare a `{required}` member.\"\n            )\nE           AssertionError: src/counter.ts plugin interface must declare a `reset` member.\nE           assert False\nE            +  where False = any(<generator object test_typescript_binding_interface_declares_methods.<locals>.<genexpr> at 0x7f88a6423100>)\n\ntests/test_final_state.py:266: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_main_ts_uses_addListener_and_removes_via_handle",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781620620593,
+                "stop": 1781620620595,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_typescript_sources_typecheck",
+                "status": "passed",
+                "duration": 2068,
+                "start": 1781620620595,
+                "stop": 1781620622663,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_gradle_build_succeeds_and_apk_exists",
+                "status": "passed",
+                "duration": 3290,
+                "start": 1781620622663,
+                "stop": 1781620625953,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_apk_dex_contains_counter_plugin_class",
+                "status": "passed",
+                "duration": 150,
+                "start": 1781620625954,
+                "stop": 1781620626104,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

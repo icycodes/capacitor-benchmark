@@ -1,0 +1,65 @@
+{
+    "id": "e81a5121-6b61-46ab-9a94-a10f8d997989",
+    "started_at": "2026-06-16T14:07:03.847797",
+    "updated_at": "2026-06-16T14:20:48.912948",
+    "finished_at": "2026-06-16T14:20:48.912948",
+    "n_total_trials": 20,
+    "stats": {
+        "n_completed_trials": 20,
+        "n_errored_trials": 4,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "pochi__claude-4-6-sonnet__pending-tasks": {
+                "n_trials": 16,
+                "n_errors": 4,
+                "metrics": [
+                    {
+                        "mean": 0.4
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "0.0": [
+                            "photo_gallery_camera_fs_preferen__FSER3X7",
+                            "capacitor_http_bearer_token_wrap__6WBfVCV",
+                            "offline_cache_filesystem_prefere__74fsM5a",
+                            "android_release_keystore_signing__DuoPQPT",
+                            "custom_ios_event_emitter_plugin__RETsb88",
+                            "migrate_cordova_device_to_capaci__Z8wHfzu",
+                            "push_notifications_android_fcm_v__LsJg8NN",
+                            "splash_screen_android_12_animate__xtnEefL"
+                        ],
+                        "1.0": [
+                            "ios_info_plist_permission_string__hLWQAzj",
+                            "custom_android_bidirectional_cou__wa3sm6o",
+                            "nextjs_static_export_capacitor_i__KeJ8FHH",
+                            "upgrade_v7_to_v8_full_android_to__ifusosX",
+                            "capacitor_cookies_cross_domain_s__ARtC6tg",
+                            "custom_android_ambient_light_plu__gzBPcUm",
+                            "android_deeplink_app_plugin_rout__fcoBqt7",
+                            "status_bar_navigation_bar_theme__b5eVPHY"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "RuntimeError": [
+                        "vite_react_capacitor_full_bootst__f9reFCZ",
+                        "android_proguard_release_minify__ua7rTpG",
+                        "android_https_scheme_hostname_co__r67JdaY"
+                    ],
+                    "InitialStateError": [
+                        "geolocation_watch_with_app_state__89HJ5MK"
+                    ]
+                }
+            }
+        },
+        "n_input_tokens": 0,
+        "n_cache_tokens": 0,
+        "n_output_tokens": 662239,
+        "cost_usd": null
+    }
+}

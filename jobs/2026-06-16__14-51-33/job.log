@@ -1,0 +1,2316 @@
+Skipping image OS validation for hb__photo_gallery_camera_fs_preferences: docker inspect returned 1
+Skipping image OS validation for hb__ios_info_plist_permission_strings: docker inspect returned 1
+Skipping image OS validation for hb__custom_android_bidirectional_counter_plugin: docker inspect returned 1
+Skipping image OS validation for hb__nextjs_static_export_capacitor_integration: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Running command: apt-get update && apt-get install -y curl ripgrep
+Running command: apt-get update && apt-get install -y curl ripgrep
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Command outputs captured
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-ngiby6z > /logs/artifacts/run-id && echo nextjs_static_export_capacitor_i__NGiBy6Z > /logs/artifacts/trial_id
+Running command: echo zr-elyaale > /logs/artifacts/run-id && echo photo_gallery_camera_fs_preferen__eLYaaLE > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Running command: echo zr-f9mkq6m > /logs/artifacts/run-id && echo custom_android_bidirectional_cou__F9mkq6m > /logs/artifacts/trial_id
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Running command: echo zr-bvk3jxr > /logs/artifacts/run-id && echo ios_info_plist_permission_string__bVK3jXR > /logs/artifacts/trial_id
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model deepseek/deepseek-4-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Integrate Capacitor v8 into an Existing Next.js 14 App (Static Export + Android)
+
+## Background
+A Next.js 14 (App Router) web application lives at `/home/user/myapp`. The product team wants to ship the same web frontend as a native Android app using Capacitor v8. Because Capacitor serves the web assets from a local file system inside a native WebView, the Next.js project must be reconfigured for fully static export, image optimization must be disabled, and routing must not rely on the Next.js dev/SSR server (the WebView cannot reload non-existent server routes — it must use hash-based navigation on the client).
+
+Your job is to wire Capacitor v8 into the existing project end-to-end without breaking the existing Next.js build, scaffold the Android native project, and produce a successful asset sync into the native Android platform.
+
+## Requirements
+- Reconfigure `next.config.js` for fully static export so that `next build` writes the site to an `out/` directory.
+  - Set `output: 'export'`.
+  - Disable Next.js image optimization (`images: { unoptimized: true }`) so static export does not require a server image optimizer.
+  - Enable `trailingSlash: true` so each route emits an `index.html` under its own directory (required for native WebView file:// resolution).
+- Add a small client-side hash-based routing helper to the project at `/home/user/myapp/lib/hashRouter.ts` that exposes:
+  - `navigate(path: string): void` — pushes a new hash route by setting `window.location.hash`.
+  - `currentPath(): string` — returns the current route derived from `window.location.hash` (with a leading `/` and defaulting to `"/"` when the hash is empty).
+  - The file must be safe to import from client components only (it reads `window`).
+- Install the Capacitor v8 stack as project dependencies:
+  - `@capacitor/core` and `@capacitor/android` in `dependencies`.
+  - `@capacitor/cli` in `devDependencies`.
+  - All three packages must resolve to Capacitor v8 (`^8`).
+- Initialize Capacitor non-interactively at the project root so that a `capacitor.config.ts` (or `.json`) is generated with:
+  - `appName` equal to `MyApp`.
+  - `appId` equal to `com.example.myapp`.
+  - `webDir` equal to `out` (matching Next.js' static export directory).
+- Scaffold the Android native platform under `/home/user/myapp/android` (via `npx cap add android`).
+- Build the static site and sync it into the native Android project so that `android/app/src/main/assets/public/index.html` exists and matches the Next.js export.
+
+## Implementation Hints
+- Capacitor v8 requires Node.js 22+. Both `node` (v22) and `npm` are already available on the PATH.
+- Use the non-interactive form of the initializer: `npx cap init <appName> <appId> --web-dir <dir>`. Pass the app name and app ID positionally and the web dir via the `--web-dir` flag so no interactive prompt is triggered.
+- The Capacitor Android template installs its own Gradle wrapper; running `npx cap add android` performs the scaffolding without compiling. You do **not** need to build the APK in this task — only sync the web assets.
+- `npx cap sync android` will copy the contents of `webDir` (i.e. `out/`) into `android/app/src/main/assets/public/`. Run `next build` first so that `out/` exists.
+- The Next.js project already declares `next`, `react`, and `react-dom`. Keep them intact; add the Capacitor packages alongside them.
+- For the hash router, remember that the App Router's server components cannot read `window` directly. Either mark the helper module as client-only by adding the `"use client"` directive at the top of the file, or simply write a plain TypeScript module that only does `if (typeof window !== "undefined")` guarded access — either is acceptable as long as the two exported functions behave as specified.
+- Network access is available; npm and the Capacitor CLI can fetch what they need from the public registries.
+
+## Acceptance Criteria
+- Project path: `/home/user/myapp`
+- After the executor has finished, the following commands (executed in order from `/home/user/myapp`) must succeed:
+  - `npx --no-install next build`
+  - `npx --no-install cap sync android`
+- `next.config.js` (or `next.config.mjs`) at `/home/user/myapp/next.config.js` must export a Next.js config that, when loaded, has all of the following properties at the top level:
+  - `output` equals the string `'export'`.
+  - `trailingSlash` equals the boolean `true`.
+  - `images` is an object whose `unoptimized` property equals the boolean `true`.
+- `/home/user/myapp/package.json` must declare all three Capacitor v8 packages:
+  - `@capacitor/core` in `dependencies` (resolved version satisfies `^8`).
+  - `@capacitor/android` in `dependencies` (resolved version satisfies `^8`).
+  - `@capacitor/cli` in `devDependencies` (resolved version satisfies `^8`).
+  - The corresponding modules must be installed under `/home/user/myapp/node_modules/@capacitor/{core,android,cli}/package.json`.
+- A Capacitor configuration file must exist at one of `/home/user/myapp/capacitor.config.ts` or `/home/user/myapp/capacitor.config.json`. When parsed, the configuration must contain:
+  - `appId` equal to `"com.example.myapp"`.
+  - `appName` equal to `"MyApp"`.
+  - `webDir` equal to `"out"`.
+- A hash-routing helper module must exist at `/home/user/myapp/lib/hashRouter.ts` that:
+  - Exports a function named `navigate` that accepts a `path: string` argument and writes the path into `window.location.hash`.
+  - Exports a function named `currentPath` that returns a string derived from `window.location.hash` (default `"/"` when the hash is empty or `"#"`).
+- The Android platform must be scaffolded at `/home/user/myapp/android` and contain a `build.gradle` file as well as `app/src/main/AndroidManifest.xml`.
+- After running `npx cap sync android`, the file `/home/user/myapp/android/app/src/main/assets/public/index.html` must exist and the directory must contain the contents that `next build` placed under `/home/user/myapp/out/`.
+
+
+EOF
+Command outputs captured
+Running command: pochi --model deepseek/deepseek-4-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Implement a Custom Local Capacitor Android `Counter` Plugin with Bi-Directional Events
+
+## Background
+You are working on a Capacitor v8 hybrid mobile application located at `/home/user/myapp`. The Android platform is already scaffolded under `/home/user/myapp/android` and a minimal web frontend is bundled into `/home/user/myapp/dist`. The team needs a tiny stateful native module to validate the **bi-directional** JS ↔ Java communication path: JavaScript should be able to drive native state with method calls AND subscribe to native-emitted events when that state changes, then cleanly unsubscribe via the returned listener handle.
+
+Your job is to write a custom local Capacitor plugin (Java, inside the existing Android project) named `Counter` that maintains an integer counter as instance state, exposes three methods (`increment`, `reset`, `getValue`), emits a `change` event via `notifyListeners` whenever the counter changes, and is registered in `MainActivity`. You must also provide a TypeScript binding in `src/counter.ts` that wires the plugin into the JavaScript side and includes a small driver script in `src/main.ts` that demonstrates correct listener subscription **and** removal via the handle returned by `addListener`.
+
+## Requirements
+- Implement a custom local Android Capacitor plugin written in Java inside the existing Android project (do **not** create a separate Capacitor plugin npm package).
+- The plugin must be exposed to JavaScript under the exact name `Counter`.
+- The plugin class must maintain an integer counter as **instance state** (an `int` field on the plugin), initialized to `0`.
+- The plugin must declare exactly three `@PluginMethod`-annotated methods reachable from JavaScript:
+  - `increment(options)` — increments the counter by `1`, resolves with `{ value: <new value> }`, **AND** emits a `change` event with the new value before resolving.
+  - `reset(options)` — sets the counter back to `0`, resolves with `{ value: 0 }`, **AND** emits a `change` event with `0` before resolving (the event must fire even if the counter was already `0`).
+  - `getValue(options)` — resolves with `{ value: <current value> }` **without** emitting a `change` event (reading the value is not a state change).
+- The `change` event payload must be a `JSObject` containing a `value` field that holds the current counter value as a number.
+- Use the inherited `notifyListeners("change", data)` method on `com.getcapacitor.Plugin` to emit events.
+- Register the plugin in the existing `MainActivity` so that it is loaded by the Capacitor bridge at startup.
+- Provide a TypeScript binding file at `/home/user/myapp/src/counter.ts` that uses `registerPlugin` from `@capacitor/core` to expose the plugin under the exact name `"Counter"`, and exports the plugin object as the default export. The interface declared for the plugin must expose `increment`, `reset`, `getValue`, and `addListener` so that the listener-handle pattern type-checks.
+- Provide a TypeScript driver file at `/home/user/myapp/src/main.ts` that:
+  - Imports the `Counter` plugin from `./counter`.
+  - Calls `Counter.addListener('change', ...)` to subscribe to the `change` event and stores the returned handle (the value returned from `addListener`, possibly awaited).
+  - At the end of its flow, calls `.remove()` on that stored handle to deterministically detach the listener.
+- The complete Android project must compile successfully with the Gradle wrapper, and the TypeScript source files must type-check with the project's installed TypeScript compiler.
+
+## Implementation Hints
+- Refer to the official Capacitor v8 "Custom Native Android Code" and "Android Plugin Guide" documentation. The plugin class must extend `com.getcapacitor.Plugin` and be annotated with `@CapacitorPlugin(name = "Counter")`. Each exposed method must be annotated with `@PluginMethod`.
+- The plugin's Java package must match the application package (`com.example.myapp`); place the source under `android/app/src/main/java/com/example/myapp/` so the existing Gradle source set picks it up.
+- Store the counter as an `int` field on the plugin instance (e.g. `private int counter = 0;`). Capacitor instantiates each plugin once per bridge, so the field naturally persists across method calls.
+- The base `com.getcapacitor.Plugin` class provides a `notifyListeners(String eventName, JSObject data)` method. Call it with the event name `"change"` and a `JSObject` containing the new value.
+- For each method, use `PluginCall.resolve(<JSObject>)` to return data, and put the integer value into the `JSObject` under the key `"value"`.
+- Register the plugin with `registerPlugin(CounterPlugin.class)` inside `MainActivity.onCreate(Bundle savedInstanceState)` before the call to `super.onCreate(savedInstanceState)`.
+- On the JavaScript side, the first argument to `registerPlugin` must match the `name` attribute of the `@CapacitorPlugin` annotation exactly (`"Counter"`). The return value of `addListener` is a `PluginListenerHandle` (or a `Promise` resolving to one) with a `.remove()` method — store it in a variable and call `.remove()` on it when you are done. Do not pass the original callback back into a separate `removeListener` call; the listener-handle pattern is the only supported removal path in Capacitor v8.
+- The web frontend already has `@capacitor/core` and `typescript` installed as npm dependencies; you do not need to install additional packages.
+- The Android SDK, JDK, and the Gradle wrapper are pre-installed and pre-warmed inside the project; running `./gradlew` from `/home/user/myapp/android` will compile the project. Use the `--offline` flag whenever possible to avoid re-downloading dependencies.
+
+## Acceptance Criteria
+- Project path: `/home/user/myapp`
+- The Android project at `/home/user/myapp/android` must build successfully via:
+  - `cd /home/user/myapp/android && ./gradlew :app:assembleDebug --offline`
+- A Java source file implementing the plugin must exist at:
+  - `/home/user/myapp/android/app/src/main/java/com/example/myapp/CounterPlugin.java`
+  - It must declare `package com.example.myapp;`.
+  - It must import `com.getcapacitor.Plugin`, `com.getcapacitor.PluginCall`, `com.getcapacitor.PluginMethod`, `com.getcapacitor.JSObject`, and `com.getcapacitor.annotation.CapacitorPlugin`.
+  - It must annotate the plugin class with `@CapacitorPlugin(name = "Counter")`.
+  - It must declare a class named `CounterPlugin` that `extends Plugin`.
+  - It must declare an integer instance field used to hold the counter value.
+  - It must declare exactly three `@PluginMethod`-annotated methods named `increment`, `reset`, and `getValue`, each taking a single `PluginCall` argument.
+  - The bodies of `increment` and `reset` must each call the inherited `notifyListeners("change", <JSObject>)` method.
+  - The body of `getValue` must NOT call `notifyListeners`.
+- `MainActivity` at `/home/user/myapp/android/app/src/main/java/com/example/myapp/MainActivity.java` must contain a `registerPlugin(CounterPlugin.class)` call inside `onCreate(Bundle savedInstanceState)`.
+- A TypeScript binding file must exist at `/home/user/myapp/src/counter.ts` that imports `registerPlugin` from `@capacitor/core`, calls `registerPlugin` with the exact string literal `"Counter"`, and provides a default export of the registered plugin. The TypeScript interface for the plugin must declare `increment`, `reset`, `getValue`, and an `addListener` overload for the `'change'` event.
+- A TypeScript driver file must exist at `/home/user/myapp/src/main.ts` that imports the default export from `./counter`, calls `addListener('change', ...)` to subscribe, stores the returned handle, and later calls `.remove()` on that stored handle.
+- The TypeScript sources under `/home/user/myapp/src/` must type-check cleanly via `npx tsc --noEmit -p /home/user/myapp/tsconfig.json`.
+- The compiled debug APK produced at `/home/user/myapp/android/app/build/outputs/apk/debug/app-debug.apk` must contain the `CounterPlugin` class in its DEX (verifiable by listing classes inside the APK).
+
+
+EOF
+Command outputs captured
+Running command: pochi --model deepseek/deepseek-4-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Photo Gallery with Capacitor Camera, Filesystem, and Preferences
+
+## Background
+You are building a small Vite + TypeScript web application that will eventually be packaged as a native mobile app via Capacitor v8. The app is a minimal photo gallery: the user captures (or, on the web target, picks) a photo, the app persists the captured JPEG bytes into the device's data directory through `@capacitor/filesystem`, and a small JSON index of the saved photo paths is kept in `@capacitor/preferences` so the gallery survives reloads.
+
+A minimal Vite + TypeScript project has already been scaffolded for you at `/home/user/myapp`. Capacitor and its plugins are NOT installed yet — you must install and wire them up. The verification environment runs the production build under `npm run preview` and exercises the gallery in a headless Chromium browser, where Capacitor's web-fallback implementations of these plugins are used (the Camera plugin falls back to an `<input type="file">` picker when `@ionic/pwa-elements` is not registered, the Filesystem plugin persists in IndexedDB under `Directory.Data`, and Preferences persists in IndexedDB).
+
+## Requirements
+- Integrate Capacitor v8 into the existing Vite project using the non-interactive CLI flow. The Capacitor app must be configured with:
+    - App name: `Photo Gallery`
+    - Application/package id: `com.example.photogallery`
+    - Web assets directory aligned with Vite's build output (`dist`).
+- Install and use `@capacitor/camera` (version 8.1.0 or newer — i.e. the version that exposes `takePhoto`), `@capacitor/filesystem`, and `@capacitor/preferences` (versions compatible with Capacitor v8). You may NOT shortcut the persistence requirements by writing files or the index directly to `localStorage`, `IndexedDB`, in-memory globals, or `window.fetch`-backed caches — every persisted byte and index update MUST go through the Capacitor plugin APIs.
+- Create a TypeScript module (for example `src/gallery.ts`) that exports three async functions, all of which MUST be reachable from the served page on `window.gallery` so that automated tests can invoke them:
+    - `capturePhoto(): Promise<string>` — invoke `Camera.takePhoto({ saveToGallery: false, includeMetadata: true })`, take the returned base64 image bytes (on Web, the full image is returned in `result.thumbnail`), write them through `Filesystem.writeFile` to `Directory.Data` at the path `photos/<isoTimestamp>.jpeg` (where `<isoTimestamp>` is the value of `new Date().toISOString()` at the moment of capture), append the freshly written path to the Preferences index, and resolve with that path.
+    - `listPhotos(): Promise<string[]>` — return the current JSON-decoded array of stored photo paths from Preferences. If the key has never been written, resolve with an empty array `[]`.
+    - `deletePhoto(path: string): Promise<void>` — remove the file from `Directory.Data` via `Filesystem.deleteFile`, then update the Preferences index so the deleted path is no longer present. The two side effects MUST both occur; if the file does not exist the index must still be updated.
+- The index MUST be stored in `@capacitor/preferences` under the key `photo_index`, and the stored value MUST be a JSON-serialized array of strings (e.g. `"[\"photos/2026-01-02T03:04:05.678Z.jpeg\"]"`). The order of the array MUST reflect insertion order.
+- The served `index.html` must contain a single visible button with the HTML id `capture-btn` that, when clicked, calls `window.gallery.capturePhoto()` and updates a status element with the HTML id `capture-status` (text content `idle`, `capturing`, `saved`, or `error: <message>`). The remaining `listPhotos` / `deletePhoto` behaviour is exercised programmatically by tests via `window.gallery.*`.
+- `npx cap sync` must run successfully against the produced web build (no native platforms need to be added).
+
+## Implementation Hints
+- Use `npx cap init` with positional `appName` and `appId` arguments together with the `--web-dir` flag to avoid the interactive prompt.
+- Vite's default build output directory is `dist`; ensure it matches `webDir` in `capacitor.config.ts` (or `.json`).
+- The Camera plugin's web fallback dispatches a file picker. Tests will provide a JPEG file to this picker, so do NOT call `Camera.requestPermissions()` or rely on `getUserMedia` directly — `Camera.takePhoto` is sufficient.
+- On Web, `result.thumbnail` for `MediaType.Photo` contains the full image base64-encoded; pass it as-is to `Filesystem.writeFile({ data: ... })` (no `encoding` option, so the data is treated as base64 bytes).
+- The Filesystem plugin's web implementation creates intermediate directories automatically when `recursive: true` is supplied to `writeFile`. Without that flag, writing to `photos/<file>.jpeg` will fail on the very first capture.
+- The Preferences plugin stores raw strings: serialize the index with `JSON.stringify` on write and `JSON.parse` on read. Treat a missing key (`value === null`) as an empty array.
+- Expose the gallery module on `window` from your entry point (for example in `src/main.ts`) so the verifier can drive it via `window.gallery.capturePhoto()`, `window.gallery.listPhotos()`, and `window.gallery.deletePhoto(path)`.
+- Make sure the module is loaded as an ES module so that the dynamic imports of the Capacitor plugins succeed.
+
+## Acceptance Criteria
+- Project path: /home/user/myapp
+- Start command: `npm run preview -- --host 0.0.0.0 --port 4173`
+- Port: 4173
+- `npm run build` must complete without errors and produce a `dist/` directory containing `index.html`.
+- `capacitor.config.ts` (or `capacitor.config.json`) must exist at the project root with `appName` equal to `Photo Gallery`, `appId` equal to `com.example.photogallery`, and `webDir` equal to `dist`.
+- `package.json` must list `@capacitor/core`, `@capacitor/cli`, `@capacitor/camera`, `@capacitor/filesystem`, and `@capacitor/preferences` as dependencies (any of `dependencies` or `devDependencies`). The installed version of `@capacitor/camera` must be 8.1.0 or newer.
+- `npx cap sync` executed after the production build must exit with status 0.
+- The served page at `http://localhost:4173/` must contain elements with the HTML ids `capture-btn` and `capture-status`. On initial load (before any capture has been attempted), `#capture-status` must contain the literal text `idle`.
+- `window.gallery.capturePhoto`, `window.gallery.listPhotos`, and `window.gallery.deletePhoto` must all be defined as async functions on the served page.
+- Calling (or clicking through to) `window.gallery.capturePhoto()` after the file picker provides a JPEG must:
+    - Resolve with a string of the form `photos/<isoTimestamp>.jpeg`, where `<isoTimestamp>` is the value of an ISO-8601 timestamp produced by `new Date().toISOString()` (e.g. `photos/2026-01-02T03:04:05.678Z.jpeg`).
+    - Cause `Filesystem.readFile({ path: <returned_path>, directory: Directory.Data })` to succeed and return base64 data whose decoded bytes equal the bytes that were fed to the file picker.
+    - Append the returned path to the JSON array stored in `@capacitor/preferences` under the key `photo_index`.
+    - Transition `#capture-status` to `saved` (when triggered via the button).
+- `window.gallery.listPhotos()` must return an array of strings equal to the current JSON-decoded `photo_index` value (or `[]` if the key is unset), and the order MUST reflect insertion order.
+- After a full page reload, `window.gallery.listPhotos()` must still return the previously captured paths (i.e. state persists across reloads through Capacitor Preferences and Filesystem).
+- `window.gallery.deletePhoto(path)` must:
+    - Cause `Filesystem.readFile({ path, directory: Directory.Data })` to subsequently fail.
+    - Remove `path` from the `photo_index` array stored in Preferences (the remaining entries must keep their relative order).
+
+
+EOF
+Command outputs captured
+Running command: pochi --model deepseek/deepseek-4-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Add iOS Permission Strings and Configure `contentInset` for Capacitor Camera v8.1.0
+
+## Background
+You are working on an existing Capacitor v8 application located at `/home/user/myapp`. The team has just upgraded to `@capacitor/camera` v8.1.0, which exposes both `takePhoto` and `recordVideo`. Before the app can be archived for the App Store, the iOS project must declare every privacy usage description string the new Camera API touches at runtime. The web team has also asked for the WebView's scroll behaviour to respect the safe area at all times so that fixed headers do not slide under the iOS status bar.
+
+The native iOS project (`ios/App/`) has already been scaffolded by `npx cap add ios`. Your job is to update two configuration files in-place; no native code changes are required.
+
+## Requirements
+- Add the following four privacy usage description keys to `ios/App/App/Info.plist`. Each value must be a sensible, human-readable English sentence (not a placeholder, not empty, not the literal key name):
+  - `NSCameraUsageDescription`
+  - `NSMicrophoneUsageDescription`
+  - `NSPhotoLibraryUsageDescription`
+  - `NSPhotoLibraryAddUsageDescription`
+- Keep all other existing keys (e.g., `CFBundleIdentifier`, `UILaunchStoryboardName`, `UISupportedInterfaceOrientations`) intact and the file must remain a valid Apple Property List XML document.
+- Update `capacitor.config.ts` so that the iOS-specific configuration sets `contentInset` to `'always'`. Preserve every other field already present in the config (such as `appId`, `appName`, `webDir`).
+- After editing, verify that `Info.plist` parses cleanly with `plutil -lint ios/App/App/Info.plist` (the environment provides a Linux-compatible `plutil` wrapper on `PATH`).
+
+## Implementation Hints
+- `Info.plist` is an XML property list. Insert the new `<key>` / `<string>` pairs inside the top-level `<dict>` element. The Capacitor Camera v8 documentation specifies which keys are mandatory; the microphone description is required because `recordVideo` captures audio.
+- For the TypeScript config, extend the existing `ios` block (or add one if it is missing) and rely on the `CapacitorConfig` type from `@capacitor/cli`.
+- Localized English copy should describe *why* the app needs the permission, e.g. mentioning capturing photos, recording videos, or saving to the photo library.
+- `plutil -lint` exits non-zero and prints a parse error on syntax issues; treat a non-zero exit code as a failure to fix before considering the task done.
+
+## Acceptance Criteria
+- Project path: `/home/user/myapp`
+- File `/home/user/myapp/ios/App/App/Info.plist` exists, is well-formed Apple Property List XML, and contains the following keys, each mapped to a non-empty English `<string>` value:
+  - `NSCameraUsageDescription`
+  - `NSMicrophoneUsageDescription`
+  - `NSPhotoLibraryUsageDescription`
+  - `NSPhotoLibraryAddUsageDescription`
+- The value of each newly added key must be at least 15 characters long, must not equal the key name itself, and must reference the relevant capability (camera, microphone, photo library) in plain English.
+- Pre-existing keys in `Info.plist` (`CFBundleIdentifier`, `CFBundleName`, `CFBundleDisplayName`, `UILaunchStoryboardName`, `UIRequiredDeviceCapabilities`, `UISupportedInterfaceOrientations`) must still be present with their original values.
+- Running `plutil -lint /home/user/myapp/ios/App/App/Info.plist` exits with status 0.
+- File `/home/user/myapp/capacitor.config.ts` still exports a default `CapacitorConfig` object (via `export default config;` or equivalent) whose `ios.contentInset` resolves to the string `'always'` after evaluation.
+- All previously declared top-level keys in `capacitor.config.ts` (`appId`, `appName`, `webDir`) retain their original values.
+
+
+EOF
+Trial vite_react_capacitor_full_bootst__S2z5NAC failed: Docker compose command failed for environment vite_react_capacitor_full_bootstrap. Command: docker compose --project-name vite_react_capacitor_full_bootst__s2z5nac --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/vite_react_capacitor_full_bootstrap/environment -f /tmp/tmpe3amvlix/vite_react_capacitor_full_bootst__S2z5NAC-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpd0cjswb4/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 4.79kB done
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/ubuntu:24.04
+#2 DONE 0.0s
+
+#3 [main internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [main 1/7] FROM docker.io/library/ubuntu:24.04
+#4 DONE 0.0s
+
+#5 [main 3/7] RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - &&     apt-get install -y --no-install-recommends nodejs &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [main 2/7] RUN apt-get update -y &&     apt-get install -y --no-install-recommends         curl wget ca-certificates git python3 python3-pip python3-pytest bash ripgrep         unzip zip xz-utils openjdk-21-jdk-headless fontconfig file &&     ln -sf /usr/bin/python3 /usr/bin/python &&     pip3 install --break-system-packages pytest-json-ctrf &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#6 CACHED
+
+#7 [main 4/7] RUN mkdir -p "/opt/android-sdk/cmdline-tools" &&     cd /tmp &&     curl -fsSL -o cmdline-tools.zip         https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip &&     unzip -q cmdline-tools.zip -d "/opt/android-sdk/cmdline-tools" &&     mv "/opt/android-sdk/cmdline-tools/cmdline-tools"        "/opt/android-sdk/cmdline-tools/latest" &&     rm -f cmdline-tools.zip &&     yes | "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null &&     "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager"         "platform-tools"         "platforms;android-35"         "build-tools;35.0.0" >/dev/null
+#7 CACHED
+
+#8 [main 5/7] RUN mkdir -p /home/user && chmod 0755 /home/user
+#8 CACHED
+
+#9 [main 6/7] RUN mkdir -p /tmp/prewarm &&     cd /tmp/prewarm &&     npm create vite@latest myapp -- --template react-ts &&     cd myapp &&     npm install --no-audit --no-fund --silent &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D @capacitor/cli@^8 &&     npx --yes cap init "My App" "com.example.myapp" --web-dir dist &&     npx --yes cap add android &&     cd android &&     ./gradlew --no-daemon help >/dev/null &&     cd / &&     rm -rf /tmp/prewarm
+#9 2.610 npm warn exec The following package was not found and will be installed: create-vite@9.0.7
+#9 3.164 
+#9 3.164 > npx
+#9 3.164 > create-vite myapp --template react-ts
+#9 3.164 
+#9 3.300 │
+#9 3.300 ◇  Scaffolding project in /tmp/prewarm/myapp...
+#9 3.308 │
+#9 3.308 └  Done. Now run:
+#9 3.308 
+#9 3.308   cd myapp
+#9 3.308   npm install
+#9 3.308   npm run dev
+#9 3.308 
+#9 3.327 npm notice
+#9 3.327 npm notice New major version of npm available! 10.9.8 -> 11.17.0
+#9 3.327 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.17.0
+#9 3.327 npm notice To update run: npm install -g npm@11.17.0
+#9 3.327 npm notice
+#9 34.18 ✔ Creating capacitor.config.ts in /tmp/prewarm/myapp in 2.32ms
+#9 34.18 [success] capacitor.config.ts created!
+#9 34.18 
+#9 34.18 Next steps: 
+#9 34.18 https://capacitorjs.com/docs/getting-started#where-to-go-next
+#9 35.40 ✔ Adding native android project in android in 78.18ms
+#9 35.40 ✔ add in 79.35ms
+#9 35.42 [warn] sync could not run--missing dist directory.
+#9 35.42 [success] android platform added!
+#9 35.42 Follow the Developer Workflow guide to get building:
+#9 35.42 https://capacitorjs.com/docs/basics/workflow
+#9 50.03 
+#9 50.03 FAILURE: Build failed with an exception.
+#9 50.03 
+#9 50.03 * Where:
+#9 50.03 Settings file '/tmp/prewarm/myapp/android/settings.gradle' line: 5
+#9 50.03 
+#9 50.03 * What went wrong:
+#9 50.03 A problem occurred evaluating settings 'android'.
+#9 50.03 > Could not read script '/tmp/prewarm/myapp/android/capacitor.settings.gradle' as it does not exist.
+#9 50.03 
+#9 50.03 * Try:
+#9 50.03 > Run with --stacktrace option to get the stack trace.
+#9 50.03 > Run with --info or --debug option to get more log output.
+#9 50.03 > Run with --scan to get full insights.
+#9 50.04 > Get more help at https://help.gradle.org.
+#9 50.04 
+#9 50.04 BUILD FAILED in 14s
+#9 ERROR: process "/bin/sh -c mkdir -p /tmp/prewarm &&     cd /tmp/prewarm &&     npm create vite@latest myapp -- --template react-ts &&     cd myapp &&     npm install --no-audit --no-fund --silent &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D @capacitor/cli@^8 &&     npx --yes cap init \"My App\" \"com.example.myapp\" --web-dir dist &&     npx --yes cap add android &&     cd android &&     ./gradlew --no-daemon help >/dev/null &&     cd / &&     rm -rf /tmp/prewarm" did not complete successfully: exit code: 1
+------
+ > [main 6/7] RUN mkdir -p /tmp/prewarm &&     cd /tmp/prewarm &&     npm create vite@latest myapp -- --template react-ts &&     cd myapp &&     npm install --no-audit --no-fund --silent &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D @capacitor/cli@^8 &&     npx --yes cap init "My App" "com.example.myapp" --web-dir dist &&     npx --yes cap add android &&     cd android &&     ./gradlew --no-daemon help >/dev/null &&     cd / &&     rm -rf /tmp/prewarm:
+50.03 A problem occurred evaluating settings 'android'.
+50.03 > Could not read script '/tmp/prewarm/myapp/android/capacitor.settings.gradle' as it does not exist.
+50.03 
+50.03 * Try:
+50.03 > Run with --stacktrace option to get the stack trace.
+50.03 > Run with --info or --debug option to get more log output.
+50.03 > Run with --scan to get full insights.
+50.04 > Get more help at https://help.gradle.org.
+50.04 
+50.04 BUILD FAILED in 14s
+------
+failed to solve: process "/bin/sh -c mkdir -p /tmp/prewarm &&     cd /tmp/prewarm &&     npm create vite@latest myapp -- --template react-ts &&     cd myapp &&     npm install --no-audit --no-fund --silent &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D @capacitor/cli@^8 &&     npx --yes cap init \"My App\" \"com.example.myapp\" --web-dir dist &&     npx --yes cap add android &&     cd android &&     ./gradlew --no-daemon help >/dev/null &&     cd / &&     rm -rf /tmp/prewarm" did not complete successfully: exit code: 1
+. Stderr: None. 
+Failed to download artifact '/home/user' (best-effort)
+Traceback (most recent call last):
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 160, in run
+    await self._prepare()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 187, in _prepare
+    await self._setup_agent_environment()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 612, in _setup_agent_environment
+    await self._start_agent_environment()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 618, in _start_agent_environment
+    await asyncio.wait_for(
+    ...<4 lines>...
+    )
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 517, in start
+    await self._run_docker_compose_command(["build"])
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 418, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment vite_react_capacitor_full_bootstrap. Command: docker compose --project-name vite_react_capacitor_full_bootst__s2z5nac --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/vite_react_capacitor_full_bootstrap/environment -f /tmp/tmpe3amvlix/vite_react_capacitor_full_bootst__S2z5NAC-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpd0cjswb4/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 4.79kB done
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/ubuntu:24.04
+#2 DONE 0.0s
+
+#3 [main internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [main 1/7] FROM docker.io/library/ubuntu:24.04
+#4 DONE 0.0s
+
+#5 [main 3/7] RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - &&     apt-get install -y --no-install-recommends nodejs &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [main 2/7] RUN apt-get update -y &&     apt-get install -y --no-install-recommends         curl wget ca-certificates git python3 python3-pip python3-pytest bash ripgrep         unzip zip xz-utils openjdk-21-jdk-headless fontconfig file &&     ln -sf /usr/bin/python3 /usr/bin/python &&     pip3 install --break-system-packages pytest-json-ctrf &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#6 CACHED
+
+#7 [main 4/7] RUN mkdir -p "/opt/android-sdk/cmdline-tools" &&     cd /tmp &&     curl -fsSL -o cmdline-tools.zip         https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip &&     unzip -q cmdline-tools.zip -d "/opt/android-sdk/cmdline-tools" &&     mv "/opt/android-sdk/cmdline-tools/cmdline-tools"        "/opt/android-sdk/cmdline-tools/latest" &&     rm -f cmdline-tools.zip &&     yes | "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null &&     "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager"         "platform-tools"         "platforms;android-35"         "build-tools;35.0.0" >/dev/null
+#7 CACHED
+
+#8 [main 5/7] RUN mkdir -p /home/user && chmod 0755 /home/user
+#8 CACHED
+
+#9 [main 6/7] RUN mkdir -p /tmp/prewarm &&     cd /tmp/prewarm &&     npm create vite@latest myapp -- --template react-ts &&     cd myapp &&     npm install --no-audit --no-fund --silent &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D @capacitor/cli@^8 &&     npx --yes cap init "My App" "com.example.myapp" --web-dir dist &&     npx --yes cap add android &&     cd android &&     ./gradlew --no-daemon help >/dev/null &&     cd / &&     rm -rf /tmp/prewarm
+#9 2.610 npm warn exec The following package was not found and will be installed: create-vite@9.0.7
+#9 3.164 
+#9 3.164 > npx
+#9 3.164 > create-vite myapp --template react-ts
+#9 3.164 
+#9 3.300 │
+#9 3.300 ◇  Scaffolding project in /tmp/prewarm/myapp...
+#9 3.308 │
+#9 3.308 └  Done. Now run:
+#9 3.308 
+#9 3.308   cd myapp
+#9 3.308   npm install
+#9 3.308   npm run dev
+#9 3.308 
+#9 3.327 npm notice
+#9 3.327 npm notice New major version of npm available! 10.9.8 -> 11.17.0
+#9 3.327 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.17.0
+#9 3.327 npm notice To update run: npm install -g npm@11.17.0
+#9 3.327 npm notice
+#9 34.18 ✔ Creating capacitor.config.ts in /tmp/prewarm/myapp in 2.32ms
+#9 34.18 [success] capacitor.config.ts created!
+#9 34.18 
+#9 34.18 Next steps: 
+#9 34.18 https://capacitorjs.com/docs/getting-started#where-to-go-next
+#9 35.40 ✔ Adding native android project in android in 78.18ms
+#9 35.40 ✔ add in 79.35ms
+#9 35.42 [warn] sync could not run--missing dist directory.
+#9 35.42 [success] android platform added!
+#9 35.42 Follow the Developer Workflow guide to get building:
+#9 35.42 https://capacitorjs.com/docs/basics/workflow
+#9 50.03 
+#9 50.03 FAILURE: Build failed with an exception.
+#9 50.03 
+#9 50.03 * Where:
+#9 50.03 Settings file '/tmp/prewarm/myapp/android/settings.gradle' line: 5
+#9 50.03 
+#9 50.03 * What went wrong:
+#9 50.03 A problem occurred evaluating settings 'android'.
+#9 50.03 > Could not read script '/tmp/prewarm/myapp/android/capacitor.settings.gradle' as it does not exist.
+#9 50.03 
+#9 50.03 * Try:
+#9 50.03 > Run with --stacktrace option to get the stack trace.
+#9 50.03 > Run with --info or --debug option to get more log output.
+#9 50.03 > Run with --scan to get full insights.
+#9 50.04 > Get more help at https://help.gradle.org.
+#9 50.04 
+#9 50.04 BUILD FAILED in 14s
+#9 ERROR: process "/bin/sh -c mkdir -p /tmp/prewarm &&     cd /tmp/prewarm &&     npm create vite@latest myapp -- --template react-ts &&     cd myapp &&     npm install --no-audit --no-fund --silent &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D @capacitor/cli@^8 &&     npx --yes cap init \"My App\" \"com.example.myapp\" --web-dir dist &&     npx --yes cap add android &&     cd android &&     ./gradlew --no-daemon help >/dev/null &&     cd / &&     rm -rf /tmp/prewarm" did not complete successfully: exit code: 1
+------
+ > [main 6/7] RUN mkdir -p /tmp/prewarm &&     cd /tmp/prewarm &&     npm create vite@latest myapp -- --template react-ts &&     cd myapp &&     npm install --no-audit --no-fund --silent &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D @capacitor/cli@^8 &&     npx --yes cap init "My App" "com.example.myapp" --web-dir dist &&     npx --yes cap add android &&     cd android &&     ./gradlew --no-daemon help >/dev/null &&     cd / &&     rm -rf /tmp/prewarm:
+50.03 A problem occurred evaluating settings 'android'.
+50.03 > Could not read script '/tmp/prewarm/myapp/android/capacitor.settings.gradle' as it does not exist.
+50.03 
+50.03 * Try:
+50.03 > Run with --stacktrace option to get the stack trace.
+50.03 > Run with --info or --debug option to get more log output.
+50.03 > Run with --scan to get full insights.
+50.04 > Get more help at https://help.gradle.org.
+50.04 
+50.04 BUILD FAILED in 14s
+------
+failed to solve: process "/bin/sh -c mkdir -p /tmp/prewarm &&     cd /tmp/prewarm &&     npm create vite@latest myapp -- --template react-ts &&     cd myapp &&     npm install --no-audit --no-fund --silent &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D @capacitor/cli@^8 &&     npx --yes cap init \"My App\" \"com.example.myapp\" --web-dir dist &&     npx --yes cap add android &&     cd android &&     ./gradlew --no-daemon help >/dev/null &&     cd / &&     rm -rf /tmp/prewarm" did not complete successfully: exit code: 1
+. Stderr: None. 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/artifact_handler.py", line 195, in _download_artifact
+    await source_env.download_file(
+    ...<2 lines>...
+    )
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 609, in download_file
+    await self._platform.download_file(source_path, target_path)
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker_unix.py", line 48, in download_file
+    await self._env._run_docker_compose_command(
+    ...<2 lines>...
+    )
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 418, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment vite_react_capacitor_full_bootstrap. Command: docker compose --project-name vite_react_capacitor_full_bootst__s2z5nac --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/vite_react_capacitor_full_bootstrap/environment -f /tmp/tmpe3amvlix/vite_react_capacitor_full_bootst__S2z5NAC-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpd0cjswb4/docker-compose-mounts.json cp main:/home/user jobs/2026-06-16__14-51-33/vite_react_capacitor_full_bootst__S2z5NAC/artifacts/user. Return code: 1. Stdout: no container found for service "main"
+. Stderr: None. 
+Not retrying trial because the maximum number of retries has been reached
+Skipping image OS validation for hb__capacitor_http_bearer_token_wrapper: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-9nfxbjn > /logs/artifacts/run-id && echo capacitor_http_bearer_token_wrap__9NfxBJN > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model deepseek/deepseek-4-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Capacitor v8 HTTP Bearer Token Wrapper
+
+## Background
+You are extending a freshly initialized Capacitor v8 app located at `/home/user/myproject`. The frontend talks to a third-party REST API whose backend does not send permissive CORS headers, so the team has decided to route every outbound request through `CapacitorHttp` (the native HTTP client bundled with `@capacitor/core`).
+
+The team also wants a single, reusable TypeScript helper that:
+
+- Injects an `Authorization: Bearer <token>` header on every request, pulling the token from the `@capacitor/preferences` store under the key `auth_token`.
+- Serializes JSON request bodies for POST/PUT-style helpers.
+- Detects expired/invalid tokens (HTTP 401) by clearing the stored token and re-throwing a typed error so the UI can react to it.
+- Returns strongly-typed responses so consumers don't have to manually cast `response.data`.
+
+The project already has Capacitor and its plugins installed; you only need to wire up the configuration, write the helper module, and make sure it compiles cleanly.
+
+## Requirements
+
+1. Enable native HTTP routing by adding the `CapacitorHttp` plugin block (with `enabled: true`) to the `plugins` object exported from `capacitor.config.ts`. Existing config fields (`appId`, `appName`, `webDir`) must be preserved.
+2. Create a new TypeScript module at `src/api/httpClient.ts` that exports the API below. The module **must** use `CapacitorHttp.request` from `@capacitor/core` (do **not** call `CapacitorHttp.get`/`post` directly) and **must** use `Preferences` from `@capacitor/preferences` to read/clear the token.
+3. The TypeScript project must compile without errors via `npm run build` (which runs `tsc --noEmit`). The exported symbols must be type-safe (use the generic type parameter when possible) and must not rely on `any` for the return values.
+
+### Exported API
+
+The module must export the following symbols with these exact names:
+
+```ts
+export interface ApiResponse<T> {
+  data: T;
+  status: number;
+  headers: Record<string, string>;
+}
+
+export class UnauthorizedError extends Error {
+  status: 401;
+  url: string;
+}
+
+export function httpGet<T = unknown>(
+  url: string,
+  params?: Record<string, string>,
+): Promise<ApiResponse<T>>;
+
+export function httpPost<T = unknown, B = unknown>(
+  url: string,
+  body?: B,
+): Promise<ApiResponse<T>>;
+```
+
+### Behavior Contract
+
+The helpers must implement the following behavior when invoked:
+
+- **Token injection**: Before every request, read the value stored under the `auth_token` key from `Preferences`. If a non-null token is found, attach the header `Authorization: Bearer <token>`. If the token is `null`, send the request without the `Authorization` header.
+- **GET**: Calls `CapacitorHttp.request` with `method: 'GET'`, the supplied `url`, and (when provided) the `params` object passed through verbatim as the `params` request option. The `Content-Type` header must **not** be set on GET requests.
+- **POST**: Calls `CapacitorHttp.request` with `method: 'POST'`, the supplied `url`, the body assigned to `data` (the helper is responsible for JSON-serializing the body — assign the original object/value to `data` and add the header `Content-Type: application/json`). If `body` is `undefined`, no `data` field should be set and no `Content-Type` header should be added.
+- **401 handling**: If the response status is exactly `401`, the helper must (a) remove the `auth_token` key from `Preferences` and (b) throw an `UnauthorizedError` whose `message` includes the request URL, `status` is `401`, and `url` matches the request URL. The error must not be swallowed.
+- **Other non-2xx**: For any status outside the 200–299 range (and not 401), the helper must throw a regular `Error` whose `message` contains the status code (e.g. `HTTP 500`). `Preferences` must **not** be cleared in this case.
+- **2xx responses**: Return an `ApiResponse<T>` whose `data` is the raw response body returned by `CapacitorHttp.request`, `status` is the numeric status, and `headers` is the headers object.
+
+## Implementation Hints
+
+- The TypeScript types for `CapacitorHttp.request` live in `@capacitor/core` (`HttpOptions`, `HttpResponse`). Import them by name rather than redeclaring them.
+- `Preferences.get({ key })` resolves to `{ value: string | null }`. Treat `null` and the empty string as "no token".
+- Centralize the request logic in a single private function so that `httpGet` and `httpPost` share the token-injection and 401-handling code path.
+- Construct the headers object as a fresh `Record<string, string>` per request so that callers cannot accidentally mutate a shared object.
+
+## Acceptance Criteria
+
+- Project path: `/home/user/myproject`
+- Command: `npm run build` (this runs `tsc --noEmit` against the project)
+  - The command must exit with code `0`.
+- `capacitor.config.ts` must export a `CapacitorConfig` whose `plugins.CapacitorHttp.enabled` is `true`. The existing `appId`, `appName`, and `webDir` fields must remain intact.
+- `src/api/httpClient.ts` must exist and export `httpGet`, `httpPost`, `UnauthorizedError`, and the `ApiResponse` interface with the signatures described above.
+- The module's runtime behavior must satisfy the Behavior Contract section. Behavior is verified by running a Node.js test harness that mocks `@capacitor/core` and `@capacitor/preferences` and exercises the exported functions.
+
+
+EOF
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Skipping image OS validation for hb__upgrade_v7_to_v8_full_android_toolchain: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-vh7ezqs > /logs/artifacts/run-id && echo upgrade_v7_to_v8_full_android_to__vH7EZQs > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model deepseek/deepseek-4-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Upgrade a Capacitor v7 Android Project to Capacitor v8
+
+## Background
+A legacy Capacitor 7 application is preinstalled at `/home/user/myapp`. It uses an older Android toolchain (AGP 8.2.1, Gradle 8.2.1, `compileSdkVersion`/`targetSdkVersion` 34, Kotlin 1.9.25) and pins all `@capacitor/*` packages to the `^7.0.0` major. The project must be brought forward to Capacitor 8 end-to-end so that `npx cap sync android` succeeds against the upgraded native toolchain.
+
+## Requirements
+- Upgrade every `@capacitor/*` dependency in `package.json` (both `dependencies` and `devDependencies`) to the `^8.0.0` major.
+- Update the Android build configuration in `android/build.gradle` to use Android Gradle Plugin `8.7.x` (use a concrete patch version in that line, e.g. `8.7.3`).
+- Update `android/gradle/wrapper/gradle-wrapper.properties` so the Gradle distribution URL points at a Gradle `8.11.x` release (e.g. `8.11.1`).
+- Raise `compileSdkVersion` and `targetSdkVersion` to `35` in `android/variables.gradle`.
+- Update `kotlin_version` in `android/variables.gradle` to `'2.0.21'`.
+- Keep `android/app/src/main/java/com/example/myapp/MainActivity.java` valid for Capacitor 8 (`BridgeActivity` subclass) and ensure it still compiles syntactically.
+- Install the new JS dependencies and run `npx cap sync android` to validate the upgraded toolchain. The full stdout+stderr of that sync run must be appended to `/home/user/myapp/upgrade.log`.
+
+## Implementation Hints
+- The Capacitor 8.0 Upgrade Guide describes which gradle, AGP, Kotlin, and SDK versions are compatible. Translate the high-level guidance into edits to `android/build.gradle`, `android/gradle/wrapper/gradle-wrapper.properties`, and `android/variables.gradle`.
+- Run `npm install` (the registry is the public npm mirror; network access is available during the task) so that the new `@capacitor/*` packages and their peers are present before invoking the CLI.
+- `npx cap sync android` only inspects JS/native source; it does not require the Android SDK to be installed.
+- The project already commits the native `android/` folder per Capacitor conventions, so edit those files in place rather than regenerating the platform.
+
+## Acceptance Criteria
+- Project path: /home/user/myapp
+- Ensure the upgrade is actually performed and the artifacts exist on disk.
+- Log file: /home/user/myapp/upgrade.log
+- The log file must contain the marker line `Sync finished` produced by a successful `npx cap sync android` run.
+- `package.json` must declare `@capacitor/core`, `@capacitor/cli`, and `@capacitor/android` with version ranges that resolve to the `8.x` major (e.g. `^8.0.0`).
+- `android/build.gradle` must reference Android Gradle Plugin `8.7.x` on the `com.android.tools.build:gradle` classpath line.
+- `android/gradle/wrapper/gradle-wrapper.properties` must set `distributionUrl` to a Gradle `8.11.x` distribution.
+- `android/variables.gradle` must define `compileSdkVersion = 35`, `targetSdkVersion = 35`, and `kotlin_version = '2.0.21'`.
+- `android/app/src/main/java/com/example/myapp/MainActivity.java` must remain a `BridgeActivity` subclass and parse as valid Java.
+- `node_modules/@capacitor/core/package.json` must report a version satisfying `^8.0.0` (i.e. the v8 packages were actually installed, not just declared).
+
+
+EOF
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Skipping image OS validation for hb__offline_cache_filesystem_preferences_sync: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-mypn9zr > /logs/artifacts/run-id && echo offline_cache_filesystem_prefere__myPn9zr > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model deepseek/deepseek-4-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Conditional Offline Cache with CapacitorHttp, Filesystem, and Preferences
+
+## Background
+You are building a Vite + TypeScript web application that will eventually ship as a Capacitor v8 native app. The app needs to talk to a slow, rate-limited JSON API while remaining usable when the network is unavailable. The Capacitor v8 toolkit is well suited for this: `CapacitorHttp` issues real native (or `fetch`-backed) HTTP requests, `@capacitor/filesystem` persists arbitrary byte blobs on disk, and `@capacitor/preferences` keeps lightweight key/value metadata safe across reloads and OS garbage collection. Combined, they form a small ETag-aware offline cache that survives reloads, never re-downloads unchanged payloads, and works the same on iOS, Android, and the web preview that this task is verified against.
+
+A minimal Vite + TypeScript project has already been scaffolded for you at `/home/user/myapp`. A small Node HTTP fixture server that mimics an ETag-aware JSON API is started on port 4174 by the verifier before the browser-driven checks run. Your job is to integrate Capacitor v8, implement the offline-cache module, and surface its behavior through a minimal UI so that an automated test can drive it end-to-end.
+
+## Requirements
+- Integrate Capacitor v8 into the existing Vite project using the non-interactive CLI flow. The Capacitor app must be configured with:
+    - App name: `Offline Cache Demo`
+    - Application/package id: `com.example.offlinecache`
+    - Web assets directory aligned with Vite's build output (`dist`).
+    - `CapacitorHttp` plugin enabled (`plugins.CapacitorHttp.enabled = true`).
+- Install and use the following Capacitor v8 plugins (in versions compatible with `@capacitor/core@^8`): `@capacitor/filesystem` and `@capacitor/preferences`. `CapacitorHttp` ships inside `@capacitor/core` and does not require a separate package.
+- Implement an offline-cache module at `src/cache/offlineCache.ts` that exports exactly two async functions:
+    - `getCached(key: string, url: string): Promise<{ data: unknown; source: 'network' | 'cache' }>`
+        - On the very first call for a given key (no metadata yet), issue a `CapacitorHttp.get` to `url`, take the response's `ETag` header (case-insensitive), persist the response body verbatim to `Filesystem.writeFile({ path: 'cache/<key>.json', directory: Directory.Cache, encoding: Encoding.UTF8, recursive: true })`, persist the metadata `{ etag: <etag>, fetchedAt: Date.now() }` as a JSON string under the Preferences key `cache_meta:<key>`, and return `{ data: <parsed JSON of the response>, source: 'network' }`.
+        - On subsequent calls for a given key, look up the stored metadata, send a conditional `CapacitorHttp.get` with the `If-None-Match` header set to the stored ETag, and:
+            - On `304 Not Modified`, read the cached file back via `Filesystem.readFile`, parse it as JSON, refresh only the `fetchedAt` timestamp in Preferences (the stored ETag must stay the same), and return `{ data, source: 'cache' }`.
+            - On `200 OK` with a different ETag, overwrite the on-disk file, update both `etag` and `fetchedAt` in Preferences, and return `{ data, source: 'network' }`.
+    - `invalidate(key: string): Promise<void>` removes both the on-disk file (`cache/<key>.json` in `Directory.Cache`) and the `cache_meta:<key>` Preferences entry. Missing files or missing metadata must not throw — `invalidate` is idempotent.
+- The module MUST go through `CapacitorHttp.get` from `@capacitor/core` for every outbound HTTP request. Do NOT call `window.fetch`, `XMLHttpRequest`, or any third-party HTTP client directly.
+- The persisted JSON file MUST go through `Filesystem.writeFile` with `Directory.Cache` and `Encoding.UTF8`. The metadata MUST go through `@capacitor/preferences` under the exact key `cache_meta:<key>`.
+- Implement a minimal UI in `index.html` (and supporting TypeScript modules under `src/`) that wires the module to the page:
+    - An `<input>` with the HTML id `url-input` whose `value` is the URL the next `getCached` call will use.
+    - A `<button>` with the HTML id `fetch-button` that, when clicked, calls `getCached('demo', urlInput.value)` and renders the result.
+    - A `<button>` with the HTML id `invalidate-button` that, when clicked, calls `invalidate('demo')` and updates the status.
+    - An element with the HTML id `status` whose text content reflects the current state. It MUST take one of these exact values, in order: `idle` (initial), `fetching` (while a `getCached` call is in flight), `success` (after a successful `getCached`), `invalidated` (after a successful `invalidate('demo')`), or `error: <message>` (any thrown error).
+    - An element with the HTML id `data` whose text content holds `JSON.stringify(result.data)` after a successful `getCached`, and is empty otherwise (including after `invalidate`).
+    - An element with the HTML id `source` whose text content equals `network` or `cache` after the most recent successful `getCached`, and is empty otherwise.
+    - An element with the HTML id `meta-etag` whose text content equals the current `etag` stored in Preferences for the `demo` key (empty when no metadata exists).
+    - An element with the HTML id `meta-fetched-at` whose text content equals the current `fetchedAt` stored in Preferences for the `demo` key as a plain decimal integer (empty when no metadata exists).
+- `npm run build` and `npx cap sync` MUST both complete with exit status 0.
+
+## Implementation Hints
+- Use `npx cap init` with positional `appName` and `appId` arguments and the `--web-dir` flag to avoid the interactive prompt, then edit the generated `capacitor.config.ts` to add the `plugins.CapacitorHttp.enabled = true` entry.
+- `CapacitorHttp.get`, on web, returns an `HttpResponse` with `status`, `headers`, and `data` fields. Headers are returned as a plain object whose key casing is platform-dependent — look up the `ETag` header case-insensitively. The `data` field is already parsed when the server responds with `Content-Type: application/json`; do not double-parse it.
+- Because we are caching a JSON resource, persist the canonical string form (`JSON.stringify(result.data)`) to disk so that `Filesystem.readFile({ encoding: Encoding.UTF8 })` can be fed straight into `JSON.parse`.
+- The Capacitor Filesystem web implementation auto-creates parent directories when `recursive: true` is passed to `writeFile`. Pass it on every write so the `cache/` sub-folder is created lazily.
+- The Preferences web implementation falls back to `localStorage`; store the metadata as JSON.
+- A 304 response carries no body, so make sure your code does not attempt to parse `response.data` when `response.status === 304`.
+- Make sure the script that wires up the buttons is loaded as an ES module so that the `@capacitor/*` packages are resolved correctly by Vite.
+
+## Acceptance Criteria
+- Project path: /home/user/myapp
+- Start command: `npm run preview -- --host 0.0.0.0 --port 4173`
+- Port: 4173
+- `capacitor.config.ts` (or `capacitor.config.json`) must exist at the project root with `appName` equal to `Offline Cache Demo`, `appId` equal to `com.example.offlinecache`, `webDir` equal to `dist`, and the `CapacitorHttp` plugin enabled.
+- `package.json` must list `@capacitor/core`, `@capacitor/cli`, `@capacitor/filesystem`, and `@capacitor/preferences` as dependencies (any of `dependencies` or `devDependencies`).
+- `src/cache/offlineCache.ts` must exist and export `getCached` and `invalidate`. Its source must contain literal references to `CapacitorHttp`, `Filesystem`, and `Preferences` (i.e. the module must be implemented in terms of those Capacitor APIs).
+- `src/cache/offlineCache.ts` must not contain literal references to `window.fetch`, `XMLHttpRequest`, `axios`, or any other competing HTTP client used outside `CapacitorHttp`.
+- `npm run build` must complete without errors and produce a `dist/index.html` file.
+- `npx cap sync` must exit with status 0.
+- The served page at `http://localhost:4173/` must contain elements with the HTML ids `url-input`, `fetch-button`, `invalidate-button`, `status`, `data`, `source`, `meta-etag`, and `meta-fetched-at`.
+- On initial load, `#status` must contain the literal text `idle`, while `#data`, `#source`, `#meta-etag`, and `#meta-fetched-at` must be empty.
+- Behavior under an ETag-aware fixture server (started by the verifier on port 4174, exposing `GET /api/data` with ETag/If-None-Match support, plus control endpoints to rotate the payload and read traffic stats):
+    - **First fetch for a fresh key**: setting `#url-input` to the fixture URL and clicking `#fetch-button` must transition `#status` from `fetching` to `success`, set `#source` to `network`, render `#data` to the fixture's current JSON body (as `JSON.stringify`), and populate `#meta-etag` with the fixture's current ETag and `#meta-fetched-at` with a numeric millisecond timestamp.
+    - **Second fetch with unchanged content**: clicking `#fetch-button` again must end with `#status` equal to `success`, `#source` equal to `cache`, `#data` still equal to the same JSON body, and `#meta-etag` unchanged. The verifier's fixture server must record a second request that carried an `If-None-Match` header equal to the stored ETag and must have returned `304`.
+    - **Invalidate**: clicking `#invalidate-button` must transition `#status` to `invalidated`, clear `#data`, `#source`, `#meta-etag`, and `#meta-fetched-at`, and remove both the `cache_meta:demo` Preferences entry and the on-disk `cache/demo.json` file (verified through an in-page evaluation that calls `Preferences.get` and `Filesystem.readFile` directly).
+    - **Re-fetch after invalidate**: clicking `#fetch-button` again must yield `#status` = `success`, `#source` = `network`, and freshly populated metadata, with the fixture server recording a new request that did NOT include an `If-None-Match` header.
+    - **Server-side payload rotation**: when the fixture is asked to rotate its payload (changing both body and ETag) and `#fetch-button` is clicked, the next call must yield `#status` = `success`, `#source` = `network`, `#data` equal to the new body, and `#meta-etag` equal to the new ETag. A subsequent click must then yield `#source` = `cache` and confirm `If-None-Match` was sent with the new ETag.
+
+
+EOF
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Skipping image OS validation for hb__android_release_keystore_signing_config: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Skipping image OS validation for hb__geolocation_watch_with_app_state_pause: docker inspect returned 1
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-xuxaama > /logs/artifacts/run-id && echo android_release_keystore_signing__xuXaamA > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: pochi --model deepseek/deepseek-4-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Configure Android Release Signing for a Capacitor v8 App
+
+## Background
+You are working on a Capacitor v8 Android project. Before publishing a release APK or AAB to the Play Store, Gradle must be configured with a release signing configuration. Hardcoding keystore secrets into `android/app/build.gradle` is unsafe and must never be committed to source control. Instead, you must load these secrets from an external properties file that stays out of version control, while providing a checked-in example file so other contributors know which keys are required.
+
+A Capacitor v8 Android project has already been scaffolded at `/home/user/myproject`. The `android/app/build.gradle` file currently contains only the default debug configuration and no `signingConfigs` block.
+
+## Requirements
+- Modify `android/app/build.gradle` so that a `Properties` instance is loaded at the top of the file from a `keystore.properties` file located in the project's `android/` directory (one level above `android/app/`).
+- Add a `signingConfigs.release` block inside the existing `android { ... }` block that pulls these four values from the loaded `Properties` instance:
+  - `RELEASE_STORE_FILE` (resolved as a `file(...)` reference relative to the gradle file)
+  - `RELEASE_STORE_PASSWORD`
+  - `RELEASE_KEY_ALIAS`
+  - `RELEASE_KEY_PASSWORD`
+- Wire the release build type so it uses the new signing config: `buildTypes.release.signingConfig = signingConfigs.release`.
+- Add `keystore.properties` to the project's `.gitignore` (any `.gitignore` rule that causes git to ignore `android/keystore.properties` is acceptable, e.g. `android/keystore.properties` in the repo-root `.gitignore`, or `keystore.properties` in `android/.gitignore`).
+- Provide `android/keystore.properties.example` containing placeholder values for all four required keys. This file MUST remain tracked (not ignored).
+- Do NOT commit a real `android/keystore.properties` file. It must not exist after your changes.
+- The Gradle build file MUST remain syntactically valid Groovy and must still compile via the existing Gradle wrapper.
+
+## Implementation Hints
+- The standard Android Gradle pattern is to read `keystore.properties` near the top of `android/app/build.gradle` using `java.util.Properties` and a `FileInputStream` resolved through `rootProject.file(...)` or a relative path.
+- The `signingConfigs.release` block should reference the four properties with `keystoreProperties['RELEASE_STORE_FILE']` style lookups (or equivalent), wrapping the store file in `file(...)`.
+- The `release` build type already exists in the default Capacitor template; you just need to attach the new signing config to it.
+- Keep the example file human-readable; placeholder values like `path/to/release.keystore`, `changeme`, `my-key-alias`, `changeme` are fine, as long as all four keys appear.
+- Remember that gitignore patterns are relative to the file they live in. Either ignore `android/keystore.properties` from the repo-root `.gitignore`, or add a dedicated `android/.gitignore` entry.
+
+## Acceptance Criteria
+- Project path: /home/user/myproject
+- `android/app/build.gradle` must:
+  - Load a `Properties` object from `android/keystore.properties` near the top of the file (before the `android { ... }` block).
+  - Contain a `signingConfigs { release { ... } }` block (inside the `android { ... }` block) that references the four keys `RELEASE_STORE_FILE`, `RELEASE_STORE_PASSWORD`, `RELEASE_KEY_ALIAS`, and `RELEASE_KEY_PASSWORD` from the loaded properties.
+  - Wrap the store file lookup in a `file(...)` call so Gradle resolves it as a `File`.
+  - Set `signingConfig signingConfigs.release` (or `signingConfig = signingConfigs.release`) inside `buildTypes.release`.
+- `android/keystore.properties.example` exists and contains all four keys: `RELEASE_STORE_FILE`, `RELEASE_STORE_PASSWORD`, `RELEASE_KEY_ALIAS`, `RELEASE_KEY_PASSWORD` (one per line in `KEY=value` form).
+- `android/keystore.properties` (the real file with secrets) MUST NOT exist in the project tree after the changes.
+- Running `git check-ignore -q android/keystore.properties` from `/home/user/myproject` exits with status 0 (the path is ignored), while `git check-ignore -q android/keystore.properties.example` exits with status 1 (the example file is NOT ignored).
+- The Gradle build script remains syntactically valid: running `./gradlew help -q --offline` from `/home/user/myproject/android` exits with status 0 after creating a real `android/keystore.properties` file populated from the example placeholders.
+
+
+EOF
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-f58gb4y > /logs/artifacts/run-id && echo geolocation_watch_with_app_state__f58Gb4y > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command failed
+Trial geolocation_watch_with_app_state__f58Gb4y failed: Initial state test failed
+Not retrying trial because the maximum number of retries has been reached
+Skipping image OS validation for hb__capacitor_cookies_cross_domain_session: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-qxaoyau > /logs/artifacts/run-id && echo capacitor_cookies_cross_domain_s__QXAoyAu > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Command outputs captured
+Running command: pochi --model deepseek/deepseek-4-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Capacitor v8 — CapacitorCookies Cross-Domain Session Module
+
+## Background
+You are working on a Capacitor v8 application that authenticates against a remote backend. The web `document.cookie` API is unreliable inside the native WebView because cookies set by `Set-Cookie` response headers are not exposed to JavaScript, and login sessions persist inconsistently across reloads. Capacitor solves this with the bundled `CapacitorCookies` plugin: when enabled in `capacitor.config.ts`, it patches `document.cookie` to read/write the native WebView cookie store and also exposes a programmatic API on the `CapacitorCookies` global. Paired with `CapacitorHttp` (which routes requests through native HTTP and automatically participates in the same cookie jar), this gives you a real session cookie that survives across requests.
+
+Your job is to enable `CapacitorCookies` in the project configuration and implement a TypeScript session module that programmatically manages a `session_id` cookie for a remote API, performs login through `CapacitorHttp`, and clears native cookies on logout.
+
+A Capacitor v8 project skeleton is already scaffolded at `/home/user/myproject` with `@capacitor/core` and `@capacitor/cli` installed, a `capacitor.config.ts`, a `tsconfig.json`, and an empty `src/` directory.
+
+## Requirements
+1. Enable the `CapacitorCookies` plugin in `capacitor.config.ts` so the WebView native cookie store is used for `document.cookie`.
+2. Create a TypeScript module at `src/auth/session.ts` that uses the **programmatic** `CapacitorCookies` API (not raw `document.cookie`) together with `CapacitorHttp`, both imported from `@capacitor/core`.
+3. The module must export three async helpers with these exact signatures:
+   - `export async function login(user: string, pass: string): Promise<boolean>`
+   - `export async function whoami(): Promise<string | null>`
+   - `export async function logout(): Promise<void>`
+4. `login(user, pass)`:
+   - Sends an HTTP `POST` via `CapacitorHttp.post` (or `CapacitorHttp.request` with `method: 'POST'`) to `<API_BASE_URL>/login` with a JSON body `{ "user": <user>, "pass": <pass> }`.
+   - Returns `true` only when the response status is `2xx`. Otherwise returns `false`.
+   - On success, ensures the `session_id` cookie is registered with the native cookie store for the API origin using `CapacitorCookies.setCookie(...)` (extracting the value from the response body field `session_id`, falling back to a `Set-Cookie` header if needed). Subsequent calls through `CapacitorHttp` to the same origin will then automatically send this cookie.
+5. `whoami()`:
+   - Sends an HTTP `GET` via `CapacitorHttp` to `<API_BASE_URL>/whoami`. Because `CapacitorHttp` shares the native cookie store, no manual cookie header should be set in the call.
+   - Returns the `user` string from the response JSON when the status is `2xx`, or `null` otherwise.
+6. `logout()`:
+   - Must call `CapacitorCookies.clearAllCookies()` to wipe the native cookie jar. It does not need to call the server.
+7. The base URL **MUST** be read from the `API_BASE_URL` environment variable at runtime (`process.env.API_BASE_URL` in Node-style or `import.meta.env` if you prefer — both must produce the same string at evaluation time). Do not hard-code a domain.
+
+## Implementation Hints
+- The plugin is bundled with `@capacitor/core`; you do not need to install anything else. Reference: https://capacitorjs.com/docs/apis/cookies and https://capacitorjs.com/docs/apis/http.
+- `CapacitorCookies.setCookie` takes `{ url, key, value }`; pick `url` so the cookie is registered for the API origin (`<API_BASE_URL>`), and the key must be exactly `session_id`.
+- `CapacitorHttp.post` returns `{ status, data, headers, url }`. The body is already parsed to JSON when the response content type is JSON.
+- `CapacitorCookies.clearAllCookies()` takes no arguments.
+- Keep the file strictly TypeScript with no `any` casts on the public function signatures and let it compile under the project's `tsconfig.json` strict mode.
+
+## Acceptance Criteria
+- Project path: /home/user/myproject
+- Command: `bash /home/user/myproject/run_session_check.sh`
+  - The script is provided by the verifier (do not create it yourself) and orchestrates: TypeScript type-check + structural/AST inspection of the source files + a Node-based behavioral run of `login` / `whoami` / `logout` against a local HTTP server. **You only need to provide the source code and config.**
+- `capacitor.config.ts` requirements:
+  - Exports a default `CapacitorConfig` object whose `plugins.CapacitorCookies.enabled` is the boolean literal `true`.
+  - Continues to export valid TypeScript (the file must still parse and `npx tsc --noEmit` must succeed for the whole project).
+- `src/auth/session.ts` requirements:
+  - Imports both `CapacitorCookies` and `CapacitorHttp` from `@capacitor/core`.
+  - Exports the three async functions with the exact names and signatures listed in **Requirements**.
+  - References the literal string `session_id` (the cookie key).
+  - References the literal string `clearAllCookies` (the cookie-jar reset call).
+  - Reads its base URL from `API_BASE_URL`.
+- TypeScript build: `cd /home/user/myproject && npx tsc --noEmit` exits with status 0.
+- Behavioral test (executed by the verifier script against a local HTTP server):
+  - `login('alice', 'wonderland')` against a server that returns 200 with `{ "session_id": "SESSION_TOKEN" }` resolves to `true`, and `CapacitorCookies.setCookie` is invoked at least once with `key === 'session_id'` and `value === 'SESSION_TOKEN'`.
+  - `login('alice', 'bad')` against a server that returns 401 resolves to `false`.
+  - `whoami()` after a successful login resolves to the string returned in the server's `user` field.
+  - `logout()` resolves without throwing and `CapacitorCookies.clearAllCookies` has been invoked.
+
+
+EOF
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Skipping image OS validation for hb__custom_ios_event_emitter_plugin: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-kknwq9b > /logs/artifacts/run-id && echo custom_ios_event_emitter_plugin__kKNwQ9B > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model deepseek/deepseek-4-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Implement a Custom Local iOS Event-Emitting Plugin for a Capacitor v8 App
+
+## Background
+A Capacitor v8 hybrid app is pre-scaffolded at `/home/user/myapp`. The native iOS platform has already been added with `npx cap add ios` and committed to source control, including a custom `MyViewController.swift` subclass wired up in `Main.storyboard`. The product team wants to push a periodic `tick` event from native Swift code to the JavaScript layer once per interval, so the web UI can drive an animation without writing its own timer. No plugin exists yet for this capability. Your job is to build a Capacitor v8 local plugin in Swift that uses `Foundation.Timer` to emit a custom event to JavaScript using `notifyListeners`, register the plugin instance with the Capacitor bridge in the existing view controller, and expose it to the web layer through a TypeScript wrapper that listens for the events.
+
+Because this benchmark runs on Linux, you will not be able to invoke `xcodebuild`. Instead, the verifier checks the Swift source files, the Xcode project membership in `project.pbxproj`, the JavaScript wrapper, and that `npx cap sync ios` still succeeds.
+
+## Requirements
+- Implement a Swift Capacitor plugin called `TimerEmitterPlugin` at `/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift` that conforms to both `CAPPlugin` and `CAPBridgedPlugin`.
+  - It must be exposed to the Objective-C runtime with the class name `TimerEmitterPlugin`.
+  - It must declare `identifier = "TimerEmitterPlugin"` and `jsName = "TimerEmitter"`.
+  - It must declare a `pluginMethods` array containing two methods: `startTimer` and `stopTimer`, both using `CAPPluginReturnPromise`.
+  - `@objc func startTimer(_ call: CAPPluginCall)` must read an `intervalMs` integer argument (defaulting to a sensible non-zero value when missing), schedule a repeating `Timer.scheduledTimer` on the main run loop with that interval (converted to seconds), and resolve the call once scheduled. On each tick it must increment a counter and emit a JavaScript event named `"tick"` via `self.notifyListeners("tick", data: ["count": n])`, where `n` is the monotonically increasing counter.
+  - `@objc func stopTimer(_ call: CAPPluginCall)` must invalidate the running timer (if any), reset the counter, and resolve the call.
+  - Calling `startTimer` again while a timer is already running must not leak the previous timer — it must invalidate the old one before scheduling a new one.
+- Register the plugin instance with the Capacitor bridge by overriding `capacitorDidLoad()` in the existing `MyViewController.swift` and calling `bridge?.registerPluginInstance(TimerEmitterPlugin())`.
+- Add `TimerEmitterPlugin.swift` to the Xcode build target so it ends up in both `PBXFileReference` and `PBXSourcesBuildPhase` sections of `ios/App/App.xcodeproj/project.pbxproj`.
+- Create a TypeScript wrapper at `/home/user/myapp/src/timer-emitter.ts` that:
+  - Imports `registerPlugin` from `@capacitor/core`.
+  - Declares a TypeScript interface describing both `startTimer({ intervalMs: number })` and `stopTimer()` methods, plus an `addListener('tick', cb)` signature whose callback receives `{ count: number }`.
+  - Registers the plugin under the exact JS name `"TimerEmitter"` and exports it as the default export.
+- After your changes, `npx cap sync ios` must still complete successfully from the project root.
+
+## Implementation Hints
+- Read the official Capacitor v8 "Custom Native iOS Code" and "iOS Plugin Guide" pages. The modern v8 protocol is `CAPBridgedPlugin` (with `identifier`, `jsName`, and `pluginMethods` properties), used together with `CAPPlugin` as the base class.
+- The `@objc(TimerEmitterPlugin)` decorator is required for the Capacitor runtime to discover the plugin by name; each callable method also needs `@objc`.
+- `bridge?.registerPluginInstance(...)` is called from `capacitorDidLoad()` inside the view controller that subclasses `CAPBridgeViewController` — that file already exists in the project.
+- Capacitor exposes a `self.notifyListeners(_:data:)` instance method on `CAPPlugin` for emitting custom events to the JS side. On the JS side, consumers call `Plugin.addListener('tick', cb)` to receive them.
+- `Timer.scheduledTimer(withTimeInterval:repeats:block:)` schedules a closure-based repeating timer on the current run loop. The plugin runs on the main thread when it is invoked from JavaScript, but you may want to think about how to ensure the timer fires consistently and that the timer reference is retained until `stopTimer` invalidates it.
+- Because Xcode is not available, you must edit `project.pbxproj` directly. Mirror the patterns used for existing Swift files (such as `MyViewController.swift`): add a `PBXFileReference`, a `PBXBuildFile`, an entry in the `App` group `PBXGroup` children, and an entry in the `Sources` `PBXSourcesBuildPhase`.
+- `pod` (CocoaPods) is not available in the Linux container; `npx cap sync ios` will skip the pod install step automatically and still exit 0.
+
+## Acceptance Criteria
+- Project path: /home/user/myapp
+- Plugin source file `ios/App/App/TimerEmitterPlugin.swift` exists and contains:
+  - `import Capacitor`
+  - `@objc(TimerEmitterPlugin)` annotation
+  - A class declaration combining `CAPPlugin` and `CAPBridgedPlugin`
+  - `public let identifier = "TimerEmitterPlugin"`
+  - `public let jsName = "TimerEmitter"`
+  - A `pluginMethods: [CAPPluginMethod]` array containing entries for both `startTimer` and `stopTimer` with `returnType: CAPPluginReturnPromise`
+  - Method signatures matching `@objc func startTimer(_ call: CAPPluginCall)` and `@objc func stopTimer(_ call: CAPPluginCall)`
+  - A reference to `Timer.scheduledTimer` to start the repeating timer
+  - A call to `notifyListeners` with the literal event name `"tick"` and a data dictionary keyed by `"count"`
+  - A call to `.invalidate()` on the held timer when stopping
+- The view controller at `ios/App/App/MyViewController.swift` overrides `capacitorDidLoad()` and calls `bridge?.registerPluginInstance(TimerEmitterPlugin())`.
+- The Xcode project file `ios/App/App.xcodeproj/project.pbxproj` references `TimerEmitterPlugin.swift` in both `PBXFileReference` and `PBXSourcesBuildPhase` sections (at least two occurrences of the string `TimerEmitterPlugin.swift`).
+- The TypeScript wrapper `src/timer-emitter.ts` imports `registerPlugin` from `@capacitor/core`, declares a plugin interface that includes `startTimer`, `stopTimer`, and an `addListener` overload for the `"tick"` event with a `{ count: number }` payload, and registers it under the literal name `"TimerEmitter"`.
+- Running `npx cap sync ios` from `/home/user/myapp` exits with status 0.
+- `TimerEmitterPlugin.swift` has balanced curly braces (equal counts of `{` and `}`, at least 6 of each).
+
+
+EOF
+Trial android_proguard_release_minify__z48cxkA failed: Docker compose command failed for environment android_proguard_release_minify_config. Command: docker compose --project-name android_proguard_release_minify__z48cxka --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/android_proguard_release_minify_config/environment -f /tmp/tmpt63fuozf/android_proguard_release_minify__z48cxkA-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpv50f4gqj/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 11.21kB done
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/ubuntu:24.04
+#2 DONE 0.0s
+
+#3 [main internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [main  1/16] FROM docker.io/library/ubuntu:24.04
+#4 DONE 0.0s
+
+#5 [main  4/16] RUN mkdir -p "/opt/android-sdk/cmdline-tools" &&     cd /tmp &&     curl -fsSL -o cmdline-tools.zip         https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip &&     unzip -q cmdline-tools.zip -d "/opt/android-sdk/cmdline-tools" &&     mv "/opt/android-sdk/cmdline-tools/cmdline-tools"        "/opt/android-sdk/cmdline-tools/latest" &&     rm -f cmdline-tools.zip &&     yes | "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null &&     "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager"         "platform-tools"         "platforms;android-35"         "build-tools;35.0.0" >/dev/null
+#5 CACHED
+
+#6 [main 10/16] RUN cd /home/user/myapp &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D         @capacitor/cli@^8 typescript@^5 &&     npx --yes cap init "MyApp" "com.example.myapp" --web-dir dist &&     npx --yes cap add android
+#6 CACHED
+
+#7 [main  3/16] RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - &&     apt-get install -y --no-install-recommends nodejs &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [main  7/16] RUN cat >/home/user/myapp/dist/index.html <<'HTML'
+#8 CACHED
+
+#9 [main  8/16] RUN cat >/home/user/myapp/dist/app.js <<'JS'
+#9 CACHED
+
+#10 [main 13/16] RUN keytool -genkeypair -v         -keystore /home/user/myapp/android/app/release.keystore         -alias release -keyalg RSA -keysize 2048 -validity 10000         -storepass releasepass -keypass releasepass         -dname "CN=MyApp Release, OU=Dev, O=MyApp, L=NoWhere, S=NoWhere, C=US"
+#10 CACHED
+
+#11 [main  9/16] RUN cat >/home/user/myapp/src/index.ts <<'TS'
+#11 CACHED
+
+#12 [main  6/16] RUN mkdir -p /home/user/myapp /home/user/myapp/dist /home/user/myapp/src &&     cd /home/user/myapp &&     cat >package.json <<'JSON'
+#12 CACHED
+
+#13 [main 12/16] RUN cat >/home/user/myapp/android/app/src/main/java/com/example/myapp/MainActivity.java <<'JAVA'
+#13 CACHED
+
+#14 [main 14/16] RUN python3 - <<'PY'
+#14 CACHED
+
+#15 [main  2/16] RUN apt-get update -y &&     apt-get install -y --no-install-recommends         curl wget ca-certificates git python3 python3-pip python3-pytest bash ripgrep         unzip zip xz-utils openjdk-21-jdk-headless fontconfig file &&     ln -sf /usr/bin/python3 /usr/bin/python &&     pip3 install --break-system-packages pytest-json-ctrf &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#15 CACHED
+
+#16 [main 11/16] RUN cat >/home/user/myapp/android/app/src/main/java/com/example/myapp/EchoPlugin.java <<'JAVA'
+#16 CACHED
+
+#17 [main  5/16] RUN mkdir -p /home/user && chmod 0755 /home/user
+#17 CACHED
+
+#18 [main 15/16] RUN cat >/home/user/myapp/android/app/proguard-rules.pro <<'PRO'
+#18 CACHED
+
+#19 [main 16/16] RUN cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug :app:assembleRelease &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle
+#19 0.475 Downloading https://services.gradle.org/distributions/gradle-8.14.3-all.zip
+#19 1.546 .....................10%.....................20%......................30%.....................40%......................50%.....................60%.....................70%......................80%.....................90%......................100%
+#19 9.606 
+#19 9.606 Welcome to Gradle 8.14.3!
+#19 9.606 
+#19 9.606 Here are the highlights of this release:
+#19 9.606  - Java 24 support
+#19 9.607  - GraalVM Native Image toolchain selection
+#19 9.607  - Enhancements to test reporting
+#19 9.607  - Build Authoring improvements
+#19 9.607 
+#19 9.607 For more details see https://docs.gradle.org/8.14.3/release-notes.html
+#19 9.607 
+#19 9.905 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#19 12.00 Daemon will be stopped at the end of the build 
+#19 43.20 
+#19 43.21 FAILURE: Build completed with 2 failures.
+#19 43.21 
+#19 43.21 1: Task failed with an exception.
+#19 43.21 -----------
+#19 43.21 * Where:
+#19 43.21 Build file '/home/user/myapp/android/app/build.gradle' line: 7
+#19 43.21 
+#19 43.21 * What went wrong:
+#19 43.21 A problem occurred evaluating project ':app'.
+#19 43.21 > Could not find method signingConfig() for arguments [SigningConfig$AgpDecorated_Decorated{name=release, storeFile=null, storePassword=null, keyAlias=null, keyPassword=null, storeType=pkcs12, v1SigningEnabled=true, v2SigningEnabled=true, enableV1Signing=null, enableV2Signing=null, enableV3Signing=null, enableV4Signing=null}] on SigningConfig$AgpDecorated_Decorated{name=release, storeFile=null, storePassword=null, keyAlias=null, keyPassword=null, storeType=pkcs12, v1SigningEnabled=true, v2SigningEnabled=true, enableV1Signing=null, enableV2Signing=null, enableV3Signing=null, enableV4Signing=null} of type com.android.build.gradle.internal.dsl.SigningConfig$AgpDecorated.
+#19 43.21 
+#19 43.21 * Try:
+#19 43.21 > Run with --stacktrace option to get the stack trace.
+#19 43.21 > Run with --info or --debug option to get more log output.
+#19 43.21 > Run with --scan to get full insights.
+#19 43.21 > Get more help at https://help.gradle.org.
+#19 43.21 ==============================================================================
+#19 43.21 
+#19 43.21 2: Task failed with an exception.
+#19 43.21 -----------
+#19 43.21 * What went wrong:
+#19 43.21 A problem occurred configuring project ':app'.
+#19 43.21 > Android Gradle Plugin: project ':app' does not specify `compileSdk` in build.gradle (/home/user/myapp/android/app/build.gradle).
+#19 43.21 
+#19 43.21 * Try:
+#19 43.21 > Run with --stacktrace option to get the stack trace.
+#19 43.21 > Run with --info or --debug option to get more log output.
+#19 43.21 > Run with --scan to get full insights.
+#19 43.21 > Get more help at https://help.gradle.org.
+#19 43.21 ==============================================================================
+#19 43.21 
+#19 43.21 BUILD FAILED in 42s
+#19 ERROR: process "/bin/sh -c cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug :app:assembleRelease &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle" did not complete successfully: exit code: 1
+------
+ > [main 16/16] RUN cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug :app:assembleRelease &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle:
+43.21 > Android Gradle Plugin: project ':app' does not specify `compileSdk` in build.gradle (/home/user/myapp/android/app/build.gradle).
+43.21 
+43.21 * Try:
+43.21 > Run with --stacktrace option to get the stack trace.
+43.21 > Run with --info or --debug option to get more log output.
+43.21 > Run with --scan to get full insights.
+43.21 > Get more help at https://help.gradle.org.
+43.21 ==============================================================================
+43.21 
+43.21 BUILD FAILED in 42s
+------
+failed to solve: process "/bin/sh -c cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug :app:assembleRelease &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle" did not complete successfully: exit code: 1
+. Stderr: None. 
+Failed to download artifact '/home/user' (best-effort)
+Traceback (most recent call last):
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 160, in run
+    await self._prepare()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 187, in _prepare
+    await self._setup_agent_environment()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 612, in _setup_agent_environment
+    await self._start_agent_environment()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 618, in _start_agent_environment
+    await asyncio.wait_for(
+    ...<4 lines>...
+    )
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 517, in start
+    await self._run_docker_compose_command(["build"])
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 418, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment android_proguard_release_minify_config. Command: docker compose --project-name android_proguard_release_minify__z48cxka --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/android_proguard_release_minify_config/environment -f /tmp/tmpt63fuozf/android_proguard_release_minify__z48cxkA-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpv50f4gqj/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 11.21kB done
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/ubuntu:24.04
+#2 DONE 0.0s
+
+#3 [main internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [main  1/16] FROM docker.io/library/ubuntu:24.04
+#4 DONE 0.0s
+
+#5 [main  4/16] RUN mkdir -p "/opt/android-sdk/cmdline-tools" &&     cd /tmp &&     curl -fsSL -o cmdline-tools.zip         https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip &&     unzip -q cmdline-tools.zip -d "/opt/android-sdk/cmdline-tools" &&     mv "/opt/android-sdk/cmdline-tools/cmdline-tools"        "/opt/android-sdk/cmdline-tools/latest" &&     rm -f cmdline-tools.zip &&     yes | "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null &&     "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager"         "platform-tools"         "platforms;android-35"         "build-tools;35.0.0" >/dev/null
+#5 CACHED
+
+#6 [main 10/16] RUN cd /home/user/myapp &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D         @capacitor/cli@^8 typescript@^5 &&     npx --yes cap init "MyApp" "com.example.myapp" --web-dir dist &&     npx --yes cap add android
+#6 CACHED
+
+#7 [main  3/16] RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - &&     apt-get install -y --no-install-recommends nodejs &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [main  7/16] RUN cat >/home/user/myapp/dist/index.html <<'HTML'
+#8 CACHED
+
+#9 [main  8/16] RUN cat >/home/user/myapp/dist/app.js <<'JS'
+#9 CACHED
+
+#10 [main 13/16] RUN keytool -genkeypair -v         -keystore /home/user/myapp/android/app/release.keystore         -alias release -keyalg RSA -keysize 2048 -validity 10000         -storepass releasepass -keypass releasepass         -dname "CN=MyApp Release, OU=Dev, O=MyApp, L=NoWhere, S=NoWhere, C=US"
+#10 CACHED
+
+#11 [main  9/16] RUN cat >/home/user/myapp/src/index.ts <<'TS'
+#11 CACHED
+
+#12 [main  6/16] RUN mkdir -p /home/user/myapp /home/user/myapp/dist /home/user/myapp/src &&     cd /home/user/myapp &&     cat >package.json <<'JSON'
+#12 CACHED
+
+#13 [main 12/16] RUN cat >/home/user/myapp/android/app/src/main/java/com/example/myapp/MainActivity.java <<'JAVA'
+#13 CACHED
+
+#14 [main 14/16] RUN python3 - <<'PY'
+#14 CACHED
+
+#15 [main  2/16] RUN apt-get update -y &&     apt-get install -y --no-install-recommends         curl wget ca-certificates git python3 python3-pip python3-pytest bash ripgrep         unzip zip xz-utils openjdk-21-jdk-headless fontconfig file &&     ln -sf /usr/bin/python3 /usr/bin/python &&     pip3 install --break-system-packages pytest-json-ctrf &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#15 CACHED
+
+#16 [main 11/16] RUN cat >/home/user/myapp/android/app/src/main/java/com/example/myapp/EchoPlugin.java <<'JAVA'
+#16 CACHED
+
+#17 [main  5/16] RUN mkdir -p /home/user && chmod 0755 /home/user
+#17 CACHED
+
+#18 [main 15/16] RUN cat >/home/user/myapp/android/app/proguard-rules.pro <<'PRO'
+#18 CACHED
+
+#19 [main 16/16] RUN cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug :app:assembleRelease &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle
+#19 0.475 Downloading https://services.gradle.org/distributions/gradle-8.14.3-all.zip
+#19 1.546 .....................10%.....................20%......................30%.....................40%......................50%.....................60%.....................70%......................80%.....................90%......................100%
+#19 9.606 
+#19 9.606 Welcome to Gradle 8.14.3!
+#19 9.606 
+#19 9.606 Here are the highlights of this release:
+#19 9.606  - Java 24 support
+#19 9.607  - GraalVM Native Image toolchain selection
+#19 9.607  - Enhancements to test reporting
+#19 9.607  - Build Authoring improvements
+#19 9.607 
+#19 9.607 For more details see https://docs.gradle.org/8.14.3/release-notes.html
+#19 9.607 
+#19 9.905 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#19 12.00 Daemon will be stopped at the end of the build 
+#19 43.20 
+#19 43.21 FAILURE: Build completed with 2 failures.
+#19 43.21 
+#19 43.21 1: Task failed with an exception.
+#19 43.21 -----------
+#19 43.21 * Where:
+#19 43.21 Build file '/home/user/myapp/android/app/build.gradle' line: 7
+#19 43.21 
+#19 43.21 * What went wrong:
+#19 43.21 A problem occurred evaluating project ':app'.
+#19 43.21 > Could not find method signingConfig() for arguments [SigningConfig$AgpDecorated_Decorated{name=release, storeFile=null, storePassword=null, keyAlias=null, keyPassword=null, storeType=pkcs12, v1SigningEnabled=true, v2SigningEnabled=true, enableV1Signing=null, enableV2Signing=null, enableV3Signing=null, enableV4Signing=null}] on SigningConfig$AgpDecorated_Decorated{name=release, storeFile=null, storePassword=null, keyAlias=null, keyPassword=null, storeType=pkcs12, v1SigningEnabled=true, v2SigningEnabled=true, enableV1Signing=null, enableV2Signing=null, enableV3Signing=null, enableV4Signing=null} of type com.android.build.gradle.internal.dsl.SigningConfig$AgpDecorated.
+#19 43.21 
+#19 43.21 * Try:
+#19 43.21 > Run with --stacktrace option to get the stack trace.
+#19 43.21 > Run with --info or --debug option to get more log output.
+#19 43.21 > Run with --scan to get full insights.
+#19 43.21 > Get more help at https://help.gradle.org.
+#19 43.21 ==============================================================================
+#19 43.21 
+#19 43.21 2: Task failed with an exception.
+#19 43.21 -----------
+#19 43.21 * What went wrong:
+#19 43.21 A problem occurred configuring project ':app'.
+#19 43.21 > Android Gradle Plugin: project ':app' does not specify `compileSdk` in build.gradle (/home/user/myapp/android/app/build.gradle).
+#19 43.21 
+#19 43.21 * Try:
+#19 43.21 > Run with --stacktrace option to get the stack trace.
+#19 43.21 > Run with --info or --debug option to get more log output.
+#19 43.21 > Run with --scan to get full insights.
+#19 43.21 > Get more help at https://help.gradle.org.
+#19 43.21 ==============================================================================
+#19 43.21 
+#19 43.21 BUILD FAILED in 42s
+#19 ERROR: process "/bin/sh -c cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug :app:assembleRelease &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle" did not complete successfully: exit code: 1
+------
+ > [main 16/16] RUN cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug :app:assembleRelease &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle:
+43.21 > Android Gradle Plugin: project ':app' does not specify `compileSdk` in build.gradle (/home/user/myapp/android/app/build.gradle).
+43.21 
+43.21 * Try:
+43.21 > Run with --stacktrace option to get the stack trace.
+43.21 > Run with --info or --debug option to get more log output.
+43.21 > Run with --scan to get full insights.
+43.21 > Get more help at https://help.gradle.org.
+43.21 ==============================================================================
+43.21 
+43.21 BUILD FAILED in 42s
+------
+failed to solve: process "/bin/sh -c cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug :app:assembleRelease &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle" did not complete successfully: exit code: 1
+. Stderr: None. 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/artifact_handler.py", line 195, in _download_artifact
+    await source_env.download_file(
+    ...<2 lines>...
+    )
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 609, in download_file
+    await self._platform.download_file(source_path, target_path)
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker_unix.py", line 48, in download_file
+    await self._env._run_docker_compose_command(
+    ...<2 lines>...
+    )
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 418, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment android_proguard_release_minify_config. Command: docker compose --project-name android_proguard_release_minify__z48cxka --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/android_proguard_release_minify_config/environment -f /tmp/tmpt63fuozf/android_proguard_release_minify__z48cxkA-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpv50f4gqj/docker-compose-mounts.json cp main:/home/user jobs/2026-06-16__14-51-33/android_proguard_release_minify__z48cxkA/artifacts/user. Return code: 1. Stdout: no container found for service "main"
+. Stderr: None. 
+Not retrying trial because the maximum number of retries has been reached
+Skipping image OS validation for hb__migrate_cordova_device_to_capacitor: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-ynzpxxw > /logs/artifacts/run-id && echo migrate_cordova_device_to_capaci__YNZPxXw > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model deepseek/deepseek-4-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Migrate from `cordova-plugin-device` to `@capacitor/device`
+
+## Background
+A hybrid mobile project located at `/home/user/myproject` currently uses the legacy `cordova-plugin-device` plugin (loaded via `cordova.js`) to obtain device metadata. Capacitor is already installed in the project, but the device reader still depends on the old Cordova plugin and the global `window.device` object. Your job is to migrate the project so that all device information is sourced from the official `@capacitor/device` plugin instead.
+
+## Requirements
+- Uninstall the Cordova device plugin from the project's npm dependencies (it must be removed from `package.json` / `package-lock.json` and from `node_modules`).
+- Install the official `@capacitor/device` plugin and register it inside the Capacitor configuration so it is discoverable by `npx cap sync`.
+- Remove every reference to `cordova.js` from `www/index.html` (the `<script src="cordova.js"></script>` tag must no longer exist).
+- Remove every usage of the deprecated `window.device` global from the project source code (e.g. `www/js/device-info.js`). Nothing in the migrated source files may still reference `window.device` or `cordova.plugins.device`.
+- Rewrite the device-info reader so that it uses the `@capacitor/device` plugin API, calling `Device.getInfo()`, `Device.getId()`, and `Device.getBatteryInfo()` via `async`/`await`.
+- Expose the migrated reader as a Node-callable script that, when executed, prints a single JSON object on stdout combining the three API responses.
+- Run `npx cap sync` after the migration and capture its output so the verifier can confirm the sync step completed successfully.
+
+## Implementation Hints
+- Look at the existing Cordova-based reader to understand which fields it exposes (uuid, model, platform, version, manufacturer, battery level, charging state) and map them to the modern Capacitor Device API equivalents.
+- The `@capacitor/device` web implementation reads from `navigator`, so the Node command-line wrapper must set up a minimal `navigator`/`window` shim before importing the plugin so it can execute outside a real browser.
+- Capacitor configuration lives in `capacitor.config.json` at the project root. Adjust it as needed (for example, remove obsolete Cordova-only preferences and make sure the project still validates) so that `npx cap sync` exits with code 0.
+- The verifier will read both static project files and the recorded `npx cap sync` log, then re-run the migrated reader script. Make sure the script is idempotent and produces deterministic JSON keys.
+
+## Acceptance Criteria
+- Project path: `/home/user/myproject`
+- Ensure the migration is actually performed and the artifacts below exist.
+- Log file: `/home/user/myproject/sync.log` — must contain the full stdout/stderr of a successful `npx cap sync` run (the file must include the literal substring `sync finished` somewhere in its contents).
+- `package.json` must NOT contain `cordova-plugin-device` in either `dependencies` or `devDependencies`, and must contain `@capacitor/device` in `dependencies`.
+- `node_modules/@capacitor/device` must exist and `node_modules/cordova-plugin-device` must NOT exist after migration.
+- `www/index.html` must NOT contain the substring `cordova.js`.
+- No file under `www/` may contain the substrings `window.device` or `cordova.plugins.device` (search is case-sensitive).
+- The migrated reader module must be invokable as `node /home/user/myproject/scripts/device-report.mjs` (or the equivalent CommonJS `.js`). When invoked, it must print exactly one line of JSON to stdout that, when parsed, satisfies the following shape:
+  ```json
+  {
+    "info": { "platform": string, "operatingSystem": string, "osVersion": string, "manufacturer": string, "model": string, "isVirtual": boolean, "webViewVersion": string },
+    "id": { "identifier": string },
+    "battery": { "batteryLevel": number, "isCharging": boolean }
+  }
+  ```
+  All listed fields must be present (the `info.platform` value will be `"web"` when running under Node).
+- The reader source must import the `Device` symbol from `@capacitor/device` (verifier searches for the literal `from '@capacitor/device'` or `require('@capacitor/device')`) and must call all three of `Device.getInfo`, `Device.getId`, and `Device.getBatteryInfo`.
+- `npx cap sync` must exit with status 0 when re-run by the verifier inside the project directory.
+
+
+EOF
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Skipping image OS validation for hb__push_notifications_android_fcm_v1_setup: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-qa7mpmz > /logs/artifacts/run-id && echo push_notifications_android_fcm_v__qa7MPMz > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model deepseek/deepseek-4-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Wire @capacitor/push-notifications on Android with Firebase Cloud Messaging (HTTP v1)
+
+## Background
+A Capacitor v8 mobile app at `/home/user/myproject` currently has no push notification support. The product team wants to ship Android push notifications backed by Firebase Cloud Messaging (FCM) using the HTTP v1 API. You will integrate the `@capacitor/push-notifications` plugin, apply the official `com.google.gms.google-services` Gradle plugin so the Firebase SDK can read a `google-services.json` file, drop in a `google-services.json` placeholder, and wire up the JavaScript permission-request / registration / event-handling flow in the web layer.
+
+No real device is involved — verification inspects the project files and the setup log only. Do **not** execute `npx cap sync android` or any Gradle command (the Android SDK is not installed in the verifier).
+
+## Requirements
+- Install `@capacitor/push-notifications` v8 as a runtime dependency in `/home/user/myproject` so it appears in `package.json` `dependencies`.
+- In `android/build.gradle` (the top-level project Gradle file), add a `buildscript` dependency on the Google Services Gradle plugin classpath `com.google.gms:google-services:4.4.2`.
+- In `android/app/build.gradle`, apply the `com.google.gms.google-services` plugin (using either the legacy `apply plugin: 'com.google.gms.google-services'` syntax or the `plugins { id '...' }` block) **and** add an `implementation` dependency on `com.google.firebase:firebase-messaging` (any version pin is acceptable, e.g. `25.0.1`).
+- Place a placeholder `google-services.json` at `android/app/google-services.json`. The file must be valid JSON and contain the package name `com.example.myapp` inside `client[0].client_info.android_client_info.package_name` so the Google Services plugin recognises the module.
+- Create / update the JavaScript entry file at `src/push.ts` (TypeScript) so that a single exported function `initPush()` performs the runtime setup in the correct order:
+  1. Register listeners for **all four** events: `'registration'`, `'registrationError'`, `'pushNotificationReceived'`, and `'pushNotificationActionPerformed'`.
+  2. Call `PushNotifications.requestPermissions()` and, only when the returned `receive` value is `'granted'`, call `PushNotifications.register()`.
+  3. Import the plugin via `import { PushNotifications } from '@capacitor/push-notifications';`.
+- Write a setup log file at `/home/user/myproject/setup.log` containing one line per applied change in the format `OK: <change>`, for example `OK: applied google-services gradle plugin`. The log must include lines that reference the strings `google-services`, `firebase-messaging`, `google-services.json`, and `requestPermissions`.
+
+## Implementation Hints
+- The Google Services plugin is normally declared with classpath `'com.google.gms:google-services:4.4.2'` in the top-level `android/build.gradle` `buildscript { dependencies { ... } }` block, and applied at the bottom of `android/app/build.gradle`.
+- The Firebase BoM is optional — directly pinning `com.google.firebase:firebase-messaging:25.0.1` (or another stable v25.x) is sufficient.
+- A minimal valid `google-services.json` only needs a `project_info` block and a `client` array with one entry whose `client_info.android_client_info.package_name` matches the app id (`com.example.myapp`). Real `oauth_client`, `api_key`, and `services` keys can be empty arrays / empty objects for this placeholder.
+- The `@capacitor/push-notifications` plugin will pick up the `google-services.json` automatically once the Gradle plugin is applied; you do not need to register anything in `MainActivity` or `AndroidManifest.xml` for this task.
+- Follow the order shown in the plugin docs: register listeners first, then request permission, then register. Do not call `register()` when the permission state is anything other than `'granted'`.
+
+## Acceptance Criteria
+- Project path: /home/user/myproject
+- Ensure the real configuration changes are applied and the artifacts exist (do not delete the existing scaffolded files).
+- Log file: /home/user/myproject/setup.log — must exist and contain lines matching the format `OK: <change>` that mention each of `google-services`, `firebase-messaging`, `google-services.json`, and `requestPermissions` at least once.
+- `package.json` `dependencies` includes `@capacitor/push-notifications` with a version that satisfies `^8` (semver major 8).
+- `android/build.gradle` contains a classpath entry for `com.google.gms:google-services:4.4.2`.
+- `android/app/build.gradle` applies the `com.google.gms.google-services` plugin **and** declares an `implementation` dependency on `com.google.firebase:firebase-messaging`.
+- `android/app/google-services.json` exists, parses as valid JSON, and the JSON contains a client whose `client_info.android_client_info.package_name` equals `com.example.myapp`.
+- `src/push.ts` exists and:
+  - imports `PushNotifications` from `@capacitor/push-notifications`,
+  - exports a function named `initPush`,
+  - registers listeners for the four event names listed above (string literals must appear in the file),
+  - calls `requestPermissions()` before `register()`,
+  - only calls `register()` inside a code path guarded by a check that the permission `receive` value is `'granted'`.
+
+
+EOF
+Skipping image OS validation for hb__custom_android_ambient_light_plugin: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-fkpvuku > /logs/artifacts/run-id && echo custom_android_ambient_light_plu__FKpvUkU > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model deepseek/deepseek-4-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Implement a Custom Local Capacitor Android `AmbientLight` Plugin
+
+## Background
+You are working on a Capacitor v8 hybrid mobile application located at `/home/user/myapp`. The project already has the `android` platform scaffolded at `/home/user/myapp/android` and a minimal web frontend in `/home/user/myapp/dist`. The product team wants to surface the device's ambient light sensor reading (in lux) inside the web UI. Since no official Capacitor plugin exposes the raw `TYPE_LIGHT` sensor, you must write a custom local Java plugin that bridges Android's `SensorManager` to JavaScript.
+
+Your job is to write a custom local Capacitor plugin (Java, inside the existing Android project) that reads the ambient light sensor, exposes a `getLightLevel` method to JavaScript, properly manages the sensor listener across the activity lifecycle, registers itself in `MainActivity`, and ships with a TypeScript wrapper so the project compiles cleanly through Gradle.
+
+## Requirements
+- Implement a custom local Android Capacitor plugin written in Java inside the existing Android project (do **not** create a separate Capacitor plugin npm package).
+- The plugin must be exposed to JavaScript under the exact name `AmbientLight`.
+- The plugin must declare a single method that is reachable from JavaScript:
+  - `getLightLevel()` — takes no input arguments and resolves with a `JSObject` containing the latest light sensor reading under the key `value` (lux as a floating-point number).
+- The plugin must use Android's `SensorManager` and obtain the default sensor of type `Sensor.TYPE_LIGHT`.
+- The plugin must implement `android.hardware.SensorEventListener` and update its cached lux value from `onSensorChanged(SensorEvent event)` using `event.values[0]`.
+- The sensor listener lifecycle must be tied to the host activity:
+  - Register the listener with `SensorManager.registerListener(...)` inside the plugin's `handleOnResume()` lifecycle hook.
+  - Unregister the listener with `SensorManager.unregisterListener(...)` inside the plugin's `handleOnPause()` lifecycle hook.
+  - Both lifecycle methods must be annotated with `@Override`.
+- Register the plugin in the existing `MainActivity` so that it is loaded by the Capacitor bridge at startup.
+- Provide a TypeScript binding file at `/home/user/myapp/src/ambient-light.ts` that uses `registerPlugin` from `@capacitor/core` to expose the plugin and exports the plugin object as the default export.
+- The complete Android project must compile successfully with the Gradle wrapper.
+
+## Implementation Hints
+- Refer to the official Capacitor v8 "Custom Native Android Code" and "Android Plugin Guide" pages. The plugin class must extend `com.getcapacitor.Plugin` and be annotated with `@CapacitorPlugin(name = "AmbientLight")`. The exposed method must be annotated with `@PluginMethod`.
+- Acquire `SensorManager` via `getContext().getSystemService(Context.SENSOR_SERVICE)` (the plugin base class provides `getContext()`).
+- The `Plugin` base class exposes lifecycle hooks such as `handleOnResume()`, `handleOnPause()`, `handleOnStart()`, `handleOnStop()`, and `load()` — override the lifecycle hooks needed to start/stop your `SensorEventListener`.
+- Cache the most recent lux reading in a field and read it back from `getLightLevel(PluginCall call)` using a `JSObject` and `call.resolve(...)`.
+- The plugin's Java package must match the application package (`com.example.myapp`); place the source under `android/app/src/main/java/com/example/myapp/` so the existing Gradle source set picks it up.
+- Register the plugin with `registerPlugin(AmbientLightPlugin.class)` inside `MainActivity.onCreate(Bundle savedInstanceState)` (before the call to `super.onCreate(savedInstanceState)`, as shown in the official guide).
+- On the JavaScript side, the first argument to `registerPlugin` must match the `name` attribute of the `@CapacitorPlugin` annotation exactly (`"AmbientLight"`).
+- The web frontend already has `@capacitor/core` installed as an npm dependency; you do not need to install additional packages.
+- The Android SDK, JDK, and the Gradle wrapper are pre-installed and pre-warmed inside the project; running `./gradlew` from `/home/user/myapp/android` will compile the project. Use the `--offline` flag whenever possible to avoid re-downloading dependencies.
+
+## Acceptance Criteria
+- Project path: `/home/user/myapp`
+- The Android project at `/home/user/myapp/android` must build successfully via:
+  - `cd /home/user/myapp/android && ./gradlew :app:assembleDebug --offline`
+- A Java source file implementing the plugin must exist at:
+  - `/home/user/myapp/android/app/src/main/java/com/example/myapp/AmbientLightPlugin.java`
+  - It must declare `package com.example.myapp;`.
+  - It must import (at minimum) `com.getcapacitor.Plugin`, `com.getcapacitor.PluginCall`, `com.getcapacitor.PluginMethod`, `com.getcapacitor.JSObject`, `com.getcapacitor.annotation.CapacitorPlugin`, `android.hardware.Sensor`, `android.hardware.SensorEvent`, `android.hardware.SensorEventListener`, and `android.hardware.SensorManager`.
+  - It must annotate the plugin class with `@CapacitorPlugin(name = "AmbientLight")`.
+  - It must declare a class named `AmbientLightPlugin` that `extends Plugin` and that implements `SensorEventListener`.
+  - It must declare a single `@PluginMethod`-annotated method (with or without parentheses) named `getLightLevel` that takes a `PluginCall` argument, puts the cached lux value into a `JSObject` under the key `"value"`, and calls `call.resolve(<that JSObject>)`.
+  - It must override `handleOnResume()` and register a sensor listener for `Sensor.TYPE_LIGHT` by calling `SensorManager.registerListener(...)`.
+  - It must override `handleOnPause()` and stop the sensor listener by calling `SensorManager.unregisterListener(...)`.
+  - Both lifecycle overrides must carry the `@Override` annotation.
+  - It must implement `onSensorChanged(SensorEvent event)` and read the lux value from `event.values[0]`.
+- `MainActivity` at `/home/user/myapp/android/app/src/main/java/com/example/myapp/MainActivity.java` must contain a `registerPlugin(AmbientLightPlugin.class)` call inside `onCreate(Bundle savedInstanceState)`.
+- A TypeScript binding file must exist at `/home/user/myapp/src/ambient-light.ts` that imports `registerPlugin` from `@capacitor/core`, registers a plugin under the exact string literal `"AmbientLight"`, and provides a default export.
+- The compiled debug APK produced at `/home/user/myapp/android/app/build/outputs/apk/debug/app-debug.apk` must contain the `AmbientLightPlugin` class in its DEX (verifiable by listing classes inside the APK).
+
+
+EOF
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Skipping image OS validation for hb__splash_screen_android_12_animated_icon: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-gykeexf > /logs/artifacts/run-id && echo splash_screen_android_12_animate__GYKEeXf > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model deepseek/deepseek-4-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Capacitor v8: Android 12+ Animated Splash Screen
+
+## Background
+A pre-scaffolded Capacitor v8 project is provided at `/home/user/myproject`. It already contains a built web bundle and an Android platform under `android/`. The project currently uses the default Capacitor splash screen behavior and you need to upgrade it to use the Android 12+ `SplashScreen` platform API with an animated vector icon, while keeping compatibility with older Android versions through the `androidx.core:core-splashscreen` library that Capacitor v8 ships with by default.
+
+## Requirements
+- Install `@capacitor/splash-screen` (v8.x, matching the rest of the Capacitor v8 packages) and persist it in `package.json`.
+- Register the plugin in the Capacitor configuration file with the following options under `plugins.SplashScreen`:
+  - `launchAutoHide` must be `false` (web code is responsible for hiding the splash).
+  - `launchShowDuration` must be `2000` (used as a maximum bound only).
+  - `backgroundColor` must be `"#0E0E0E"`.
+  - `androidScaleType` must be `"CENTER_CROP"`.
+- Wire the Android 12+ splash screen attributes into the existing `AppTheme.NoActionBarLaunch` style in `android/app/src/main/res/values/styles.xml`:
+  - The style must keep using `Theme.SplashScreen` as its parent.
+  - Add `<item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_icon</item>`.
+  - Add `<item name="android:windowSplashScreenAnimationDuration">1000</item>`.
+- Create a vector drawable at `android/app/src/main/res/drawable/splash_icon.xml`. It must be a valid Android `<vector>` resource with at least one `<path>` element.
+- Update the web entry point so that JavaScript explicitly calls `SplashScreen.hide()` only after the first frame has been painted. The hide call must not be made synchronously during module load.
+
+## Implementation Hints
+- The project file `capacitor.config.json` is the canonical Capacitor configuration; use it (do not introduce a parallel `capacitor.config.ts`).
+- The Android 12 splash screen API is described in the official documentation: https://capacitorjs.com/docs/apis/splash-screen and https://developer.android.com/develop/ui/views/launch/splash-screen.
+- Capacitor v8 already provides the `androidx.core:core-splashscreen` compatibility library, so you only need to attach the new theme attributes to `AppTheme.NoActionBarLaunch`.
+- A first-frame paint can be detected from the web bundle by scheduling work inside `requestAnimationFrame` (typically a nested `requestAnimationFrame` so the call happens after the browser has actually drawn the first frame).
+- After editing native files, you do not need to run `npx cap sync` for verification; the verifier inspects the source files directly.
+
+## Acceptance Criteria
+- Project path: /home/user/myproject
+- `package.json` must list `@capacitor/splash-screen` in `dependencies` with a version that resolves to `8.x` (e.g. `^8.0.0`), and the dependency must also be installed inside `node_modules/@capacitor/splash-screen` with a matching `package.json` version.
+- `capacitor.config.json` must contain a `plugins.SplashScreen` object with exactly these values:
+  - `launchAutoHide`: boolean `false`
+  - `launchShowDuration`: number `2000`
+  - `backgroundColor`: string `"#0E0E0E"`
+  - `androidScaleType`: string `"CENTER_CROP"`
+- `android/app/src/main/res/values/styles.xml` must contain a `<style>` element named `AppTheme.NoActionBarLaunch` whose `parent` attribute is `Theme.SplashScreen` (the Capacitor v8 default), and that style must contain both of the following `<item>` children:
+  - `name="android:windowSplashScreenAnimatedIcon"` with the literal value `@drawable/splash_icon`
+  - `name="android:windowSplashScreenAnimationDuration"` with the literal value `1000`
+- `android/app/src/main/res/drawable/splash_icon.xml` must exist, parse as XML, have a root element named `vector` in the Android namespace, and contain at least one `<path>` element.
+- A JavaScript/TypeScript source file under `src/` (or `www/`) must import `SplashScreen` from `@capacitor/splash-screen` and invoke `SplashScreen.hide()` inside a `requestAnimationFrame` callback. A direct top-level synchronous `SplashScreen.hide()` call (one that is not wrapped in `requestAnimationFrame`) is not accepted.
+
+
+EOF
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Exception AgentTimeoutError is in exclude_exceptions, not retrying
+Not retrying trial because the exception is not in include_exceptions or the maximum number of retries has been reached
+Skipping image OS validation for hb__android_deeplink_app_plugin_routing: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-cixdxyu > /logs/artifacts/run-id && echo android_deeplink_app_plugin_rout__CixDXYu > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model deepseek/deepseek-4-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Configure Android App Links and Deep-Link Routing for a Capacitor v8 App
+
+## Background
+You are working on a Capacitor v8 hybrid mobile application located at `/home/user/myapp`. The project already has the `android` platform scaffolded at `/home/user/myapp/android`, a minimal web frontend in `/home/user/myapp/dist`, and the `@capacitor/app` plugin already installed under `node_modules` (and listed in `package.json`).
+
+The product team wants the app to act as the default handler for `https://myapp.example.com/...` web URLs (Android App Links) so that taps on those URLs from email, browsers, or other apps open the native app directly instead of a browser. When the app is launched (or resumed) via such a URL, the SPA must read the incoming URL and route accordingly.
+
+Your job is to wire everything up: declare a verifiable App-Link intent filter for `MainActivity` in `AndroidManifest.xml`, write the Digital Asset Links file (`assetlinks.json`) that the team will deploy to `https://myapp.example.com/.well-known/assetlinks.json`, and add a TypeScript handler that subscribes to the `appUrlOpen` event from `@capacitor/app` to drive client-side routing.
+
+## Requirements
+- Modify `android/app/src/main/AndroidManifest.xml` so that the existing `MainActivity` (`<activity android:name=".MainActivity" ...>`) declares an additional App-Link `<intent-filter>` with the following properties:
+  - `android:autoVerify="true"` on the `<intent-filter>` element.
+  - Action `android.intent.action.VIEW`.
+  - Both categories `android.intent.category.DEFAULT` and `android.intent.category.BROWSABLE`.
+  - A `<data>` declaration that pins `android:scheme="https"` and `android:host="myapp.example.com"`.
+  - The intent filter must cover URLs under the `/.well-known/` path of that host (e.g. via `android:pathPrefix="/.well-known"` or `android:pathPattern="/.well-known/.*"`).
+- The original `MAIN` / `LAUNCHER` intent filter on `MainActivity` must remain in place — this new intent filter is **additional**, not a replacement.
+- Create a Digital Asset Links file at `/home/user/myapp/.well-known/assetlinks.json` whose contents are valid JSON of the form documented for Android App Links. Specifically, the file must be a JSON array of statement objects; at least one statement must:
+  - Declare the relation `delegate_permission/common.handle_all_urls`.
+  - Have a `target` whose `namespace` is `"android_app"`, whose `package_name` is `"com.example.myapp"`, and whose `sha256_cert_fingerprints` array contains the SHA-256 fingerprint of the Android debug signing certificate that ships with this project (the keystore at `$HOME/.android/debug.keystore` that the prebuilt Gradle wrapper uses).
+- Create a TypeScript module at `/home/user/myapp/src/deeplink.ts` that:
+  - Imports `App` from the `@capacitor/app` package (named import, e.g. `import { App } from '@capacitor/app'`).
+  - Exports a function (any name) that registers a listener via `App.addListener('appUrlOpen', ...)` and, inside that listener, derives a route path from the incoming URL (i.e. uses `new URL(event.url).pathname` or an equivalent parse) and updates the SPA location (e.g. `window.location.replace(...)`, `window.history.replaceState(...)`, or an equivalent SPA route-change call) using that pathname.
+  - Exports the registration function so it can be imported and invoked from the app entry point.
+- `package.json` must continue to list `@capacitor/app` as a runtime dependency (it is already present in the starter state — do not remove it).
+- The Android project must still build successfully via the prebuilt Gradle wrapper.
+
+## Implementation Hints
+- Refer to the Android App Links guide (`https://developer.android.com/training/app-links/verify-android-applinks`) and the Capacitor `@capacitor/app` plugin docs (`https://capacitorjs.com/docs/apis/app`). The latter describes the `appUrlOpen` event payload (`URLOpenListenerEvent`, which carries a `url: string`).
+- Add the new `<intent-filter>` *inside* the existing `<activity android:name=".MainActivity" ...>` element in `AndroidManifest.xml`. Do not create a separate activity.
+- Remember that `<intent-filter>`'s `android:autoVerify` attribute, together with at least one `https`-scheme `<data>` element, is what makes this an *App Link* rather than just a deep link.
+- To compute the SHA-256 fingerprint of the debug keystore, use `keytool` (already on the PATH because the JDK is installed). The default debug keystore password is `android` and the default alias is `androiddebugkey`. The relevant Capacitor build uses the keystore at `$HOME/.android/debug.keystore`, which has already been created during the prebuilt warm-up Gradle build.
+- On the JavaScript side, the `@capacitor/app` plugin emits `appUrlOpen` with `{ url: string, ... }`. You can pass that `url` into `new URL(url)` to extract the `pathname` to feed your client-side router.
+- The Android SDK, JDK, and Gradle wrapper are pre-installed and pre-warmed. From `/home/user/myapp/android` you can compile with `./gradlew :app:assembleDebug --offline`.
+- You do not need to install any npm packages — `@capacitor/app` is already installed.
+
+## Acceptance Criteria
+- Project path: `/home/user/myapp`
+- The Android project at `/home/user/myapp/android` must build successfully via:
+  - `cd /home/user/myapp/android && ./gradlew :app:assembleDebug --offline`
+- `android/app/src/main/AndroidManifest.xml` must contain, *inside* the `<activity android:name=".MainActivity" ...>` element, an `<intent-filter>` that:
+  - Has `android:autoVerify="true"`.
+  - Declares `<action android:name="android.intent.action.VIEW" />`.
+  - Declares both `<category android:name="android.intent.category.DEFAULT" />` and `<category android:name="android.intent.category.BROWSABLE" />`.
+  - Declares a `<data ...>` entry that pins scheme `https` and host `myapp.example.com`, and that restricts the path to `/.well-known/` (via `android:pathPrefix="/.well-known"` or `android:pathPattern="/.well-known/.*"`).
+  - The original `MAIN` / `LAUNCHER` intent filter on `MainActivity` must still be present.
+- A file at `/home/user/myapp/.well-known/assetlinks.json` must exist and parse as a JSON array of one or more statement objects. At least one statement must declare:
+  - A `relation` array containing `"delegate_permission/common.handle_all_urls"`.
+  - A `target` object with `namespace == "android_app"`, `package_name == "com.example.myapp"`, and a `sha256_cert_fingerprints` array of non-empty strings, one of which equals the SHA-256 fingerprint of the certificate stored under alias `androiddebugkey` in `$HOME/.android/debug.keystore` (password `android`).
+- A TypeScript module must exist at `/home/user/myapp/src/deeplink.ts` and must:
+  - Import `App` from `@capacitor/app` (named import).
+  - Register a listener via `App.addListener('appUrlOpen', ...)` (single-quoted or double-quoted event name accepted).
+  - Inside the listener body, use `new URL(...)` to parse the incoming URL and call a route-changing browser API (one of `window.location.replace(...)`, `window.location.assign(...)`, `window.location.href = ...`, or `window.history.replaceState/pushState(...)`) with the parsed `pathname`.
+  - Export the registration function (named export OR default export — both are acceptable).
+- `package.json` `dependencies` must still contain `@capacitor/app`.
+
+
+EOF
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Trial android_https_scheme_hostname_co__SVyn3dN failed: Docker compose command failed for environment android_https_scheme_hostname_config. Command: docker compose --project-name android_https_scheme_hostname_co__svyn3dn --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/android_https_scheme_hostname_config/environment -f /tmp/tmppbxvb699/android_https_scheme_hostname_co__SVyn3dN-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpjo51kdh8/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 3.39kB done
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/ubuntu:24.04
+#2 DONE 0.0s
+
+#3 [main internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [main 1/7] FROM docker.io/library/ubuntu:24.04
+#4 DONE 0.0s
+
+#5 [main 2/7] RUN apt-get update -y &&     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends         curl wget ca-certificates git python3 python3-pip python3-pytest bash ripgrep         xz-utils gnupg &&     ln -s /usr/bin/python3 /usr/bin/python &&     curl -fsSL https://deb.nodesource.com/setup_22.x | bash - &&     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends nodejs &&     pip3 install --break-system-packages pytest-json-ctrf &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [main 5/7] RUN cd /home/user/myapp &&     cat >capacitor.config.ts <<'EOF'
+#6 CACHED
+
+#7 [main 3/7] RUN mkdir -p /home/user && chmod 0755 /home/user
+#7 CACHED
+
+#8 [main 4/7] RUN mkdir -p /home/user/myapp/dist &&     cd /home/user/myapp &&     cat >package.json <<'EOF'
+#8 CACHED
+
+#9 [main 6/7] RUN cd /home/user/myapp/dist &&     cat >index.html <<'EOF'
+#9 CACHED
+
+#10 [main 7/7] RUN cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android
+#10 6.945 
+#10 6.945 added 92 packages in 6s
+#10 6.947 npm notice
+#10 6.947 npm notice New major version of npm available! 10.9.8 -> 11.17.0
+#10 6.947 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.17.0
+#10 6.947 npm notice To update run: npm install -g npm@11.17.0
+#10 6.947 npm notice
+#10 7.839 [error] Could not find installation of TypeScript.
+#10 7.839         To use capacitor.config.ts files, you must install TypeScript in your project, e.g. w/ npm install -D typescript
+#10 ERROR: process "/bin/sh -c cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android" did not complete successfully: exit code: 1
+------
+ > [main 7/7] RUN cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android:
+6.945 
+6.945 added 92 packages in 6s
+6.947 npm notice
+6.947 npm notice New major version of npm available! 10.9.8 -> 11.17.0
+6.947 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.17.0
+6.947 npm notice To update run: npm install -g npm@11.17.0
+6.947 npm notice
+7.839 [error] Could not find installation of TypeScript.
+7.839         To use capacitor.config.ts files, you must install TypeScript in your project, e.g. w/ npm install -D typescript
+------
+failed to solve: process "/bin/sh -c cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android" did not complete successfully: exit code: 1
+. Stderr: None. 
+Failed to download artifact '/home/user' (best-effort)
+Traceback (most recent call last):
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 160, in run
+    await self._prepare()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 187, in _prepare
+    await self._setup_agent_environment()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 612, in _setup_agent_environment
+    await self._start_agent_environment()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 618, in _start_agent_environment
+    await asyncio.wait_for(
+    ...<4 lines>...
+    )
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 517, in start
+    await self._run_docker_compose_command(["build"])
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 418, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment android_https_scheme_hostname_config. Command: docker compose --project-name android_https_scheme_hostname_co__svyn3dn --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/android_https_scheme_hostname_config/environment -f /tmp/tmppbxvb699/android_https_scheme_hostname_co__SVyn3dN-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpjo51kdh8/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 3.39kB done
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/ubuntu:24.04
+#2 DONE 0.0s
+
+#3 [main internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [main 1/7] FROM docker.io/library/ubuntu:24.04
+#4 DONE 0.0s
+
+#5 [main 2/7] RUN apt-get update -y &&     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends         curl wget ca-certificates git python3 python3-pip python3-pytest bash ripgrep         xz-utils gnupg &&     ln -s /usr/bin/python3 /usr/bin/python &&     curl -fsSL https://deb.nodesource.com/setup_22.x | bash - &&     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends nodejs &&     pip3 install --break-system-packages pytest-json-ctrf &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [main 5/7] RUN cd /home/user/myapp &&     cat >capacitor.config.ts <<'EOF'
+#6 CACHED
+
+#7 [main 3/7] RUN mkdir -p /home/user && chmod 0755 /home/user
+#7 CACHED
+
+#8 [main 4/7] RUN mkdir -p /home/user/myapp/dist &&     cd /home/user/myapp &&     cat >package.json <<'EOF'
+#8 CACHED
+
+#9 [main 6/7] RUN cd /home/user/myapp/dist &&     cat >index.html <<'EOF'
+#9 CACHED
+
+#10 [main 7/7] RUN cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android
+#10 6.945 
+#10 6.945 added 92 packages in 6s
+#10 6.947 npm notice
+#10 6.947 npm notice New major version of npm available! 10.9.8 -> 11.17.0
+#10 6.947 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.17.0
+#10 6.947 npm notice To update run: npm install -g npm@11.17.0
+#10 6.947 npm notice
+#10 7.839 [error] Could not find installation of TypeScript.
+#10 7.839         To use capacitor.config.ts files, you must install TypeScript in your project, e.g. w/ npm install -D typescript
+#10 ERROR: process "/bin/sh -c cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android" did not complete successfully: exit code: 1
+------
+ > [main 7/7] RUN cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android:
+6.945 
+6.945 added 92 packages in 6s
+6.947 npm notice
+6.947 npm notice New major version of npm available! 10.9.8 -> 11.17.0
+6.947 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.17.0
+6.947 npm notice To update run: npm install -g npm@11.17.0
+6.947 npm notice
+7.839 [error] Could not find installation of TypeScript.
+7.839         To use capacitor.config.ts files, you must install TypeScript in your project, e.g. w/ npm install -D typescript
+------
+failed to solve: process "/bin/sh -c cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android" did not complete successfully: exit code: 1
+. Stderr: None. 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/artifact_handler.py", line 195, in _download_artifact
+    await source_env.download_file(
+    ...<2 lines>...
+    )
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 609, in download_file
+    await self._platform.download_file(source_path, target_path)
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker_unix.py", line 48, in download_file
+    await self._env._run_docker_compose_command(
+    ...<2 lines>...
+    )
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 418, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment android_https_scheme_hostname_config. Command: docker compose --project-name android_https_scheme_hostname_co__svyn3dn --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/android_https_scheme_hostname_config/environment -f /tmp/tmppbxvb699/android_https_scheme_hostname_co__SVyn3dN-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpjo51kdh8/docker-compose-mounts.json cp main:/home/user jobs/2026-06-16__14-51-33/android_https_scheme_hostname_co__SVyn3dN/artifacts/user. Return code: 1. Stdout: no container found for service "main"
+. Stderr: None. 
+Not retrying trial because the maximum number of retries has been reached
+Skipping image OS validation for hb__status_bar_navigation_bar_theme_bridge: docker inspect returned 1
+Exception AgentTimeoutError is in exclude_exceptions, not retrying
+Not retrying trial because the exception is not in include_exceptions or the maximum number of retries has been reached
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-8gjhdj5 > /logs/artifacts/run-id && echo status_bar_navigation_bar_theme__8gjhDJ5 > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model deepseek/deepseek-4-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Multi-Plugin Theming Bridge: Status Bar + Custom Android Navigation Bar
+
+## Background
+You are working on a Capacitor v8 hybrid mobile application located at `/home/user/myapp`. The project already has the `android` platform scaffolded at `/home/user/myapp/android` and a minimal web frontend in `/home/user/myapp/dist`. The native packages `@capacitor/status-bar` and `@capacitor/app` are already installed under `node_modules`.
+
+The product team wants the web UI theme to stay in sync with the **native chrome** of the device. On Android, the status bar can be themed through the official `@capacitor/status-bar` plugin, but the **navigation bar** (the bottom bar holding the system back / home / overview buttons) is not exposed by any of the official Capacitor plugins. Your job is to build a small theming bridge with two layers:
+
+1. A reusable TypeScript module that wraps `@capacitor/status-bar` and a custom Android plugin behind a single `applyTheme('dark' | 'light')` entry point.
+2. A custom local Capacitor plugin written in Java (`NavBarPlugin`) that lets the JavaScript layer drive the Android Activity's navigation bar color through `Window.setNavigationBarColor(...)`.
+
+The complete Android project must continue to compile cleanly through the Gradle wrapper.
+
+## Requirements
+- Implement a custom local Android Capacitor plugin written in Java inside the existing Android project (do **not** create a separate Capacitor plugin npm package).
+- The plugin must be exposed to JavaScript under the exact name `NavBar`.
+- The plugin must declare a single method that is reachable from JavaScript:
+  - `setColor(options)` — accepts a `color` string in `#RRGGBB` hex form and updates the hosting `Activity`'s window navigation bar color, then resolves the call.
+- Register the plugin in the existing `MainActivity` so that it is loaded by the Capacitor bridge at startup.
+- Provide a TypeScript module at `/home/user/myapp/src/theme.ts` that:
+  - Imports `StatusBar` and `Style` from `@capacitor/status-bar`.
+  - Imports `App` from `@capacitor/app` and calls `App.getInfo()` plus `StatusBar.getInfo()` (the result may be logged or used internally — its purpose is to demonstrate platform detection before issuing the theme commands).
+  - Registers the custom `NavBar` plugin via `registerPlugin` from `@capacitor/core` under the exact string literal `"NavBar"`.
+  - Exports a named async function `applyTheme(mode: 'dark' | 'light')` that updates both the status bar (via `setStyle` and `setBackgroundColor`) and the Android navigation bar (via the custom plugin) consistently with the requested mode.
+- The complete Android project must compile successfully with the Gradle wrapper.
+
+## Implementation Hints
+- Refer to the official Capacitor v8 documentation for [Status Bar](https://capacitorjs.com/docs/apis/status-bar) and [Custom Native Android Code](https://capacitorjs.com/docs/android/custom-code).
+- The Java plugin class must extend `com.getcapacitor.Plugin` and be annotated with `@CapacitorPlugin(name = "NavBar")`. The exposed method must be annotated with `@PluginMethod`.
+- Use `PluginCall.getString("color")` to read the input color and `call.resolve(...)` (or `call.reject(...)` on bad input) for the result.
+- To change the navigation bar color you need an `int` color value. `android.graphics.Color.parseColor(String)` accepts a `#RRGGBB` string. The window method `setNavigationBarColor(int)` lives on the `Activity`'s `Window` (i.e. `getActivity().getWindow().setNavigationBarColor(...)`).
+- Window operations affect the UI; wrap the call in `getActivity().runOnUiThread(...)` so it is dispatched on the main thread.
+- The plugin's Java package must match the application package (`com.example.myapp`); place the source under `android/app/src/main/java/com/example/myapp/` so the existing Gradle source set picks it up.
+- Register the plugin with `registerPlugin(NavBarPlugin.class)` inside `MainActivity.onCreate(Bundle savedInstanceState)` before the call to `super.onCreate(savedInstanceState)`.
+- For the TypeScript side, the `Style` enum exposes `Style.Dark` (light text for dark backgrounds) and `Style.Light` (dark text for light backgrounds). Pair each mode with a sensible hex background color for both the status bar (`StatusBar.setBackgroundColor`) and the navigation bar (`NavBar.setColor`).
+- The web frontend already has `@capacitor/core`, `@capacitor/status-bar`, and `@capacitor/app` installed under `node_modules`; you do not need to install additional packages.
+- The Android SDK, JDK, and the Gradle wrapper are pre-installed and pre-warmed inside the project; running `./gradlew` from `/home/user/myapp/android` will compile the project. Use the `--offline` flag whenever possible to avoid re-downloading dependencies.
+
+## Acceptance Criteria
+- Project path: `/home/user/myapp`
+- The Android project at `/home/user/myapp/android` must build successfully via:
+  - `cd /home/user/myapp/android && ./gradlew :app:assembleDebug --offline`
+- A Java source file implementing the plugin must exist at:
+  - `/home/user/myapp/android/app/src/main/java/com/example/myapp/NavBarPlugin.java`
+  - It must declare `package com.example.myapp;`.
+  - It must import `com.getcapacitor.Plugin`, `com.getcapacitor.PluginCall`, `com.getcapacitor.PluginMethod`, and `com.getcapacitor.annotation.CapacitorPlugin`.
+  - It must annotate the plugin class with `@CapacitorPlugin(name = "NavBar")`.
+  - It must declare a class named `NavBarPlugin` that `extends Plugin`.
+  - It must declare a single `@PluginMethod`-annotated method (with or without parentheses) named `setColor` that takes a `PluginCall` argument, reads the `color` string with `call.getString("color")`, calls `setNavigationBarColor(...)` on the hosting `Activity`'s `Window`, and resolves the call with `call.resolve(...)`.
+- `MainActivity` at `/home/user/myapp/android/app/src/main/java/com/example/myapp/MainActivity.java` must contain a `registerPlugin(NavBarPlugin.class)` call inside `onCreate(Bundle savedInstanceState)`.
+- A TypeScript module must exist at `/home/user/myapp/src/theme.ts` that:
+  - Imports `StatusBar` and `Style` from `'@capacitor/status-bar'`.
+  - Imports `App` from `'@capacitor/app'` and references both `App.getInfo` and `StatusBar.getInfo` from within the module.
+  - Imports `registerPlugin` from `'@capacitor/core'` and registers a plugin with the exact string literal `"NavBar"` (single or double quotes acceptable).
+  - Exports a named async function `applyTheme` that accepts a mode argument and references `Style.Dark`, `Style.Light`, `StatusBar.setStyle`, `StatusBar.setBackgroundColor`, and the custom `setColor` method of the registered `NavBar` plugin.
+- The compiled debug APK produced at `/home/user/myapp/android/app/build/outputs/apk/debug/app-debug.apk` must contain the `NavBarPlugin` class in its DEX (verifiable by listing classes inside the APK).
+
+
+EOF
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured

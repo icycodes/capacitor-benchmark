@@ -1,0 +1,85 @@
+- Initializing MCP connections...
+You
+# Migrate from `cordova-plugin-device` to `@capacitor/device` ## Background A hybrid mobile project located at `/home/user/myproject` currently uses the legacy `cordova-plugin-device` plugin (loaded via `cordova.js`) to obtain device metadata. Capacitor is already installed in the project, but the device reader still depends on the old Cordova plugin and the global `window.device` object. Your job is to migrate the project so that all device information is sourced from the official `@capacitor/device` plugin instead. ## Requirements * Uninstall the Cordova device plugin from the project's npm dependencies (it must be removed from `package.json` / `package-lock.json` and from `node_modules`). * Install the official `@capacitor/device` plugin and register it inside the Capacitor configuration so it is discoverable by `npx cap sync`. * Remove every reference to `cordova.js` from `www/index.html` (the `<script src="cordova.js"></script>` tag must no longer exist). * Remove every usage of the deprecated `window.device` global from the project source code (e.g. `www/js/device-info.js`). Nothing in the migrated source files may still reference `window.device` or `cordova.plugins.device`. * Rewrite the device-info reader so that it uses the `@capacitor/device` plugin API, calling `Device.getInfo()`, `Device.getId()`, and `Device.getBatteryInfo()` via `async`/`await`. * Expose the migrated reader as a Node-callable script that, when executed, prints a single JSON object on stdout combining the three API responses. * Run `npx cap sync` after the migration and capture its output so the verifier can confirm the sync step completed successfully. ## Implementation Hints * Look at the existing Cordova-based reader to understand which fields it exposes (uuid, model, platform, version, manufacturer, battery level, charging state) and map them to the modern Capacitor Device API equivalents. * The `@capacitor/device` web implementation reads from `navigator`, so the Node command-line wrapper must set up a minimal `navigator`/`window` shim before importing the plugin so it can execute outside a real browser. * Capacitor configuration lives in `capacitor.config.json` at the project root. Adjust it as needed (for example, remove obsolete Cordova-only preferences and make sure the project still validates) so that `npx cap sync` exits with code 0. * The verifier will read both static project files and the recorded `npx cap sync` log, then re-run the migrated reader script. Make sure the script is idempotent and produces deterministic JSON keys. ## Acceptance Criteria * Project path: `/home/user/myproject` * Ensure the migration is actually performed and the artifacts below exist. * Log file: `/home/user/myproject/sync.log` — must contain the full stdout/stderr of a successful `npx cap sync` run (the file must include the literal substring `sync finished` somewhere in its contents). * `package.json` must NOT contain `cordova-plugin-device` in either `dependencies` or `devDependencies`, and must contain `@capacitor/device` in `dependencies`. * `node_modules/@capacitor/device` must exist and `node_modules/cordova-plugin-device` must NOT exist after migration. * `www/index.html` must NOT contain the substring `cordova.js`. * No file under `www/` may contain the substrings `window.device` or `cordova.plugins.device` (search is case-sensitive). * The migrated reader module must be invokable as `node /home/user/myproject/scripts/device-report.mjs` (or the equivalent CommonJS `.js`). When invoked, it must print exactly one line of JSON to stdout that, when parsed, satisfies the following shape: ```json { "info": { "platform": string, "operatingSystem": string, "osVersion": string, "manufacturer": string, "model": string, "isVirtual": boolean, "webViewVersion": string }, "id": { "identifier": string }, "battery": { "batteryLevel": number, "isCharging": boolean } } ``` All listed fields must be present (the `info.platform` value will be `"web"` when running under Node). * The reader source must import the `Device` symbol from `@capacitor/device` (verifier searches for the literal `from '@capacitor/device'` or `require('@capacitor/device')`) and must call all three of `Device.getInfo`, `Device.getId`, and `Device.getBatteryInfo`. * `npx cap sync` must exit with status 0 when re-run by the verifier inside the project directory.   
+
+Pochi
+💭 Thinking for 598 characters   
+💫 Executing cd /home/user/myproject && ls -la ✔ 
+💭 Thinking for 232 characters   
+💫 Executing cd /home/user/myproject && cat package.json && cat capacitor.config.json && ls -la www && ls -la www/js ✔ 
+💭 Thinking for 203 characters   
+💫 Executing cd /home/user/myproject && cat www/index.html && echo "---" && cat www/js/device-info.js ✔ 
+💫 Executing cd /home/user/myproject && npm uninstall cordova-plugin-device && npm install @capacitor/device ✔ 
+💭 Thinking for 308 characters   
+✏️  Writing /home/user/myproject/capacitor.config.json ✖ "File has not been read yet. Please read the file before writing it."
+💭 Thinking for 278 characters   
+📖 Reading /home/user/myproject/capacitor.config.json ✔ 
+💭 Thinking for 269 characters   
+✏️  Writing /home/user/myproject/capacitor.config.json ✔ 
+📖 Reading /home/user/myproject/www/index.html ✔ 
+💭 Thinking for 226 characters   
+🔧 Applying diff to /home/user/myproject/www/index.html ✔ 
+💭 Thinking for 1391 characters   
+📖 Reading /home/user/myproject/www/js/device-info.js ✔ 
+💭 Thinking for 290 characters   
+💫 Executing mkdir -p /home/user/myproject/scripts ✔ 
+💭 Thinking for 333 characters   
+✏️  Writing /home/user/myproject/scripts/device-report.mjs ✔ 
+💫 Executing cd /home/user/myproject && node scripts/device-report.mjs ✖ "Command exited with code 1"
+💭 Thinking for 281 characters   
+✏️  Writing /home/user/myproject/scripts/device-report.mjs ✔ 
+💭 Thinking for 234 characters   
+💫 Executing cd /home/user/myproject && node scripts/device-report.mjs ✖ "Command exited with code 1"
+💫 Executing cat /home/user/myproject/node_modules/@capacitor/device/dist/plugin.cjs.js ✔ 
+💭 Thinking for 275 characters   
+✏️  Writing /home/user/myproject/scripts/device-report.mjs ✔ 
+💫 Executing cd /home/user/myproject && node scripts/device-report.mjs ✖ "Command exited with code 1"
+💭 Thinking for 289 characters   
+💫 Executing node -e "console.log(navigator.userAgent)" ✔ 
+💭 Thinking for 173 characters   
+✏️  Writing /home/user/myproject/scripts/device-report.mjs ✔ 
+💭 Thinking for 208 characters   
+💫 Executing cd /home/user/myproject && node scripts/device-report.mjs ✔ 
+💭 Thinking for 264 characters   
+✏️  Writing /home/user/myproject/scripts/device-report.mjs ✔ 
+💫 Executing cd /home/user/myproject && node scripts/device-report.mjs ✔ 
+💭 Thinking for 805 characters   
+✏️  Writing /home/user/myproject/scripts/device-report.mjs ✔ 
+💫 Executing cd /home/user/myproject && node scripts/device-report.mjs ✔ 
+💭 Thinking for 1644 characters   
+✏️  Writing /home/user/myproject/www/js/device-info.js ✔ 
+💭 Thinking for 542 characters   
+💫 Executing cd /home/user/myproject && npx cap sync > sync.log 2>&1 ✔ 
+💫 Executing cat /home/user/myproject/sync.log ✔ 
+💭 Thinking for 418 characters   
+💫 Executing cd /home/user/myproject && node scripts/device-report.mjs ✔ 
+💭 Thinking for 249 characters   
+💫 Executing cat /home/user/myproject/www/js/device-info.js ✔ 
+💭 Thinking for 609 characters   
+💫 Executing grep -r "window.device" /home/user/myproject/www ✖ "Command exited with code 1"
+💫 Executing grep -r "cordova.plugins.device" /home/user/myproject/www ✖ "Command exited with code 1"
+💭 Thinking for 244 characters   
+💫 Executing grep -r "cordova.js" /home/user/myproject/www ✖ "Command exited with code 1"
+💫 Executing grep "cordova-plugin-device" /home/user/myproject/package.json ✔ 
+💭 Thinking for 601 characters   
+🔧 Applying diff to /home/user/myproject/package.json ✖ "File has not been read yet. Please read the file before editing it."
+📖 Reading /home/user/myproject/package.json ✔ 
+💭 Thinking for 226 characters   
+🔧 Applying diff to /home/user/myproject/package.json ✔ 
+💫 Executing cat /home/user/myproject/scripts/device-report.mjs ✔ 
+💭 Thinking for 327 characters   
+💫 Executing ls -la /home/user/myproject/node_modules/cordova-plugin-device ✖ "Command exited with code 2"
+💫 Executing ls -la /home/user/myproject/node_modules/@capacitor/device ✔ 
+💭 Thinking for 158 characters   
+🎉 Task Completed
+The migration from `cordova-plugin-device` to `@capacitor/device` has been successfully completed. 
+
+Here are the changes made:
+1. **Uninstalled Legacy Plugin**: Removed `cordova-plugin-device` from `package.json` dependencies and `node_modules`.
+2. **Installed Modern Plugin**: Installed `@capacitor/device` using npm and updated `package.json` and `node_modules` accordingly.
+3. **Cleaned Up Capacitor Config**: Removed the obsolete `cordova.preferences` section from `capacitor.config.json`.
+4. **Removed Legacy Bridge**: Removed the `<script src="cordova.js"></script>` reference from `www/index.html`.
+5. **Cleaned Legacy Code**: Removed deprecated `window.device` references from `www/js/device-info.js` and rewrote it to securely use the `Capacitor` global plugin object instead.
+6. **Created Node Reader**: Created the Node-callable script `/home/user/myproject/scripts/device-report.mjs` which mocks a minimal `window`/`navigator` environment suitable for Capacitor's web implementation, imports `Device` from `@capacitor/device`, asynchronously fetches data using `Device.getInfo()`, `Device.getId()`, and `Device.getBatteryInfo()`, and prints exactly one line of JSON on stdout.
+7. **Synced Capacitor**: Ran `npx cap sync` to propagate the newly installed plugin out to the native Android project, and captured the successful output in `sync.log`.   
+  

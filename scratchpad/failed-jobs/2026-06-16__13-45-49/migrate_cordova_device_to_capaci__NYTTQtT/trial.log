@@ -1,0 +1,89 @@
+Skipping image OS validation for hb__migrate_cordova_device_to_capacitor: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-nyttqtt > /logs/artifacts/run-id && echo migrate_cordova_device_to_capaci__NYTTQtT > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model google/gemini-3.5-flash --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Migrate from `cordova-plugin-device` to `@capacitor/device`
+
+## Background
+A hybrid mobile project located at `/home/user/myproject` currently uses the legacy `cordova-plugin-device` plugin (loaded via `cordova.js`) to obtain device metadata. Capacitor is already installed in the project, but the device reader still depends on the old Cordova plugin and the global `window.device` object. Your job is to migrate the project so that all device information is sourced from the official `@capacitor/device` plugin instead.
+
+## Requirements
+- Uninstall the Cordova device plugin from the project's npm dependencies (it must be removed from `package.json` / `package-lock.json` and from `node_modules`).
+- Install the official `@capacitor/device` plugin and register it inside the Capacitor configuration so it is discoverable by `npx cap sync`.
+- Remove every reference to `cordova.js` from `www/index.html` (the `<script src="cordova.js"></script>` tag must no longer exist).
+- Remove every usage of the deprecated `window.device` global from the project source code (e.g. `www/js/device-info.js`). Nothing in the migrated source files may still reference `window.device` or `cordova.plugins.device`.
+- Rewrite the device-info reader so that it uses the `@capacitor/device` plugin API, calling `Device.getInfo()`, `Device.getId()`, and `Device.getBatteryInfo()` via `async`/`await`.
+- Expose the migrated reader as a Node-callable script that, when executed, prints a single JSON object on stdout combining the three API responses.
+- Run `npx cap sync` after the migration and capture its output so the verifier can confirm the sync step completed successfully.
+
+## Implementation Hints
+- Look at the existing Cordova-based reader to understand which fields it exposes (uuid, model, platform, version, manufacturer, battery level, charging state) and map them to the modern Capacitor Device API equivalents.
+- The `@capacitor/device` web implementation reads from `navigator`, so the Node command-line wrapper must set up a minimal `navigator`/`window` shim before importing the plugin so it can execute outside a real browser.
+- Capacitor configuration lives in `capacitor.config.json` at the project root. Adjust it as needed (for example, remove obsolete Cordova-only preferences and make sure the project still validates) so that `npx cap sync` exits with code 0.
+- The verifier will read both static project files and the recorded `npx cap sync` log, then re-run the migrated reader script. Make sure the script is idempotent and produces deterministic JSON keys.
+
+## Acceptance Criteria
+- Project path: `/home/user/myproject`
+- Ensure the migration is actually performed and the artifacts below exist.
+- Log file: `/home/user/myproject/sync.log` — must contain the full stdout/stderr of a successful `npx cap sync` run (the file must include the literal substring `sync finished` somewhere in its contents).
+- `package.json` must NOT contain `cordova-plugin-device` in either `dependencies` or `devDependencies`, and must contain `@capacitor/device` in `dependencies`.
+- `node_modules/@capacitor/device` must exist and `node_modules/cordova-plugin-device` must NOT exist after migration.
+- `www/index.html` must NOT contain the substring `cordova.js`.
+- No file under `www/` may contain the substrings `window.device` or `cordova.plugins.device` (search is case-sensitive).
+- The migrated reader module must be invokable as `node /home/user/myproject/scripts/device-report.mjs` (or the equivalent CommonJS `.js`). When invoked, it must print exactly one line of JSON to stdout that, when parsed, satisfies the following shape:
+  ```json
+  {
+    "info": { "platform": string, "operatingSystem": string, "osVersion": string, "manufacturer": string, "model": string, "isVirtual": boolean, "webViewVersion": string },
+    "id": { "identifier": string },
+    "battery": { "batteryLevel": number, "isCharging": boolean }
+  }
+  ```
+  All listed fields must be present (the `info.platform` value will be `"web"` when running under Node).
+- The reader source must import the `Device` symbol from `@capacitor/device` (verifier searches for the literal `from '@capacitor/device'` or `require('@capacitor/device')`) and must call all three of `Device.getInfo`, `Device.getId`, and `Device.getBatteryInfo`.
+- `npx cap sync` must exit with status 0 when re-run by the verifier inside the project directory.
+
+
+EOF
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured

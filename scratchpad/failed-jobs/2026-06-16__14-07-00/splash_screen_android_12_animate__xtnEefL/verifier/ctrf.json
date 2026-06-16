@@ -1,0 +1,86 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T14:16:31.157743+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 5,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781619391078,
+            "stop": 1781619391157
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_splash_screen_dependency_declared_in_package_json",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781619391123,
+                "stop": 1781619391125,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_splash_screen_plugin_installed_in_node_modules",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781619391125,
+                "stop": 1781619391126,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_config_plugin_section",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781619391127,
+                "stop": 1781619391128,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_android_styles_has_splash_attributes",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781619391128,
+                "stop": 1781619391129,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_splash_icon_drawable_is_valid_vector",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781619391130,
+                "stop": 1781619391131,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_javascript_hides_splash_after_first_frame",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 25,
+                "start": 1781619391132,
+                "stop": 1781619391157,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_javascript_hides_splash_after_first_frame():\n        sources = _collect_source_files()\n        assert sources, (\n            \"No JavaScript/TypeScript source files were found under the project's web \"\n            \"directory; the executor must wire SplashScreen.hide() into the app.\"\n        )\n    \n        matching_file = None\n        raf_ok = False\n        bad_top_level_call = False\n    \n        for path in sources:\n            with open(path, \"r\", encoding=\"utf-8\", errors=\"ignore\") as f:\n                raw = f.read()\n            clean = _strip_comments(raw)\n            if not _IMPORT_RE.search(clean):\n                continue\n            matching_file = path\n            if _RAF_HIDE_RE.search(clean):\n                raf_ok = True\n            # Detect top-level / non-wrapped hide() calls: occurrences of\n            # SplashScreen.hide( that are not preceded by requestAnimationFrame in the\n            # nearest surrounding code segment.\n            for match in re.finditer(r\"SplashScreen\\.hide\\s*\\(\", clean):\n                start = match.start()\n                preceding = clean[max(0, start - 400):start]\n                if \"requestAnimationFrame\" not in preceding:\n                    bad_top_level_call = True\n            break\n    \n        assert matching_file is not None, (\n            \"No source file imports `SplashScreen` from '@capacitor/splash-screen'.\"\n        )\n>       assert raf_ok, (\n            f\"{matching_file} must call SplashScreen.hide() inside a requestAnimationFrame \"\n            \"callback so the splash is dismissed only after the first frame is painted.\"\n        )\nE       AssertionError: /home/user/myproject/src/main.ts must call SplashScreen.hide() inside a requestAnimationFrame callback so the splash is dismissed only after the first frame is painted.\nE       assert False\n\n/tests/test_final_state.py:233: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

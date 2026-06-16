@@ -1,0 +1,107 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T15:02:36.857917+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 8,
+            "passed": 6,
+            "failed": 2,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781622154713,
+            "stop": 1781622156857
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_properties_loaded_at_top_of_build_gradle",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781622154747,
+                "stop": 1781622154749,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_signing_configs_release_block_exists",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781622154750,
+                "stop": 1781622154751,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_release_build_type_uses_signing_config",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781622154752,
+                "stop": 1781622154753,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_keystore_properties_example_exists_with_all_keys",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781622154753,
+                "stop": 1781622154754,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_real_keystore_properties_absent",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781622154755,
+                "stop": 1781622154756,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_gitignore_ignores_keystore_properties",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 22,
+                "start": 1781622154756,
+                "stop": 1781622154778,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_gitignore_ignores_keystore_properties():\n        # Create an empty placeholder so git check-ignore can resolve the path.\n        created = False\n        try:\n            if not os.path.exists(KEYSTORE_PROPERTIES):\n                with open(KEYSTORE_PROPERTIES, \"w\") as f:\n                    f.write(\"\")\n                created = True\n            result = subprocess.run(\n                [\"git\", \"check-ignore\", \"-q\", \"android/keystore.properties\"],\n                cwd=PROJECT_DIR,\n                capture_output=True,\n                text=True,\n            )\n>           assert result.returncode == 0, (\n                \"Expected `android/keystore.properties` to be matched by a \"\n                \".gitignore rule. `git check-ignore` returned \"\n                f\"exit={result.returncode}, stdout={result.stdout!r}, \"\n                f\"stderr={result.stderr!r}.\"\n            )\nE           AssertionError: Expected `android/keystore.properties` to be matched by a .gitignore rule. `git check-ignore` returned exit=128, stdout='', stderr=\"fatal: detected dubious ownership in repository at '/home/user/myproject'\\nTo add an exception for this directory, call:\\n\\n\\tgit config --global --add safe.directory /home/user/myproject\\n\".\nE           assert 128 == 0\nE            +  where 128 = CompletedProcess(args=['git', 'check-ignore', '-q', 'android/keystore.properties'], returncode=128, stdout='', stderr=...'\\nTo add an exception for this directory, call:\\n\\n\\tgit config --global --add safe.directory /home/user/myproject\\n\").returncode\n\ntests/test_final_state.py:178: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_gitignore_does_not_ignore_example_file",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 10,
+                "start": 1781622154778,
+                "stop": 1781622154788,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_gitignore_does_not_ignore_example_file():\n        result = subprocess.run(\n            [\"git\", \"check-ignore\", \"-q\", \"android/keystore.properties.example\"],\n            cwd=PROJECT_DIR,\n            capture_output=True,\n            text=True,\n        )\n>       assert result.returncode == 1, (\n            \"Expected `android/keystore.properties.example` to NOT be ignored by \"\n            \"git. `git check-ignore` returned \"\n            f\"exit={result.returncode}, stdout={result.stdout!r}, \"\n            f\"stderr={result.stderr!r}.\"\n        )\nE       AssertionError: Expected `android/keystore.properties.example` to NOT be ignored by git. `git check-ignore` returned exit=128, stdout='', stderr=\"fatal: detected dubious ownership in repository at '/home/user/myproject'\\nTo add an exception for this directory, call:\\n\\n\\tgit config --global --add safe.directory /home/user/myproject\\n\".\nE       assert 128 == 1\nE        +  where 128 = CompletedProcess(args=['git', 'check-ignore', '-q', 'android/keystore.properties.example'], returncode=128, stdout='',...'\\nTo add an exception for this directory, call:\\n\\n\\tgit config --global --add safe.directory /home/user/myproject\\n\").returncode\n\ntests/test_final_state.py:196: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_gradle_build_script_still_parses",
+                "status": "passed",
+                "duration": 2069,
+                "start": 1781622154788,
+                "stop": 1781622156857,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

@@ -1,0 +1,28 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 17 items
+
+tests/test_final_state.py .................                              [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_plutil_lint_passes
+PASSED tests/test_final_state.py::test_permission_key_present[NSCameraUsageDescription]
+PASSED tests/test_final_state.py::test_permission_key_present[NSMicrophoneUsageDescription]
+PASSED tests/test_final_state.py::test_permission_key_present[NSPhotoLibraryUsageDescription]
+PASSED tests/test_final_state.py::test_permission_key_present[NSPhotoLibraryAddUsageDescription]
+PASSED tests/test_final_state.py::test_permission_value_is_meaningful_string[NSCameraUsageDescription]
+PASSED tests/test_final_state.py::test_permission_value_is_meaningful_string[NSMicrophoneUsageDescription]
+PASSED tests/test_final_state.py::test_permission_value_is_meaningful_string[NSPhotoLibraryUsageDescription]
+PASSED tests/test_final_state.py::test_permission_value_is_meaningful_string[NSPhotoLibraryAddUsageDescription]
+PASSED tests/test_final_state.py::test_preserved_plist_string_keys[CFBundleIdentifier-$(PRODUCT_BUNDLE_IDENTIFIER)]
+PASSED tests/test_final_state.py::test_preserved_plist_string_keys[CFBundleName-$(PRODUCT_NAME)]
+PASSED tests/test_final_state.py::test_preserved_plist_string_keys[CFBundleDisplayName-MyApp]
+PASSED tests/test_final_state.py::test_preserved_plist_string_keys[UILaunchStoryboardName-LaunchScreen]
+PASSED tests/test_final_state.py::test_preserved_required_device_capabilities
+PASSED tests/test_final_state.py::test_preserved_supported_interface_orientations
+PASSED tests/test_final_state.py::test_capacitor_config_ios_content_inset_always
+PASSED tests/test_final_state.py::test_capacitor_config_preserves_original_fields
+============================== 17 passed in 0.65s ==============================

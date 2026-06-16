@@ -1,0 +1,61 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 6 items
+
+../../../tests/test_final_state.py .....F                                [100%]
+
+=================================== FAILURES ===================================
+________________ test_javascript_hides_splash_after_first_frame ________________
+
+    def test_javascript_hides_splash_after_first_frame():
+        sources = _collect_source_files()
+        assert sources, (
+            "No JavaScript/TypeScript source files were found under the project's web "
+            "directory; the executor must wire SplashScreen.hide() into the app."
+        )
+    
+        matching_file = None
+        raf_ok = False
+        bad_top_level_call = False
+    
+        for path in sources:
+            with open(path, "r", encoding="utf-8", errors="ignore") as f:
+                raw = f.read()
+            clean = _strip_comments(raw)
+            if not _IMPORT_RE.search(clean):
+                continue
+            matching_file = path
+            if _RAF_HIDE_RE.search(clean):
+                raf_ok = True
+            # Detect top-level / non-wrapped hide() calls: occurrences of
+            # SplashScreen.hide( that are not preceded by requestAnimationFrame in the
+            # nearest surrounding code segment.
+            for match in re.finditer(r"SplashScreen\.hide\s*\(", clean):
+                start = match.start()
+                preceding = clean[max(0, start - 400):start]
+                if "requestAnimationFrame" not in preceding:
+                    bad_top_level_call = True
+            break
+    
+        assert matching_file is not None, (
+            "No source file imports `SplashScreen` from '@capacitor/splash-screen'."
+        )
+>       assert raf_ok, (
+            f"{matching_file} must call SplashScreen.hide() inside a requestAnimationFrame "
+            "callback so the splash is dismissed only after the first frame is painted."
+        )
+E       AssertionError: /home/user/myproject/src/main.ts must call SplashScreen.hide() inside a requestAnimationFrame callback so the splash is dismissed only after the first frame is painted.
+E       assert False
+
+/tests/test_final_state.py:233: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../../../tests/test_final_state.py::test_splash_screen_dependency_declared_in_package_json
+PASSED ../../../tests/test_final_state.py::test_splash_screen_plugin_installed_in_node_modules
+PASSED ../../../tests/test_final_state.py::test_capacitor_config_plugin_section
+PASSED ../../../tests/test_final_state.py::test_android_styles_has_splash_attributes
+PASSED ../../../tests/test_final_state.py::test_splash_icon_drawable_is_valid_vector
+FAILED ../../../tests/test_final_state.py::test_javascript_hides_splash_after_first_frame
+========================= 1 failed, 5 passed in 0.08s ==========================

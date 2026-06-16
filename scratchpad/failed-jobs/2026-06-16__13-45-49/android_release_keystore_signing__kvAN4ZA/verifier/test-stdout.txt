@@ -1,0 +1,67 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 8 items
+
+tests/test_final_state.py .....FF.                                       [100%]
+
+=================================== FAILURES ===================================
+__________________ test_gitignore_ignores_keystore_properties __________________
+
+    def test_gitignore_ignores_keystore_properties():
+        # Create an empty placeholder so git check-ignore can resolve the path.
+        created = False
+        try:
+            if not os.path.exists(KEYSTORE_PROPERTIES):
+                with open(KEYSTORE_PROPERTIES, "w") as f:
+                    f.write("")
+                created = True
+            result = subprocess.run(
+                ["git", "check-ignore", "-q", "android/keystore.properties"],
+                cwd=PROJECT_DIR,
+                capture_output=True,
+                text=True,
+            )
+>           assert result.returncode == 0, (
+                "Expected `android/keystore.properties` to be matched by a "
+                ".gitignore rule. `git check-ignore` returned "
+                f"exit={result.returncode}, stdout={result.stdout!r}, "
+                f"stderr={result.stderr!r}."
+            )
+E           AssertionError: Expected `android/keystore.properties` to be matched by a .gitignore rule. `git check-ignore` returned exit=128, stdout='', stderr="fatal: detected dubious ownership in repository at '/home/user/myproject'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /home/user/myproject\n".
+E           assert 128 == 0
+E            +  where 128 = CompletedProcess(args=['git', 'check-ignore', '-q', 'android/keystore.properties'], returncode=128, stdout='', stderr=...'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /home/user/myproject\n").returncode
+
+tests/test_final_state.py:178: AssertionError
+_________________ test_gitignore_does_not_ignore_example_file __________________
+
+    def test_gitignore_does_not_ignore_example_file():
+        result = subprocess.run(
+            ["git", "check-ignore", "-q", "android/keystore.properties.example"],
+            cwd=PROJECT_DIR,
+            capture_output=True,
+            text=True,
+        )
+>       assert result.returncode == 1, (
+            "Expected `android/keystore.properties.example` to NOT be ignored by "
+            "git. `git check-ignore` returned "
+            f"exit={result.returncode}, stdout={result.stdout!r}, "
+            f"stderr={result.stderr!r}."
+        )
+E       AssertionError: Expected `android/keystore.properties.example` to NOT be ignored by git. `git check-ignore` returned exit=128, stdout='', stderr="fatal: detected dubious ownership in repository at '/home/user/myproject'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /home/user/myproject\n".
+E       assert 128 == 1
+E        +  where 128 = CompletedProcess(args=['git', 'check-ignore', '-q', 'android/keystore.properties.example'], returncode=128, stdout='',...'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /home/user/myproject\n").returncode
+
+tests/test_final_state.py:196: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_properties_loaded_at_top_of_build_gradle
+PASSED tests/test_final_state.py::test_signing_configs_release_block_exists
+PASSED tests/test_final_state.py::test_release_build_type_uses_signing_config
+PASSED tests/test_final_state.py::test_keystore_properties_example_exists_with_all_keys
+PASSED tests/test_final_state.py::test_real_keystore_properties_absent
+PASSED tests/test_final_state.py::test_gradle_build_script_still_parses
+FAILED tests/test_final_state.py::test_gitignore_ignores_keystore_properties
+FAILED tests/test_final_state.py::test_gitignore_does_not_ignore_example_file
+========================= 2 failed, 6 passed in 3.44s ==========================

@@ -1,0 +1,52 @@
+# Implement a Custom Local Capacitor Android `AmbientLight` Plugin
+
+## Background
+You are working on a Capacitor v8 hybrid mobile application located at `/home/user/myapp`. The project already has the `android` platform scaffolded at `/home/user/myapp/android` and a minimal web frontend in `/home/user/myapp/dist`. The product team wants to surface the device's ambient light sensor reading (in lux) inside the web UI. Since no official Capacitor plugin exposes the raw `TYPE_LIGHT` sensor, you must write a custom local Java plugin that bridges Android's `SensorManager` to JavaScript.
+
+Your job is to write a custom local Capacitor plugin (Java, inside the existing Android project) that reads the ambient light sensor, exposes a `getLightLevel` method to JavaScript, properly manages the sensor listener across the activity lifecycle, registers itself in `MainActivity`, and ships with a TypeScript wrapper so the project compiles cleanly through Gradle.
+
+## Requirements
+- Implement a custom local Android Capacitor plugin written in Java inside the existing Android project (do **not** create a separate Capacitor plugin npm package).
+- The plugin must be exposed to JavaScript under the exact name `AmbientLight`.
+- The plugin must declare a single method that is reachable from JavaScript:
+  - `getLightLevel()` — takes no input arguments and resolves with a `JSObject` containing the latest light sensor reading under the key `value` (lux as a floating-point number).
+- The plugin must use Android's `SensorManager` and obtain the default sensor of type `Sensor.TYPE_LIGHT`.
+- The plugin must implement `android.hardware.SensorEventListener` and update its cached lux value from `onSensorChanged(SensorEvent event)` using `event.values[0]`.
+- The sensor listener lifecycle must be tied to the host activity:
+  - Register the listener with `SensorManager.registerListener(...)` inside the plugin's `handleOnResume()` lifecycle hook.
+  - Unregister the listener with `SensorManager.unregisterListener(...)` inside the plugin's `handleOnPause()` lifecycle hook.
+  - Both lifecycle methods must be annotated with `@Override`.
+- Register the plugin in the existing `MainActivity` so that it is loaded by the Capacitor bridge at startup.
+- Provide a TypeScript binding file at `/home/user/myapp/src/ambient-light.ts` that uses `registerPlugin` from `@capacitor/core` to expose the plugin and exports the plugin object as the default export.
+- The complete Android project must compile successfully with the Gradle wrapper.
+
+## Implementation Hints
+- Refer to the official Capacitor v8 "Custom Native Android Code" and "Android Plugin Guide" pages. The plugin class must extend `com.getcapacitor.Plugin` and be annotated with `@CapacitorPlugin(name = "AmbientLight")`. The exposed method must be annotated with `@PluginMethod`.
+- Acquire `SensorManager` via `getContext().getSystemService(Context.SENSOR_SERVICE)` (the plugin base class provides `getContext()`).
+- The `Plugin` base class exposes lifecycle hooks such as `handleOnResume()`, `handleOnPause()`, `handleOnStart()`, `handleOnStop()`, and `load()` — override the lifecycle hooks needed to start/stop your `SensorEventListener`.
+- Cache the most recent lux reading in a field and read it back from `getLightLevel(PluginCall call)` using a `JSObject` and `call.resolve(...)`.
+- The plugin's Java package must match the application package (`com.example.myapp`); place the source under `android/app/src/main/java/com/example/myapp/` so the existing Gradle source set picks it up.
+- Register the plugin with `registerPlugin(AmbientLightPlugin.class)` inside `MainActivity.onCreate(Bundle savedInstanceState)` (before the call to `super.onCreate(savedInstanceState)`, as shown in the official guide).
+- On the JavaScript side, the first argument to `registerPlugin` must match the `name` attribute of the `@CapacitorPlugin` annotation exactly (`"AmbientLight"`).
+- The web frontend already has `@capacitor/core` installed as an npm dependency; you do not need to install additional packages.
+- The Android SDK, JDK, and the Gradle wrapper are pre-installed and pre-warmed inside the project; running `./gradlew` from `/home/user/myapp/android` will compile the project. Use the `--offline` flag whenever possible to avoid re-downloading dependencies.
+
+## Acceptance Criteria
+- Project path: `/home/user/myapp`
+- The Android project at `/home/user/myapp/android` must build successfully via:
+  - `cd /home/user/myapp/android && ./gradlew :app:assembleDebug --offline`
+- A Java source file implementing the plugin must exist at:
+  - `/home/user/myapp/android/app/src/main/java/com/example/myapp/AmbientLightPlugin.java`
+  - It must declare `package com.example.myapp;`.
+  - It must import (at minimum) `com.getcapacitor.Plugin`, `com.getcapacitor.PluginCall`, `com.getcapacitor.PluginMethod`, `com.getcapacitor.JSObject`, `com.getcapacitor.annotation.CapacitorPlugin`, `android.hardware.Sensor`, `android.hardware.SensorEvent`, `android.hardware.SensorEventListener`, and `android.hardware.SensorManager`.
+  - It must annotate the plugin class with `@CapacitorPlugin(name = "AmbientLight")`.
+  - It must declare a class named `AmbientLightPlugin` that `extends Plugin` and that implements `SensorEventListener`.
+  - It must declare a single `@PluginMethod`-annotated method (with or without parentheses) named `getLightLevel` that takes a `PluginCall` argument, puts the cached lux value into a `JSObject` under the key `"value"`, and calls `call.resolve(<that JSObject>)`.
+  - It must override `handleOnResume()` and register a sensor listener for `Sensor.TYPE_LIGHT` by calling `SensorManager.registerListener(...)`.
+  - It must override `handleOnPause()` and stop the sensor listener by calling `SensorManager.unregisterListener(...)`.
+  - Both lifecycle overrides must carry the `@Override` annotation.
+  - It must implement `onSensorChanged(SensorEvent event)` and read the lux value from `event.values[0]`.
+- `MainActivity` at `/home/user/myapp/android/app/src/main/java/com/example/myapp/MainActivity.java` must contain a `registerPlugin(AmbientLightPlugin.class)` call inside `onCreate(Bundle savedInstanceState)`.
+- A TypeScript binding file must exist at `/home/user/myapp/src/ambient-light.ts` that imports `registerPlugin` from `@capacitor/core`, registers a plugin under the exact string literal `"AmbientLight"`, and provides a default export.
+- The compiled debug APK produced at `/home/user/myapp/android/app/build/outputs/apk/debug/app-debug.apk` must contain the `AmbientLightPlugin` class in its DEX (verifiable by listing classes inside the APK).
+

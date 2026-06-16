@@ -1,0 +1,23 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 12 items
+
+tests/test_final_state.py ............                                   [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_manifest_still_has_main_launcher_filter
+PASSED tests/test_final_state.py::test_manifest_declares_app_link_intent_filter
+PASSED tests/test_final_state.py::test_assetlinks_json_exists_and_is_valid_json
+PASSED tests/test_final_state.py::test_assetlinks_json_has_qualifying_statement
+PASSED tests/test_final_state.py::test_assetlinks_json_fingerprint_matches_debug_keystore
+PASSED tests/test_final_state.py::test_deeplink_ts_imports_app_from_capacitor_app
+PASSED tests/test_final_state.py::test_deeplink_ts_registers_app_url_open_listener
+PASSED tests/test_final_state.py::test_deeplink_ts_parses_url
+PASSED tests/test_final_state.py::test_deeplink_ts_invokes_spa_routing_api
+PASSED tests/test_final_state.py::test_deeplink_ts_exports_registration_function
+PASSED tests/test_final_state.py::test_package_json_still_has_capacitor_app
+PASSED tests/test_final_state.py::test_gradle_build_succeeds_and_apk_exists
+============================== 12 passed in 3.94s ==============================

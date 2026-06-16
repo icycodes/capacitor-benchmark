@@ -1,0 +1,93 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: xprocess-1.0.2, json-ctrf-0.5.2
+collected 11 items
+
+tests/test_final_state.py ..........F                                    [100%]
+
+=================================== FAILURES ===================================
+________________________ test_offline_cache_end_to_end _________________________
+
+fixture_server = 'http://127.0.0.1:4174'
+preview_server = 'http://127.0.0.1:4173/'
+
+    def test_offline_cache_end_to_end(fixture_server, preview_server):
+        pytest.importorskip("playwright.sync_api")
+        from playwright.sync_api import sync_playwright
+    
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            try:
+                context = browser.new_context()
+                page = context.new_page()
+                page.goto(preview_server, wait_until="load")
+                page.wait_for_selector("#fetch-button", state="visible", timeout=10_000)
+                page.wait_for_selector(
+                    "#invalidate-button", state="visible", timeout=10_000
+                )
+                page.wait_for_selector("#url-input", state="visible", timeout=10_000)
+                page.wait_for_timeout(300)
+    
+                # --- Initial UI state -------------------------------------------------
+                assert _text(page, "#status") == "idle", (
+                    f"On first load, #status must contain the text 'idle'; got {_text(page, '#status')!r}."
+                )
+                for selector in ("#data", "#source", "#meta-etag", "#meta-fetched-at"):
+                    assert _text(page, selector) == "", (
+                        f"On first load, {selector} must be empty; got {_text(page, selector)!r}."
+                    )
+    
+                # --- First fetch (network) -------------------------------------------
+                _reset_stats()
+                stats0 = _stats()
+                etag_v1 = stats0["currentEtag"]
+                body_v1 = stats0["currentBody"]
+                assert isinstance(etag_v1, str) and etag_v1, (
+                    f"Fixture server must expose a non-empty currentEtag; got {etag_v1!r}."
+                )
+                body_v1_serialised = json.dumps(body_v1)
+    
+                _set_url_input(page, FIXTURE_DATA_URL)
+                page.click("#fetch-button")
+                _wait_for_status(page, "success")
+    
+                assert _text(page, "#source") == "network", (
+                    "First fetch must mark #source as 'network'; got "
+                    f"{_text(page, '#source')!r}."
+                )
+>               assert _text(page, "#data") == body_v1_serialised, (
+                    "First fetch must render the fixture body via JSON.stringify; got "
+                    f"{_text(page, '#data')!r}, expected {body_v1_serialised!r}."
+                )
+E               AssertionError: First fetch must render the fixture body via JSON.stringify; got '{"version":1,"message":"payload version 1","items":[{"id":1,"label":"item-1-1"},{"id":2,"label":"item-1-2"},{"id":3,"label":"item-1-3"}]}', expected '{"version": 1, "message": "payload version 1", "items": [{"id": 1, "label": "item-1-1"}, {"id": 2, "label": "item-1-2"}, {"id": 3, "label": "item-1-3"}]}'.
+E               assert '{"version":1..."item-1-3"}]}' == '{"version": ..."item-1-3"}]}'
+E                 - {"version": 1, "message": "payload version 1", "items": [{"id": 1, "label": "item-1-1"}, {"id": 2, "label": "item-1-2"}, {"id": 3, "label": "item-1-3"}]}
+E                 ?            -  -          -                    -        -       -  -        -            -      -  -        -            -      -  -        -
+E                 + {"version":1,"message":"payload version 1","items":[{"id":1,"label":"item-1-1"},{"id":2,"label":"item-1-2"},{"id":3,"label":"item-1-3"}]}
+
+tests/test_final_state.py:400: AssertionError
+==================================== PASSES ====================================
+___________________ test_index_served_with_required_elements ___________________
+---------------------------- Captured stdout setup -----------------------------
+/tests/.pytest_cache/d/.xprocess/vite_preview$ npm run preview -- --host 0.0.0.0 --port 4173 --strictPort
+process 'vite_preview' started pid=1149
+vite_preview process startup detected
+_________________________ test_fixture_server_responds _________________________
+---------------------------- Captured stdout setup -----------------------------
+/tests/.pytest_cache/d/.xprocess/etag_fixture$ node /opt/fixtures/etag_server.js --port 4174
+process 'etag_fixture' started pid=1173
+etag_fixture process startup detected
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_capacitor_config_values
+PASSED tests/test_final_state.py::test_capacitor_http_plugin_enabled
+PASSED tests/test_final_state.py::test_package_json_lists_capacitor_dependencies
+PASSED tests/test_final_state.py::test_offline_cache_module_uses_capacitor_apis
+PASSED tests/test_final_state.py::test_offline_cache_module_exports_required_functions
+PASSED tests/test_final_state.py::test_offline_cache_module_does_not_use_forbidden_http_clients
+PASSED tests/test_final_state.py::test_dist_index_html_exists
+PASSED tests/test_final_state.py::test_capacitor_sync_succeeds
+PASSED tests/test_final_state.py::test_index_served_with_required_elements
+PASSED tests/test_final_state.py::test_fixture_server_responds
+FAILED tests/test_final_state.py::test_offline_cache_end_to_end - AssertionEr...
+========================= 1 failed, 10 passed in 4.73s =========================

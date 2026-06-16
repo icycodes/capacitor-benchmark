@@ -1,0 +1,124 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 20 items
+
+tests/test_final_state.py ....FFFF............                           [100%]
+
+=================================== FAILURES ===================================
+_______________________ test_plugin_has_set_color_method _______________________
+
+plugin_source = {'path': '/home/user/myapp/android/app/src/main/java/com/example/myapp/NavBarPlugin.java', 'raw': 'package com.example...("Failed to set navigation bar color: " + e.getMessage());\n                }\n            }\n        });\n    }\n}\n'}
+
+    def test_plugin_has_set_color_method(plugin_source):
+        stripped = plugin_source["src"]
+        pattern = (
+            r"@PluginMethod(?:\s*\([^)]*\))?\s+"
+            r"public\s+void\s+setColor\s*\(\s*PluginCall\s+\w+\s*\)"
+        )
+>       assert re.search(pattern, stripped), (
+            "NavBarPlugin.java does not declare a @PluginMethod-annotated "
+            "`public void setColor(PluginCall ...)` method."
+        )
+E       AssertionError: NavBarPlugin.java does not declare a @PluginMethod-annotated `public void setColor(PluginCall ...)` method.
+E       assert None
+E        +  where None = <function search at 0x7f6a949bbba0>('@PluginMethod(?:\\s*\\([^)]*\\))?\\s+public\\s+void\\s+setColor\\s*\\(\\s*PluginCall\\s+\\w+\\s*\\)', 'package com.example.myapp;\n\nimport android.graphics.Color;\nimport com.getcapacitor.Plugin;\nimport com.getcapacito...t("Failed to set navigation bar color: " + e.getMessage());\n                }\n            }\n        });\n    }\n}\n')
+E        +    where <function search at 0x7f6a949bbba0> = re.search
+
+tests/test_final_state.py:95: AssertionError
+__________________ test_set_color_method_reads_color_argument __________________
+
+plugin_source = {'path': '/home/user/myapp/android/app/src/main/java/com/example/myapp/NavBarPlugin.java', 'raw': 'package com.example...("Failed to set navigation bar color: " + e.getMessage());\n                }\n            }\n        });\n    }\n}\n'}
+
+    def test_set_color_method_reads_color_argument(plugin_source):
+>       body = _extract_set_color_body(plugin_source["src"])
+
+tests/test_final_state.py:126: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+stripped = 'package com.example.myapp;\n\nimport android.graphics.Color;\nimport com.getcapacitor.Plugin;\nimport com.getcapacito...t("Failed to set navigation bar color: " + e.getMessage());\n                }\n            }\n        });\n    }\n}\n'
+
+    def _extract_set_color_body(stripped: str) -> str:
+        """Return the body of the `setColor` method, including the braces."""
+        m = re.search(
+            r"@PluginMethod(?:\s*\([^)]*\))?\s+"
+            r"public\s+void\s+setColor\s*\(\s*PluginCall\s+\w+\s*\)\s*\{",
+            stripped,
+        )
+>       assert m, "Could not locate the setColor() method signature."
+E       AssertionError: Could not locate the setColor() method signature.
+E       assert None
+
+tests/test_final_state.py:108: AssertionError
+____________ test_set_color_method_invokes_set_navigation_bar_color ____________
+
+plugin_source = {'path': '/home/user/myapp/android/app/src/main/java/com/example/myapp/NavBarPlugin.java', 'raw': 'package com.example...("Failed to set navigation bar color: " + e.getMessage());\n                }\n            }\n        });\n    }\n}\n'}
+
+    def test_set_color_method_invokes_set_navigation_bar_color(plugin_source):
+>       body = _extract_set_color_body(plugin_source["src"])
+
+tests/test_final_state.py:133: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+stripped = 'package com.example.myapp;\n\nimport android.graphics.Color;\nimport com.getcapacitor.Plugin;\nimport com.getcapacito...t("Failed to set navigation bar color: " + e.getMessage());\n                }\n            }\n        });\n    }\n}\n'
+
+    def _extract_set_color_body(stripped: str) -> str:
+        """Return the body of the `setColor` method, including the braces."""
+        m = re.search(
+            r"@PluginMethod(?:\s*\([^)]*\))?\s+"
+            r"public\s+void\s+setColor\s*\(\s*PluginCall\s+\w+\s*\)\s*\{",
+            stripped,
+        )
+>       assert m, "Could not locate the setColor() method signature."
+E       AssertionError: Could not locate the setColor() method signature.
+E       assert None
+
+tests/test_final_state.py:108: AssertionError
+_____________________ test_set_color_method_resolves_call ______________________
+
+plugin_source = {'path': '/home/user/myapp/android/app/src/main/java/com/example/myapp/NavBarPlugin.java', 'raw': 'package com.example...("Failed to set navigation bar color: " + e.getMessage());\n                }\n            }\n        });\n    }\n}\n'}
+
+    def test_set_color_method_resolves_call(plugin_source):
+>       body = _extract_set_color_body(plugin_source["src"])
+
+tests/test_final_state.py:140: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+stripped = 'package com.example.myapp;\n\nimport android.graphics.Color;\nimport com.getcapacitor.Plugin;\nimport com.getcapacito...t("Failed to set navigation bar color: " + e.getMessage());\n                }\n            }\n        });\n    }\n}\n'
+
+    def _extract_set_color_body(stripped: str) -> str:
+        """Return the body of the `setColor` method, including the braces."""
+        m = re.search(
+            r"@PluginMethod(?:\s*\([^)]*\))?\s+"
+            r"public\s+void\s+setColor\s*\(\s*PluginCall\s+\w+\s*\)\s*\{",
+            stripped,
+        )
+>       assert m, "Could not locate the setColor() method signature."
+E       AssertionError: Could not locate the setColor() method signature.
+E       assert None
+
+tests/test_final_state.py:108: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_plugin_source_declares_correct_package
+PASSED tests/test_final_state.py::test_plugin_source_has_required_imports
+PASSED tests/test_final_state.py::test_plugin_has_capacitor_plugin_annotation
+PASSED tests/test_final_state.py::test_plugin_class_extends_plugin
+PASSED tests/test_final_state.py::test_main_activity_registers_nav_bar_plugin
+PASSED tests/test_final_state.py::test_theme_ts_imports_status_bar_and_style
+PASSED tests/test_final_state.py::test_theme_ts_imports_app_from_capacitor_app
+PASSED tests/test_final_state.py::test_theme_ts_imports_register_plugin
+PASSED tests/test_final_state.py::test_theme_ts_registers_navbar_plugin
+PASSED tests/test_final_state.py::test_theme_ts_uses_getinfo_from_both_app_and_status_bar
+PASSED tests/test_final_state.py::test_theme_ts_references_style_dark_and_light
+PASSED tests/test_final_state.py::test_theme_ts_calls_status_bar_set_style_and_background_color
+PASSED tests/test_final_state.py::test_theme_ts_exports_apply_theme_async_function
+PASSED tests/test_final_state.py::test_theme_ts_invokes_navbar_set_color
+PASSED tests/test_final_state.py::test_gradle_build_succeeds_and_apk_exists
+PASSED tests/test_final_state.py::test_apk_dex_contains_nav_bar_plugin_class
+FAILED tests/test_final_state.py::test_plugin_has_set_color_method - Assertio...
+FAILED tests/test_final_state.py::test_set_color_method_reads_color_argument
+FAILED tests/test_final_state.py::test_set_color_method_invokes_set_navigation_bar_color
+FAILED tests/test_final_state.py::test_set_color_method_resolves_call - Asser...
+========================= 4 failed, 16 passed in 3.45s =========================

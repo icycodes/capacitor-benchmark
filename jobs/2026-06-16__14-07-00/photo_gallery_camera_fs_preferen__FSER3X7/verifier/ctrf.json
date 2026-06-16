@@ -1,0 +1,95 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T14:10:46.717162+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 7,
+            "passed": 6,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781619036470,
+            "stop": 1781619046716
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_capacitor_config_values",
+                "status": "passed",
+                "duration": 4,
+                "start": 1781619037090,
+                "stop": 1781619037094,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_package_json_lists_required_dependencies",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781619037094,
+                "stop": 1781619037097,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_camera_installed_version_is_8_1_or_higher",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781619037097,
+                "stop": 1781619037098,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_dist_index_html_exists",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781619037099,
+                "stop": 1781619037102,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_sync_succeeds",
+                "status": "passed",
+                "duration": 3165,
+                "start": 1781619037102,
+                "stop": 1781619040267,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_index_served_with_required_elements",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 2347,
+                "start": 1781619040267,
+                "stop": 1781619042614,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "preview_server = 'http://127.0.0.1:4173/'\n\n    def test_index_served_with_required_elements(preview_server):\n        response = requests.get(preview_server, timeout=30)\n        assert response.status_code == 200, (\n            f\"GET {preview_server} returned status {response.status_code}; expected 200.\"\n        )\n        body = response.text\n        for required_id in (\"capture-btn\", \"capture-status\"):\n>           assert re.search(rf\"id\\s*=\\s*[\\\"']{re.escape(required_id)}[\\\"']\", body), (\n                f\"The served index.html must contain an element with id=\\\"{required_id}\\\". \"\n                f\"Got body (first 1000 chars):\\n{body[:1000]}\"\n            )\nE           AssertionError: The served index.html must contain an element with id=\"capture-btn\". Got body (first 1000 chars):\nE             <!DOCTYPE html>\nE             <html lang=\"en\">\nE               <head>\nE                 <meta charset=\"UTF-8\" />\nE                 <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\nE                 <title>Photo Gallery</title>\nE                 <script type=\"module\" crossorigin src=\"/assets/index-D6fMXxyM.js\"></script>\nE               </head>\nE               <body>\nE                 <div id=\"app\"></div>\nE               </body>\nE             </html>\nE             \nE           assert None\nE            +  where None = <function search at 0x7f85bca13ba0>('id\\\\s*=\\\\s*[\\\\\"\\']capture\\\\-btn[\\\\\"\\']', '<!DOCTYPE html>\\n<html lang=\"en\">\\n  <head>\\n    <meta charset=\"UTF-8\" />\\n    <meta name=\"viewport\" content=\"width=d...sorigin src=\"/assets/index-D6fMXxyM.js\"></script>\\n  </head>\\n  <body>\\n    <div id=\"app\"></div>\\n  </body>\\n</html>\\n')\nE            +    where <function search at 0x7f85bca13ba0> = re.search\n\ntests/test_final_state.py:215: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_photo_gallery_full_flow",
+                "status": "passed",
+                "duration": 4097,
+                "start": 1781619042618,
+                "stop": 1781619046715,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

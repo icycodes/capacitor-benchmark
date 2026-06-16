@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Offline Cache Demo</title>
+    <style>
+      body { font-family: sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+      .field { margin: 0.5rem 0; }
+      label { font-weight: bold; margin-right: 0.5rem; }
+      input { width: 400px; padding: 0.3rem; }
+      button { margin-right: 0.5rem; padding: 0.4rem 1rem; cursor: pointer; }
+      #data { word-break: break-all; background: #f4f4f4; padding: 0.5rem; min-height: 1.5rem; }
+    </style>
+  </head>
+  <body>
+    <h1>Offline Cache Demo</h1>
+
+    <div class="field">
+      <label for="url-input">URL:</label>
+      <input id="url-input" type="text" value="http://localhost:4174/api/data" />
+    </div>
+
+    <div class="field">
+      <button id="fetch-button">Fetch</button>
+      <button id="invalidate-button">Invalidate</button>
+    </div>
+
+    <div class="field">
+      <label>Status:</label><span id="status">idle</span>
+    </div>
+    <div class="field">
+      <label>Source:</label><span id="source"></span>
+    </div>
+    <div class="field">
+      <label>ETag:</label><span id="meta-etag"></span>
+    </div>
+    <div class="field">
+      <label>Fetched At:</label><span id="meta-fetched-at"></span>
+    </div>
+    <div class="field">
+      <label>Data:</label>
+      <div id="data"></div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

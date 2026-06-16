@@ -1,0 +1,23 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /bootstrap
+plugins: json-ctrf-0.5.2
+collected 15 items
+
+bootstrap/test_initial_state.py::test_node_available PASSED
+bootstrap/test_initial_state.py::test_npm_available PASSED
+bootstrap/test_initial_state.py::test_npx_available PASSED
+bootstrap/test_initial_state.py::test_project_dir_exists PASSED
+bootstrap/test_initial_state.py::test_package_json_exists PASSED
+bootstrap/test_initial_state.py::test_capacitor_config_exists PASSED
+bootstrap/test_initial_state.py::test_ios_platform_present PASSED
+bootstrap/test_initial_state.py::test_pbxproj_exists PASSED
+bootstrap/test_initial_state.py::test_myviewcontroller_exists PASSED
+bootstrap/test_initial_state.py::test_myviewcontroller_subclasses_bridge_view_controller PASSED
+bootstrap/test_initial_state.py::test_initial_no_timer_emitter_plugin_swift PASSED
+bootstrap/test_initial_state.py::test_initial_pbxproj_no_timer_emitter_plugin_reference PASSED
+bootstrap/test_initial_state.py::test_initial_myviewcontroller_does_not_register_timer_emitter PASSED
+bootstrap/test_initial_state.py::test_initial_no_timer_emitter_ts_wrapper PASSED
+bootstrap/test_initial_state.py::test_capacitor_cli_available PASSED
+
+============================== 15 passed in 1.90s ==============================

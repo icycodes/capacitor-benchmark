@@ -1,0 +1,49 @@
+- Initializing MCP connections...
+You
+# Add iOS Permission Strings and Configure `contentInset` for Capacitor Camera v8.1.0 ## Background You are working on an existing Capacitor v8 application located at `/home/user/myapp`. The team has just upgraded to `@capacitor/camera` v8.1.0, which exposes both `takePhoto` and `recordVideo`. Before the app can be archived for the App Store, the iOS project must declare every privacy usage description string the new Camera API touches at runtime. The web team has also asked for the WebView's scroll behaviour to respect the safe area at all times so that fixed headers do not slide under the iOS status bar. The native iOS project (`ios/App/`) has already been scaffolded by `npx cap add ios`. Your job is to update two configuration files in-place; no native code changes are required. ## Requirements - Add the following four privacy usage description keys to `ios/App/App/Info.plist`. Each value must be a sensible, human-readable English sentence (not a placeholder, not empty, not the literal key name): - `NSCameraUsageDescription` - `NSMicrophoneUsageDescription` - `NSPhotoLibraryUsageDescription` - `NSPhotoLibraryAddUsageDescription` - Keep all other existing keys (e.g., `CFBundleIdentifier`, `UILaunchStoryboardName`, `UISupportedInterfaceOrientations`) intact and the file must remain a valid Apple Property List XML document. - Update `capacitor.config.ts` so that the iOS-specific configuration sets `contentInset` to `'always'`. Preserve every other field already present in the config (such as `appId`, `appName`, `webDir`). - After editing, verify that `Info.plist` parses cleanly with `plutil -lint ios/App/App/Info.plist` (the environment provides a Linux-compatible `plutil` wrapper on `PATH`). ## Implementation Hints - `Info.plist` is an XML property list. Insert the new `<key>` / `<string>` pairs inside the top-level `<dict>` element. The Capacitor Camera v8 documentation specifies which keys are mandatory; the microphone description is required because `recordVideo` captures audio. - For the TypeScript config, extend the existing `ios` block (or add one if it is missing) and rely on the `CapacitorConfig` type from `@capacitor/cli`. - Localized English copy should describe *why* the app needs the permission, e.g. mentioning capturing photos, recording videos, or saving to the photo library. - `plutil -lint` exits non-zero and prints a parse error on syntax issues; treat a non-zero exit code as a failure to fix before considering the task done. ## Acceptance Criteria - Project path: `/home/user/myapp` - File `/home/user/myapp/ios/App/App/Info.plist` exists, is well-formed Apple Property List XML, and contains the following keys, each mapped to a non-empty English `<string>` value: - `NSCameraUsageDescription` - `NSMicrophoneUsageDescription` - `NSPhotoLibraryUsageDescription` - `NSPhotoLibraryAddUsageDescription` - The value of each newly added key must be at least 15 characters long, must not equal the key name itself, and must reference the relevant capability (camera, microphone, photo library) in plain English. - Pre-existing keys in `Info.plist` (`CFBundleIdentifier`, `CFBundleName`, `CFBundleDisplayName`, `UILaunchStoryboardName`, `UIRequiredDeviceCapabilities`, `UISupportedInterfaceOrientations`) must still be present with their original values. - Running `plutil -lint /home/user/myapp/ios/App/App/Info.plist` exits with status 0. - File `/home/user/myapp/capacitor.config.ts` still exports a default `CapacitorConfig` object (via `export default config;` or equivalent) whose `ios.contentInset` resolves to the string `'always'` after evaluation. - All previously declared top-level keys in `capacitor.config.ts` (`appId`, `appName`, `webDir`) retain their original values.   
+
+Pochi
+📋 Updating todo list (5 items) ✔ 
+📂 Listing files in /home/user/myapp recursively ✔ 
+📋 Updating todo list (5 items) ✔ 
+📖 Reading /home/user/myapp/ios/App/App/Info.plist ✔ 
+📖 Reading /home/user/myapp/capacitor.config.ts ✔ 
+📋 Updating todo list (5 items) ✔ 
+💭 Thinking for 903 characters   
+🔧 Applying diff to /home/user/myapp/ios/App/App/Info.plist ✔ 
+📋 Updating todo list (5 items) ✔ 
+🔧 Applying diff to /home/user/myapp/capacitor.config.ts ✔ 
+📋 Updating todo list (5 items) ✔ 
+💭 Thinking for 218 characters   
+💫 Executing plutil -lint ios/App/App/Info.plist ✔ 
+📖 Reading /home/user/myapp/ios/App/App/Info.plist ✔ 
+📖 Reading /home/user/myapp/capacitor.config.ts ✔ 
+💭 Thinking for 965 characters   
+📋 Updating todo list (5 items) ✔ 
+💭 Thinking for 199 characters   
+🎉 Task Completed
+I have successfully updated the iOS permission strings and configured the `contentInset` for Capacitor Camera v8.1.0 in your application.
+
+Here is a summary of the changes made:
+
+1. **iOS Privacy Usage Description Keys (`ios/App/App/Info.plist`)**:
+   Added the following keys inside the top-level `<dict>` element with descriptive and human-readable English sentences, each exceeding 15 characters and referencing the specific capability:
+   - `NSCameraUsageDescription`: `"This app requires access to your camera to capture photos and record videos."`
+   - `NSMicrophoneUsageDescription`: `"This app requires access to your microphone to record audio for videos."`
+   - `NSPhotoLibraryUsageDescription`: `"This app requires access to your photo library to select photos and videos."`
+   - `NSPhotoLibraryAddUsageDescription`: `"This app requires permission to save captured photos and videos to your photo library."`
+
+   All existing keys (such as `CFBundleIdentifier`, `CFBundleName`, `CFBundleDisplayName`, etc.) were left completely intact with their original values.
+
+2. **Capacitor Configuration (`capacitor.config.ts`)**:
+   Extended the default `CapacitorConfig` object to include the iOS-specific block:
+   ```typescript
+   ios: {
+     contentInset: 'always',
+   }
+   ```
+   All existing top-level fields (`appId`, `appName`, `webDir`) were preserved with their original values.
+
+3. **Verification**:
+   Ran `plutil -lint ios/App/App/Info.plist` which returned `OK` and exited with status code `0`, confirming that the edited property list remains a well-formed Apple Property List XML document.   
+  

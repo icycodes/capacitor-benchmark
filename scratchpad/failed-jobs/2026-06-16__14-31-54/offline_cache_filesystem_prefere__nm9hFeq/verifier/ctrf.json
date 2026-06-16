@@ -1,0 +1,131 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T14:43:36.410582+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 11,
+            "passed": 10,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781621011678,
+            "stop": 1781621016410
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_capacitor_config_values",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781621011897,
+                "stop": 1781621011900,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_http_plugin_enabled",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621011901,
+                "stop": 1781621011902,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_package_json_lists_capacitor_dependencies",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621011902,
+                "stop": 1781621011903,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_offline_cache_module_uses_capacitor_apis",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621011903,
+                "stop": 1781621011904,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_offline_cache_module_exports_required_functions",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621011905,
+                "stop": 1781621011906,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_offline_cache_module_does_not_use_forbidden_http_clients",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781621011906,
+                "stop": 1781621011908,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_dist_index_html_exists",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621011908,
+                "stop": 1781621011909,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_sync_succeeds",
+                "status": "passed",
+                "duration": 1225,
+                "start": 1781621011909,
+                "stop": 1781621013134,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_index_served_with_required_elements",
+                "status": "passed",
+                "duration": 1531,
+                "start": 1781621013134,
+                "stop": 1781621014665,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_fixture_server_responds",
+                "status": "passed",
+                "duration": 123,
+                "start": 1781621014665,
+                "stop": 1781621014788,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_offline_cache_end_to_end",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 1620,
+                "start": 1781621014789,
+                "stop": 1781621016409,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "fixture_server = 'http://127.0.0.1:4174'\npreview_server = 'http://127.0.0.1:4173/'\n\n    def test_offline_cache_end_to_end(fixture_server, preview_server):\n        pytest.importorskip(\"playwright.sync_api\")\n        from playwright.sync_api import sync_playwright\n    \n        with sync_playwright() as p:\n            browser = p.chromium.launch(headless=True)\n            try:\n                context = browser.new_context()\n                page = context.new_page()\n                page.goto(preview_server, wait_until=\"load\")\n                page.wait_for_selector(\"#fetch-button\", state=\"visible\", timeout=10_000)\n                page.wait_for_selector(\n                    \"#invalidate-button\", state=\"visible\", timeout=10_000\n                )\n                page.wait_for_selector(\"#url-input\", state=\"visible\", timeout=10_000)\n                page.wait_for_timeout(300)\n    \n                # --- Initial UI state -------------------------------------------------\n                assert _text(page, \"#status\") == \"idle\", (\n                    f\"On first load, #status must contain the text 'idle'; got {_text(page, '#status')!r}.\"\n                )\n                for selector in (\"#data\", \"#source\", \"#meta-etag\", \"#meta-fetched-at\"):\n                    assert _text(page, selector) == \"\", (\n                        f\"On first load, {selector} must be empty; got {_text(page, selector)!r}.\"\n                    )\n    \n                # --- First fetch (network) -------------------------------------------\n                _reset_stats()\n                stats0 = _stats()\n                etag_v1 = stats0[\"currentEtag\"]\n                body_v1 = stats0[\"currentBody\"]\n                assert isinstance(etag_v1, str) and etag_v1, (\n                    f\"Fixture server must expose a non-empty currentEtag; got {etag_v1!r}.\"\n                )\n                body_v1_serialised = json.dumps(body_v1)\n    \n                _set_url_input(page, FIXTURE_DATA_URL)\n                page.click(\"#fetch-button\")\n                _wait_for_status(page, \"success\")\n    \n                assert _text(page, \"#source\") == \"network\", (\n                    \"First fetch must mark #source as 'network'; got \"\n                    f\"{_text(page, '#source')!r}.\"\n                )\n>               assert _text(page, \"#data\") == body_v1_serialised, (\n                    \"First fetch must render the fixture body via JSON.stringify; got \"\n                    f\"{_text(page, '#data')!r}, expected {body_v1_serialised!r}.\"\n                )\nE               AssertionError: First fetch must render the fixture body via JSON.stringify; got '{\"version\":1,\"message\":\"payload version 1\",\"items\":[{\"id\":1,\"label\":\"item-1-1\"},{\"id\":2,\"label\":\"item-1-2\"},{\"id\":3,\"label\":\"item-1-3\"}]}', expected '{\"version\": 1, \"message\": \"payload version 1\", \"items\": [{\"id\": 1, \"label\": \"item-1-1\"}, {\"id\": 2, \"label\": \"item-1-2\"}, {\"id\": 3, \"label\": \"item-1-3\"}]}'.\nE               assert '{\"version\":1...\"item-1-3\"}]}' == '{\"version\": ...\"item-1-3\"}]}'\nE                 - {\"version\": 1, \"message\": \"payload version 1\", \"items\": [{\"id\": 1, \"label\": \"item-1-1\"}, {\"id\": 2, \"label\": \"item-1-2\"}, {\"id\": 3, \"label\": \"item-1-3\"}]}\nE                 ?            -  -          -                    -        -       -  -        -            -      -  -        -            -      -  -        -\nE                 + {\"version\":1,\"message\":\"payload version 1\",\"items\":[{\"id\":1,\"label\":\"item-1-1\"},{\"id\":2,\"label\":\"item-1-2\"},{\"id\":3,\"label\":\"item-1-3\"}]}\n\ntests/test_final_state.py:400: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

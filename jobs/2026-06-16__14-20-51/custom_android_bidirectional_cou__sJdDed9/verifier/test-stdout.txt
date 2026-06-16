@@ -1,0 +1,53 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 16 items
+
+tests/test_final_state.py ...........F....                               [100%]
+
+=================================== FAILURES ===================================
+______________ test_typescript_binding_interface_declares_methods ______________
+
+    def test_typescript_binding_interface_declares_methods():
+        with open(COUNTER_TS) as f:
+            ts = f.read()
+        stripped = _strip_comments(ts)
+        # Find any interface or type alias declaration block.
+        type_decls = re.findall(
+            r"(?:interface\s+\w+\s*\{[^}]*\}|type\s+\w+\s*=\s*\{[^}]*\})",
+            stripped,
+            re.DOTALL,
+        )
+        assert type_decls, (
+            "src/counter.ts must declare a TypeScript interface or type alias "
+            "describing the Counter plugin."
+        )
+        for required in ("increment", "reset", "getValue", "addListener"):
+>           assert any(re.search(rf"\b{required}\b", decl) for decl in type_decls), (
+                f"src/counter.ts plugin interface must declare a `{required}` member."
+            )
+E           AssertionError: src/counter.ts plugin interface must declare a `reset` member.
+E           assert False
+E            +  where False = any(<generator object test_typescript_binding_interface_declares_methods.<locals>.<genexpr> at 0x7fb624ea7100>)
+
+tests/test_final_state.py:266: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_plugin_source_declares_correct_package
+PASSED tests/test_final_state.py::test_plugin_source_has_required_imports
+PASSED tests/test_final_state.py::test_plugin_has_capacitor_plugin_annotation
+PASSED tests/test_final_state.py::test_plugin_class_extends_plugin
+PASSED tests/test_final_state.py::test_plugin_has_int_instance_field
+PASSED tests/test_final_state.py::test_plugin_has_increment_reset_get_value_methods
+PASSED tests/test_final_state.py::test_increment_emits_change_event_and_resolves
+PASSED tests/test_final_state.py::test_reset_emits_change_event_and_resolves
+PASSED tests/test_final_state.py::test_get_value_resolves_but_does_not_emit
+PASSED tests/test_final_state.py::test_main_activity_registers_counter_plugin
+PASSED tests/test_final_state.py::test_typescript_binding_registers_counter_plugin
+PASSED tests/test_final_state.py::test_main_ts_uses_addListener_and_removes_via_handle
+PASSED tests/test_final_state.py::test_typescript_sources_typecheck
+PASSED tests/test_final_state.py::test_gradle_build_succeeds_and_apk_exists
+PASSED tests/test_final_state.py::test_apk_dex_contains_counter_plugin_class
+FAILED tests/test_final_state.py::test_typescript_binding_interface_declares_methods
+========================= 1 failed, 15 passed in 5.89s =========================

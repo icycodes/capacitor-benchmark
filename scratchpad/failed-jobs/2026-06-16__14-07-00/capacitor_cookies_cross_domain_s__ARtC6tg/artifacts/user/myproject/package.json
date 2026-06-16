@@ -1,0 +1,14 @@
+{
+  "name": "capacitor-cookies-session-task",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@capacitor/cli": "^8.4.0",
+    "@capacitor/core": "^8.4.0",
+    "@types/node": "^22.19.21",
+    "typescript": "^5.9.3"
+  }
+}

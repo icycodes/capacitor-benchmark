@@ -1,0 +1,49 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /bootstrap
+plugins: xprocess-1.0.2, json-ctrf-0.5.2
+collected 14 items
+
+bootstrap/test_initial_state.py::test_node_available PASSED
+bootstrap/test_initial_state.py::test_node_version_is_22_or_higher PASSED
+bootstrap/test_initial_state.py::test_npm_available PASSED
+bootstrap/test_initial_state.py::test_npx_available PASSED
+bootstrap/test_initial_state.py::test_project_directory_exists PASSED
+bootstrap/test_initial_state.py::test_package_json_exists_and_is_valid_json PASSED
+bootstrap/test_initial_state.py::test_vite_is_a_dependency PASSED
+bootstrap/test_initial_state.py::test_index_html_exists PASSED
+bootstrap/test_initial_state.py::test_main_ts_exists PASSED
+bootstrap/test_initial_state.py::test_node_modules_installed PASSED
+bootstrap/test_initial_state.py::test_capacitor_already_initialised PASSED
+bootstrap/test_initial_state.py::test_capacitor_core_and_cli_preinstalled PASSED
+bootstrap/test_initial_state.py::test_target_plugins_not_yet_installed PASSED
+bootstrap/test_initial_state.py::test_tracker_not_yet_exposed_in_main_ts FAILED
+
+=================================== FAILURES ===================================
+___________________ test_tracker_not_yet_exposed_in_main_ts ____________________
+
+    def test_tracker_not_yet_exposed_in_main_ts():
+        main_ts = os.path.join(PROJECT_DIR, "src", "main.ts")
+        with open(main_ts) as f:
+            content = f.read()
+>       assert "window.tracker" not in content and "(window as any).tracker" not in content, (
+            f"The pre-scaffolded {main_ts} should NOT yet expose a global tracker; "
+            "the executor is responsible for wiring it up."
+        )
+E       AssertionError: The pre-scaffolded /home/user/myapp/src/main.ts should NOT yet expose a global tracker; the executor is responsible for wiring it up.
+E       assert ('window.tracker' not in '// Initial ...(note);\n}\n'
+E         'window.tracker' is contained here:
+E           // Initial scaffold. The executor must extend this entry script so that it
+E           // installs the background-aware geolocation tracker and exposes it as
+E           // `window.tracker` (with async `start`, `stop`, and `getLatest` methods).
+E         ?     ++++++++++++++
+E           const app = document.getElementById("app");
+E           if (app) {...
+E         
+E         ...Full output truncated (4 lines hidden), use '-vv' to show)
+
+bootstrap/test_initial_state.py:141: AssertionError
+=========================== short test summary info ============================
+FAILED bootstrap/test_initial_state.py::test_tracker_not_yet_exposed_in_main_ts
+========================= 1 failed, 13 passed in 0.17s =========================
+pytest-xprocess reminder::Be sure to terminate the started process by running 'pytest --xkill' if you have not explicitly done so in your fixture with 'xprocess.getinfo(<process_name>).terminate()'.

@@ -1,0 +1,106 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 9,
+            "passed": 9,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781622718153,
+            "stop": 1781622718209
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_setup_log_exists_and_contains_required_changes",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781622718195,
+                "stop": 1781622718197,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_push_notifications_dependency_added_with_v8",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781622718198,
+                "stop": 1781622718199,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_top_level_gradle_has_google_services_classpath",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781622718199,
+                "stop": 1781622718200,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_app_gradle_applies_google_services_plugin",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781622718201,
+                "stop": 1781622718202,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_app_gradle_has_firebase_messaging_dependency",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781622718202,
+                "stop": 1781622718204,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_google_services_json_exists_and_is_valid",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781622718204,
+                "stop": 1781622718205,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_push_ts_imports_plugin_and_exports_init_push",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781622718205,
+                "stop": 1781622718206,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_push_ts_registers_all_four_event_listeners",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781622718207,
+                "stop": 1781622718208,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_push_ts_requests_permissions_before_register_and_guards_on_granted",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781622718208,
+                "stop": 1781622718209,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

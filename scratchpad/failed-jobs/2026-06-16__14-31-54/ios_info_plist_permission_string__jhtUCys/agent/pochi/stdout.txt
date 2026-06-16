@@ -1,0 +1,69 @@
+- Initializing MCP connections...
+You
+# Add iOS Permission Strings and Configure `contentInset` for Capacitor Camera v8.1.0 ## Background You are working on an existing Capacitor v8 application located at `/home/user/myapp`. The team has just upgraded to `@capacitor/camera` v8.1.0, which exposes both `takePhoto` and `recordVideo`. Before the app can be archived for the App Store, the iOS project must declare every privacy usage description string the new Camera API touches at runtime. The web team has also asked for the WebView's scroll behaviour to respect the safe area at all times so that fixed headers do not slide under the iOS status bar. The native iOS project (`ios/App/`) has already been scaffolded by `npx cap add ios`. Your job is to update two configuration files in-place; no native code changes are required. ## Requirements - Add the following four privacy usage description keys to `ios/App/App/Info.plist`. Each value must be a sensible, human-readable English sentence (not a placeholder, not empty, not the literal key name): - `NSCameraUsageDescription` - `NSMicrophoneUsageDescription` - `NSPhotoLibraryUsageDescription` - `NSPhotoLibraryAddUsageDescription` - Keep all other existing keys (e.g., `CFBundleIdentifier`, `UILaunchStoryboardName`, `UISupportedInterfaceOrientations`) intact and the file must remain a valid Apple Property List XML document. - Update `capacitor.config.ts` so that the iOS-specific configuration sets `contentInset` to `'always'`. Preserve every other field already present in the config (such as `appId`, `appName`, `webDir`). - After editing, verify that `Info.plist` parses cleanly with `plutil -lint ios/App/App/Info.plist` (the environment provides a Linux-compatible `plutil` wrapper on `PATH`). ## Implementation Hints - `Info.plist` is an XML property list. Insert the new `<key>` / `<string>` pairs inside the top-level `<dict>` element. The Capacitor Camera v8 documentation specifies which keys are mandatory; the microphone description is required because `recordVideo` captures audio. - For the TypeScript config, extend the existing `ios` block (or add one if it is missing) and rely on the `CapacitorConfig` type from `@capacitor/cli`. - Localized English copy should describe *why* the app needs the permission, e.g. mentioning capturing photos, recording videos, or saving to the photo library. - `plutil -lint` exits non-zero and prints a parse error on syntax issues; treat a non-zero exit code as a failure to fix before considering the task done. ## Acceptance Criteria - Project path: `/home/user/myapp` - File `/home/user/myapp/ios/App/App/Info.plist` exists, is well-formed Apple Property List XML, and contains the following keys, each mapped to a non-empty English `<string>` value: - `NSCameraUsageDescription` - `NSMicrophoneUsageDescription` - `NSPhotoLibraryUsageDescription` - `NSPhotoLibraryAddUsageDescription` - The value of each newly added key must be at least 15 characters long, must not equal the key name itself, and must reference the relevant capability (camera, microphone, photo library) in plain English. - Pre-existing keys in `Info.plist` (`CFBundleIdentifier`, `CFBundleName`, `CFBundleDisplayName`, `UILaunchStoryboardName`, `UIRequiredDeviceCapabilities`, `UISupportedInterfaceOrientations`) must still be present with their original values. - Running `plutil -lint /home/user/myapp/ios/App/App/Info.plist` exits with status 0. - File `/home/user/myapp/capacitor.config.ts` still exports a default `CapacitorConfig` object (via `export default config;` or equivalent) whose `ios.contentInset` resolves to the string `'always'` after evaluation. - All previously declared top-level keys in `capacitor.config.ts` (`appId`, `appName`, `webDir`) retain their original values.   
+
+Pochi
+💭 Thinking for 434 characters   
+📋 Updating todo list (4 items) ✔ 
+💭 Thinking for 29 characters   
+📖 Reading /home/user/myapp/ios/App/App/Info.plist ✔ 
+📖 Reading /home/user/myapp/capacitor.config.ts ✔ 
+💭 Thinking for 355 characters   
+📋 Updating todo list (4 items) ✔ 
+🔧 Applying diff to /home/user/myapp/ios/App/App/Info.plist ✖ "Search content does not match the file content. Try to reread the file for the latest content."
+🔧 Applying diff to /home/user/myapp/capacitor.config.ts ✖ "Tool call was cancelled because a previous tool call failed."
+💭 Thinking for 82 characters   
+Let me re-read the files to get theexact content:   
+📖 Reading /home/user/myapp/ios/App/App/Info.plist ✔ 
+📖 Reading /home/user/myapp/capacitor.config.ts ✔ 
+💭 Thinking for 847 characters   
+The diff approach had whitespace matching issues. I'll use `writeToFile` to write the complete files:   
+✏️  Writing /home/user/myapp/ios/App/App/Info.plist ✔ 
+✏️  Writing /home/user/myapp/capacitor.config.ts ✔ 
+💭 Thinking for 153 characters   
+Both files written successfully. Now let me verify the Info.plist and confirm the capacitor config:   
+📋 Updating todo list (4 items) ✔ 
+💫 Executing plutil -lint /home/user/myapp/ios/App/App/Info.plist ✔ 
+💭 Thinking for 113 characters   
+`plutil -lint` passes. Let me do a final verification of both files:   
+💫 Executing grep -c 'NSCameraUsageDescription\|NSMicrophoneUsageDescription\|NSPhotoLibraryUsageDescription\|NSPhotoLibraryAddUsageDescription' /home/user/myapp/ios/App/App/Info.plist ✔ 
+💫 Executing grep -E 'NSCameraUsageDescription|NSMicrophoneUsageDescription|NSPhotoLibraryUsageDescription|NSPhotoLibraryAddUsageDescription' /home/user/myapp/ios/App/App/Info.plist ✔ 
+💫 Executing cat /home/user/myapp/capacitor.config.ts ✔ 
+💫 Executing grep -A1 'NSCameraUsageDescription\|NSMicrophoneUsageDescription\|NSPhotoLibraryUsageDescription\|NSPhotoLibraryAddUsageDescription' /home/user/myapp/ios/App/App/Info.plist ✔ 
+💭 Thinking for 117 characters   
+Let me also confirm the pre-existing keys areintact:   
+💫 Executing grep -c 'CFBundleIdentifier\|CFBundleName\|CFBundleDisplayName\|UILaunchStoryboardName\|UIRequiredDeviceCapabilities\|UISupportedInterfaceOrientations' /home/user/myapp/ios/App/App/Info.plist ✔ 
+💭 Thinking for 202 characters   
+All pre-existing keys are intact (7 matches, which includes `UISupportedInterfaceOrientations` and `UISupportedInterfaceOrientations~ipad`).   
+📋 Updating todo list (4 items) ✔ 
+🎉 Task Completed
+Both configuration files have been updated successfully:
+
+**`ios/App/App/Info.plist`** — Added four privacy usage description keys inside the top-level `<dict>`:
+
+| Key | Value |
+|---|---|
+| `NSCameraUsageDescription` | This app requires access to the camera to capture photos and videos. |
+| `NSMicrophoneUsageDescription` | This app requires access to the microphone to record audio during video capture. |
+| `NSPhotoLibraryUsageDescription` | This app requires access to the photo library to select and display your photos. |
+| `NSPhotoLibraryAddUsageDescription` | This app requires permission to save captured photos and videos to your photo library. |
+
+All pre-existing keys (`CFBundleIdentifier`, `CFBundleName`, `CFBundleDisplayName`, `UILaunchStoryboardName`, `UIRequiredDeviceCapabilities`, `UISupportedInterfaceOrientations`) remain intact. `plutil -lint` confirms the file is valid Apple Property List XML.
+
+**`capacitor.config.ts`** — Added the `ios` block with `contentInset: 'always'` while preserving the existing `appId`, `appName`, and `webDir` fields:
+
+```ts
+import { CapacitorConfig } from '@capacitor/cli';
+
+const config: CapacitorConfig = {
+  appId: 'com.example.myapp',
+  appName: 'My Native App',
+  webDir: 'dist',
+  ios: {
+    contentInset: 'always',
+  },
+};
+
+export default config;
+```   
+  

@@ -1,0 +1,164 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T14:47:10.861665+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 15,
+            "passed": 15,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781621225757,
+            "stop": 1781621230861
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_plugin_source_declares_correct_package",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781621225806,
+                "stop": 1781621225808,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_source_has_required_capacitor_imports",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781621225808,
+                "stop": 1781621225810,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_source_has_required_android_sensor_imports",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781621225810,
+                "stop": 1781621225812,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_has_capacitor_plugin_annotation",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781621225812,
+                "stop": 1781621225814,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_class_extends_plugin_and_implements_sensor_event_listener",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621225815,
+                "stop": 1781621225816,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_has_get_light_level_method",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781621225816,
+                "stop": 1781621225818,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_get_light_level_method_puts_value_and_resolves",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781621225818,
+                "stop": 1781621225820,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_overrides_handle_on_resume_and_registers_listener",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621225820,
+                "stop": 1781621225821,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_overrides_handle_on_pause_and_unregisters_listener",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621225822,
+                "stop": 1781621225823,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_implements_on_sensor_changed_reading_values_zero",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621225823,
+                "stop": 1781621225824,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_plugin_references_type_light",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621225825,
+                "stop": 1781621225826,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_main_activity_registers_ambient_light_plugin",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621225826,
+                "stop": 1781621225827,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_typescript_binding_exists_and_registers_plugin",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621225828,
+                "stop": 1781621225829,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_gradle_build_succeeds_and_apk_exists",
+                "status": "passed",
+                "duration": 4854,
+                "start": 1781621225830,
+                "stop": 1781621230684,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_apk_dex_contains_ambient_light_plugin_class",
+                "status": "passed",
+                "duration": 176,
+                "start": 1781621230685,
+                "stop": 1781621230861,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

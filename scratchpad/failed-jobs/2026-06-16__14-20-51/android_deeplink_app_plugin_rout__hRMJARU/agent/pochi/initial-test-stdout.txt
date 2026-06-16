@@ -1,0 +1,29 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /bootstrap
+plugins: json-ctrf-0.5.2
+collected 21 items
+
+bootstrap/test_initial_state.py::test_node_available PASSED
+bootstrap/test_initial_state.py::test_node_version_22_or_higher PASSED
+bootstrap/test_initial_state.py::test_npm_available PASSED
+bootstrap/test_initial_state.py::test_java_available PASSED
+bootstrap/test_initial_state.py::test_keytool_available PASSED
+bootstrap/test_initial_state.py::test_unzip_available PASSED
+bootstrap/test_initial_state.py::test_android_sdk_root_set PASSED
+bootstrap/test_initial_state.py::test_project_directory_exists PASSED
+bootstrap/test_initial_state.py::test_capacitor_config_file_exists PASSED
+bootstrap/test_initial_state.py::test_package_json_exists_with_required_dependencies PASSED
+bootstrap/test_initial_state.py::test_capacitor_app_node_module_installed PASSED
+bootstrap/test_initial_state.py::test_capacitor_core_node_module_installed PASSED
+bootstrap/test_initial_state.py::test_dist_directory_exists_with_index_html PASSED
+bootstrap/test_initial_state.py::test_src_directory_exists PASSED
+bootstrap/test_initial_state.py::test_android_project_scaffolded PASSED
+bootstrap/test_initial_state.py::test_main_activity_exists PASSED
+bootstrap/test_initial_state.py::test_android_manifest_exists_with_main_launcher_intent_filter PASSED
+bootstrap/test_initial_state.py::test_android_manifest_does_not_yet_declare_app_link_intent_filter PASSED
+bootstrap/test_initial_state.py::test_assetlinks_json_not_yet_present PASSED
+bootstrap/test_initial_state.py::test_deeplink_ts_not_yet_present PASSED
+bootstrap/test_initial_state.py::test_debug_keystore_exists PASSED
+
+============================== 21 passed in 0.11s ==============================

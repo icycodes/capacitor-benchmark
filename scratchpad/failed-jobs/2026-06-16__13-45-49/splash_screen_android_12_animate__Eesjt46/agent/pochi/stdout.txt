@@ -1,0 +1,57 @@
+- Initializing MCP connections...
+You
+# Capacitor v8: Android 12+ Animated Splash Screen ## Background A pre-scaffolded Capacitor v8 project is provided at `/home/user/myproject`. It already contains a built web bundle and an Android platform under `android/`. The project currently uses the default Capacitor splash screen behavior and you need to upgrade it to use the Android 12+ `SplashScreen` platform API with an animated vector icon, while keeping compatibility with older Android versions through the `androidx.core:core-splashscreen` library that Capacitor v8 ships with by default. ## Requirements * Install `@capacitor/splash-screen` (v8.x, matching the rest of the Capacitor v8 packages) and persist it in `package.json`. * Register the plugin in the Capacitor configuration file with the following options under `plugins.SplashScreen`: * `launchAutoHide` must be `false` (web code is responsible for hiding the splash). * `launchShowDuration` must be `2000` (used as a maximum bound only). * `backgroundColor` must be `"#0E0E0E"`. * `androidScaleType` must be `"CENTER_CROP"`. * Wire the Android 12+ splash screen attributes into the existing `AppTheme.NoActionBarLaunch` style in `android/app/src/main/res/values/styles.xml`: * The style must keep using `Theme.SplashScreen` as its parent. * Add `<item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_icon</item>`. * Add `<item name="android:windowSplashScreenAnimationDuration">1000</item>`. * Create a vector drawable at `android/app/src/main/res/drawable/splash_icon.xml`. It must be a valid Android `<vector>` resource with at least one `<path>` element. * Update the web entry point so that JavaScript explicitly calls `SplashScreen.hide()` only after the first frame has been painted. The hide call must not be made synchronously during module load. ## Implementation Hints * The project file `capacitor.config.json` is the canonical Capacitor configuration; use it (do not introduce a parallel `capacitor.config.ts`). * The Android 12 splash screen API is described in the official documentation: https://capacitorjs.com/docs/apis/splash-screen and https://developer.android.com/develop/ui/views/launch/splash-screen. * Capacitor v8 already provides the `androidx.core:core-splashscreen` compatibility library, so you only need to attach the new theme attributes to `AppTheme.NoActionBarLaunch`. * A first-frame paint can be detected from the web bundle by scheduling work inside `requestAnimationFrame` (typically a nested `requestAnimationFrame` so the call happens after the browser has actually drawn the first frame). * After editing native files, you do not need to run `npx cap sync` for verification; the verifier inspects the source files directly. ## Acceptance Criteria * Project path: /home/user/myproject * `package.json` must list `@capacitor/splash-screen` in `dependencies` with a version that resolves to `8.x` (e.g. `^8.0.0`), and the dependency must also be installed inside `node_modules/@capacitor/splash-screen` with a matching `package.json` version. * `capacitor.config.json` must contain a `plugins.SplashScreen` object with exactly these values: * `launchAutoHide`: boolean `false` * `launchShowDuration`: number `2000` * `backgroundColor`: string `"#0E0E0E"` * `androidScaleType`: string `"CENTER_CROP"` * `android/app/src/main/res/values/styles.xml` must contain a `<style>` element named `AppTheme.NoActionBarLaunch` whose `parent` attribute is `Theme.SplashScreen` (the Capacitor v8 default), and that style must contain both of the following `<item>` children: * `name="android:windowSplashScreenAnimatedIcon"` with the literal value `@drawable/splash_icon` * `name="android:windowSplashScreenAnimationDuration"` with the literal value `1000` * `android/app/src/main/res/drawable/splash_icon.xml` must exist, parse as XML, have a root element named `vector` in the Android namespace, and contain at least one `<path>` element. * A JavaScript/TypeScript source file under `src/` (or `www/`) must import `SplashScreen` from `@capacitor/splash-screen` and invoke `SplashScreen.hide()` inside a `requestAnimationFrame` callback. A direct top-level synchronous `SplashScreen.hide()` call (one that is not wrapped in `requestAnimationFrame`) is not accepted.   
+
+Pochi
+📂 Listing files in /home/user/myproject ✔ 
+📖 Reading package.json ✔ 
+📖 Reading capacitor.config.json ✔ 
+📂 Listing files in src ✔ 
+📖 Reading src/main.ts ✔ 
+🔍 Searching for **/styles.xml in android ✔ 
+📖 Reading android/app/src/main/res/values/styles.xml ✔ 
+💭 Thinking for 260 characters   
+📋 Updating todo list (6 items) ✔ 
+💭 Thinking for 323 characters   
+📋 Updating todo list (6 items) ✔ 
+💫 Executing npm install @capacitor/splash-screen@^8.0.0 ✔ 
+📖 Reading package.json ✔ 
+📋 Updating todo list (6 items) ✔ 
+💭 Thinking for 276 characters   
+✏️  Writing capacitor.config.json ✔ 
+📋 Updating todo list (6 items) ✔ 
+💭 Thinking for 615 characters   
+🔧 Applying diff to android/app/src/main/res/values/styles.xml ✔ 
+📖 Reading android/app/src/main/res/values/styles.xml ✔ 
+📋 Updating todo list (6 items) ✔ 
+💭 Thinking for 421 characters   
+🔍 Searching for **/* in android/app/src/main/res/drawable ✔ 
+📖 Reading android/app/src/main/res/drawable/splash.xml ✔ 
+💭 Thinking for 209 characters   
+✏️  Writing android/app/src/main/res/drawable/splash_icon.xml ✔ 
+📋 Updating todo list (6 items) ✔ 
+💭 Thinking for 920 characters   
+✏️  Writing src/main.ts ✔ 
+📋 Updating todo list (6 items) ✔ 
+💭 Thinking for 290 characters   
+📖 Reading node_modules/@capacitor/splash-screen/package.json ✔ 
+📖 Reading capacitor.config.json ✔ 
+📖 Reading android/app/src/main/res/values/styles.xml ✔ 
+💭 Thinking for 508 characters   
+📋 Updating todo list (6 items) ✔ 
+🎉 Task Completed
+I have successfully upgraded the pre-scaffolded Capacitor v8 project to support Android 12+ animated splash screens with backward compatibility using the androidx.core:core-splashscreen library.
+
+Here is a summary of the completed tasks:
+1. **Installed @capacitor/splash-screen**: Added `@capacitor/splash-screen` to `dependencies` in `package.json` with version `^8.0.1` and ensured it is properly installed in `node_modules`.
+2. **Configured capacitor.config.json**: Configured the `SplashScreen` plugin options under `plugins.SplashScreen`:
+   - `launchAutoHide`: `false` (delegating splash hiding to the web layer)
+   - `launchShowDuration`: `2000` (max duration bound)
+   - `backgroundColor`: `"#0E0E0E"`
+   - `androidScaleType`: `"CENTER_CROP"`
+3. **Updated Android Styles**: Modified `android/app/src/main/res/values/styles.xml` to wire Android 12+ splash screen attributes under the `AppTheme.NoActionBarLaunch` style, keeping `Theme.SplashScreen` as parent:
+   - Added `android:windowSplashScreenAnimatedIcon` pointing to `@drawable/splash_icon`
+   - Added `android:windowSplashScreenAnimationDuration` set to `1000`
+4. **Created Vector Drawable**: Created a valid Android vector drawable at `android/app/src/main/res/drawable/splash_icon.xml` with a root `<vector>` element in the Android namespace and a `<path>` element.
+5. **Wired Web-side Splash Screen Hiding**: Updated `src/main.ts` to import `SplashScreen` from `@capacitor/splash-screen` and trigger `SplashScreen.hide()` inside nested `requestAnimationFrame` callbacks to ensure the splash screen is hidden only after the browser has completed its first paint.   
+  

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Offline Cache Demo</title>
+  </head>
+  <body>
+    <main id="app">
+      <h1>Offline Cache Demo</h1>
+      <div>
+        <label for="url-input">URL:</label>
+        <input type="text" id="url-input" value="" />
+      </div>
+      <div>
+        <button id="fetch-button">Fetch</button>
+        <button id="invalidate-button">Invalidate</button>
+      </div>
+      <div>
+        <strong>Status:</strong> <span id="status">idle</span>
+      </div>
+      <div>
+        <strong>Source:</strong> <span id="source"></span>
+      </div>
+      <div>
+        <strong>Data:</strong> <span id="data"></span>
+      </div>
+      <div>
+        <strong>ETag:</strong> <span id="meta-etag"></span>
+      </div>
+      <div>
+        <strong>Fetched At:</strong> <span id="meta-fetched-at"></span>
+      </div>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

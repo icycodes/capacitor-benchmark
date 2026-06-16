@@ -1,0 +1,86 @@
+Skipping image OS validation for hb__ios_info_plist_permission_strings: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-bi5wzdy > /logs/artifacts/run-id && echo ios_info_plist_permission_string__bi5WZdy > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model google/gemini-3.5-flash --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Add iOS Permission Strings and Configure `contentInset` for Capacitor Camera v8.1.0
+
+## Background
+You are working on an existing Capacitor v8 application located at `/home/user/myapp`. The team has just upgraded to `@capacitor/camera` v8.1.0, which exposes both `takePhoto` and `recordVideo`. Before the app can be archived for the App Store, the iOS project must declare every privacy usage description string the new Camera API touches at runtime. The web team has also asked for the WebView's scroll behaviour to respect the safe area at all times so that fixed headers do not slide under the iOS status bar.
+
+The native iOS project (`ios/App/`) has already been scaffolded by `npx cap add ios`. Your job is to update two configuration files in-place; no native code changes are required.
+
+## Requirements
+- Add the following four privacy usage description keys to `ios/App/App/Info.plist`. Each value must be a sensible, human-readable English sentence (not a placeholder, not empty, not the literal key name):
+  - `NSCameraUsageDescription`
+  - `NSMicrophoneUsageDescription`
+  - `NSPhotoLibraryUsageDescription`
+  - `NSPhotoLibraryAddUsageDescription`
+- Keep all other existing keys (e.g., `CFBundleIdentifier`, `UILaunchStoryboardName`, `UISupportedInterfaceOrientations`) intact and the file must remain a valid Apple Property List XML document.
+- Update `capacitor.config.ts` so that the iOS-specific configuration sets `contentInset` to `'always'`. Preserve every other field already present in the config (such as `appId`, `appName`, `webDir`).
+- After editing, verify that `Info.plist` parses cleanly with `plutil -lint ios/App/App/Info.plist` (the environment provides a Linux-compatible `plutil` wrapper on `PATH`).
+
+## Implementation Hints
+- `Info.plist` is an XML property list. Insert the new `<key>` / `<string>` pairs inside the top-level `<dict>` element. The Capacitor Camera v8 documentation specifies which keys are mandatory; the microphone description is required because `recordVideo` captures audio.
+- For the TypeScript config, extend the existing `ios` block (or add one if it is missing) and rely on the `CapacitorConfig` type from `@capacitor/cli`.
+- Localized English copy should describe *why* the app needs the permission, e.g. mentioning capturing photos, recording videos, or saving to the photo library.
+- `plutil -lint` exits non-zero and prints a parse error on syntax issues; treat a non-zero exit code as a failure to fix before considering the task done.
+
+## Acceptance Criteria
+- Project path: `/home/user/myapp`
+- File `/home/user/myapp/ios/App/App/Info.plist` exists, is well-formed Apple Property List XML, and contains the following keys, each mapped to a non-empty English `<string>` value:
+  - `NSCameraUsageDescription`
+  - `NSMicrophoneUsageDescription`
+  - `NSPhotoLibraryUsageDescription`
+  - `NSPhotoLibraryAddUsageDescription`
+- The value of each newly added key must be at least 15 characters long, must not equal the key name itself, and must reference the relevant capability (camera, microphone, photo library) in plain English.
+- Pre-existing keys in `Info.plist` (`CFBundleIdentifier`, `CFBundleName`, `CFBundleDisplayName`, `UILaunchStoryboardName`, `UIRequiredDeviceCapabilities`, `UISupportedInterfaceOrientations`) must still be present with their original values.
+- Running `plutil -lint /home/user/myapp/ios/App/App/Info.plist` exits with status 0.
+- File `/home/user/myapp/capacitor.config.ts` still exports a default `CapacitorConfig` object (via `export default config;` or equivalent) whose `ios.contentInset` resolves to the string `'always'` after evaluation.
+- All previously declared top-level keys in `capacitor.config.ts` (`appId`, `appName`, `webDir`) retain their original values.
+
+
+EOF
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured

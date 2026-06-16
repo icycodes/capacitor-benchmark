@@ -1,0 +1,26 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /bootstrap
+plugins: json-ctrf-0.5.0
+collected 18 items
+
+bootstrap/test_initial_state.py::test_node_available PASSED
+bootstrap/test_initial_state.py::test_npm_available PASSED
+bootstrap/test_initial_state.py::test_npx_available PASSED
+bootstrap/test_initial_state.py::test_project_directory_exists PASSED
+bootstrap/test_initial_state.py::test_package_json_exists PASSED
+bootstrap/test_initial_state.py::test_node_modules_installed PASSED
+bootstrap/test_initial_state.py::test_capacitor_core_dependency_installed PASSED
+bootstrap/test_initial_state.py::test_capacitor_cli_dependency_installed PASSED
+bootstrap/test_initial_state.py::test_capacitor_preferences_dependency_installed PASSED
+bootstrap/test_initial_state.py::test_typescript_compiler_available PASSED
+bootstrap/test_initial_state.py::test_capacitor_config_exists PASSED
+bootstrap/test_initial_state.py::test_capacitor_config_has_required_fields PASSED
+bootstrap/test_initial_state.py::test_capacitor_http_not_yet_enabled PASSED
+bootstrap/test_initial_state.py::test_tsconfig_exists PASSED
+bootstrap/test_initial_state.py::test_src_directory_exists PASSED
+bootstrap/test_initial_state.py::test_http_client_module_not_yet_present PASSED
+bootstrap/test_initial_state.py::test_build_script_defined PASSED
+bootstrap/test_initial_state.py::test_capacitor_cli_runs PASSED
+
+============================== 18 passed in 2.52s ==============================

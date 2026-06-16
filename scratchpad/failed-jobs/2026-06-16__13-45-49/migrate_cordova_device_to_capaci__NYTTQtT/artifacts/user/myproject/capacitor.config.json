@@ -1,0 +1,10 @@
+{
+  "appId": "com.example.migrationdemo",
+  "appName": "Migration Demo",
+  "webDir": "www",
+  "cordova": {
+    "preferences": {
+      "ScrollEnabled": "false"
+    }
+  }
+}

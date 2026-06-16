@@ -1,0 +1,80 @@
+- Initializing MCP connections...
+You
+# Migrate from `cordova-plugin-device` to `@capacitor/device` ## Background A hybrid mobile project located at `/home/user/myproject` currently uses the legacy `cordova-plugin-device` plugin (loaded via `cordova.js`) to obtain device metadata. Capacitor is already installed in the project, but the device reader still depends on the old Cordova plugin and the global `window.device` object. Your job is to migrate the project so that all device information is sourced from the official `@capacitor/device` plugin instead. ## Requirements * Uninstall the Cordova device plugin from the project's npm dependencies (it must be removed from `package.json` / `package-lock.json` and from `node_modules`). * Install the official `@capacitor/device` plugin and register it inside the Capacitor configuration so it is discoverable by `npx cap sync`. * Remove every reference to `cordova.js` from `www/index.html` (the `<script src="cordova.js"></script>` tag must no longer exist). * Remove every usage of the deprecated `window.device` global from the project source code (e.g. `www/js/device-info.js`). Nothing in the migrated source files may still reference `window.device` or `cordova.plugins.device`. * Rewrite the device-info reader so that it uses the `@capacitor/device` plugin API, calling `Device.getInfo()`, `Device.getId()`, and `Device.getBatteryInfo()` via `async`/`await`. * Expose the migrated reader as a Node-callable script that, when executed, prints a single JSON object on stdout combining the three API responses. * Run `npx cap sync` after the migration and capture its output so the verifier can confirm the sync step completed successfully. ## Implementation Hints * Look at the existing Cordova-based reader to understand which fields it exposes (uuid, model, platform, version, manufacturer, battery level, charging state) and map them to the modern Capacitor Device API equivalents. * The `@capacitor/device` web implementation reads from `navigator`, so the Node command-line wrapper must set up a minimal `navigator`/`window` shim before importing the plugin so it can execute outside a real browser. * Capacitor configuration lives in `capacitor.config.json` at the project root. Adjust it as needed (for example, remove obsolete Cordova-only preferences and make sure the project still validates) so that `npx cap sync` exits with code 0. * The verifier will read both static project files and the recorded `npx cap sync` log, then re-run the migrated reader script. Make sure the script is idempotent and produces deterministic JSON keys. ## Acceptance Criteria * Project path: `/home/user/myproject` * Ensure the migration is actually performed and the artifacts below exist. * Log file: `/home/user/myproject/sync.log` — must contain the full stdout/stderr of a successful `npx cap sync` run (the file must include the literal substring `sync finished` somewhere in its contents). * `package.json` must NOT contain `cordova-plugin-device` in either `dependencies` or `devDependencies`, and must contain `@capacitor/device` in `dependencies`. * `node_modules/@capacitor/device` must exist and `node_modules/cordova-plugin-device` must NOT exist after migration. * `www/index.html` must NOT contain the substring `cordova.js`. * No file under `www/` may contain the substrings `window.device` or `cordova.plugins.device` (search is case-sensitive). * The migrated reader module must be invokable as `node /home/user/myproject/scripts/device-report.mjs` (or the equivalent CommonJS `.js`). When invoked, it must print exactly one line of JSON to stdout that, when parsed, satisfies the following shape: ```json { "info": { "platform": string, "operatingSystem": string, "osVersion": string, "manufacturer": string, "model": string, "isVirtual": boolean, "webViewVersion": string }, "id": { "identifier": string }, "battery": { "batteryLevel": number, "isCharging": boolean } } ``` All listed fields must be present (the `info.platform` value will be `"web"` when running under Node). * The reader source must import the `Device` symbol from `@capacitor/device` (verifier searches for the literal `from '@capacitor/device'` or `require('@capacitor/device')`) and must call all three of `Device.getInfo`, `Device.getId`, and `Device.getBatteryInfo`. * `npx cap sync` must exit with status 0 when re-run by the verifier inside the project directory.   
+
+Pochi
+💭 Thinking for 615 characters   
+📋 Updating todo list (10 items) ✔ 
+💭 Thinking for 42 characters   
+📂 Listing files in /home/user/myproject recursively ✔ 
+💭 Thinking for 339 characters   
+📖 Reading /home/user/myproject/package.json ✔ 
+📖 Reading /home/user/myproject/www/index.html ✔ 
+📖 Reading /home/user/myproject/www/js/device-info.js ✔ 
+📖 Reading /home/user/myproject/capacitor.config.json ✔ 
+💭 Thinking for 942 characters   
+📋 Updating todo list (10 items) ✔ 
+💫 Executing cd /home/user/myproject && npm uninstall cordova-plugin-device ✔ 
+💭 Thinking for 87 characters   
+📋 Updating todo list (10 items) ✔ 
+💫 Executing cd /home/user/myproject && npm install @capacitor/device ✔ 
+📋 Updating todo list (10 items) ✔ 
+Now let me update `www/index.html` to remove the cordova.js script tag and update the device-info.js file:   
+🔧 Applying diff to /home/user/myproject/www/index.html ✔ 
+📋 Updating todo list (10 items) ✔ 
+Now let me rewrite `www/js/device-info.js` to use the `@capacitor/device` plugin:   
+✏️  Writing /home/user/myproject/www/js/device-info.js ✔ 
+📋 Updating todo list (10 items) ✔ 
+Now let me create the Node-callable script. I need to understand how `@capacitor/device` works in a Node environment. The web implementation reads from `navigator`, so I need to set up a minimal shim. Let me inspect the `@capacitor/device` package to understand its structure:   
+📂 Listing files in /home/user/myproject/node_modules/@capacitor/device ✔ 
+📂 Listing files in /home/user/myproject/node_modules/@capacitor/device/dist ✔ 
+📖 Reading /home/user/myproject/node_modules/@capacitor/device/dist/plugin.cjs.js ✔ 
+📖 Reading /home/user/myproject/node_modules/@capacitor/device/package.json ✔ 
+💭 Thinking for 594 characters   
+📂 Listing files in /home/user/myproject/node_modules/@capacitor/device/dist/esm ✔ 
+📖 Reading /home/user/myproject/node_modules/@capacitor/device/dist/esm/index.js ✔ 
+📖 Reading /home/user/myproject/node_modules/@capacitor/device/dist/esm/web.js ✔ 
+💭 Thinking for 947 characters   
+📖 Reading /home/user/myproject/node_modules/@capacitor/core/dist/index.cjs.js ✔ 
+💭 Thinking for 211 characters   
+🔍 Searching for registerPlugin in *.js files in /home/user/myproject/node_modules/@capacitor/core/dist ✔ 
+💭 Thinking for 849 characters   
+Now I have a good understanding of the code. Let me create the scripts directory and the Node-callable device report script:   
+💫 Executing mkdir -p /home/user/myproject/scripts ✔ 
+✏️  Writing /home/user/myproject/scripts/device-report.mjs ✔ 
+Now let me test the script to make sure it works:   
+💫 Executing cd /home/user/myproject && node scripts/device-report.mjs ✔ 
+💭 Thinking for 12317 characters   
+💫 Executing node --version ✔ 
+💫 Executing cd /home/user/myproject && node -e "
+if (typeof globalThis.navigator !== 'undefined') {
+  console.log('navigator exists:', typeof globalThis.navigator);
+  console.log('navigator.userAgent:', globalThis.navigator.userAgent);
+}
+if (typeof globalThis.window !== 'undefined') {
+  console.log('window exists:', typeof globalThis.window);
+}
+" ✔ 
+💭 Thinking for 438 characters   
+💫 Executing cd /home/user/myproject && node -e "
+console.log('navigator.userAgent:', globalThis.navigator.userAgent);
+console.log('navigator.vendor:', globalThis.navigator.vendor);
+console.log('navigator.language:', globalThis.navigator.language);
+console.log('navigator.getBattery:', globalThis.navigator.getBattery);
+console.log('window:', typeof globalThis.window);
+" ✔ 
+💭 Thinking for 998 characters   
+I see — Node.js 22 has a built-in `navigator` with `userAgent: "Node.js/22"`. I need to override these properties instead of checking for undefined. Let me updatethe script:   
+✏️  Writing /home/user/myproject/scripts/device-report.mjs ✔ 
+💫 Executing cd /home/user/myproject && node scripts/device-report.mjs ✔ 
+💭 Thinking for 822 characters   
+The script works. Now let me verify the remaining items and update the capacitorconfig:   
+📋 Updating todo list (10 items) ✔ 
+📖 Reading /home/user/myproject/package.json ✔ 
+📖 Reading /home/user/myproject/www/index.html ✔ 
+📖 Reading /home/user/myproject/www/js/device-info.js ✔ 
+💭 Thinking for 416 characters   
+🔍 Searching for window\.device|cordova\.plugins\.device in /home/user/myproject/www ✔ 
+No references to `window.device` or `cordova.plugins.device` in `www/`. Now let me update `capacitor.config.json` to remove the Cordova preferences:   
+✏️  Writing /home/user/myproject/capacitor.config.json ✔ 
+📋 Updating todo list (10 items) ✔ 

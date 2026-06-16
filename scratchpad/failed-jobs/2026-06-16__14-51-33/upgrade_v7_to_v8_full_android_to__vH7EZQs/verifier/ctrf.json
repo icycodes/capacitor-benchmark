@@ -1,0 +1,92 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T14:57:47.240053+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 7,
+            "passed": 7,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781621867198,
+            "stop": 1781621867239
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_log_file_exists_and_has_success_marker",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621867228,
+                "stop": 1781621867229,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_package_json_declares_capacitor_v8",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621867230,
+                "stop": 1781621867231,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_installed_capacitor_core_is_v8",
+                "status": "passed",
+                "duration": 0,
+                "start": 1781621867232,
+                "stop": 1781621867232,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_android_build_gradle_uses_agp_8_7_x",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781621867233,
+                "stop": 1781621867235,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_gradle_wrapper_uses_gradle_8_11_x",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621867235,
+                "stop": 1781621867236,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_variables_gradle_sdk_and_kotlin",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781621867236,
+                "stop": 1781621867238,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_main_activity_still_extends_bridge_activity",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621867238,
+                "stop": 1781621867239,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

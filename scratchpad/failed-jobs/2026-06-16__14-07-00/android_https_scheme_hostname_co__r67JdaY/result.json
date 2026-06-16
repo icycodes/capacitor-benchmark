@@ -1,0 +1,102 @@
+{
+    "id": "863bd9e8-5baf-4288-a6c8-7b3ac31100a2",
+    "task_name": "android_https_scheme_hostname_config",
+    "trial_name": "android_https_scheme_hostname_co__r67JdaY",
+    "trial_uri": "file:///home/kweizh/zealt/zealt-agent/jobs/2026-06-16__14-07-00/android_https_scheme_hostname_co__r67JdaY",
+    "task_id": {
+        "path": "/home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/android_https_scheme_hostname_config"
+    },
+    "source": "pending-tasks",
+    "task_checksum": "56a0cd1e3cfa919cfe2ed7154d3a05c017cf49881daaefc60b805ad46d3c04e3",
+    "config": {
+        "task": {
+            "path": "/home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/android_https_scheme_hostname_config",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": "pending-tasks"
+        },
+        "trial_name": "android_https_scheme_hostname_co__r67JdaY",
+        "trials_dir": "jobs/2026-06-16__14-07-00",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": null,
+            "import_path": "agents.pochi:Pochi",
+            "model_name": "anthropic/claude-4-6-sonnet",
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {},
+            "env": {},
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "suppress_override_warnings": false,
+            "mounts": [
+                {
+                    "type": "bind",
+                    "source": "test_initial_state.py",
+                    "target": "/bootstrap/test_initial_state.py"
+                }
+            ],
+            "extra_docker_compose": [],
+            "env": {},
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "env": {},
+            "disable": false
+        },
+        "artifacts": [
+            "/home/user"
+        ],
+        "extra_instruction_paths": [],
+        "job_id": "e81a5121-6b61-46ab-9a94-a10f8d997989"
+    },
+    "agent_info": {
+        "name": "pochi",
+        "version": "unknown",
+        "model_info": {
+            "name": "claude-4-6-sonnet",
+            "provider": "anthropic"
+        }
+    },
+    "agent_result": null,
+    "verifier_result": null,
+    "exception_info": {
+        "exception_type": "RuntimeError",
+        "exception_message": "Docker compose command failed for environment android_https_scheme_hostname_config. Command: docker compose --project-name android_https_scheme_hostname_co__r67jday --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/android_https_scheme_hostname_config/environment -f /tmp/tmphnh9rgqo/android_https_scheme_hostname_co__r67JdaY-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmphzdllef4/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with \"default\" instance using docker driver\n\n#1 [main internal] load build definition from Dockerfile\n#1 transferring dockerfile: 3.39kB 0.0s done\n#1 DONE 0.0s\n\n#2 [main internal] load metadata for docker.io/library/ubuntu:24.04\n#2 DONE 0.0s\n\n#3 [main internal] load .dockerignore\n#3 transferring context: 2B done\n#3 DONE 0.0s\n\n#4 [main 1/7] FROM docker.io/library/ubuntu:24.04\n#4 DONE 0.0s\n\n#5 [main 3/7] RUN mkdir -p /home/user && chmod 0755 /home/user\n#5 CACHED\n\n#6 [main 4/7] RUN mkdir -p /home/user/myapp/dist &&     cd /home/user/myapp &&     cat >package.json <<'EOF'\n#6 CACHED\n\n#7 [main 5/7] RUN cd /home/user/myapp &&     cat >capacitor.config.ts <<'EOF'\n#7 CACHED\n\n#8 [main 2/7] RUN apt-get update -y &&     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends         curl wget ca-certificates git python3 python3-pip python3-pytest bash ripgrep         xz-utils gnupg &&     ln -s /usr/bin/python3 /usr/bin/python &&     curl -fsSL https://deb.nodesource.com/setup_22.x | bash - &&     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends nodejs &&     pip3 install --break-system-packages pytest-json-ctrf &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*\n#8 CACHED\n\n#9 [main 6/7] RUN cd /home/user/myapp/dist &&     cat >index.html <<'EOF'\n#9 CACHED\n\n#10 [main 7/7] RUN cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android\n#10 9.488 \n#10 9.488 added 92 packages in 8s\n#10 9.491 npm notice\n#10 9.491 npm notice New major version of npm available! 10.9.8 -> 11.17.0\n#10 9.491 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.17.0\n#10 9.491 npm notice To update run: npm install -g npm@11.17.0\n#10 9.491 npm notice\n#10 11.21 [error] Could not find installation of TypeScript.\n#10 11.21         To use capacitor.config.ts files, you must install TypeScript in your project, e.g. w/ npm install -D typescript\n#10 ERROR: process \"/bin/sh -c cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android\" did not complete successfully: exit code: 1\n------\n > [main 7/7] RUN cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android:\n9.488 \n9.488 added 92 packages in 8s\n9.491 npm notice\n9.491 npm notice New major version of npm available! 10.9.8 -> 11.17.0\n9.491 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.17.0\n9.491 npm notice To update run: npm install -g npm@11.17.0\n9.491 npm notice\n11.21 [error] Could not find installation of TypeScript.\n11.21         To use capacitor.config.ts files, you must install TypeScript in your project, e.g. w/ npm install -D typescript\n------\nfailed to solve: process \"/bin/sh -c cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android\" did not complete successfully: exit code: 1\n. Stderr: None. ",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py\", line 160, in run\n    await self._prepare()\n  File \"/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py\", line 187, in _prepare\n    await self._setup_agent_environment()\n  File \"/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py\", line 612, in _setup_agent_environment\n    await self._start_agent_environment()\n  File \"/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py\", line 618, in _start_agent_environment\n    await asyncio.wait_for(\n    ...<4 lines>...\n    )\n  File \"/usr/lib/python3.13/asyncio/tasks.py\", line 507, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py\", line 517, in start\n    await self._run_docker_compose_command([\"build\"])\n  File \"/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py\", line 418, in _run_docker_compose_command\n    raise RuntimeError(\n    ...<5 lines>...\n    )\nRuntimeError: Docker compose command failed for environment android_https_scheme_hostname_config. Command: docker compose --project-name android_https_scheme_hostname_co__r67jday --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/android_https_scheme_hostname_config/environment -f /tmp/tmphnh9rgqo/android_https_scheme_hostname_co__r67JdaY-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmphzdllef4/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with \"default\" instance using docker driver\n\n#1 [main internal] load build definition from Dockerfile\n#1 transferring dockerfile: 3.39kB 0.0s done\n#1 DONE 0.0s\n\n#2 [main internal] load metadata for docker.io/library/ubuntu:24.04\n#2 DONE 0.0s\n\n#3 [main internal] load .dockerignore\n#3 transferring context: 2B done\n#3 DONE 0.0s\n\n#4 [main 1/7] FROM docker.io/library/ubuntu:24.04\n#4 DONE 0.0s\n\n#5 [main 3/7] RUN mkdir -p /home/user && chmod 0755 /home/user\n#5 CACHED\n\n#6 [main 4/7] RUN mkdir -p /home/user/myapp/dist &&     cd /home/user/myapp &&     cat >package.json <<'EOF'\n#6 CACHED\n\n#7 [main 5/7] RUN cd /home/user/myapp &&     cat >capacitor.config.ts <<'EOF'\n#7 CACHED\n\n#8 [main 2/7] RUN apt-get update -y &&     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends         curl wget ca-certificates git python3 python3-pip python3-pytest bash ripgrep         xz-utils gnupg &&     ln -s /usr/bin/python3 /usr/bin/python &&     curl -fsSL https://deb.nodesource.com/setup_22.x | bash - &&     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends nodejs &&     pip3 install --break-system-packages pytest-json-ctrf &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*\n#8 CACHED\n\n#9 [main 6/7] RUN cd /home/user/myapp/dist &&     cat >index.html <<'EOF'\n#9 CACHED\n\n#10 [main 7/7] RUN cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android\n#10 9.488 \n#10 9.488 added 92 packages in 8s\n#10 9.491 npm notice\n#10 9.491 npm notice New major version of npm available! 10.9.8 -> 11.17.0\n#10 9.491 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.17.0\n#10 9.491 npm notice To update run: npm install -g npm@11.17.0\n#10 9.491 npm notice\n#10 11.21 [error] Could not find installation of TypeScript.\n#10 11.21         To use capacitor.config.ts files, you must install TypeScript in your project, e.g. w/ npm install -D typescript\n#10 ERROR: process \"/bin/sh -c cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android\" did not complete successfully: exit code: 1\n------\n > [main 7/7] RUN cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android:\n9.488 \n9.488 added 92 packages in 8s\n9.491 npm notice\n9.491 npm notice New major version of npm available! 10.9.8 -> 11.17.0\n9.491 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.17.0\n9.491 npm notice To update run: npm install -g npm@11.17.0\n9.491 npm notice\n11.21 [error] Could not find installation of TypeScript.\n11.21         To use capacitor.config.ts files, you must install TypeScript in your project, e.g. w/ npm install -D typescript\n------\nfailed to solve: process \"/bin/sh -c cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android\" did not complete successfully: exit code: 1\n. Stderr: None. \n",
+        "occurred_at": "2026-06-16T14:16:56.257985"
+    },
+    "started_at": "2026-06-16T14:16:43.673991Z",
+    "finished_at": "2026-06-16T14:16:58.801071Z",
+    "environment_setup": {
+        "started_at": "2026-06-16T14:16:43.676826Z",
+        "finished_at": "2026-06-16T14:16:56.254898Z"
+    },
+    "agent_setup": null,
+    "agent_execution": null,
+    "verifier": null,
+    "step_results": null
+}

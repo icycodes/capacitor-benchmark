@@ -1,0 +1,5 @@
+OK: installed @capacitor/push-notifications v8
+OK: configured top-level android/build.gradle with google-services classpath
+OK: configured android/app/build.gradle to apply google-services plugin and add firebase-messaging dependency
+OK: created android/app/google-services.json placeholder file
+OK: created src/push.ts to handle requestPermissions and register flow

@@ -1,0 +1,145 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 11,
+            "passed": 4,
+            "failed": 7,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781617868955,
+            "stop": 1781617872158
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_capacitor_config_enables_capacitor_http",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781617869006,
+                "stop": 1781617869009,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_http_client_file_exists",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781617869009,
+                "stop": 1781617869011,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_http_client_uses_capacitor_http_request_and_preferences",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781617869011,
+                "stop": 1781617869013,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_npm_build_succeeds",
+                "status": "passed",
+                "duration": 1050,
+                "start": 1781617869013,
+                "stop": 1781617870063,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_runtime_harness_runs",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 2043,
+                "start": 1781617870064,
+                "stop": 1781617872107,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "runtime_results = {'results': [], 'returncode': 1, 'stderr': \"\\nnode:internal/modules/run_main:107\\n    triggerUncaughtException(\\n    ^...n  url: 'file:///tmp/httpclient-verify/file:/tmp/httpclient-verify/loader.mjs'\\n}\\n\\nNode.js v24.16.0\\n\", 'stdout': ''}\n\n    def test_runtime_harness_runs(runtime_results):\n>       assert runtime_results[\"results\"], (\n            \"No scenario results were captured from the Node harness. \"\n            f\"stdout={runtime_results['stdout']!r} stderr={runtime_results['stderr']!r}\"\n        )\nE       AssertionError: No scenario results were captured from the Node harness. stdout='' stderr='\\nnode:internal/modules/run_main:107\\n    triggerUncaughtException(\\n    ^\\nError [ERR_MODULE_NOT_FOUND]: Cannot find module \\'/tmp/httpclient-verify/file:/tmp/httpclient-verify/loader.mjs\\' imported from /tmp/httpclient-verify/file:/tmp/httpclient-verify/register.mjs\\nDid you mean to import \"../../../loader.mjs\"?\\n    at finalizeResolution (node:internal/modules/esm/resolve:271:11)\\n    at moduleResolve (node:internal/modules/esm/resolve:865:10)\\n    at defaultResolve (node:internal/modules/esm/resolve:992:11)\\n    at nextResolve (node:internal/modules/esm/hooks:785:28)\\n    at AsyncLoaderHooksOnLoaderHookWorker.resolve (node:internal/modules/esm/hooks:269:30)\\n    at #resolve (node:internal/modules/esm/loader:670:37)\\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:593:35)\\n    at node:internal/modules/esm/loader:622:32\\n    at TracingChannel.tracePromise (node:diagnostics_channel:362:14)\\n    at ModuleLoader.import (node:internal/modules/esm/loader:618:21) {\\n  code: \\'ERR_MODULE_NOT_FOUND\\',\\n  url: \\'file:///tmp/httpclient-verify/file:/tmp/httpclient-verify/loader.mjs\\'\\n}\\n\\nNode.js v24.16.0\\n'\nE       assert []\n\ntests/test_final_state.py:476: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_scenario_A_get_with_token",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 7,
+                "start": 1781617872108,
+                "stop": 1781617872115,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "runtime_results = {'results': [], 'returncode': 1, 'stderr': \"\\nnode:internal/modules/run_main:107\\n    triggerUncaughtException(\\n    ^...n  url: 'file:///tmp/httpclient-verify/file:/tmp/httpclient-verify/loader.mjs'\\n}\\n\\nNode.js v24.16.0\\n\", 'stdout': ''}\n\n    def test_scenario_A_get_with_token(runtime_results):\n        entry = _result_for(runtime_results[\"results\"], \"A_get_with_token\")\n>       assert entry is not None and entry.get(\"ok\"), (\n            \"Scenario A failed (GET attaches Bearer token, no Content-Type, forwards params). \"\n            f\"detail={entry and entry.get('detail')}\"\n        )\nE       AssertionError: Scenario A failed (GET attaches Bearer token, no Content-Type, forwards params). detail=None\nE       assert (None is not None)\n\ntests/test_final_state.py:484: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_scenario_B_get_without_token",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 7,
+                "start": 1781617872116,
+                "stop": 1781617872123,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "runtime_results = {'results': [], 'returncode': 1, 'stderr': \"\\nnode:internal/modules/run_main:107\\n    triggerUncaughtException(\\n    ^...n  url: 'file:///tmp/httpclient-verify/file:/tmp/httpclient-verify/loader.mjs'\\n}\\n\\nNode.js v24.16.0\\n\", 'stdout': ''}\n\n    def test_scenario_B_get_without_token(runtime_results):\n        entry = _result_for(runtime_results[\"results\"], \"B_get_without_token\")\n>       assert entry is not None and entry.get(\"ok\"), (\n            \"Scenario B failed (GET without stored token must omit Authorization header). \"\n            f\"detail={entry and entry.get('detail')}\"\n        )\nE       AssertionError: Scenario B failed (GET without stored token must omit Authorization header). detail=None\nE       assert (None is not None)\n\ntests/test_final_state.py:492: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_scenario_C_post_with_body",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 7,
+                "start": 1781617872123,
+                "stop": 1781617872130,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "runtime_results = {'results': [], 'returncode': 1, 'stderr': \"\\nnode:internal/modules/run_main:107\\n    triggerUncaughtException(\\n    ^...n  url: 'file:///tmp/httpclient-verify/file:/tmp/httpclient-verify/loader.mjs'\\n}\\n\\nNode.js v24.16.0\\n\", 'stdout': ''}\n\n    def test_scenario_C_post_with_body(runtime_results):\n        entry = _result_for(runtime_results[\"results\"], \"C_post_with_body\")\n>       assert entry is not None and entry.get(\"ok\"), (\n            \"Scenario C failed (POST must send JSON body, Content-Type header, and Bearer token). \"\n            f\"detail={entry and entry.get('detail')}\"\n        )\nE       AssertionError: Scenario C failed (POST must send JSON body, Content-Type header, and Bearer token). detail=None\nE       assert (None is not None)\n\ntests/test_final_state.py:500: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_scenario_D_post_no_body",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 7,
+                "start": 1781617872130,
+                "stop": 1781617872137,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "runtime_results = {'results': [], 'returncode': 1, 'stderr': \"\\nnode:internal/modules/run_main:107\\n    triggerUncaughtException(\\n    ^...n  url: 'file:///tmp/httpclient-verify/file:/tmp/httpclient-verify/loader.mjs'\\n}\\n\\nNode.js v24.16.0\\n\", 'stdout': ''}\n\n    def test_scenario_D_post_no_body(runtime_results):\n        entry = _result_for(runtime_results[\"results\"], \"D_post_no_body\")\n>       assert entry is not None and entry.get(\"ok\"), (\n            \"Scenario D failed (POST without body must omit data and Content-Type). \"\n            f\"detail={entry and entry.get('detail')}\"\n        )\nE       AssertionError: Scenario D failed (POST without body must omit data and Content-Type). detail=None\nE       assert (None is not None)\n\ntests/test_final_state.py:508: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_scenario_E_401_clears_token",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 9,
+                "start": 1781617872137,
+                "stop": 1781617872146,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "runtime_results = {'results': [], 'returncode': 1, 'stderr': \"\\nnode:internal/modules/run_main:107\\n    triggerUncaughtException(\\n    ^...n  url: 'file:///tmp/httpclient-verify/file:/tmp/httpclient-verify/loader.mjs'\\n}\\n\\nNode.js v24.16.0\\n\", 'stdout': ''}\n\n    def test_scenario_E_401_clears_token(runtime_results):\n        entry = _result_for(runtime_results[\"results\"], \"E_401_clears_token\")\n>       assert entry is not None and entry.get(\"ok\"), (\n            \"Scenario E failed (401 must clear auth_token and throw UnauthorizedError). \"\n            f\"detail={entry and entry.get('detail')}\"\n        )\nE       AssertionError: Scenario E failed (401 must clear auth_token and throw UnauthorizedError). detail=None\nE       assert (None is not None)\n\ntests/test_final_state.py:516: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_scenario_F_500_preserves_token",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 11,
+                "start": 1781617872147,
+                "stop": 1781617872158,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "runtime_results = {'results': [], 'returncode': 1, 'stderr': \"\\nnode:internal/modules/run_main:107\\n    triggerUncaughtException(\\n    ^...n  url: 'file:///tmp/httpclient-verify/file:/tmp/httpclient-verify/loader.mjs'\\n}\\n\\nNode.js v24.16.0\\n\", 'stdout': ''}\n\n    def test_scenario_F_500_preserves_token(runtime_results):\n        entry = _result_for(runtime_results[\"results\"], \"F_500_preserves_token\")\n>       assert entry is not None and entry.get(\"ok\"), (\n            \"Scenario F failed (500 must throw a non-UnauthorizedError and preserve the token). \"\n            f\"detail={entry and entry.get('detail')}\"\n        )\nE       AssertionError: Scenario F failed (500 must throw a non-UnauthorizedError and preserve the token). detail=None\nE       assert (None is not None)\n\ntests/test_final_state.py:524: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

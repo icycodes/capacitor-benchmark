@@ -1,0 +1,17 @@
+{
+  "name": "migration-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Hybrid Cordova/Capacitor demo before migrating off cordova-plugin-device.",
+  "scripts": {
+    "build": "echo \"build noop (assets are pre-built under www/)\""
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.0.0",
+    "@capacitor/core": "^8.0.0",
+    "@capacitor/device": "^8.0.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.0.0"
+  }
+}

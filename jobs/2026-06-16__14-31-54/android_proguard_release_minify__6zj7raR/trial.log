@@ -1,0 +1,287 @@
+Trial android_proguard_release_minify__6zj7raR failed: Docker compose command failed for environment android_proguard_release_minify_config. Command: docker compose --project-name android_proguard_release_minify__6zj7rar --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/android_proguard_release_minify_config/environment -f /tmp/tmps__caxat/android_proguard_release_minify__6zj7raR-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmp36tevtnw/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 11.21kB done
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/ubuntu:24.04
+#2 DONE 0.0s
+
+#3 [main internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [main  1/16] FROM docker.io/library/ubuntu:24.04
+#4 DONE 0.0s
+
+#5 [main 11/16] RUN cat >/home/user/myapp/android/app/src/main/java/com/example/myapp/EchoPlugin.java <<'JAVA'
+#5 CACHED
+
+#6 [main  2/16] RUN apt-get update -y &&     apt-get install -y --no-install-recommends         curl wget ca-certificates git python3 python3-pip python3-pytest bash ripgrep         unzip zip xz-utils openjdk-21-jdk-headless fontconfig file &&     ln -sf /usr/bin/python3 /usr/bin/python &&     pip3 install --break-system-packages pytest-json-ctrf &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#6 CACHED
+
+#7 [main 13/16] RUN keytool -genkeypair -v         -keystore /home/user/myapp/android/app/release.keystore         -alias release -keyalg RSA -keysize 2048 -validity 10000         -storepass releasepass -keypass releasepass         -dname "CN=MyApp Release, OU=Dev, O=MyApp, L=NoWhere, S=NoWhere, C=US"
+#7 CACHED
+
+#8 [main  5/16] RUN mkdir -p /home/user && chmod 0755 /home/user
+#8 CACHED
+
+#9 [main  8/16] RUN cat >/home/user/myapp/dist/app.js <<'JS'
+#9 CACHED
+
+#10 [main  9/16] RUN cat >/home/user/myapp/src/index.ts <<'TS'
+#10 CACHED
+
+#11 [main  7/16] RUN cat >/home/user/myapp/dist/index.html <<'HTML'
+#11 CACHED
+
+#12 [main 14/16] RUN python3 - <<'PY'
+#12 CACHED
+
+#13 [main  3/16] RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - &&     apt-get install -y --no-install-recommends nodejs &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#13 CACHED
+
+#14 [main  6/16] RUN mkdir -p /home/user/myapp /home/user/myapp/dist /home/user/myapp/src &&     cd /home/user/myapp &&     cat >package.json <<'JSON'
+#14 CACHED
+
+#15 [main  4/16] RUN mkdir -p "/opt/android-sdk/cmdline-tools" &&     cd /tmp &&     curl -fsSL -o cmdline-tools.zip         https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip &&     unzip -q cmdline-tools.zip -d "/opt/android-sdk/cmdline-tools" &&     mv "/opt/android-sdk/cmdline-tools/cmdline-tools"        "/opt/android-sdk/cmdline-tools/latest" &&     rm -f cmdline-tools.zip &&     yes | "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null &&     "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager"         "platform-tools"         "platforms;android-35"         "build-tools;35.0.0" >/dev/null
+#15 CACHED
+
+#16 [main 10/16] RUN cd /home/user/myapp &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D         @capacitor/cli@^8 typescript@^5 &&     npx --yes cap init "MyApp" "com.example.myapp" --web-dir dist &&     npx --yes cap add android
+#16 CACHED
+
+#17 [main 12/16] RUN cat >/home/user/myapp/android/app/src/main/java/com/example/myapp/MainActivity.java <<'JAVA'
+#17 CACHED
+
+#18 [main 15/16] RUN cat >/home/user/myapp/android/app/proguard-rules.pro <<'PRO'
+#18 CACHED
+
+#19 [main 16/16] RUN cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug :app:assembleRelease &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle
+#19 0.503 Downloading https://services.gradle.org/distributions/gradle-8.14.3-all.zip
+#19 1.611 .....................10%.....................20%......................30%.....................40%......................50%.....................60%.....................70%......................80%.....................90%......................100%
+#19 9.715 
+#19 9.715 Welcome to Gradle 8.14.3!
+#19 9.715 
+#19 9.717 Here are the highlights of this release:
+#19 9.717  - Java 24 support
+#19 9.717  - GraalVM Native Image toolchain selection
+#19 9.717  - Enhancements to test reporting
+#19 9.717  - Build Authoring improvements
+#19 9.717 
+#19 9.717 For more details see https://docs.gradle.org/8.14.3/release-notes.html
+#19 9.717 
+#19 9.914 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#19 11.91 Daemon will be stopped at the end of the build 
+#19 42.31 
+#19 42.31 FAILURE: Build completed with 2 failures.
+#19 42.31 
+#19 42.31 1: Task failed with an exception.
+#19 42.31 -----------
+#19 42.31 * Where:
+#19 42.32 Build file '/home/user/myapp/android/app/build.gradle' line: 7
+#19 42.32 
+#19 42.32 * What went wrong:
+#19 42.32 A problem occurred evaluating project ':app'.
+#19 42.32 > Could not find method signingConfig() for arguments [SigningConfig$AgpDecorated_Decorated{name=release, storeFile=null, storePassword=null, keyAlias=null, keyPassword=null, storeType=pkcs12, v1SigningEnabled=true, v2SigningEnabled=true, enableV1Signing=null, enableV2Signing=null, enableV3Signing=null, enableV4Signing=null}] on SigningConfig$AgpDecorated_Decorated{name=release, storeFile=null, storePassword=null, keyAlias=null, keyPassword=null, storeType=pkcs12, v1SigningEnabled=true, v2SigningEnabled=true, enableV1Signing=null, enableV2Signing=null, enableV3Signing=null, enableV4Signing=null} of type com.android.build.gradle.internal.dsl.SigningConfig$AgpDecorated.
+#19 42.32 
+#19 42.32 * Try:
+#19 42.32 > Run with --stacktrace option to get the stack trace.
+#19 42.32 > Run with --info or --debug option to get more log output.
+#19 42.32 > Run with --scan to get full insights.
+#19 42.32 > Get more help at https://help.gradle.org.
+#19 42.32 ==============================================================================
+#19 42.32 
+#19 42.32 2: Task failed with an exception.
+#19 42.32 -----------
+#19 42.32 * What went wrong:
+#19 42.32 A problem occurred configuring project ':app'.
+#19 42.32 > Android Gradle Plugin: project ':app' does not specify `compileSdk` in build.gradle (/home/user/myapp/android/app/build.gradle).
+#19 42.32 
+#19 42.32 * Try:
+#19 42.32 > Run with --stacktrace option to get the stack trace.
+#19 42.32 > Run with --info or --debug option to get more log output.
+#19 42.32 > Run with --scan to get full insights.
+#19 42.32 > Get more help at https://help.gradle.org.
+#19 42.32 ==============================================================================
+#19 42.32 
+#19 42.32 BUILD FAILED in 41s
+#19 ERROR: process "/bin/sh -c cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug :app:assembleRelease &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle" did not complete successfully: exit code: 1
+------
+ > [main 16/16] RUN cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug :app:assembleRelease &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle:
+42.32 > Android Gradle Plugin: project ':app' does not specify `compileSdk` in build.gradle (/home/user/myapp/android/app/build.gradle).
+42.32 
+42.32 * Try:
+42.32 > Run with --stacktrace option to get the stack trace.
+42.32 > Run with --info or --debug option to get more log output.
+42.32 > Run with --scan to get full insights.
+42.32 > Get more help at https://help.gradle.org.
+42.32 ==============================================================================
+42.32 
+42.32 BUILD FAILED in 41s
+------
+failed to solve: process "/bin/sh -c cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug :app:assembleRelease &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle" did not complete successfully: exit code: 1
+. Stderr: None. 
+Failed to download artifact '/home/user' (best-effort)
+Traceback (most recent call last):
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 160, in run
+    await self._prepare()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 187, in _prepare
+    await self._setup_agent_environment()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 612, in _setup_agent_environment
+    await self._start_agent_environment()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 618, in _start_agent_environment
+    await asyncio.wait_for(
+    ...<4 lines>...
+    )
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 517, in start
+    await self._run_docker_compose_command(["build"])
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 418, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment android_proguard_release_minify_config. Command: docker compose --project-name android_proguard_release_minify__6zj7rar --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/android_proguard_release_minify_config/environment -f /tmp/tmps__caxat/android_proguard_release_minify__6zj7raR-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmp36tevtnw/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 11.21kB done
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/ubuntu:24.04
+#2 DONE 0.0s
+
+#3 [main internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [main  1/16] FROM docker.io/library/ubuntu:24.04
+#4 DONE 0.0s
+
+#5 [main 11/16] RUN cat >/home/user/myapp/android/app/src/main/java/com/example/myapp/EchoPlugin.java <<'JAVA'
+#5 CACHED
+
+#6 [main  2/16] RUN apt-get update -y &&     apt-get install -y --no-install-recommends         curl wget ca-certificates git python3 python3-pip python3-pytest bash ripgrep         unzip zip xz-utils openjdk-21-jdk-headless fontconfig file &&     ln -sf /usr/bin/python3 /usr/bin/python &&     pip3 install --break-system-packages pytest-json-ctrf &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#6 CACHED
+
+#7 [main 13/16] RUN keytool -genkeypair -v         -keystore /home/user/myapp/android/app/release.keystore         -alias release -keyalg RSA -keysize 2048 -validity 10000         -storepass releasepass -keypass releasepass         -dname "CN=MyApp Release, OU=Dev, O=MyApp, L=NoWhere, S=NoWhere, C=US"
+#7 CACHED
+
+#8 [main  5/16] RUN mkdir -p /home/user && chmod 0755 /home/user
+#8 CACHED
+
+#9 [main  8/16] RUN cat >/home/user/myapp/dist/app.js <<'JS'
+#9 CACHED
+
+#10 [main  9/16] RUN cat >/home/user/myapp/src/index.ts <<'TS'
+#10 CACHED
+
+#11 [main  7/16] RUN cat >/home/user/myapp/dist/index.html <<'HTML'
+#11 CACHED
+
+#12 [main 14/16] RUN python3 - <<'PY'
+#12 CACHED
+
+#13 [main  3/16] RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - &&     apt-get install -y --no-install-recommends nodejs &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#13 CACHED
+
+#14 [main  6/16] RUN mkdir -p /home/user/myapp /home/user/myapp/dist /home/user/myapp/src &&     cd /home/user/myapp &&     cat >package.json <<'JSON'
+#14 CACHED
+
+#15 [main  4/16] RUN mkdir -p "/opt/android-sdk/cmdline-tools" &&     cd /tmp &&     curl -fsSL -o cmdline-tools.zip         https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip &&     unzip -q cmdline-tools.zip -d "/opt/android-sdk/cmdline-tools" &&     mv "/opt/android-sdk/cmdline-tools/cmdline-tools"        "/opt/android-sdk/cmdline-tools/latest" &&     rm -f cmdline-tools.zip &&     yes | "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null &&     "/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager"         "platform-tools"         "platforms;android-35"         "build-tools;35.0.0" >/dev/null
+#15 CACHED
+
+#16 [main 10/16] RUN cd /home/user/myapp &&     npm install --no-audit --no-fund --silent         @capacitor/core@^8 @capacitor/android@^8 &&     npm install --no-audit --no-fund --silent -D         @capacitor/cli@^8 typescript@^5 &&     npx --yes cap init "MyApp" "com.example.myapp" --web-dir dist &&     npx --yes cap add android
+#16 CACHED
+
+#17 [main 12/16] RUN cat >/home/user/myapp/android/app/src/main/java/com/example/myapp/MainActivity.java <<'JAVA'
+#17 CACHED
+
+#18 [main 15/16] RUN cat >/home/user/myapp/android/app/proguard-rules.pro <<'PRO'
+#18 CACHED
+
+#19 [main 16/16] RUN cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug :app:assembleRelease &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle
+#19 0.503 Downloading https://services.gradle.org/distributions/gradle-8.14.3-all.zip
+#19 1.611 .....................10%.....................20%......................30%.....................40%......................50%.....................60%.....................70%......................80%.....................90%......................100%
+#19 9.715 
+#19 9.715 Welcome to Gradle 8.14.3!
+#19 9.715 
+#19 9.717 Here are the highlights of this release:
+#19 9.717  - Java 24 support
+#19 9.717  - GraalVM Native Image toolchain selection
+#19 9.717  - Enhancements to test reporting
+#19 9.717  - Build Authoring improvements
+#19 9.717 
+#19 9.717 For more details see https://docs.gradle.org/8.14.3/release-notes.html
+#19 9.717 
+#19 9.914 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+#19 11.91 Daemon will be stopped at the end of the build 
+#19 42.31 
+#19 42.31 FAILURE: Build completed with 2 failures.
+#19 42.31 
+#19 42.31 1: Task failed with an exception.
+#19 42.31 -----------
+#19 42.31 * Where:
+#19 42.32 Build file '/home/user/myapp/android/app/build.gradle' line: 7
+#19 42.32 
+#19 42.32 * What went wrong:
+#19 42.32 A problem occurred evaluating project ':app'.
+#19 42.32 > Could not find method signingConfig() for arguments [SigningConfig$AgpDecorated_Decorated{name=release, storeFile=null, storePassword=null, keyAlias=null, keyPassword=null, storeType=pkcs12, v1SigningEnabled=true, v2SigningEnabled=true, enableV1Signing=null, enableV2Signing=null, enableV3Signing=null, enableV4Signing=null}] on SigningConfig$AgpDecorated_Decorated{name=release, storeFile=null, storePassword=null, keyAlias=null, keyPassword=null, storeType=pkcs12, v1SigningEnabled=true, v2SigningEnabled=true, enableV1Signing=null, enableV2Signing=null, enableV3Signing=null, enableV4Signing=null} of type com.android.build.gradle.internal.dsl.SigningConfig$AgpDecorated.
+#19 42.32 
+#19 42.32 * Try:
+#19 42.32 > Run with --stacktrace option to get the stack trace.
+#19 42.32 > Run with --info or --debug option to get more log output.
+#19 42.32 > Run with --scan to get full insights.
+#19 42.32 > Get more help at https://help.gradle.org.
+#19 42.32 ==============================================================================
+#19 42.32 
+#19 42.32 2: Task failed with an exception.
+#19 42.32 -----------
+#19 42.32 * What went wrong:
+#19 42.32 A problem occurred configuring project ':app'.
+#19 42.32 > Android Gradle Plugin: project ':app' does not specify `compileSdk` in build.gradle (/home/user/myapp/android/app/build.gradle).
+#19 42.32 
+#19 42.32 * Try:
+#19 42.32 > Run with --stacktrace option to get the stack trace.
+#19 42.32 > Run with --info or --debug option to get more log output.
+#19 42.32 > Run with --scan to get full insights.
+#19 42.32 > Get more help at https://help.gradle.org.
+#19 42.32 ==============================================================================
+#19 42.32 
+#19 42.32 BUILD FAILED in 41s
+#19 ERROR: process "/bin/sh -c cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug :app:assembleRelease &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle" did not complete successfully: exit code: 1
+------
+ > [main 16/16] RUN cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug :app:assembleRelease &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle:
+42.32 > Android Gradle Plugin: project ':app' does not specify `compileSdk` in build.gradle (/home/user/myapp/android/app/build.gradle).
+42.32 
+42.32 * Try:
+42.32 > Run with --stacktrace option to get the stack trace.
+42.32 > Run with --info or --debug option to get more log output.
+42.32 > Run with --scan to get full insights.
+42.32 > Get more help at https://help.gradle.org.
+42.32 ==============================================================================
+42.32 
+42.32 BUILD FAILED in 41s
+------
+failed to solve: process "/bin/sh -c cd /home/user/myapp/android &&     ./gradlew --no-daemon :app:assembleDebug :app:assembleRelease &&     rm -rf /home/user/myapp/android/app/build            /home/user/myapp/android/build            /home/user/myapp/android/.gradle" did not complete successfully: exit code: 1
+. Stderr: None. 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/artifact_handler.py", line 195, in _download_artifact
+    await source_env.download_file(
+    ...<2 lines>...
+    )
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 609, in download_file
+    await self._platform.download_file(source_path, target_path)
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker_unix.py", line 48, in download_file
+    await self._env._run_docker_compose_command(
+    ...<2 lines>...
+    )
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 418, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment android_proguard_release_minify_config. Command: docker compose --project-name android_proguard_release_minify__6zj7rar --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/android_proguard_release_minify_config/environment -f /tmp/tmps__caxat/android_proguard_release_minify__6zj7raR-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmp36tevtnw/docker-compose-mounts.json cp main:/home/user jobs/2026-06-16__14-31-54/android_proguard_release_minify__6zj7raR/artifacts/user. Return code: 1. Stdout: no container found for service "main"
+. Stderr: None. 

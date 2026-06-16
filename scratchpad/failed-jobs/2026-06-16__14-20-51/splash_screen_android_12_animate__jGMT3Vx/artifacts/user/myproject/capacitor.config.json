@@ -1,0 +1,13 @@
+{
+  "appId": "com.example.mynativeapp",
+  "appName": "My Native App",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false,
+      "launchShowDuration": 2000,
+      "backgroundColor": "#0E0E0E",
+      "androidScaleType": "CENTER_CROP"
+    }
+  }
+}

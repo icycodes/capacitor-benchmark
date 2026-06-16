@@ -1,0 +1,74 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 17 items
+
+tests/test_final_state.py ...............F.                              [100%]
+
+=================================== FAILURES ===================================
+__________ test_timer_emitter_ts_wrapper_exists_and_registers_plugin ___________
+
+    def test_timer_emitter_ts_wrapper_exists_and_registers_plugin():
+        assert os.path.isfile(TIMER_TS_PATH), (
+            f"TypeScript wrapper {TIMER_TS_PATH} must exist."
+        )
+        content = _read(TIMER_TS_PATH)
+        assert re.search(
+            r"import\s*\{[^}]*\bregisterPlugin\b[^}]*\}\s*from\s*['\"]@capacitor/core['\"]",
+            content,
+        ), "src/timer-emitter.ts must import `registerPlugin` from `@capacitor/core`."
+        assert re.search(
+            r"registerPlugin\s*(?:<[^>]+>)?\s*\(\s*['\"]TimerEmitter['\"]",
+            content,
+        ), (
+            "src/timer-emitter.ts must call `registerPlugin('TimerEmitter')` "
+            "(or `registerPlugin<...>('TimerEmitter')`)."
+        )
+        # Interface should describe startTimer with intervalMs parameter.
+        assert re.search(
+            r"startTimer\s*\(\s*[A-Za-z0-9_]*\s*:?\s*\{[^}]*intervalMs\s*:\s*number",
+            content,
+            re.DOTALL,
+        ), (
+            "src/timer-emitter.ts must declare a `startTimer` method whose options object "
+            "includes an `intervalMs: number` field."
+        )
+        # Should declare stopTimer method.
+        assert re.search(r"stopTimer\s*\(\s*\)", content), (
+            "src/timer-emitter.ts must declare a `stopTimer()` method on the plugin interface."
+        )
+        # Should declare an addListener overload for the 'tick' event with a {count: number} payload.
+>       assert re.search(
+            r"addListener\s*\(\s*['\"]tick['\"]",
+            content,
+        ), (
+            "src/timer-emitter.ts must declare an `addListener('tick', ...)` overload "
+            "on the plugin interface."
+        )
+E       AssertionError: src/timer-emitter.ts must declare an `addListener('tick', ...)` overload on the plugin interface.
+E       assert None
+E        +  where None = <function search at 0x7f6cb5633ba0>('addListener\\s*\\(\\s*[\'\\"]tick[\'\\"]', "import { registerPlugin, PluginListenerHandle } from '@capacitor/core';\n\nexport interface TimerEmitterPlugin {\n  s...ndle;\n}\n\nconst TimerEmitter = registerPlugin<TimerEmitterPlugin>('TimerEmitter');\n\nexport default TimerEmitter;\n")
+E        +    where <function search at 0x7f6cb5633ba0> = re.search
+
+tests/test_final_state.py:223: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_timer_emitter_plugin_swift_exists
+PASSED tests/test_final_state.py::test_timer_emitter_plugin_swift_imports_capacitor
+PASSED tests/test_final_state.py::test_timer_emitter_plugin_swift_objc_annotation
+PASSED tests/test_final_state.py::test_timer_emitter_plugin_swift_class_declaration
+PASSED tests/test_final_state.py::test_timer_emitter_plugin_swift_identifier_constant
+PASSED tests/test_final_state.py::test_timer_emitter_plugin_swift_jsname_constant
+PASSED tests/test_final_state.py::test_timer_emitter_plugin_swift_plugin_methods_array
+PASSED tests/test_final_state.py::test_timer_emitter_plugin_swift_start_timer_method_signature
+PASSED tests/test_final_state.py::test_timer_emitter_plugin_swift_stop_timer_method_signature
+PASSED tests/test_final_state.py::test_timer_emitter_plugin_swift_uses_scheduled_timer
+PASSED tests/test_final_state.py::test_timer_emitter_plugin_swift_notifies_tick_with_count
+PASSED tests/test_final_state.py::test_timer_emitter_plugin_swift_invalidates_timer
+PASSED tests/test_final_state.py::test_timer_emitter_plugin_swift_balanced_braces
+PASSED tests/test_final_state.py::test_myviewcontroller_registers_timer_emitter_plugin
+PASSED tests/test_final_state.py::test_pbxproj_references_timer_emitter_plugin_swift
+PASSED tests/test_final_state.py::test_cap_sync_ios_succeeds
+FAILED tests/test_final_state.py::test_timer_emitter_ts_wrapper_exists_and_registers_plugin
+========================= 1 failed, 16 passed in 0.99s =========================

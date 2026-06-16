@@ -1,0 +1,112 @@
+- Initializing MCP connections...
+You
+# Conditional Offline Cache with CapacitorHttp, Filesystem, and Preferences ## Background You are building a Vite + TypeScript web application that will eventually ship as a Capacitor v8 native app. The app needs to talk to a slow, rate-limited JSON API while remaining usable when the network is unavailable. The Capacitor v8 toolkit is well suited for this: `CapacitorHttp` issues real native (or `fetch`-backed) HTTP requests, `@capacitor/filesystem` persists arbitrary byte blobs on disk, and `@capacitor/preferences` keeps lightweight key/value metadata safe across reloads and OS garbage collection. Combined, they form a small ETag-aware offline cache that survives reloads, never re-downloads unchanged payloads, and works the same on iOS, Android, and the web preview that this task is verified against. A minimal Vite + TypeScript project has already been scaffolded for you at `/home/user/myapp`. A small Node HTTP fixture server that mimics an ETag-aware JSON API is started on port 4174 by the verifier before the browser-driven checks run. Your job is to integrate Capacitor v8, implement the offline-cache module, and surface its behavior through a minimal UI so that an automated test can drive it end-to-end. ## Requirements * Integrate Capacitor v8 into the existing Vite project using the non-interactive CLI flow. The Capacitor app must be configured with: * App name: `Offline Cache Demo` * Application/package id: `com.example.offlinecache` * Web assets directory aligned with Vite's build output (`dist`). * `CapacitorHttp` plugin enabled (`plugins.CapacitorHttp.enabled = true`). * Install and use the following Capacitor v8 plugins (in versions compatible with `@capacitor/core@^8`): `@capacitor/filesystem` and `@capacitor/preferences`. `CapacitorHttp` ships inside `@capacitor/core` and does not require a separate package. * Implement an offline-cache module at `src/cache/offlineCache.ts` that exports exactly two async functions: * `getCached(key: string, url: string): Promise<{ data: unknown; source: 'network' | 'cache' }>` * On the very first call for a given key (no metadata yet), issue a `CapacitorHttp.get` to `url`, take the response's `ETag` header (case-insensitive), persist the response body verbatim to `Filesystem.writeFile({ path: 'cache/<key>.json', directory: Directory.Cache, encoding: Encoding.UTF8, recursive: true })`, persist the metadata `{ etag: <etag>, fetchedAt: Date.now() }` as a JSON string under the Preferences key `cache_meta:<key>`, and return `{ data: <parsed JSON of the response>, source: 'network' }`. * On subsequent calls for a given key, look up the stored metadata, send a conditional `CapacitorHttp.get` with the `If-None-Match` header set to the stored ETag, and: * On `304 Not Modified`, read the cached file back via `Filesystem.readFile`, parse it as JSON, refresh only the `fetchedAt` timestamp in Preferences (the stored ETag must stay the same), and return `{ data, source: 'cache' }`. * On `200 OK` with a different ETag, overwrite the on-disk file, update both `etag` and `fetchedAt` in Preferences, and return `{ data, source: 'network' }`. * `invalidate(key: string): Promise<void>` removes both the on-disk file (`cache/<key>.json` in `Directory.Cache`) and the `cache_meta:<key>` Preferences entry. Missing files or missing metadata must not throw — `invalidate` is idempotent. * The module MUST go through `CapacitorHttp.get` from `@capacitor/core` for every outbound HTTP request. Do NOT call `window.fetch`, `XMLHttpRequest`, or any third-party HTTP client directly. * The persisted JSON file MUST go through `Filesystem.writeFile` with `Directory.Cache` and `Encoding.UTF8`. The metadata MUST go through `@capacitor/preferences` under the exact key `cache_meta:<key>`. * Implement a minimal UI in `index.html` (and supporting TypeScript modules under `src/`) that wires the module to the page: * An `<input>` with the HTML id `url-input` whose `value` is the URL the next `getCached` call will use. * A `<button>` with the HTML id `fetch-button` that, when clicked, calls `getCached('demo', urlInput.value)` and renders the result. * A `<button>` with the HTML id `invalidate-button` that, when clicked, calls `invalidate('demo')` and updates the status. * An element with the HTML id `status` whose text content reflects the current state. It MUST take one of these exact values, in order: `idle` (initial), `fetching` (while a `getCached` call is in flight), `success` (after a successful `getCached`), `invalidated` (after a successful `invalidate('demo')`), or `error: <message>` (any thrown error). * An element with the HTML id `data` whose text content holds `JSON.stringify(result.data)` after a successful `getCached`, and is empty otherwise (including after `invalidate`). * An element with the HTML id `source` whose text content equals `network` or `cache` after the most recent successful `getCached`, and is empty otherwise. * An element with the HTML id `meta-etag` whose text content equals the current `etag` stored in Preferences for the `demo` key (empty when no metadata exists). * An element with the HTML id `meta-fetched-at` whose text content equals the current `fetchedAt` stored in Preferences for the `demo` key as a plain decimal integer (empty when no metadata exists). * `npm run build` and `npx cap sync` MUST both complete with exit status 0. ## Implementation Hints * Use `npx cap init` with positional `appName` and `appId` arguments and the `--web-dir` flag to avoid the interactive prompt, then edit the generated `capacitor.config.ts` to add the `plugins.CapacitorHttp.enabled = true` entry. * `CapacitorHttp.get`, on web, returns an `HttpResponse` with `status`, `headers`, and `data` fields. Headers are returned as a plain object whose key casing is platform-dependent — look up the `ETag` header case-insensitively. The `data` field is already parsed when the server responds with `Content-Type: application/json`; do not double-parse it. * Because we are caching a JSON resource, persist the canonical string form (`JSON.stringify(result.data)`) to disk so that `Filesystem.readFile({ encoding: Encoding.UTF8 })` can be fed straight into `JSON.parse`. * The Capacitor Filesystem web implementation auto-creates parent directories when `recursive: true` is passed to `writeFile`. Pass it on every write so the `cache/` sub-folder is created lazily. * The Preferences web implementation falls back to `localStorage`; store the metadata as JSON. * A 304 response carries no body, so make sure your code does not attempt to parse `response.data` when `response.status === 304`. * Make sure the script that wires up the buttons is loaded as an ES module so that the `@capacitor/*` packages are resolved correctly by Vite. ## Acceptance Criteria * Project path: /home/user/myapp * Start command: `npm run preview -- --host 0.0.0.0 --port 4173` * Port: 4173 * `capacitor.config.ts` (or `capacitor.config.json`) must exist at the project root with `appName` equal to `Offline Cache Demo`, `appId` equal to `com.example.offlinecache`, `webDir` equal to `dist`, and the `CapacitorHttp` plugin enabled. * `package.json` must list `@capacitor/core`, `@capacitor/cli`, `@capacitor/filesystem`, and `@capacitor/preferences` as dependencies (any of `dependencies` or `devDependencies`). * `src/cache/offlineCache.ts` must exist and export `getCached` and `invalidate`. Its source must contain literal references to `CapacitorHttp`, `Filesystem`, and `Preferences` (i.e. the module must be implemented in terms of those Capacitor APIs). * `src/cache/offlineCache.ts` must not contain literal references to `window.fetch`, `XMLHttpRequest`, `axios`, or any other competing HTTP client used outside `CapacitorHttp`. * `npm run build` must complete without errors and produce a `dist/index.html` file. * `npx cap sync` must exit with status 0. * The served page at `http://localhost:4173/` must contain elements with the HTML ids `url-input`, `fetch-button`, `invalidate-button`, `status`, `data`, `source`, `meta-etag`, and `meta-fetched-at`. * On initial load, `#status` must contain the literal text `idle`, while `#data`, `#source`, `#meta-etag`, and `#meta-fetched-at` must be empty. * Behavior under an ETag-aware fixture server (started by the verifier on port 4174, exposing `GET /api/data` with ETag/If-None-Match support, plus control endpoints to rotate the payload and read traffic stats): * **First fetch for a fresh key**: setting `#url-input` to the fixture URL and clicking `#fetch-button` must transition `#status` from `fetching` to `success`, set `#source` to `network`, render `#data` to the fixture's current JSON body (as `JSON.stringify`), and populate `#meta-etag` with the fixture's current ETag and `#meta-fetched-at` with a numeric millisecond timestamp. * **Second fetch with unchanged content**: clicking `#fetch-button` again must end with `#status` equal to `success`, `#source` equal to `cache`, `#data` still equal to the same JSON body, and `#meta-etag` unchanged. The verifier's fixture server must record a second request that carried an `If-None-Match` header equal to the stored ETag and must have returned `304`. * **Invalidate**: clicking `#invalidate-button` must transition `#status` to `invalidated`, clear `#data`, `#source`, `#meta-etag`, and `#meta-fetched-at`, and remove both the `cache_meta:demo` Preferences entry and the on-disk `cache/demo.json` file (verified through an in-page evaluation that calls `Preferences.get` and `Filesystem.readFile` directly). * **Re-fetch after invalidate**: clicking `#fetch-button` again must yield `#status` = `success`, `#source` = `network`, and freshly populated metadata, with the fixture server recording a new request that did NOT include an `If-None-Match` header. * **Server-side payload rotation**: when the fixture is asked to rotate its payload (changing both body and ETag) and `#fetch-button` is clicked, the next call must yield `#status` = `success`, `#source` = `network`, `#data` equal to the new body, and `#meta-etag` equal to the new ETag. A subsequent click must then yield `#source` = `cache` and confirm `If-None-Match` was sent with the new ETag.   
+
+Pochi
+I'll start by exploring the existing project structure and understanding what's already in place.   
+📂 Listing files in /home/user/myapp recursively ✔ 
+📖 Reading /home/user/myapp/package.json ✔ 
+📖 Reading /home/user/myapp/index.html ✔ 
+📖 Reading /home/user/myapp/src/main.ts ✔ 
+📖 Reading /home/user/myapp/tsconfig.json ✔ 
+Good, I have a clear picture of the scaffold. Let me create a comprehensive task plan and start executing.   
+📋 Updating todo list (6 items) ✔ 
+📋 Updating todo list (6 items) ✔ 
+💫 Executing cd /home/user/myapp && npm install @capacitor/core@^8 @capacitor/cli@^8 @capacitor/filesystem@^8 @capacitor/preferences@^8 2>&1 ✔ 
+📋 Updating todo list (6 items) ✔ 
+Now initialize Capacitor with the required configuration:   
+💫 Executing cd /home/user/myapp && npx cap init "Offline Cache Demo" com.example.offlinecache --web-dir dist 2>&1 ✔ 
+📖 Reading /home/user/myapp/capacitor.config.ts ✔ 
+Now I need to add the `plugins.CapacitorHttp.enabled = true` entry:   
+🔧 Applying diff to /home/user/myapp/capacitor.config.ts ✔ 
+📋 Updating todo list (6 items) ✔ 
+Now implement the offline cache module. Let me first check the Capacitor v8 API types to make sure I use the correct imports:   
+💫 Executing cd /home/user/myapp && ls node_modules/@capacitor/core/dist/ 2>&1 | head -20 ✔ 
+💫 Executing cd /home/user/myapp && ls node_modules/@capacitor/filesystem/dist/ 2>&1 | head -20 ✔ 
+💫 Executing cd /home/user/myapp && ls node_modules/@capacitor/preferences/dist/ 2>&1 | head -20 ✔ 
+💫 Executing cd /home/user/myapp && head -100 node_modules/@capacitor/core/dist/capacitor.js 2>&1 ✔ 
+Let me check the exact exports available:   
+💫 Executing cd /home/user/myapp && grep -o 'export [a-zA-Z]*' node_modules/@capacitor/core/dist/index.js | sort -u 2>&1 ✔ 
+💫 Executing cd /home/user/myapp && grep -o 'export [a-zA-Z]*' node_modules/@capacitor/filesystem/dist/plugin.js | sort -u 2>&1 ✔ 
+💫 Executing cd /home/user/myapp && grep -o 'export [a-zA-Z]*' node_modules/@capacitor/preferences/dist/plugin.js | sort -u 2>&1 ✔ 
+💫 Executing cd /home/user/myapp && head -5 node_modules/@capacitor/core/dist/index.js 2>&1 ✔ 
+💫 Executing cd /home/user/myapp && head -10 node_modules/@capacitor/filesystem/dist/plugin.js 2>&1 ✔ 
+💫 Executing cd /home/user/myapp && head -10 node_modules/@capacitor/preferences/dist/plugin.js 2>&1 ✔ 
+Now let me check the Filesystem exports more carefully:   
+💫 Executing cd /home/user/myapp && grep -n 'export' node_modules/@capacitor/filesystem/dist/plugin.js 2>&1 ✔ 
+Good. Now let me check the Preferences exports:   
+💫 Executing cd /home/user/myapp && grep -n 'export' node_modules/@capacitor/preferences/dist/plugin.js 2>&1 ✔ 
+Now let me check the CapacitorHttp export:   
+💫 Executing cd /home/user/myapp && grep -n 'CapacitorHttp' node_modules/@capacitor/core/dist/index.js 2>&1 ✔ 
+Now I have all the information I need. Let me create the cache module and the UI files. First, the cache module:   
+💫 Executing mkdir -p /home/user/myapp/src/cache ✔ 
+✏️  Writing /home/user/myapp/src/cache/offlineCache.ts ✔ 
+📋 Updating todo list (6 items) ✔ 
+Now update `index.html` with the required UI elements:   
+✏️  Writing /home/user/myapp/index.html ✔ 
+📋 Updating todo list (6 items) ✔ 
+Now update `src/main.ts` to wire the UI to the cache module:   
+✏️  Writing /home/user/myapp/src/main.ts ✔ 
+📋 Updating todo list (6 items) ✔ 
+Now let's build and sync:   
+💫 Executing cd /home/user/myapp && npm run build 2>&1 ✔ 
+Build succeeded. Now run `npx cap sync`:   
+💫 Executing cd /home/user/myapp && npx cap sync 2>&1 ✔ 
+Both succeeded. Let me verify the dist output and the capacitor config:   
+💫 Executing cd /home/user/myapp && ls dist/ 2>&1 ✔ 
+📖 Reading /home/user/myapp/capacitor.config.ts ✔ 
+Let me also verify that the dist/index.html has the correct elements and the package.json has the required dependencies:   
+📖 Reading /home/user/myapp/dist/index.html ✔ 
+📖 Reading /home/user/myapp/package.json ✔ 
+Let me also verify the cache module source doesn't use forbidden HTTP clients:   
+💫 Executing cd /home/user/myapp && grep -in 'fetch\|XMLHttpRequest\|axios' src/cache/offlineCache.ts 2>&1 ✔ 
+The only matches are for `fetchedAt` (a property name) and a comment about "first fetch", not actual `window.fetch` calls. Let me also verify the module contains the required Capacitor references:   
+💫 Executing cd /home/user/myapp && grep -n 'CapacitorHttp\|Filesystem\|Preferences' src/cache/offlineCache.ts 2>&1 ✔ 
+All requirements are met. Let me also quickly verify the built JS bundle doesn't have any issues by doing a quick syntax check:   
+💫 Executing cd /home/user/myapp && node -e "
+const fs = require('fs');
+const files = fs.readdirSync('dist/assets');
+for (const f of files) {
+  if (f.endsWith('.js')) {
+    try {
+      new Function(fs.readFileSync('dist/assets/' + f, 'utf-8'));
+      console.log(f + ': OK');
+    } catch(e) {
+      console.log(f + ': ' + e.message);
+    }
+  }
+}
+" 2>&1 ✔ 
+Those are expected — ES module files can't be evaluated with `new Function`. The build succeeded and the modules are proper ES modules.   
+📋 Updating todo list (6 items) ✔ 
+🎉 Task Completed
+The offline-cache Capacitor v8 application has been fully implemented at `/home/user/myapp`. Here's a summary of what was done:
+
+## Capacitor Integration
+- Installed `@capacitor/core@^8`, `@capacitor/cli@^8`, `@capacitor/filesystem@^8`, and `@capacitor/preferences@^8`
+- Initialized Capacitor with app name `Offline Cache Demo`, appId `com.example.offlinecache`, and webDir `dist`
+- Enabled `CapacitorHttp` plugin in `capacitor.config.ts`
+
+## Offline Cache Module (`src/cache/offlineCache.ts`)
+Exports two async functions:
+
+- **`getCached(key, url)`**: On first call, issues `CapacitorHttp.get` to the URL, persists the JSON body to `Filesystem.writeFile` under `Directory.Cache`, stores `{etag, fetchedAt}` metadata via `Preferences`, and returns `{data, source: 'network'}`. On subsequent calls, sends `If-None-Match` with the stored ETag — on 304 returns cached data from disk (`source: 'cache'`), on 200 overwrites both file and metadata (`source: 'network'`).
+
+- **`invalidate(key)`**: Idempotently removes both the cached file from `Directory.Cache` and the `cache_meta:<key>` Preferences entry, silently ignoring missing resources.
+
+All HTTP goes through `CapacitorHttp.get` — no `window.fetch`, `XMLHttpRequest`, or other HTTP clients.
+
+## UI (`index.html` + `src/main.ts`)
+- `#url-input` — text input for the target URL
+- `#fetch-button` — triggers `getCached('demo', url)` and displays results
+- `#invalidate-button` — triggers `invalidate('demo')` and clears display
+- `#status` — shows `idle` → `fetching` → `success`/`invalidated`/`error: ...`
+- `#data` — `JSON.stringify(result.data)` after fetch
+- `#source` — `network` or `cache` after fetch
+- `#meta-etag` / `#meta-fetched-at` — metadata from Preferences
+
+## Verification
+- `npm run build` exits 0, produces `dist/index.html` with all required elements
+- `npx cap sync` exits 0
+- `#status` is `idle` on initial load, other display fields are empty   
+  

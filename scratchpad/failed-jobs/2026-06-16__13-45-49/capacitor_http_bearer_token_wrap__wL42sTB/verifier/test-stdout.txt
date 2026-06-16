@@ -1,0 +1,120 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.0
+collected 11 items
+
+tests/test_final_state.py ....FFFFFFF                                    [100%]
+
+=================================== FAILURES ===================================
+__________________________ test_runtime_harness_runs ___________________________
+
+runtime_results = {'results': [], 'returncode': 1, 'stderr': "\nnode:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^...n  url: 'file:///tmp/httpclient-verify/file:/tmp/httpclient-verify/loader.mjs'\n}\n\nNode.js v24.16.0\n", 'stdout': ''}
+
+    def test_runtime_harness_runs(runtime_results):
+>       assert runtime_results["results"], (
+            "No scenario results were captured from the Node harness. "
+            f"stdout={runtime_results['stdout']!r} stderr={runtime_results['stderr']!r}"
+        )
+E       AssertionError: No scenario results were captured from the Node harness. stdout='' stderr='\nnode:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\nError [ERR_MODULE_NOT_FOUND]: Cannot find module \'/tmp/httpclient-verify/file:/tmp/httpclient-verify/loader.mjs\' imported from /tmp/httpclient-verify/file:/tmp/httpclient-verify/register.mjs\nDid you mean to import "../../../loader.mjs"?\n    at finalizeResolution (node:internal/modules/esm/resolve:271:11)\n    at moduleResolve (node:internal/modules/esm/resolve:865:10)\n    at defaultResolve (node:internal/modules/esm/resolve:992:11)\n    at nextResolve (node:internal/modules/esm/hooks:785:28)\n    at AsyncLoaderHooksOnLoaderHookWorker.resolve (node:internal/modules/esm/hooks:269:30)\n    at #resolve (node:internal/modules/esm/loader:670:37)\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:593:35)\n    at node:internal/modules/esm/loader:622:32\n    at TracingChannel.tracePromise (node:diagnostics_channel:362:14)\n    at ModuleLoader.import (node:internal/modules/esm/loader:618:21) {\n  code: \'ERR_MODULE_NOT_FOUND\',\n  url: \'file:///tmp/httpclient-verify/file:/tmp/httpclient-verify/loader.mjs\'\n}\n\nNode.js v24.16.0\n'
+E       assert []
+
+tests/test_final_state.py:476: AssertionError
+________________________ test_scenario_A_get_with_token ________________________
+
+runtime_results = {'results': [], 'returncode': 1, 'stderr': "\nnode:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^...n  url: 'file:///tmp/httpclient-verify/file:/tmp/httpclient-verify/loader.mjs'\n}\n\nNode.js v24.16.0\n", 'stdout': ''}
+
+    def test_scenario_A_get_with_token(runtime_results):
+        entry = _result_for(runtime_results["results"], "A_get_with_token")
+>       assert entry is not None and entry.get("ok"), (
+            "Scenario A failed (GET attaches Bearer token, no Content-Type, forwards params). "
+            f"detail={entry and entry.get('detail')}"
+        )
+E       AssertionError: Scenario A failed (GET attaches Bearer token, no Content-Type, forwards params). detail=None
+E       assert (None is not None)
+
+tests/test_final_state.py:484: AssertionError
+______________________ test_scenario_B_get_without_token _______________________
+
+runtime_results = {'results': [], 'returncode': 1, 'stderr': "\nnode:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^...n  url: 'file:///tmp/httpclient-verify/file:/tmp/httpclient-verify/loader.mjs'\n}\n\nNode.js v24.16.0\n", 'stdout': ''}
+
+    def test_scenario_B_get_without_token(runtime_results):
+        entry = _result_for(runtime_results["results"], "B_get_without_token")
+>       assert entry is not None and entry.get("ok"), (
+            "Scenario B failed (GET without stored token must omit Authorization header). "
+            f"detail={entry and entry.get('detail')}"
+        )
+E       AssertionError: Scenario B failed (GET without stored token must omit Authorization header). detail=None
+E       assert (None is not None)
+
+tests/test_final_state.py:492: AssertionError
+________________________ test_scenario_C_post_with_body ________________________
+
+runtime_results = {'results': [], 'returncode': 1, 'stderr': "\nnode:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^...n  url: 'file:///tmp/httpclient-verify/file:/tmp/httpclient-verify/loader.mjs'\n}\n\nNode.js v24.16.0\n", 'stdout': ''}
+
+    def test_scenario_C_post_with_body(runtime_results):
+        entry = _result_for(runtime_results["results"], "C_post_with_body")
+>       assert entry is not None and entry.get("ok"), (
+            "Scenario C failed (POST must send JSON body, Content-Type header, and Bearer token). "
+            f"detail={entry and entry.get('detail')}"
+        )
+E       AssertionError: Scenario C failed (POST must send JSON body, Content-Type header, and Bearer token). detail=None
+E       assert (None is not None)
+
+tests/test_final_state.py:500: AssertionError
+_________________________ test_scenario_D_post_no_body _________________________
+
+runtime_results = {'results': [], 'returncode': 1, 'stderr': "\nnode:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^...n  url: 'file:///tmp/httpclient-verify/file:/tmp/httpclient-verify/loader.mjs'\n}\n\nNode.js v24.16.0\n", 'stdout': ''}
+
+    def test_scenario_D_post_no_body(runtime_results):
+        entry = _result_for(runtime_results["results"], "D_post_no_body")
+>       assert entry is not None and entry.get("ok"), (
+            "Scenario D failed (POST without body must omit data and Content-Type). "
+            f"detail={entry and entry.get('detail')}"
+        )
+E       AssertionError: Scenario D failed (POST without body must omit data and Content-Type). detail=None
+E       assert (None is not None)
+
+tests/test_final_state.py:508: AssertionError
+_______________________ test_scenario_E_401_clears_token _______________________
+
+runtime_results = {'results': [], 'returncode': 1, 'stderr': "\nnode:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^...n  url: 'file:///tmp/httpclient-verify/file:/tmp/httpclient-verify/loader.mjs'\n}\n\nNode.js v24.16.0\n", 'stdout': ''}
+
+    def test_scenario_E_401_clears_token(runtime_results):
+        entry = _result_for(runtime_results["results"], "E_401_clears_token")
+>       assert entry is not None and entry.get("ok"), (
+            "Scenario E failed (401 must clear auth_token and throw UnauthorizedError). "
+            f"detail={entry and entry.get('detail')}"
+        )
+E       AssertionError: Scenario E failed (401 must clear auth_token and throw UnauthorizedError). detail=None
+E       assert (None is not None)
+
+tests/test_final_state.py:516: AssertionError
+_____________________ test_scenario_F_500_preserves_token ______________________
+
+runtime_results = {'results': [], 'returncode': 1, 'stderr': "\nnode:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^...n  url: 'file:///tmp/httpclient-verify/file:/tmp/httpclient-verify/loader.mjs'\n}\n\nNode.js v24.16.0\n", 'stdout': ''}
+
+    def test_scenario_F_500_preserves_token(runtime_results):
+        entry = _result_for(runtime_results["results"], "F_500_preserves_token")
+>       assert entry is not None and entry.get("ok"), (
+            "Scenario F failed (500 must throw a non-UnauthorizedError and preserve the token). "
+            f"detail={entry and entry.get('detail')}"
+        )
+E       AssertionError: Scenario F failed (500 must throw a non-UnauthorizedError and preserve the token). detail=None
+E       assert (None is not None)
+
+tests/test_final_state.py:524: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_capacitor_config_enables_capacitor_http
+PASSED tests/test_final_state.py::test_http_client_file_exists
+PASSED tests/test_final_state.py::test_http_client_uses_capacitor_http_request_and_preferences
+PASSED tests/test_final_state.py::test_npm_build_succeeds
+FAILED tests/test_final_state.py::test_runtime_harness_runs - AssertionError:...
+FAILED tests/test_final_state.py::test_scenario_A_get_with_token - AssertionE...
+FAILED tests/test_final_state.py::test_scenario_B_get_without_token - Asserti...
+FAILED tests/test_final_state.py::test_scenario_C_post_with_body - AssertionE...
+FAILED tests/test_final_state.py::test_scenario_D_post_no_body - AssertionErr...
+FAILED tests/test_final_state.py::test_scenario_E_401_clears_token - Assertio...
+FAILED tests/test_final_state.py::test_scenario_F_500_preserves_token - Asser...
+========================= 7 failed, 4 passed in 3.20s ==========================

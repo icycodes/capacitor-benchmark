@@ -1,0 +1,137 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T14:04:57.685057+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 12,
+            "passed": 12,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781618693952,
+            "stop": 1781618697684
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_manifest_still_has_main_launcher_filter",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781618693993,
+                "stop": 1781618693995,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_manifest_declares_app_link_intent_filter",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781618693995,
+                "stop": 1781618693996,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_assetlinks_json_exists_and_is_valid_json",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781618693996,
+                "stop": 1781618693997,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_assetlinks_json_has_qualifying_statement",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781618693997,
+                "stop": 1781618693998,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_assetlinks_json_fingerprint_matches_debug_keystore",
+                "status": "passed",
+                "duration": 556,
+                "start": 1781618693998,
+                "stop": 1781618694554,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_deeplink_ts_imports_app_from_capacitor_app",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781618694555,
+                "stop": 1781618694556,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_deeplink_ts_registers_app_url_open_listener",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781618694557,
+                "stop": 1781618694558,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_deeplink_ts_parses_url",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781618694558,
+                "stop": 1781618694559,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_deeplink_ts_invokes_spa_routing_api",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781618694560,
+                "stop": 1781618694561,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_deeplink_ts_exports_registration_function",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781618694561,
+                "stop": 1781618694562,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_package_json_still_has_capacitor_app",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781618694563,
+                "stop": 1781618694564,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_gradle_build_succeeds_and_apk_exists",
+                "status": "passed",
+                "duration": 3120,
+                "start": 1781618694564,
+                "stop": 1781618697684,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

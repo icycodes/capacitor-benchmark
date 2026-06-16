@@ -1,0 +1,92 @@
+- Initializing MCP connections...
+You
+# Implement a Custom Local iOS Event-Emitting Plugin for a Capacitor v8 App ## Background A Capacitor v8 hybrid app is pre-scaffolded at `/home/user/myapp`. The native iOS platform has already been added with `npx cap add ios` and committed to source control, including a custom `MyViewController.swift` subclass wired up in `Main.storyboard`. The product team wants to push a periodic `tick` event from native Swift code to the JavaScript layer once per interval, so the web UI can drive an animation without writing its own timer. No plugin exists yet for this capability. Your job is to build a Capacitor v8 local plugin in Swift that uses `Foundation.Timer` to emit a custom event to JavaScript using `notifyListeners`, register the plugin instance with the Capacitor bridge in the existing view controller, and expose it to the web layer through a TypeScript wrapper that listens for the events. Because this benchmark runs on Linux, you will not be able to invoke `xcodebuild`. Instead, the verifier checks the Swift source files, the Xcode project membership in `project.pbxproj`, the JavaScript wrapper, and that `npx cap sync ios` still succeeds. ## Requirements * Implement a Swift Capacitor plugin called `TimerEmitterPlugin` at `/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift` that conforms to both `CAPPlugin` and `CAPBridgedPlugin`. * It must be exposed to the Objective-C runtime with the class name `TimerEmitterPlugin`. * It must declare `identifier = "TimerEmitterPlugin"` and `jsName = "TimerEmitter"`. * It must declare a `pluginMethods` array containing two methods: `startTimer` and `stopTimer`, both using `CAPPluginReturnPromise`. * `@objc func startTimer(_ call: CAPPluginCall)` must read an `intervalMs` integer argument (defaulting to a sensible non-zero value when missing), schedule a repeating `Timer.scheduledTimer` on the main run loop with that interval (converted to seconds), and resolve the call once scheduled. On each tick it must increment a counter and emit a JavaScript event named `"tick"` via `self.notifyListeners("tick", data: ["count": n])`, where `n` is the monotonically increasing counter. * `@objc func stopTimer(_ call: CAPPluginCall)` must invalidate the running timer (if any), reset the counter, and resolve the call. * Calling `startTimer` again while a timer is already running must not leak the previous timer — it must invalidate the old one before scheduling a new one. * Register the plugin instance with the Capacitor bridge by overriding `capacitorDidLoad()` in the existing `MyViewController.swift` and calling `bridge?.registerPluginInstance(TimerEmitterPlugin())`. * Add `TimerEmitterPlugin.swift` to the Xcode build target so it ends up in both `PBXFileReference` and `PBXSourcesBuildPhase` sections of `ios/App/App.xcodeproj/project.pbxproj`. * Create a TypeScript wrapper at `/home/user/myapp/src/timer-emitter.ts` that: * Imports `registerPlugin` from `@capacitor/core`. * Declares a TypeScript interface describing both `startTimer({ intervalMs: number })` and `stopTimer()` methods, plus an `addListener('tick', cb)` signature whose callback receives `{ count: number }`. * Registers the plugin under the exact JS name `"TimerEmitter"` and exports it as the default export. * After your changes, `npx cap sync ios` must still complete successfully from the project root. ## Implementation Hints * Read the official Capacitor v8 "Custom Native iOS Code" and "iOS Plugin Guide" pages. The modern v8 protocol is `CAPBridgedPlugin` (with `identifier`, `jsName`, and `pluginMethods` properties), used together with `CAPPlugin` as the base class. * The `@objc(TimerEmitterPlugin)` decorator is required for the Capacitor runtime to discover the plugin by name; each callable method also needs `@objc`. * `bridge?.registerPluginInstance(...)` is called from `capacitorDidLoad()` inside the view controller that subclasses `CAPBridgeViewController` — that file already exists in the project. * Capacitor exposes a `self.notifyListeners(_:data:)` instance method on `CAPPlugin` for emitting custom events to the JS side. On the JS side, consumers call `Plugin.addListener('tick', cb)` to receive them. * `Timer.scheduledTimer(withTimeInterval:repeats:block:)` schedules a closure-based repeating timer on the current run loop. The plugin runs on the main thread when it is invoked from JavaScript, but you may want to think about how to ensure the timer fires consistently and that the timer reference is retained until `stopTimer` invalidates it. * Because Xcode is not available, you must edit `project.pbxproj` directly. Mirror the patterns used for existing Swift files (such as `MyViewController.swift`): add a `PBXFileReference`, a `PBXBuildFile`, an entry in the `App` group `PBXGroup` children, and an entry in the `Sources` `PBXSourcesBuildPhase`. * `pod` (CocoaPods) is not available in the Linux container; `npx cap sync ios` will skip the pod install step automatically and still exit 0. ## Acceptance Criteria * Project path: /home/user/myapp * Plugin source file `ios/App/App/TimerEmitterPlugin.swift` exists and contains: * `import Capacitor` * `@objc(TimerEmitterPlugin)` annotation * A class declaration combining `CAPPlugin` and `CAPBridgedPlugin` * `public let identifier = "TimerEmitterPlugin"` * `public let jsName = "TimerEmitter"` * A `pluginMethods: [CAPPluginMethod]` array containing entries for both `startTimer` and `stopTimer` with `returnType: CAPPluginReturnPromise` * Method signatures matching `@objc func startTimer(_ call: CAPPluginCall)` and `@objc func stopTimer(_ call: CAPPluginCall)` * A reference to `Timer.scheduledTimer` to start the repeating timer * A call to `notifyListeners` with the literal event name `"tick"` and a data dictionary keyed by `"count"` * A call to `.invalidate()` on the held timer when stopping * The view controller at `ios/App/App/MyViewController.swift` overrides `capacitorDidLoad()` and calls `bridge?.registerPluginInstance(TimerEmitterPlugin())`. * The Xcode project file `ios/App/App.xcodeproj/project.pbxproj` references `TimerEmitterPlugin.swift` in both `PBXFileReference` and `PBXSourcesBuildPhase` sections (at least two occurrences of the string `TimerEmitterPlugin.swift`). * The TypeScript wrapper `src/timer-emitter.ts` imports `registerPlugin` from `@capacitor/core`, declares a plugin interface that includes `startTimer`, `stopTimer`, and an `addListener` overload for the `"tick"` event with a `{ count: number }` payload, and registers it under the literal name `"TimerEmitter"`. * Running `npx cap sync ios` from `/home/user/myapp` exits with status 0. * `TimerEmitterPlugin.swift` has balanced curly braces (equal counts of `{` and `}`, at least 6 of each).   
+
+Pochi
+📂 Listing files in /home/user/myapp recursively ✔ 
+💭 Thinking for 1044 characters   
+📋 Updating todo list (5 items) ✔ 
+📖 Reading /home/user/myapp/ios/App/App/MyViewController.swift ✔ 
+📋 Updating todo list (5 items) ✔ 
+💭 Thinking for 1200 characters   
+🔍 Searching for CAPBridgedPlugin in /home/user/myapp/node_modules/@capacitor/ios ✔ 
+📖 Reading /home/user/myapp/node_modules/@capacitor/ios/Capacitor/Capacitor/Plugins/Console.swift ✔ 
+🔍 Searching for CAPPluginReturnPromise in /home/user/myapp/node_modules/@capacitor/ios ✔ 
+💭 Thinking for 1371 characters   
+✏️  Writing /home/user/myapp/ios/App/App/TimerEmitterPlugin.swift ✔ 
+📋 Updating todo list (5 items) ✔ 
+💭 Thinking for 268 characters   
+🔧 Applying diff to /home/user/myapp/ios/App/App/MyViewController.swift ✔ 
+📋 Updating todo list (5 items) ✔ 
+🔍 Searching for MyViewController\.swift in /home/user/myapp/ios/App/App.xcodeproj/project.pbxproj ✔ 
+🔍 Searching for \.swift in /home/user/myapp/ios/App/App.xcodeproj/project.pbxproj ✔ 
+🔍 Searching for MyViewController in /home/user/myapp/ios/App/App.xcodeproj/project.pbxproj ✔ 
+💭 Thinking for 233 characters   
+📖 Reading /home/user/myapp/ios/App/App.xcodeproj/project.pbxproj ✔ 
+📖 Reading /home/user/myapp/ios/App/App.xcodeproj/project.pbxproj ✔ 
+💭 Thinking for 254 characters   
+🔍 Searching for MyViewController in /home/user/myapp/ios ✔ 
+🔍 Searching for MyViewController in /home/user/myapp/ios/App/App/Base.lproj/Main.storyboard ✔ 
+🔍 Searching for customClass in /home/user/myapp/ios/App/App/Base.lproj/Main.storyboard ✔ 
+💭 Thinking for 1185 characters   
+📖 Reading /home/user/myapp/ios/App/App/Base.lproj/Main.storyboard ✔ 
+💭 Thinking for 1755 characters   
+💫 Executing git status ✖ "Command exited with code 128"
+💫 Executing git status ✖ "Command exited with code 128"
+💭 Thinking for 1645 characters   
+📖 Reading /home/user/myapp/ios/App/App.xcodeproj/project.pbxproj ✔ 
+💭 Thinking for 304 characters   
+🔧 Applying diff to /home/user/myapp/ios/App/App.xcodeproj/project.pbxproj ✔ 
+📖 Reading /home/user/myapp/ios/App/App.xcodeproj/project.pbxproj ✔ 
+💭 Thinking for 286 characters   
+🔧 Applying diff to /home/user/myapp/ios/App/App.xcodeproj/project.pbxproj ✔ 
+📖 Reading /home/user/myapp/ios/App/App.xcodeproj/project.pbxproj ✔ 
+🔧 Applying diff to /home/user/myapp/ios/App/App.xcodeproj/project.pbxproj ✔ 
+📖 Reading /home/user/myapp/ios/App/App.xcodeproj/project.pbxproj ✔ 
+🔧 Applying diff to /home/user/myapp/ios/App/App.xcodeproj/project.pbxproj ✔ 
+💭 Thinking for 551 characters   
+🔧 Applying diff to /home/user/myapp/ios/App/App/Base.lproj/Main.storyboard ✔ 
+📋 Updating todo list (5 items) ✔ 
+💭 Thinking for 265 characters   
+🔍 Searching for **/* in /home/user/myapp/src ✔ 
+💭 Thinking for 281 characters   
+🔍 Searching for PluginListenerHandle in /home/user/myapp/node_modules/@capacitor/core ✔ 
+✏️  Writing /home/user/myapp/src/timer-emitter.ts ✔ 
+📋 Updating todo list (5 items) ✔ 
+💫 Executing npx cap sync ios ✔ 
+💭 Thinking for 352 characters   
+📖 Reading /home/user/myapp/ios/App/App/TimerEmitterPlugin.swift ✔ 
+💭 Thinking for 1061 characters   
+📖 Reading /home/user/myapp/ios/App/App/MyViewController.swift ✔ 
+🔍 Searching for TimerEmitterPlugin\.swift in /home/user/myapp/ios/App/App.xcodeproj/project.pbxproj ✔ 
+📖 Reading /home/user/myapp/src/timer-emitter.ts ✔ 
+📋 Updating todo list (5 items) ✔ 
+🎉 Task Completed
+I have successfully implemented the custom local iOS event-emitting plugin for your Capacitor v8 application.
+
+Here is a summary of the completed implementation:
+
+1. **Local iOS Plugin (`TimerEmitterPlugin.swift`)**:
+   - Created the plugin at `/home/user/myapp/ios/App/App/TimerEmitterPlugin.swift`.
+   - Conforms to both `CAPPlugin` and `CAPBridgedPlugin` protocols under Capacitor v8.
+   - Declared the identifier as `"TimerEmitterPlugin"` and the JavaScript name as `"TimerEmitter"`.
+   - Exposed `startTimer` and `stopTimer` methods as `CAPPluginReturnPromise`.
+   - Implemented `startTimer` to read the `intervalMs` parameter (defaulting to 1000ms), safely clean up any existing timer to prevent leaks, schedule a repeating `Timer` on the main thread, increment a tick counter, and emit `"tick"` events using `self.notifyListeners` with payload `["count": n]`.
+   - Implemented `stopTimer` to invalidate the timer, reset the counter, and resolve the call.
+   - The file has balanced curly braces (exactly 11 open and 11 close braces).
+
+2. **Bridge Registration (`MyViewController.swift`)**:
+   - Overrode `capacitorDidLoad()` in `MyViewController.swift` and called `bridge?.registerPluginInstance(TimerEmitterPlugin())` to register our custom local plugin with the Capacitor bridge.
+
+3. **Xcode Project Membership (`project.pbxproj` & `Main.storyboard`)**:
+   - Added `TimerEmitterPlugin.swift` and `MyViewController.swift` to the Xcode project structure in `ios/App/App.xcodeproj/project.pbxproj` (under both `PBXFileReference` and `PBXSourcesBuildPhase` sections).
+   - Wired up `MyViewController` as the custom class for the view controller in `Main.storyboard`.
+
+4. **TypeScript Wrapper (`src/timer-emitter.ts`)**:
+   - Created the TS wrapper at `/home/user/myapp/src/timer-emitter.ts`.
+   - Declared the `TimerEmitterPlugin` interface with `startTimer`, `stopTimer`, and an `addListener` overload for the `"tick"` event.
+   - Registered the plugin under the `"TimerEmitter"` JS name using `registerPlugin` from `@capacitor/core` and exported it as the default export.
+
+5. **Capacitor Sync (`npx cap sync ios`)**:
+   - Ran `npx cap sync ios` from the project root directory, and the command completed successfully with exit code 0.   
+  

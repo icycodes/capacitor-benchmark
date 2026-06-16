@@ -1,0 +1,57 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: xprocess-1.0.2, json-ctrf-0.5.2
+collected 7 items
+
+tests/test_final_state.py .....F.                                        [100%]
+
+=================================== FAILURES ===================================
+___________________ test_index_served_with_required_elements ___________________
+
+preview_server = 'http://127.0.0.1:4173/'
+
+    def test_index_served_with_required_elements(preview_server):
+        response = requests.get(preview_server, timeout=30)
+        assert response.status_code == 200, (
+            f"GET {preview_server} returned status {response.status_code}; expected 200."
+        )
+        body = response.text
+        for required_id in ("capture-btn", "capture-status"):
+>           assert re.search(rf"id\s*=\s*[\"']{re.escape(required_id)}[\"']", body), (
+                f"The served index.html must contain an element with id=\"{required_id}\". "
+                f"Got body (first 1000 chars):\n{body[:1000]}"
+            )
+E           AssertionError: The served index.html must contain an element with id="capture-btn". Got body (first 1000 chars):
+E             <!DOCTYPE html>
+E             <html lang="en">
+E               <head>
+E                 <meta charset="UTF-8" />
+E                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+E                 <title>Photo Gallery</title>
+E                 <script type="module" crossorigin src="/assets/index-D6fMXxyM.js"></script>
+E               </head>
+E               <body>
+E                 <div id="app"></div>
+E               </body>
+E             </html>
+E             
+E           assert None
+E            +  where None = <function search at 0x7f85bca13ba0>('id\\s*=\\s*[\\"\']capture\\-btn[\\"\']', '<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <meta charset="UTF-8" />\n    <meta name="viewport" content="width=d...sorigin src="/assets/index-D6fMXxyM.js"></script>\n  </head>\n  <body>\n    <div id="app"></div>\n  </body>\n</html>\n')
+E            +    where <function search at 0x7f85bca13ba0> = re.search
+
+tests/test_final_state.py:215: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+/tests/.pytest_cache/d/.xprocess/vite_preview$ npm run preview -- --host 0.0.0.0 --port 4173 --strictPort
+process 'vite_preview' started pid=1228
+vite_preview process startup detected
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_capacitor_config_values
+PASSED tests/test_final_state.py::test_package_json_lists_required_dependencies
+PASSED tests/test_final_state.py::test_capacitor_camera_installed_version_is_8_1_or_higher
+PASSED tests/test_final_state.py::test_dist_index_html_exists
+PASSED tests/test_final_state.py::test_capacitor_sync_succeeds
+PASSED tests/test_final_state.py::test_photo_gallery_full_flow
+FAILED tests/test_final_state.py::test_index_served_with_required_elements - ...
+========================= 1 failed, 6 passed in 10.25s =========================

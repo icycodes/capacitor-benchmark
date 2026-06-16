@@ -1,0 +1,69 @@
+{
+    "id": "5c23c624-1f92-4baa-82f8-fa0a549ea2a2",
+    "started_at": "2026-06-16T14:51:36.576864",
+    "updated_at": "2026-06-16T15:20:04.026262",
+    "finished_at": "2026-06-16T15:20:04.026262",
+    "n_total_trials": 20,
+    "stats": {
+        "n_completed_trials": 20,
+        "n_errored_trials": 6,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "pochi__deepseek-4-pro__pending-tasks": {
+                "n_trials": 16,
+                "n_errors": 6,
+                "metrics": [
+                    {
+                        "mean": 0.45
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "photo_gallery_camera_fs_preferen__eLYaaLE",
+                            "ios_info_plist_permission_string__bVK3jXR",
+                            "nextjs_static_export_capacitor_i__NGiBy6Z",
+                            "upgrade_v7_to_v8_full_android_to__vH7EZQs",
+                            "capacitor_cookies_cross_domain_s__QXAoyAu",
+                            "push_notifications_android_fcm_v__qa7MPMz",
+                            "custom_android_ambient_light_plu__FKpvUkU",
+                            "android_deeplink_app_plugin_rout__CixDXYu",
+                            "status_bar_navigation_bar_theme__8gjhDJ5"
+                        ],
+                        "0.0": [
+                            "custom_android_bidirectional_cou__F9mkq6m",
+                            "capacitor_http_bearer_token_wrap__9NfxBJN",
+                            "offline_cache_filesystem_prefere__myPn9zr",
+                            "android_release_keystore_signing__xuXaamA",
+                            "custom_ios_event_emitter_plugin__kKNwQ9B",
+                            "migrate_cordova_device_to_capaci__YNZPxXw",
+                            "splash_screen_android_12_animate__GYKEeXf"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "RuntimeError": [
+                        "vite_react_capacitor_full_bootst__S2z5NAC",
+                        "android_proguard_release_minify__z48cxkA",
+                        "android_https_scheme_hostname_co__SVyn3dN"
+                    ],
+                    "InitialStateError": [
+                        "geolocation_watch_with_app_state__f58Gb4y"
+                    ],
+                    "AgentTimeoutError": [
+                        "custom_ios_event_emitter_plugin__kKNwQ9B",
+                        "migrate_cordova_device_to_capaci__YNZPxXw"
+                    ]
+                }
+            }
+        },
+        "n_input_tokens": 0,
+        "n_cache_tokens": 0,
+        "n_output_tokens": 409092,
+        "cost_usd": null
+    }
+}

@@ -1,0 +1,24 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /bootstrap
+plugins: json-ctrf-0.5.2
+collected 16 items
+
+bootstrap/test_initial_state.py::test_node_available PASSED
+bootstrap/test_initial_state.py::test_node_version_22_or_higher PASSED
+bootstrap/test_initial_state.py::test_npm_available PASSED
+bootstrap/test_initial_state.py::test_npx_available PASSED
+bootstrap/test_initial_state.py::test_java_available PASSED
+bootstrap/test_initial_state.py::test_android_sdk_root_set PASSED
+bootstrap/test_initial_state.py::test_project_directory_exists PASSED
+bootstrap/test_initial_state.py::test_package_json_present_with_nextjs_14 PASSED
+bootstrap/test_initial_state.py::test_capacitor_packages_not_yet_declared PASSED
+bootstrap/test_initial_state.py::test_node_modules_next_installed PASSED
+bootstrap/test_initial_state.py::test_default_next_config_present_without_static_export PASSED
+bootstrap/test_initial_state.py::test_app_router_pages_present PASSED
+bootstrap/test_initial_state.py::test_capacitor_config_not_yet_present PASSED
+bootstrap/test_initial_state.py::test_android_platform_not_yet_present PASSED
+bootstrap/test_initial_state.py::test_hash_router_helper_not_yet_present PASSED
+bootstrap/test_initial_state.py::test_out_directory_not_yet_present PASSED
+
+============================== 16 passed in 0.15s ==============================

@@ -1,0 +1,44 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.0
+collected 9 items
+
+tests/test_final_state.py ........F                                      [100%]
+
+=================================== FAILURES ===================================
+___ test_push_ts_requests_permissions_before_register_and_guards_on_granted ____
+
+    def test_push_ts_requests_permissions_before_register_and_guards_on_granted():
+        content = _read(PUSH_TS)
+        req_match = re.search(r"requestPermissions\s*\(", content)
+        reg_match = re.search(r"\bregister\s*\(\s*\)", content)
+        assert req_match is not None, (
+            "src/push.ts must call PushNotifications.requestPermissions()."
+        )
+        assert reg_match is not None, (
+            "src/push.ts must call PushNotifications.register()."
+        )
+>       assert req_match.start() < reg_match.start(), (
+            "PushNotifications.requestPermissions() must be called before PushNotifications.register()."
+        )
+E       AssertionError: PushNotifications.requestPermissions() must be called before PushNotifications.register().
+E       assert 1179 < 273
+E        +  where 1179 = <built-in method start of re.Match object at 0x7ff27a21f2c0>()
+E        +    where <built-in method start of re.Match object at 0x7ff27a21f2c0> = <re.Match object; span=(1179, 1198), match='requestPermissions('>.start
+E        +  and   273 = <built-in method start of re.Match object at 0x7ff27a21e7c0>()
+E        +    where <built-in method start of re.Match object at 0x7ff27a21e7c0> = <re.Match object; span=(273, 283), match='register()'>.start
+
+tests/test_final_state.py:178: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_setup_log_exists_and_contains_required_changes
+PASSED tests/test_final_state.py::test_push_notifications_dependency_added_with_v8
+PASSED tests/test_final_state.py::test_top_level_gradle_has_google_services_classpath
+PASSED tests/test_final_state.py::test_app_gradle_applies_google_services_plugin
+PASSED tests/test_final_state.py::test_app_gradle_has_firebase_messaging_dependency
+PASSED tests/test_final_state.py::test_google_services_json_exists_and_is_valid
+PASSED tests/test_final_state.py::test_push_ts_imports_plugin_and_exports_init_push
+PASSED tests/test_final_state.py::test_push_ts_registers_all_four_event_listeners
+FAILED tests/test_final_state.py::test_push_ts_requests_permissions_before_register_and_guards_on_granted
+========================= 1 failed, 8 passed in 0.09s ==========================

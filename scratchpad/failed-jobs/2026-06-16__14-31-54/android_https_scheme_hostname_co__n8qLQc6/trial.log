@@ -1,0 +1,153 @@
+Trial android_https_scheme_hostname_co__n8qLQc6 failed: Docker compose command failed for environment android_https_scheme_hostname_config. Command: docker compose --project-name android_https_scheme_hostname_co__n8qlqc6 --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/android_https_scheme_hostname_config/environment -f /tmp/tmp3d6fhtmr/android_https_scheme_hostname_co__n8qLQc6-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmplqvp3cvq/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 3.39kB done
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/ubuntu:24.04
+#2 DONE 0.0s
+
+#3 [main internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [main 1/7] FROM docker.io/library/ubuntu:24.04
+#4 DONE 0.0s
+
+#5 [main 2/7] RUN apt-get update -y &&     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends         curl wget ca-certificates git python3 python3-pip python3-pytest bash ripgrep         xz-utils gnupg &&     ln -s /usr/bin/python3 /usr/bin/python &&     curl -fsSL https://deb.nodesource.com/setup_22.x | bash - &&     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends nodejs &&     pip3 install --break-system-packages pytest-json-ctrf &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [main 3/7] RUN mkdir -p /home/user && chmod 0755 /home/user
+#6 CACHED
+
+#7 [main 4/7] RUN mkdir -p /home/user/myapp/dist &&     cd /home/user/myapp &&     cat >package.json <<'EOF'
+#7 CACHED
+
+#8 [main 5/7] RUN cd /home/user/myapp &&     cat >capacitor.config.ts <<'EOF'
+#8 CACHED
+
+#9 [main 6/7] RUN cd /home/user/myapp/dist &&     cat >index.html <<'EOF'
+#9 CACHED
+
+#10 [main 7/7] RUN cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android
+#10 7.520 
+#10 7.520 added 92 packages in 7s
+#10 7.522 npm notice
+#10 7.522 npm notice New major version of npm available! 10.9.8 -> 11.17.0
+#10 7.522 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.17.0
+#10 7.522 npm notice To update run: npm install -g npm@11.17.0
+#10 7.522 npm notice
+#10 8.391 [error] Could not find installation of TypeScript.
+#10 8.391         To use capacitor.config.ts files, you must install TypeScript in your project, e.g. w/ npm install -D typescript
+#10 ERROR: process "/bin/sh -c cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android" did not complete successfully: exit code: 1
+------
+ > [main 7/7] RUN cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android:
+7.520 
+7.520 added 92 packages in 7s
+7.522 npm notice
+7.522 npm notice New major version of npm available! 10.9.8 -> 11.17.0
+7.522 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.17.0
+7.522 npm notice To update run: npm install -g npm@11.17.0
+7.522 npm notice
+8.391 [error] Could not find installation of TypeScript.
+8.391         To use capacitor.config.ts files, you must install TypeScript in your project, e.g. w/ npm install -D typescript
+------
+failed to solve: process "/bin/sh -c cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android" did not complete successfully: exit code: 1
+. Stderr: None. 
+Failed to download artifact '/home/user' (best-effort)
+Traceback (most recent call last):
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 160, in run
+    await self._prepare()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 187, in _prepare
+    await self._setup_agent_environment()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 612, in _setup_agent_environment
+    await self._start_agent_environment()
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/trial.py", line 618, in _start_agent_environment
+    await asyncio.wait_for(
+    ...<4 lines>...
+    )
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 517, in start
+    await self._run_docker_compose_command(["build"])
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 418, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment android_https_scheme_hostname_config. Command: docker compose --project-name android_https_scheme_hostname_co__n8qlqc6 --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/android_https_scheme_hostname_config/environment -f /tmp/tmp3d6fhtmr/android_https_scheme_hostname_co__n8qLQc6-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmplqvp3cvq/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 3.39kB done
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/ubuntu:24.04
+#2 DONE 0.0s
+
+#3 [main internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [main 1/7] FROM docker.io/library/ubuntu:24.04
+#4 DONE 0.0s
+
+#5 [main 2/7] RUN apt-get update -y &&     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends         curl wget ca-certificates git python3 python3-pip python3-pytest bash ripgrep         xz-utils gnupg &&     ln -s /usr/bin/python3 /usr/bin/python &&     curl -fsSL https://deb.nodesource.com/setup_22.x | bash - &&     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends nodejs &&     pip3 install --break-system-packages pytest-json-ctrf &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [main 3/7] RUN mkdir -p /home/user && chmod 0755 /home/user
+#6 CACHED
+
+#7 [main 4/7] RUN mkdir -p /home/user/myapp/dist &&     cd /home/user/myapp &&     cat >package.json <<'EOF'
+#7 CACHED
+
+#8 [main 5/7] RUN cd /home/user/myapp &&     cat >capacitor.config.ts <<'EOF'
+#8 CACHED
+
+#9 [main 6/7] RUN cd /home/user/myapp/dist &&     cat >index.html <<'EOF'
+#9 CACHED
+
+#10 [main 7/7] RUN cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android
+#10 7.520 
+#10 7.520 added 92 packages in 7s
+#10 7.522 npm notice
+#10 7.522 npm notice New major version of npm available! 10.9.8 -> 11.17.0
+#10 7.522 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.17.0
+#10 7.522 npm notice To update run: npm install -g npm@11.17.0
+#10 7.522 npm notice
+#10 8.391 [error] Could not find installation of TypeScript.
+#10 8.391         To use capacitor.config.ts files, you must install TypeScript in your project, e.g. w/ npm install -D typescript
+#10 ERROR: process "/bin/sh -c cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android" did not complete successfully: exit code: 1
+------
+ > [main 7/7] RUN cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android:
+7.520 
+7.520 added 92 packages in 7s
+7.522 npm notice
+7.522 npm notice New major version of npm available! 10.9.8 -> 11.17.0
+7.522 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.17.0
+7.522 npm notice To update run: npm install -g npm@11.17.0
+7.522 npm notice
+8.391 [error] Could not find installation of TypeScript.
+8.391         To use capacitor.config.ts files, you must install TypeScript in your project, e.g. w/ npm install -D typescript
+------
+failed to solve: process "/bin/sh -c cd /home/user/myapp &&     npm install --no-audit --no-fund --loglevel=error &&     npx --no-install cap add android" did not complete successfully: exit code: 1
+. Stderr: None. 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/artifact_handler.py", line 195, in _download_artifact
+    await source_env.download_file(
+    ...<2 lines>...
+    )
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 609, in download_file
+    await self._platform.download_file(source_path, target_path)
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker_unix.py", line 48, in download_file
+    await self._env._run_docker_compose_command(
+    ...<2 lines>...
+    )
+  File "/home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 418, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment android_https_scheme_hostname_config. Command: docker compose --project-name android_https_scheme_hostname_co__n8qlqc6 --project-directory /home/kweizh/zealt/capacitor-benchmark/scratchpad/pending-tasks/android_https_scheme_hostname_config/environment -f /tmp/tmp3d6fhtmr/android_https_scheme_hostname_co__n8qLQc6-docker-compose-resources.json -f /home/kweizh/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmplqvp3cvq/docker-compose-mounts.json cp main:/home/user jobs/2026-06-16__14-31-54/android_https_scheme_hostname_co__n8qLQc6/artifacts/user. Return code: 1. Stdout: no container found for service "main"
+. Stderr: None. 

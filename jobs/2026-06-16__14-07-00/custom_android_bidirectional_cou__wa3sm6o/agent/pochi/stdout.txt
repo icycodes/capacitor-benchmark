@@ -1,0 +1,143 @@
+- Initializing MCP connections...
+You
+# Implement a Custom Local Capacitor Android `Counter` Plugin with Bi-Directional Events ## Background You are working on a Capacitor v8 hybrid mobile application located at `/home/user/myapp`. The Android platform is already scaffolded under `/home/user/myapp/android` and a minimal web frontend is bundled into `/home/user/myapp/dist`. The team needs a tiny stateful native module to validate the **bi-directional** JS ↔ Java communication path: JavaScript should be able to drive native state with method calls AND subscribe to native-emitted events when that state changes, then cleanly unsubscribe via the returned listener handle. Your job is to write a custom local Capacitor plugin (Java, inside the existing Android project) named `Counter` that maintains an integer counter as instance state, exposes three methods (`increment`, `reset`, `getValue`), emits a `change` event via `notifyListeners` whenever the counter changes, and is registered in `MainActivity`. You must also provide a TypeScript binding in `src/counter.ts` that wires the plugin into the JavaScript side and includes a small driver script in `src/main.ts` that demonstrates correct listener subscription **and** removal via the handle returned by `addListener`. ## Requirements - Implement a custom local Android Capacitor plugin written in Java inside the existing Android project (do **not** create a separate Capacitor plugin npm package). - The plugin must be exposed to JavaScript under the exact name `Counter`. - The plugin class must maintain an integer counter as **instance state** (an `int` field on the plugin), initialized to `0`. - The plugin must declare exactly three `@PluginMethod`-annotated methods reachable from JavaScript: - `increment(options)` — increments the counter by `1`, resolves with `{ value: <new value> }`, **AND** emits a `change` event with the new value before resolving. - `reset(options)` — sets the counter back to `0`, resolves with `{ value: 0 }`, **AND** emits a `change` event with `0` before resolving (the event must fire even if the counter was already `0`). - `getValue(options)` — resolves with `{ value: <current value> }` **without** emitting a `change` event (reading the value is not a state change). - The `change` event payload must be a `JSObject` containing a `value` field that holds the current counter value as a number. - Use the inherited `notifyListeners("change", data)` method on `com.getcapacitor.Plugin` to emit events. - Register the plugin in the existing `MainActivity` so that it is loaded by the Capacitor bridge at startup. - Provide a TypeScript binding file at `/home/user/myapp/src/counter.ts` that uses `registerPlugin` from `@capacitor/core` to expose the plugin under the exact name `"Counter"`, and exports the plugin object as the default export. The interface declared for the plugin must expose `increment`, `reset`, `getValue`, and `addListener` so that the listener-handle pattern type-checks. - Provide a TypeScript driver file at `/home/user/myapp/src/main.ts` that: - Imports the `Counter` plugin from `./counter`. - Calls `Counter.addListener('change', ...)` to subscribe to the `change` event and stores the returned handle (the value returned from `addListener`, possibly awaited). - At the end of its flow, calls `.remove()` on that stored handle to deterministically detach the listener. - The complete Android project must compile successfully with the Gradle wrapper, and the TypeScript source files must type-check with the project's installed TypeScript compiler. ## Implementation Hints - Refer to the official Capacitor v8 "Custom Native Android Code" and "Android Plugin Guide" documentation. The plugin class must extend `com.getcapacitor.Plugin` and be annotated with `@CapacitorPlugin(name = "Counter")`. Each exposed method must be annotated with `@PluginMethod`. - The plugin's Java package must match the application package (`com.example.myapp`); place the source under `android/app/src/main/java/com/example/myapp/` so the existing Gradle source set picks it up. - Store the counter as an `int` field on the plugin instance (e.g. `private int counter = 0;`). Capacitor instantiates each plugin once per bridge, so the field naturally persists across method calls. - The base `com.getcapacitor.Plugin` class provides a `notifyListeners(String eventName, JSObject data)` method. Call it with the event name `"change"` and a `JSObject` containing the new value. - For each method, use `PluginCall.resolve(<JSObject>)` to return data, and put the integer value into the `JSObject` under the key `"value"`. - Register the plugin with `registerPlugin(CounterPlugin.class)` inside `MainActivity.onCreate(Bundle savedInstanceState)` before the call to `super.onCreate(savedInstanceState)`. - On the JavaScript side, the first argument to `registerPlugin` must match the `name` attribute of the `@CapacitorPlugin` annotation exactly (`"Counter"`). The return value of `addListener` is a `PluginListenerHandle` (or a `Promise` resolving to one) with a `.remove()` method — store it in a variable and call `.remove()` on it when you are done. Do not pass the original callback back into a separate `removeListener` call; the listener-handle pattern is the only supported removal path in Capacitor v8. - The web frontend already has `@capacitor/core` and `typescript` installed as npm dependencies; you do not need to install additional packages. - The Android SDK, JDK, and the Gradle wrapper are pre-installed and pre-warmed inside the project; running `./gradlew` from `/home/user/myapp/android` will compile the project. Use the `--offline` flag whenever possible to avoid re-downloading dependencies. ## Acceptance Criteria - Project path: `/home/user/myapp` - The Android project at `/home/user/myapp/android` must build successfully via: - `cd /home/user/myapp/android && ./gradlew :app:assembleDebug --offline` - A Java source file implementing the plugin must exist at: - `/home/user/myapp/android/app/src/main/java/com/example/myapp/CounterPlugin.java` - It must declare `package com.example.myapp;`. - It must import `com.getcapacitor.Plugin`, `com.getcapacitor.PluginCall`, `com.getcapacitor.PluginMethod`, `com.getcapacitor.JSObject`, and `com.getcapacitor.annotation.CapacitorPlugin`. - It must annotate the plugin class with `@CapacitorPlugin(name = "Counter")`. - It must declare a class named `CounterPlugin` that `extends Plugin`. - It must declare an integer instance field used to hold the counter value. - It must declare exactly three `@PluginMethod`-annotated methods named `increment`, `reset`, and `getValue`, each taking a single `PluginCall` argument. - The bodies of `increment` and `reset` must each call the inherited `notifyListeners("change", <JSObject>)` method. - The body of `getValue` must NOT call `notifyListeners`. - `MainActivity` at `/home/user/myapp/android/app/src/main/java/com/example/myapp/MainActivity.java` must contain a `registerPlugin(CounterPlugin.class)` call inside `onCreate(Bundle savedInstanceState)`. - A TypeScript binding file must exist at `/home/user/myapp/src/counter.ts` that imports `registerPlugin` from `@capacitor/core`, calls `registerPlugin` with the exact string literal `"Counter"`, and provides a default export of the registered plugin. The TypeScript interface for the plugin must declare `increment`, `reset`, `getValue`, and an `addListener` overload for the `'change'` event. - A TypeScript driver file must exist at `/home/user/myapp/src/main.ts` that imports the default export from `./counter`, calls `addListener('change', ...)` to subscribe, stores the returned handle, and later calls `.remove()` on that stored handle. - The TypeScript sources under `/home/user/myapp/src/` must type-check cleanly via `npx tsc --noEmit -p /home/user/myapp/tsconfig.json`. - The compiled debug APK produced at `/home/user/myapp/android/app/build/outputs/apk/debug/app-debug.apk` must contain the `CounterPlugin` class in its DEX (verifiable by listing classes inside the APK).   
+
+Pochi
+💭 Thinking for 86 characters   
+📋 Updating todo list (8 items) ✔ 
+📂 Listing files in /home/user/myapp ✔ 
+📂 Listing files in /home/user/myapp/android ✔ 
+📂 Listing files in /home/user/myapp/src ✔ 
+📖 Reading /home/user/myapp/package.json ✔ 
+📖 Reading /home/user/myapp/tsconfig.json ✔ 
+📂 Listing files in /home/user/myapp/android/app ✔ 
+📖 Reading /home/user/myapp/src/index.ts ✔ 
+📂 Listing files in /home/user/myapp/android/app/src recursively ✔ 
+📖 Reading /home/user/myapp/android/app/src/main/java/com/example/myapp/MainActivity.java ✔ 
+📖 Reading /home/user/myapp/android/app/build.gradle ✔ 
+📖 Reading /home/user/myapp/android/build.gradle ✔ 
+📖 Reading /home/user/myapp/android/app/src/main/assets/capacitor.plugins.json ✔ 
+📖 Reading /home/user/myapp/android/app/capacitor.build.gradle ✔ 
+📋 Updating todo list (8 items) ✔ 
+Now I have a clear picture of the project. Let me create all the necessary files:   
+✏️  Writing /home/user/myapp/android/app/src/main/java/com/example/myapp/CounterPlugin.java ✔ 
+📋 Updating todo list (8 items) ✔ 
+Now update `MainActivity.java` — it needs an `onCreate` override that calls `registerPlugin` before `super.onCreate`:   
+✏️  Writing /home/user/myapp/android/app/src/main/java/com/example/myapp/MainActivity.java ✔ 
+📋 Updating todo list (8 items) ✔ 
+Now create the TypeScript binding. Let me first check what `@capacitor/core` exports so the types are accurate:   
+🔍 Searching for *.d.ts in /home/user/myapp/node_modules/@capacitor/core ✔ 
+📂 Listing files in /home/user/myapp/node_modules/@capacitor/core ✔ 
+📂 Listing files in /home/user/myapp/node_modules/@capacitor/core/types ✔ 
+📖 Reading /home/user/myapp/node_modules/@capacitor/core/types/definitions.d.ts ✔ 
+📖 Reading /home/user/myapp/node_modules/@capacitor/core/types/index.d.ts ✔ 
+Now I have the full picture of `PluginListenerHandle` and `registerPlugin`. Let me write the TypeScript files:   
+✏️  Writing /home/user/myapp/src/counter.ts ✔ 
+📋 Updating todo list (8 items) ✔ 
+✏️  Writing /home/user/myapp/src/main.ts ✔ 
+📋 Updating todo list (8 items) ✔ 
+Now run the TypeScript type-check:   
+💫 Executing cd /home/user/myapp && npx tsc --noEmit -p tsconfig.json 2>&1 ✔ 
+TypeScript type-check passes cleanly. Now trigger the Android build:   
+📋 Updating todo list (8 items) ✔ 
+🛠️ Tool startBackgroundJob ✔ 
+🛠️ Tool readBackgroundJobOutput ✔ 
+🛠️ Tool readBackgroundJobOutput ✔ 
+🛠️ Tool readBackgroundJobOutput ✔ 
+🛠️ Tool readBackgroundJobOutput ✔ 
+🛠️ Tool readBackgroundJobOutput ✔ 
+🛠️ Tool readBackgroundJobOutput ✔ 
+🛠️ Tool readBackgroundJobOutput ✔ 
+🛠️ Tool readBackgroundJobOutput ✔ 
+🛠️ Tool readBackgroundJobOutput ✔ 
+🛠️ Tool readBackgroundJobOutput ✔ 
+🛠️ Tool readBackgroundJobOutput ✔ 
+🛠️ Tool readBackgroundJobOutput ✔ 
+Build succeeded. Now verify the APK contains the `CounterPlugin` class:   
+📋 Updating todo list (8 items) ✔ 
+💫 Executing unzip -p /home/user/myapp/android/app/build/outputs/apk/debug/app-debug.apk "classes*.dex" -d /tmp/apk_dex 2>/dev/null; ls /home/user/myapp/android/app/build/outputs/apk/debug/ && echo "---" && unzip -l /home/user/myapp/android/app/build/outputs/apk/debug/app-debug.apk | grep -i "classes" && echo "---" && unzip -p /home/user/myapp/android/app/build/outputs/apk/debug/app-debug.apk classes.dex > /tmp/classes.dex && strings /tmp/classes.dex | grep -i "CounterPlugin" ✖ "stdout maxBuffer length exceeded"
+💫 Executing unzip -p /home/user/myapp/android/app/build/outputs/apk/debug/app-debug.apk classes.dex > /tmp/classes.dex && strings /tmp/classes.dex | grep "CounterPlugin" ✖ "Command exited with code 1"
+💫 Executing unzip -l /home/user/myapp/android/app/build/outputs/apk/debug/app-debug.apk | grep "classes" ✔ 
+💫 Executing unzip -p /home/user/myapp/android/app/build/outputs/apk/debug/app-debug.apk classes.dex > /tmp/classes.dex && cat /tmp/classes.dex | tr -d '\0' | grep -ao 'com/example/myapp/CounterPlugin' ✖ "Command exited with code 1"
+💫 Executing python3 -c "
+data = open('/tmp/classes.dex','rb').read()
+needle = b'CounterPlugin'
+idx = data.find(needle)
+if idx >= 0:
+    print('FOUND at offset', idx, '->', data[idx-30:idx+40])
+else:
+    print('NOT FOUND in classes.dex')
+" ✔ 
+💫 Executing for i in 2 3 4 5 6; do
+  unzip -p /home/user/myapp/android/app/build/outputs/apk/debug/app-debug.apk classes${i}.dex > /tmp/classes${i}.dex
+  python3 -c "
+data = open('/tmp/classes${i}.dex','rb').read()
+needle = b'CounterPlugin'
+idx = data.find(needle)
+if idx >= 0:
+    print('FOUND in classes${i}.dex at offset', idx)
+    print(repr(data[max(0,idx-30):idx+50]))
+else:
+    print('NOT FOUND in classes${i}.dex')
+"
+done ✔ 
+`CounterPlugin` is confirmed in `classes6.dex` inside the APK. Let me do one final check to verify the full class name reference is there:   
+💫 Executing python3 -c "
+data = open('/tmp/classes6.dex','rb').read()
+needle = b'com/example/myapp/CounterPlugin'
+idx = data.find(needle)
+if idx >= 0:
+    print('FOUND full class ref at offset', idx)
+    print(repr(data[idx:idx+60]))
+else:
+    # Try without path separator
+    needle2 = b'CounterPlugin'
+    for i in range(len(data)):
+        if data[i:i+len(needle2)] == needle2:
+            ctx = data[max(0,i-40):i+60]
+            print('occurrence at', i, ':', repr(ctx))
+            break
+" ✔ 
+`Lcom/example/myapp/CounterPlugin` is present in the DEX. All acceptance criteria are satisfied.   
+📋 Updating todo list (8 items) ✔ 
+🎉 Task Completed
+All files have been created and every acceptance criterion passes.
+
+---
+
+## Files created / modified
+
+### `android/app/src/main/java/com/example/myapp/CounterPlugin.java` *(new)*
+- Package `com.example.myapp`, extends `com.getcapacitor.Plugin`
+- Annotated `@CapacitorPlugin(name = "Counter")`
+- Private `int counter = 0` instance field
+- Three `@PluginMethod`-annotated methods:
+  - **`increment`** – increments, calls `notifyListeners("change", data)`, resolves `{value}`
+  - **`reset`** – sets counter to 0, calls `notifyListeners("change", data)`, resolves `{value: 0}`
+  - **`getValue`** – resolves `{value}` without emitting any event
+
+### `android/app/src/main/java/com/example/myapp/MainActivity.java` *(modified)*
+- Added `onCreate(Bundle savedInstanceState)` override that calls `registerPlugin(CounterPlugin.class)` **before** `super.onCreate(savedInstanceState)`
+
+### `src/counter.ts` *(new)*
+- Imports `registerPlugin` and `PluginListenerHandle` from `@capacitor/core`
+- Declares `CounterPlugin` interface with `increment`, `reset`, `getValue`, and an `addListener('change', …)` overload returning `Promise<PluginListenerHandle>`
+- Calls `registerPlugin<CounterPlugin>("Counter")` and exports the result as the default export
+
+### `src/main.ts` *(new)*
+- Imports the default export from `./counter`
+- Awaits `Counter.addListener('change', callback)` and stores the handle in `listenerHandle`
+- Drives counter state (3× increment, reset, getValue) with `console.log` output
+- Calls `await listenerHandle.remove()` at the end to detach the listener
+
+---
+
+## Verification results
+
+| Check | Result |
+|---|---|
+| `npx tsc --noEmit -p tsconfig.json` | ✅ Zero errors |
+| `./gradlew :app:assembleDebug --offline` | ✅ `BUILD SUCCESSFUL in 47s` (71 tasks) |
+| APK at `android/app/build/outputs/apk/debug/app-debug.apk` | ✅ Exists |
+| `Lcom/example/myapp/CounterPlugin` in DEX (`classes6.dex`) | ✅ Confirmed |   
+  

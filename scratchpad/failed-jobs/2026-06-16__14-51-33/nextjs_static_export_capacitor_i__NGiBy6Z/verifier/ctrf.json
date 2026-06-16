@@ -1,0 +1,146 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T15:00:07.599738+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 12,
+            "passed": 12,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781621984557,
+            "stop": 1781622007599
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_next_config_has_output_export",
+                "status": "passed",
+                "duration": 54,
+                "start": 1781621984606,
+                "stop": 1781621984660,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_next_config_has_trailing_slash_true",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621984660,
+                "stop": 1781621984661,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_next_config_images_unoptimized_true",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621984661,
+                "stop": 1781621984662,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_package_json_declares_capacitor_v8_packages",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621984662,
+                "stop": 1781621984663,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_modules_installed_at_v8",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621984664,
+                "stop": 1781621984665,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "tags": [
+                    "parametrize::subpkg::['core', 'android', 'cli']"
+                ]
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_modules_installed_at_v8",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621984665,
+                "stop": 1781621984666,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "tags": [
+                    "parametrize::subpkg::['core', 'android', 'cli']"
+                ]
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_modules_installed_at_v8",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621984666,
+                "stop": 1781621984667,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "tags": [
+                    "parametrize::subpkg::['core', 'android', 'cli']"
+                ]
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_config_has_correct_app_metadata_and_web_dir",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781621984667,
+                "stop": 1781621984669,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_hash_router_helper_exists_and_exports_navigate_and_current_path",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621984669,
+                "stop": 1781621984670,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_android_platform_scaffolded",
+                "status": "passed",
+                "duration": 0,
+                "start": 1781621984671,
+                "stop": 1781621984671,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_next_build_produces_static_export_directory",
+                "status": "passed",
+                "duration": 21353,
+                "start": 1781621984672,
+                "stop": 1781622006025,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_cap_sync_android_copies_out_into_native_assets",
+                "status": "passed",
+                "duration": 1574,
+                "start": 1781622006025,
+                "stop": 1781622007599,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

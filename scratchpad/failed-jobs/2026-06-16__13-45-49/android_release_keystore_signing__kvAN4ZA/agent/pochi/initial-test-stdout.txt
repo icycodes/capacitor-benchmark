@@ -1,0 +1,22 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /bootstrap
+plugins: json-ctrf-0.5.2
+collected 14 items
+
+bootstrap/test_initial_state.py::test_node_available PASSED
+bootstrap/test_initial_state.py::test_npx_available PASSED
+bootstrap/test_initial_state.py::test_java_available PASSED
+bootstrap/test_initial_state.py::test_keytool_available PASSED
+bootstrap/test_initial_state.py::test_capacitor_cli_available PASSED
+bootstrap/test_initial_state.py::test_project_directory_exists PASSED
+bootstrap/test_initial_state.py::test_android_directory_exists PASSED
+bootstrap/test_initial_state.py::test_app_directory_exists PASSED
+bootstrap/test_initial_state.py::test_build_gradle_exists PASSED
+bootstrap/test_initial_state.py::test_build_gradle_has_no_signing_config_yet PASSED
+bootstrap/test_initial_state.py::test_keystore_properties_does_not_exist_initially PASSED
+bootstrap/test_initial_state.py::test_keystore_properties_example_does_not_exist_initially PASSED
+bootstrap/test_initial_state.py::test_gradle_wrapper_present PASSED
+bootstrap/test_initial_state.py::test_git_repository_initialized PASSED
+
+============================== 14 passed in 1.42s ==============================

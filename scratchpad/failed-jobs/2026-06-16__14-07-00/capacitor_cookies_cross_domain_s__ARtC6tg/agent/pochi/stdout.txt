@@ -1,0 +1,48 @@
+- Initializing MCP connections...
+You
+# Capacitor v8 — CapacitorCookies Cross-Domain Session Module ## Background You are working on a Capacitor v8 application that authenticates against a remote backend. The web `document.cookie` API is unreliable inside the native WebView because cookies set by `Set-Cookie` response headers are not exposed to JavaScript, and login sessions persist inconsistently across reloads. Capacitor solves this with the bundled `CapacitorCookies` plugin: when enabled in `capacitor.config.ts`, it patches `document.cookie` to read/write the native WebView cookie store and also exposes a programmatic API on the `CapacitorCookies` global. Paired with `CapacitorHttp` (which routes requests through native HTTP and automatically participates in the same cookie jar), this gives you a real session cookie that survives across requests. Your job is to enable `CapacitorCookies` in the project configuration and implement a TypeScript session module that programmatically manages a `session_id` cookie for a remote API, performs login through `CapacitorHttp`, and clears native cookies on logout. A Capacitor v8 project skeleton is already scaffolded at `/home/user/myproject` with `@capacitor/core` and `@capacitor/cli` installed, a `capacitor.config.ts`, a `tsconfig.json`, and an empty `src/` directory. ## Requirements 1. Enable the `CapacitorCookies` plugin in `capacitor.config.ts` so the WebView native cookie store is used for `document.cookie`. 2. Create a TypeScript module at `src/auth/session.ts` that uses the **programmatic** `CapacitorCookies` API (not raw `document.cookie`) together with `CapacitorHttp`, both imported from `@capacitor/core`. 3. The module must export three async helpers with these exact signatures: * `export async function login(user: string, pass: string): Promise<boolean>` * `export async function whoami(): Promise<string | null>` * `export async function logout(): Promise<void>` 4. `login(user, pass)`: * Sends an HTTP `POST` via `CapacitorHttp.post` (or `CapacitorHttp.request` with `method: 'POST'`) to `<API_BASE_URL>/login` with a JSON body `{ "user": <user>, "pass": <pass> }`. * Returns `true` only when the response status is `2xx`. Otherwise returns `false`. * On success, ensures the `session_id` cookie is registered with the native cookie store for the API origin using `CapacitorCookies.setCookie(...)` (extracting the value from the response body field `session_id`, falling back to a `Set-Cookie` header if needed). Subsequent calls through `CapacitorHttp` to the same origin will then automatically send this cookie. 5. `whoami()`: * Sends an HTTP `GET` via `CapacitorHttp` to `<API_BASE_URL>/whoami`. Because `CapacitorHttp` shares the native cookie store, no manual cookie header should be set in the call. * Returns the `user` string from the response JSON when the status is `2xx`, or `null` otherwise. 6. `logout()`: * Must call `CapacitorCookies.clearAllCookies()` to wipe the native cookie jar. It does not need to call the server. 7. The base URL **MUST** be read from the `API_BASE_URL` environment variable at runtime (`process.env.API_BASE_URL` in Node-style or `import.meta.env` if you prefer — both must produce the same string at evaluation time). Do not hard-code a domain. ## Implementation Hints * The plugin is bundled with `@capacitor/core`; you do not need to install anything else. Reference: https://capacitorjs.com/docs/apis/cookies and https://capacitorjs.com/docs/apis/http. * `CapacitorCookies.setCookie` takes `{ url, key, value }`; pick `url` so the cookie is registered for the API origin (`<API_BASE_URL>`), and the key must be exactly `session_id`. * `CapacitorHttp.post` returns `{ status, data, headers, url }`. The body is already parsed to JSON when the response content type is JSON. * `CapacitorCookies.clearAllCookies()` takes no arguments. * Keep the file strictly TypeScript with no `any` casts on the public function signatures and let it compile under the project's `tsconfig.json` strict mode. ## Acceptance Criteria * Project path: /home/user/myproject * Command: `bash /home/user/myproject/run_session_check.sh` * The script is provided by the verifier (do not create it yourself) and orchestrates: TypeScript type-check + structural/AST inspection of the source files + a Node-based behavioral run of `login` / `whoami` / `logout` against a local HTTP server. **You only need to provide the source code and config.** * `capacitor.config.ts` requirements: * Exports a default `CapacitorConfig` object whose `plugins.CapacitorCookies.enabled` is the boolean literal `true`. * Continues to export valid TypeScript (the file must still parse and `npx tsc --noEmit` must succeed for the whole project). * `src/auth/session.ts` requirements: * Imports both `CapacitorCookies` and `CapacitorHttp` from `@capacitor/core`. * Exports the three async functions with the exact names and signatures listed in **Requirements**. * References the literal string `session_id` (the cookie key). * References the literal string `clearAllCookies` (the cookie-jar reset call). * Reads its base URL from `API_BASE_URL`. * TypeScript build: `cd /home/user/myproject && npx tsc --noEmit` exits with status 0. * Behavioral test (executed by the verifier script against a local HTTP server): * `login('alice', 'wonderland')` against a server that returns 200 with `{ "session_id": "SESSION_TOKEN" }` resolves to `true`, and `CapacitorCookies.setCookie` is invoked at least once with `key === 'session_id'` and `value === 'SESSION_TOKEN'`. * `login('alice', 'bad')` against a server that returns 401 resolves to `false`. * `whoami()` after a successful login resolves to the string returned in the server's `user` field. * `logout()` resolves without throwing and `CapacitorCookies.clearAllCookies` has been invoked.   
+
+Pochi
+💭 Thinking for 83 characters   
+📂 Listing files in /home/user/myproject recursively ✔ 
+Let me read the key project files:   
+📖 Reading /home/user/myproject/capacitor.config.ts ✔ 
+📖 Reading /home/user/myproject/tsconfig.json ✔ 
+📖 Reading /home/user/myproject/node_modules/@capacitor/core/types/core-plugins.d.ts ✔ 
+Now I have all the information I need. Let me implement the two files: 1. Update `capacitor.config.ts` to enable `CapacitorCookies` 2. Create `src/auth/session.ts` with the three exported async functions   
+📋 Updating todo list (3 items) ✔ 
+🔧 Applying diff to /home/user/myproject/capacitor.config.ts ✔ 
+📋 Updating todo list (3 items) ✔ 
+✏️  Writing /home/user/myproject/src/auth/session.ts ✔ 
+📋 Updating todo list (3 items) ✔ 
+💫 Executing cd /home/user/myproject && npx tsc --noEmit 2>&1 ✔ 
+Clean compile — zero errors. Let me mark the final task done and do a quick sanity check on both files.   
+📋 Updating todo list (3 items) ✔ 
+📖 Reading /home/user/myproject/capacitor.config.ts ✔ 
+📖 Reading /home/user/myproject/src/auth/session.ts ✔ 
+Both files are correct and `npx tsc --noEmit` exits clean. Here is a precise summary of every change made. ---   
+🎉 Task Completed
+Two files were created/modified:
+
+### `capacitor.config.ts` — added `plugins.CapacitorCookies.enabled: true`
+```ts
+plugins: {
+  CapacitorCookies: {
+    enabled: true,   // routes document.cookie → native WebView cookie store
+  },
+},
+```
+
+### `src/auth/session.ts` (new file)
+
+Key design decisions:
+
+| Requirement | Implementation |
+|---|---|
+| Imports | `import { CapacitorCookies, CapacitorHttp } from '@capacitor/core'` |
+| Base URL | `process.env['API_BASE_URL'] ?? ''` — evaluated at module load time |
+| `login` | `CapacitorHttp.post` to `<base>/login` with JSON body; on 2xx extracts `session_id` from `response.data` (JSON body first) or falls back to parsing `Set-Cookie` header; calls `CapacitorCookies.setCookie({ url, key: 'session_id', value })` |
+| `whoami` | `CapacitorHttp.get` to `<base>/whoami`; returns `response.data.user` on 2xx, `null` otherwise; no manual cookie header (native cookie jar is shared automatically) |
+| `logout` | `CapacitorCookies.clearAllCookies()` — wipes the entire native cookie jar |
+| Type safety | No `any` on public signatures; internal narrowing uses `Record<string, unknown>` casts; `npx tsc --noEmit` exits with status 0 |   
+  

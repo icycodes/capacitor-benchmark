@@ -1,0 +1,143 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T14:50:19.865198+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 12,
+            "passed": 10,
+            "failed": 2,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781621417627,
+            "stop": 1781621419864
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_sync_log_exists_and_indicates_success",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 27,
+                "start": 1781621417676,
+                "stop": 1781621417703,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_sync_log_exists_and_indicates_success():\n>       assert os.path.isfile(SYNC_LOG), (\n            f\"Expected sync log at {SYNC_LOG} produced by the agent's `npx cap sync` run.\"\n        )\nE       AssertionError: Expected sync log at /home/user/myproject/sync.log produced by the agent's `npx cap sync` run.\nE       assert False\nE        +  where False = <function isfile at 0x7f65ac6ec220>('/home/user/myproject/sync.log')\nE        +    where <function isfile at 0x7f65ac6ec220> = <module 'posixpath' (frozen)>.isfile\nE        +      where <module 'posixpath' (frozen)> = os.path\n\ntests/test_final_state.py:37: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_package_json_does_not_depend_on_cordova_plugin_device",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621417704,
+                "stop": 1781621417705,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_cordova_plugin_device_removed_from_node_modules",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621417705,
+                "stop": 1781621417706,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_package_json_depends_on_capacitor_device",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621417706,
+                "stop": 1781621417707,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_capacitor_device_present_in_node_modules",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621417707,
+                "stop": 1781621417708,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_index_html_does_not_reference_cordova_js",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621417709,
+                "stop": 1781621417710,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_no_legacy_window_device_usages_under_www",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621417710,
+                "stop": 1781621417711,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_migrated_reader_script_exists",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621417712,
+                "stop": 1781621417713,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_migrated_reader_imports_capacitor_device",
+                "status": "passed",
+                "duration": 2,
+                "start": 1781621417713,
+                "stop": 1781621417715,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_migrated_reader_uses_all_three_device_apis",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781621417716,
+                "stop": 1781621417717,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_migrated_reader_runs_and_prints_valid_json",
+                "status": "passed",
+                "duration": 80,
+                "start": 1781621417717,
+                "stop": 1781621417797,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_npx_cap_sync_runs_clean",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 2067,
+                "start": 1781621417797,
+                "stop": 1781621419864,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_npx_cap_sync_runs_clean():\n        result = subprocess.run(\n            [\"npx\", \"cap\", \"sync\"],\n            capture_output=True,\n            text=True,\n            cwd=PROJECT_DIR,\n            timeout=300,\n        )\n        assert result.returncode == 0, (\n            \"Expected `npx cap sync` to exit 0 after migration. \"\n            f\"stdout:\\n{result.stdout}\\nstderr:\\n{result.stderr}\"\n        )\n        combined = result.stdout + result.stderr\n>       assert \"sync finished\" in combined, (\n            \"Expected `npx cap sync` output to include 'sync finished'. \"\n            f\"stdout:\\n{result.stdout}\\nstderr:\\n{result.stderr}\"\n        )\nE       AssertionError: Expected `npx cap sync` output to include 'sync finished'. stdout:\nE         \u2714 Copying web assets from www to android/app/src/main/assets/public in 14.30ms\nE         \u2714 Creating capacitor.config.json in android/app/src/main/assets in 1.20ms\nE         \u2714 copy android in 30.33ms\nE         \u2714 Updating Android plugins in 1.66ms\nE         [info] Found 1 Capacitor plugin for android:\nE                @capacitor/device@8.0.2\nE         \u2714 update android in 53.57ms\nE         \u2714 copy web in 3.73ms\nE         \u2714 update web in 4.01ms\nE         [info] Sync finished in 0.12s\nE         \nE         stderr:\nE         \nE       assert 'sync finished' in '\u2714 Copying web assets from www to android/app/src/main/assets/public in 14.30ms\\n\u2714 Creating capacitor.config.json in a...vice@8.0.2\\n\u2714 update android in 53.57ms\\n\u2714 copy web in 3.73ms\\n\u2714 update web in 4.01ms\\n[info] Sync finished in 0.12s\\n'\n\ntests/test_final_state.py:248: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}
